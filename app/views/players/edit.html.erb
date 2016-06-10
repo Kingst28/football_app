@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Edit Player</h1>
+  </div>
+  <div class="row">
+  <div class="col-sm-8" style="background-color:white;">
+    <%= form_for @player, :url =>{:action => "update", :id => @player.id} do |f| %>
+    Name: <%= f.text_field 'name' %>
+    Team_ID: <%= f.text_field  'teams_id' %>
+    Position: <%= f.text_field  'position' %>
+    <%= f.submit "Save changes" %>
+    <% end %>
+  </div>
+    <div class="col-sm-4" style="background-color:white;">
+  <style>
+  .demo {
+    border:1px solid #C0C0C0;
+    border-collapse:collapse;
+  }
+  .demo th {
+    border:1px solid #C0C0C0;
+    padding:5px;
+    background:#F0F0F0;
+  }
+  .demo td {
+    border:1px solid #C0C0C0;
+    padding:5px;
+  }
+</style>
+<table class="demo">
+  <thead>
+  <tr>
+    <th>Club</th>
+    <th>Team_ID</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>AFC Bournemouth</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Arsenal</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Burnley</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Chelsea</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Crystal Palace</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Everton</td>
+    <td>6</td>
+  </tr>
+    <tr>
+    <td>Hull City</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Leicester City</td>
+    <td>8</td>
+  </tr>
+    <tr>
+    <td>Liverpool</td>
+    <td>9</td>
+  </tr>
+    <tr>
+    <td>Manchester City</td>
+    <td>10</td>
+  </tr>
+    <tr>
+    <td>Manchester United</td>
+    <td>11</td>
+  </tr>
+    <tr>
+    <td>Middlesbrough</td>
+    <td>12</td>
+  </tr>
+    <tr>
+    <td>Southampton</td>
+    <td>13</td>
+  </tr>
+    <tr>
+    <td>Stoke City</td>
+    <td>14</td>
+  </tr>
+    <tr>
+    <td>Sunderland</td>
+    <td>15</td>
+  </tr>
+    <tr>
+    <td>Swansea City</td>
+    <td>16</td>
+  </tr>
+    <tr>
+    <td>Tottenham Hotspur</td>
+    <td>17</td>
+  </tr>
+    <tr>
+    <td>Watford</td>
+    <td>18</td>
+  </tr>
+    <tr>
+    <td>West Bromwich Albion</td>
+    <td>19</td>
+  </tr>
+    <tr>
+    <td>West Ham United</td>
+    <td>20</td>
+  </tr>
+  <tbody>
+</table>
+    </div>     
+</div>
+</div>
+
+</body>
+</html>
