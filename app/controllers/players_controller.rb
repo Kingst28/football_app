@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  before_action :require_user, only: [:index, :show, :new, :create, :edit, :update, :delete]
 	def index
 		@players = Player.all
 	end
@@ -24,7 +25,7 @@ class PlayersController < ApplicationController
       @player = Player.new(player_params)
 
       if @player.save
-         redirect_to :action => 'index'
+          redirect_to action: "show", teams_id: @player.teams_id
       end
    end
 
@@ -40,7 +41,12 @@ class PlayersController < ApplicationController
       @player = Player.find(params[:id])
   
    if @player.update_attributes(player_param)
-      redirect_to :url => '/players/:teams_id'
+      redirect_to action: "show", teams_id: @player.teams_id
    end
+ end
+
+   def delete
+      @player = Player.find(params[:id]).destroy
+      redirect_to action: "show", teams_id: @player.teams_id
    end
 end

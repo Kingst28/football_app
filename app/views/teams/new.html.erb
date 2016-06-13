@@ -54,7 +54,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
           </ul>
@@ -64,133 +64,18 @@
   </div><!-- /.container-fluid -->
 </nav>
   <div class="jumbotron">
-    <h1>Add Player</h1>
+    <h1>Add Club</h1>
   </div>
   <div class="row">
     
     <div class="col-sm-8" style="background-color:white;">
-    <%= form_for(@player) do |f| %>
+    <%= form_for(@team) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
   
-    <b>Team_ID</b> <%= f.text_field :teams_id %>
+    Team_ID <%= f.text_field :id %>
 
-    <%= f.label :position %>
-    <%= f.text_field :position %>
-
-    <%= f.submit "Add Player" %> 
+    <%= f.submit "Create Club" %> 
     <% end %>
     </div>
-
-    <div class="col-sm-4" style="background-color:white;">
-  <style>
-  .demo {
-    border:1px solid #C0C0C0;
-    border-collapse:collapse;
-  }
-  .demo th {
-    border:1px solid #C0C0C0;
-    padding:5px;
-    background:#F0F0F0;
-  }
-  .demo td {
-    border:1px solid #C0C0C0;
-    padding:5px;
-  }
-</style>
-<table class="demo">
-  <thead>
-  <tr>
-    <th>Club</th>
-    <th>Team_ID</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>AFC Bournemouth</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <td>Arsenal</td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td>Burnley</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>Chelsea</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>Crystal Palace</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>Everton</td>
-    <td>6</td>
-  </tr>
-    <tr>
-    <td>Hull City</td>
-    <td>7</td>
-  </tr>
-    <tr>
-    <td>Leicester City</td>
-    <td>8</td>
-  </tr>
-    <tr>
-    <td>Liverpool</td>
-    <td>9</td>
-  </tr>
-    <tr>
-    <td>Manchester City</td>
-    <td>10</td>
-  </tr>
-    <tr>
-    <td>Manchester United</td>
-    <td>11</td>
-  </tr>
-    <tr>
-    <td>Middlesbrough</td>
-    <td>12</td>
-  </tr>
-    <tr>
-    <td>Southampton</td>
-    <td>13</td>
-  </tr>
-    <tr>
-    <td>Stoke City</td>
-    <td>14</td>
-  </tr>
-    <tr>
-    <td>Sunderland</td>
-    <td>15</td>
-  </tr>
-    <tr>
-    <td>Swansea City</td>
-    <td>16</td>
-  </tr>
-    <tr>
-    <td>Tottenham Hotspur</td>
-    <td>17</td>
-  </tr>
-    <tr>
-    <td>Watford</td>
-    <td>18</td>
-  </tr>
-    <tr>
-    <td>West Bromwich Albion</td>
-    <td>19</td>
-  </tr>
-    <tr>
-    <td>West Ham United</td>
-    <td>20</td>
-  </tr>
-  <tbody>
-</table>
-    </div>     
-</div>
-
-</body>
-</html>

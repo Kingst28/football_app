@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
   get '/players' => 'players#index'
   get '/players/new' => 'players#new'
+  get '/admin_index' => 'application#admin_index'
   get '/teams' => 'teams#index'
+  get '/teams/new' => 'teams#new'
   get '/players/:teams_id' => 'players#show'
   post '/players' => 'players#create'
+  post '/teams' => 'teams#create'
   get '/players/:id/edit' => 'players#edit', as: :edit_players 
+  get '/players/:id/delete' => 'players#delete', as: :delete_players 
   patch '/players/:id' => 'players#update'
+  get '/teams/:id/edit' => 'teams#edit', as: :edit_teams
+  get '/teams/:id/delete' => 'teams#delete', as: :delete_teams
+  patch '/teams/:id' => 'teams#update'
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  get '/signup'  => 'users#new' 
+  resources :users
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
