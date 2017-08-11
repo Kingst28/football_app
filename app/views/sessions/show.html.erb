@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a><%= 
+      link_to_if current_user.access == "admin", "Fantasy Football League", '/admin_index', class: "navbar-brand" do
+      link_to "Fantasy Football League", '/index', class: "navbar-brand"
+      end
+      %></a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><% if logged_in? -%><%= current_user.first_name %><% end -%><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile", '/edit_profile' %></li>
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+ <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "alert alert-#{key}" %>
+ <% end %>
+    
+    <div class="col-sm-3" style="background-color:white;">
+      <h2>Your Details</h2>
+    <ul>
+    <li>First Name: <%= current_user.first_name %></li>
+    <li>Last Name: <%= current_user.last_name %></li>
+    <li>Email Address: <%= current_user.email %></li>
+    <%= link_to "Edit your details", edit_users_path(current_user.id) %>
+    </li>
+    </ul>
+    </div>
+    
+    <div class="col-sm-3" style="background-color:white;"></div>
+    
+    <div class="col-sm-3" style="background-color:white;"></div>
+    
+    <div class="col-sm-3" style="background-color:white;"></div>
+  </div>
+</div>
+
+</body>
+</html>

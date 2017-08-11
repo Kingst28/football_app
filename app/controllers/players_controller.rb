@@ -1,7 +1,10 @@
 class PlayersController < ApplicationController
   before_action :require_user, only: [:index, :show, :new, :create, :edit, :update, :delete]
 	def index
-		@players = Player.all
+      @search = Player.search do 
+      fulltext params[:search]
+      end
+      @players = @search.results
 	end
     
   def show 

@@ -3,39 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div class="container-fluid">
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Fantasy Football</a>
-    </div>
-</nav>
-
-
-    <h1>Sign up</h1>
+  <nav class="nav-wrapper green lighten-2">
+  &nbsp; &nbsp; <a class="brand-logo center" href="#">Fantasy Football League</a>
+  </nav>
+    <div class="container">
+    <div align="center">
     <%= form_for(@user) do |f| %>
-      <%= f.text_field :first_name, :placeholder => "First name" %>
-      <%= f.text_field :last_name, :placeholder => "Last name" %>
-      <%= f.email_field :email, :placeholder => "Email" %>
-      <%= f.password_field :password, :placeholder => "Password" %>
-      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
-      <%= f.submit "Create an account" %>
-      <% if @user.errors.any? %>
-      <% for message in @user.errors.full_messages %>
-      <%= message %>
-      <% end %>
+      <div class="input-field">
+      <%= f.text_field :first_name, :placeholder => "First name", :class => "input-field" %>
+      </div>
+      <div class="input-field">
+      <%= f.text_field :last_name, :placeholder => "Last name", :class => "input-field" %>
+      </div>
+      <div class="input-field">
+      <%= f.email_field :email, :placeholder => "Email", :class => "input-field" %>
+      </div>
+      <div class="input-field">
+      <%= f.password_field :password, :placeholder => "Password", :class => "input-field" %>
+      </div>
+      <div class="input-field">
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password", :class => "input-field" %>
+      </div>
+      <div class="input-field">
+      <%= f.submit "Sign Up", :class => "waves-effect waves-light btn" %>
+      </div>
+      <br />
+      Already signed up? <%= link_to "Log in now!", login_path %>
+      <% @user.errors.full_messages.each do |message| %>
+      <div class="z-depth-5" style="text-align:center; background-color: #e57373; color: white;">
+      <strong><%= message %></strong>
+      </div>
+      </div>
       <% end %>
     <% end %>
+  </div>
 </html>

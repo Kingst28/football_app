@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav-wrapper green lighten-2">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      &nbsp; &nbsp;<a class="brand-logo center" href="#">Fantasy Football League</a>
+    </div>
+</nav>
+
+<div class="container">
+<% provide(:title, "Forgot password") %>
+<div align="center">
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+      <%= f.label :email %>
+      <div class="form-group">
+      <%= f.email_field :email, class: 'input-field' %>
+      </div>
+
+      <%= f.submit "Submit", class: "btn btn-success" %>
+      <br />
+      <%= link_to "Log In", login_path %>
+    <% end %>
+</div>
+</div>
+</body>
+</html>

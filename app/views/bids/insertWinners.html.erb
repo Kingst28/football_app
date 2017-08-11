@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a><%= 
+      link_to_if current_user.access == "admin", "Fantasy Football League", '/admin_index', class: "navbar-brand" do
+      link_to "Fantasy Football League", '/index', class: "navbar-brand"
+      end
+      %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/teams">Manage Clubs<span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Squads<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/players/1">AFC Bournemouth</a></li>
+            <li><a href="/players/2">Arsenal</a></li>
+            <li><a href="/players/3">Burnley</a></li>
+            <li><a href="/players/4">Chelsea</a></li>
+            <li><a href="/players/5">Crystal Palace</a></li>
+            <li><a href="/players/6">Everton</a></li>
+            <li><a href="/players/7">Hull City</a></li>
+            <li><a href="/players/8">Leicester City</a></li>
+            <li><a href="/players/9">Liverpool</a></li>
+            <li><a href="/players/10">Manchester City</a></li>
+            <li><a href="/players/11">Manchester United</a></li>
+            <li><a href="/players/12">Middlesbrough</a></li>
+            <li><a href="/players/13">Southampton</a></li>
+            <li><a href="/players/14">Stoke City</a></li>
+            <li><a href="/players/15">Sunderland</a></li>
+            <li><a href="/players/16">Swansea City</a></li>
+            <li><a href="/players/17">Tottenham Hotspur</a></li>
+            <li><a href="/players/18">Watford</a></li>
+            <li><a href="/players/19">West Bromwich Albion</a></li>
+            <li><a href="/players/20">West Ham United</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><% if logged_in? -%><%= current_user.first_name %><% end -%><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <div class="jumbotron">
+  </div>
+  <div class="row">
+  <div class="col-sm-8" style="background-color:white;">
+  <%= @duplicates.inspect %>
+  </div>
+  <div class="col-sm-4" style="background-color:white;"> </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Fantasy Football League</a>
+    </div>
+</nav>
+
+<% provide(:title, 'Reset password') %>
+<h1>Reset password</h1>
+
+  <div align="center">
+    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+    
+
+      <%= hidden_field_tag :email, @user.email %>
+
+      <%= f.label :password %>
+      <div class="form-group">
+      <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <div class="form-group">
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      
+      <%= f.submit "Update password", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</body>
+</html>
+

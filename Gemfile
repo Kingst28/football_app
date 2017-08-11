@@ -29,6 +29,14 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'round_robin_tournament'
+
+gem 'sunspot_rails'
+
+gem 'sunspot_solr'
+
+gem 'jquery-turbolinks'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

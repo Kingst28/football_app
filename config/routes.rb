@@ -1,23 +1,58 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get '/players' => 'players#index'
   get '/players/new' => 'players#new'
+  get '/bids/new' => 'bids#new'
+  get '/bids/showall' => 'bids#showall'
+  get '/bids' => 'bids#index'
+  get '/bids' => 'bids#subtract_amount'
+  get '/bids/:id/edit' => 'bids#edit', as: :edit_bids 
+  post '/bids' => 'bids#create'
   get '/admin_index' => 'application#admin_index'
   get '/teams' => 'teams#index'
   get '/teams/new' => 'teams#new'
   get '/players/:teams_id' => 'players#show'
+  get '/teamsheet/calculate_score' => 'teamsheet#calculate_score'
   post '/players' => 'players#create'
   post '/teams' => 'teams#create'
   get '/players/:id/edit' => 'players#edit', as: :edit_players 
   get '/players/:id/delete' => 'players#delete', as: :delete_players 
+  get '/bids/:id/delete' => 'bids#delete', as: :delete_bids 
   patch '/players/:id' => 'players#update'
+  patch '/teamsheet/:id' => 'teamsheet#update'
   get '/teams/:id/edit' => 'teams#edit', as: :edit_teams
   get '/teams/:id/delete' => 'teams#delete', as: :delete_teams
+  get '/bids/checkBids' => 'bids#checkBids'
+  get '/bids/insertWinners' => 'bids#insertWinners'
+  get '/teamsheet/index' => 'teamsheet#index'
+  get '/teamsheet/admin_edit' => 'teamsheet#admin_edit', as: :admin_edit_teamsheet
+  get '/teamsheet/:id/edit' => 'teamsheet#edit', as: :edit_teamsheet
   patch '/teams/:id' => 'teams#update'
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get '/signup'  => 'users#new' 
+  get '/index' => 'application#index'
+  get '/edit_profile' => 'sessions#show'
+  get '/sessions/:id/edit' => 'sessions#edit', as: :edit_users
+  get '/fixtures/createFixtures' => 'fixtures#createFixtures'
+  get '/results/fixture_results' => 'results#fixture_results'
+  get '/teamsheets/edit_multiple' => 'teamsheet#edit_multiple'
+  patch '/sessions/:id' => 'sessions#update'
+  patch '/bids/:id' => 'bids#update'
   resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+  root to: 'teamsheet#index'
+  resources :teamsheet do
+    collection do
+      post :edit_multiple
+      put :update_multiple
+end
+end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

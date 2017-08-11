@@ -1,0 +1,103 @@
+class FixturesController < ApplicationController
+  before_action :set_fixture, only: [:show, :edit, :update, :destroy]
+  require "round_robin_tournament"
+  # GET /fixtures
+  # GET /fixtures.json
+  def index
+    @fixtures = Fixture.all
+  end
+
+  # GET /fixtures/1
+  # GET /fixtures/1.json
+  def show
+  end
+
+  def createFixtures 
+  @users = User.all
+  users = []
+  for u in @users do
+  users << u.id
+  end
+  @teams = RoundRobinTournament.schedule(users)
+  @teams.each_with_index do |day, index|
+  @day_teams = day.map { |team| "(#{team.first},#{team.last})" }
+  @day_teams_reverse = day.map { |team| "(#{team.last},#{team.first})" }
+  for t in @day_teams do
+  hteam = t.split(',').first
+  hteam.delete! '()'
+  ateam = t.split(',').last
+  ateam.delete! '()'
+  @fixture = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam, :ateam => ateam, :haflag => "Home")
+  @fixture.save
+  end
+  for t1 in @day_teams_reverse do
+  hteam1 = t1.split(',').first
+  hteam1.delete! '()'
+  ateam1 = t1.split(',').last
+  ateam1.delete! '()'
+  @fixture1 = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam1, :ateam => ateam1, :haflag => "Away")
+  @fixture1.save
+  end
+  end 
+end
+
+  # GET /fixtures/new
+  def new
+    @fixture = Fixture.new
+  end
+
+  # GET /fixtures/1/edit
+  def edit
+  end
+
+  # POST /fixtures
+  # POST /fixtures.json
+  def create
+    @fixture = Fixture.new(fixture_params)
+
+    respond_to do |format|
+      if @fixture.save
+        format.html { redirect_to @fixture, notice: 'Fixture was successfully created.' }
+        format.json { render :show, status: :created, location: @fixture }
+      else
+        format.html { render :new }
+        format.json { render json: @fixture.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /fixtures/1
+  # PATCH/PUT /fixtures/1.json
+  def update
+    respond_to do |format|
+      if @fixture.update(fixture_params)
+        format.html { redirect_to @fixture, notice: 'Fixture was successfully updated.' }
+        format.json { render :show, status: :ok, location: @fixture }
+      else
+        format.html { render :edit }
+        format.json { render json: @fixture.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /fixtures/1
+  # DELETE /fixtures/1.json
+  def destroy
+    @fixture.destroy
+    respond_to do |format|
+      format.html { redirect_to fixtures_url, notice: 'Fixture was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_fixture
+      @fixture = Fixture.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def fixture_params
+      params.fetch(:fixture, {})
+    end
+end
