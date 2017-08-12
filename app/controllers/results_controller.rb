@@ -95,7 +95,7 @@ class ResultsController < ApplicationController
     # need to save matchday in the database and extract what the current matchday is for that league of users
     # first we need to know how many teams we have in the league (this will give us an expected season fixture count)
     # the expected season fixture count will give us the mid way point to switch the home/away flag
-    # we then need to create a matchday count model which tracks the matchday number (this gets updated as the league table does)
+    # we then need to create a matchday count model which tracks the matchday number (this gets updated as the league table does with results)
     @fixtures = Fixture.where(:matchday => "0").where(:haflag => "Home")
     for f in @fixtures do
     fuser1 = f.read_attribute(:hteam).to_i
