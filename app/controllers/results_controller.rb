@@ -96,6 +96,7 @@ class ResultsController < ApplicationController
     # first we need to know how many teams we have in the league (this will give us an expected season fixture count)
     # the expected season fixture count will give us the mid way point to switch the home/away flag
     # we then need to create a matchday count model which tracks the matchday number and what the current home/away flag is set to? (this gets updated as the league table does with results)
+<<<<<<< HEAD
     @matchday = Matchday.find(6)
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
@@ -119,6 +120,36 @@ class ResultsController < ApplicationController
         @matchday.update(:matchday_number => matchday_number + 1)
       end
     end
+=======
+    # we will first do the number of teams calculation set the matchday and home/away flag when the fixtures are created by the fixtures controller
+    @matchday = Matchday.find(9)
+    matchday_number = @matchday.read_attribute(:matchday_number)
+    matchday_count = @matchday.read_attribute(:matchday_count)
+    matchday_haflag = @matchday.read_attribute(:haflag)
+    if matchday_haflag == "Home" && matchday_number <= matchday_count then
+      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Home")
+      @matchday.update(:matchday_number => matchday_number + 1)
+    elsif 
+      matchday_haflag == "Away" && matchday_number <= matchday_count then
+      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Away")
+      @matchday.update(:matchday_number => matchday_number + 1)
+    else
+      if matchday_haflag = "Home" then
+         @matchday = Matchday.find(9)
+         @matchday.update(:matchday_number => 0)
+         @matchday.update(:haflag => "Away".to_s)
+         @fixtures = Fixture.where(:matchday => 0).where(:haflag => "Away".to_s)
+         @matchday.update(:matchday_number => 0 + 1)
+      else
+        @matchday = Matchday.find(9)
+        @matchday.update(:matchday_number => 0)
+        @matchday.update(:haflag => "Home")
+        @fixtures = Fixture.where(:matchday => 0).where(:haflag => "Home")
+        @matchday.update(:matchday_number => 0 + 1)
+      end
+    end
+    
+>>>>>>> master
     for f in @fixtures do
     fuser1 = f.read_attribute(:hteam).to_i
     fuser2 = f.read_attribute(:ateam).to_i
@@ -137,6 +168,12 @@ class ResultsController < ApplicationController
       end
       end
  end
+ Result.delete_all
+ Teamsheet.update_all(:played => '')
+ Teamsheet.update_all(:scored => '')
+ Teamsheet.update_all(:scorenum => '')
+ Teamsheet.update_all(:conceded => '')
+ Teamsheet.update_all(:concedednum => '')
 end
 
   # DELETE /results/1
