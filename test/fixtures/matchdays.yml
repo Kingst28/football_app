@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  matchday_number: 1
+  haflag: MyString
+
+two:
+  matchday_number: 1
+  haflag: MyString

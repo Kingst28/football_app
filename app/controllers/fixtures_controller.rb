@@ -38,7 +38,12 @@ class FixturesController < ApplicationController
   @fixture1 = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam1, :ateam => ateam1, :haflag => "Away")
   @fixture1.save
   end
-  end 
+  end
+
+  teamCount = User.all.length
+  matchday_count = teamCount - 2
+  @matchday_data = Matchday.new(:matchday_number => 0, :matchday_count => matchday_count, :haflag => "Home")
+  @matchday_data.save
 end
 
   # GET /fixtures/new
