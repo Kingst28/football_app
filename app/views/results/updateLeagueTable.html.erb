@@ -14,50 +14,6 @@
     $(".button-collapse").sideNav();
   });
   </script>
-  <script type="text/javascript">
-      function selectAll(){
-        $("input:checkbox").each(function(){
-          $(this).attr('checked', true);
-        });
-        return false;
-      }
-  </script>
-  <script>
-function sortTable() {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("myTable2");
-  switching = true;
-  /*Make a loop that will continue until
-  no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.getElementsByTagName("TR");
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[0];
-      y = rows[i + 1].getElementsByTagName("TD")[0];
-      //check if the two rows should switch place:
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch= true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
-}
-</script>
 </head>
 <ul id="dropdown2" class="dropdown-content">
  <li><%= link_to "Profile", '/edit_profile'%></li>
@@ -94,38 +50,14 @@ function sortTable() {
   </div>
   </nav>
   <div class="container">
-  <p><button onclick="sortTable()" class="btn btn-default">Sort by club</button></p>
-  <p><button href="#" onclick="selectAll()" class="btn btn-default" style="float:left">Select All</button>
-  <div align="center">
+    <!--<p> Need to handle setting players as active in teamsheets (allow the user to do this at will), setting users as active upon sign up (this is done through auth email process need setup with Heroku) and sorting out the results controller > fixture_results method to extract fixtures for that particular week, atm we have just matchday 1 and haflag set to "Home" fixtures being extracted. Potentially need to create a fixture tracker table which stores matchday and haflag values for that week. Fixture sets home and away seem to be being created twice leading to 2 sets of the same scores being displayed on this fixture results page. Check how many fixtures there should be with David. Need to test createFixtures method vigurously as it is performing inconsistently. </p>-->
   <div class="row">
-  <div class="col-sm-12" style="background-color:white;">
-<%= form_tag edit_multiple_teamsheet_index_path, method: :post do %>
-<table id="myTable2">
-  <tr>
-    <th>Club</th>
-    <th>Player</th>
-    <th>Position</th>
-    <th>Enter Results?</th>
-    <th>User</th>
-  </tr>
-<% for teamsheet in @teamsheets %>
-  <tr>
-    <td><%=h Team.where(:id => teamsheet.player.teams_id).first.read_attribute(:name) %></td>
-    <td><%=h teamsheet.player.name  %></td>
-    <td><%=h teamsheet.player.position %></td>
-    <td><input id="<%=teamsheet.id%>" value="<%=teamsheet.id%>" name="teamsheet_ids[]" type="checkbox">&nbsp;<label for="<%=teamsheet.id%>"></label></td>
-  </tr>
-<% end %>
-</table>
-<div style="text-align:left"><%= submit_tag "Enter Results",  class: 'btn btn-default' %></div>
-<% end %>
-    </div>
+  <div class="col s12 m12">
   </div>
 </div>
+  </div>
+  <div class="col-sm-4" style="background-color:white;"></div>
 </div>
 </div>
-</div>
-</div>
-
 </body>
 </html>

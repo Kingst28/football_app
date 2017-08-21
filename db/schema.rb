@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813115845) do
+ActiveRecord::Schema.define(version: 20170819124356) do
 
   create_table "bids", force: true do |t|
     t.integer  "amount"
@@ -32,6 +32,20 @@ ActiveRecord::Schema.define(version: 20170813115845) do
     t.datetime "updated_at"
     t.string   "haflag"
     t.string   "finalscore"
+  end
+
+  create_table "league_tables", force: true do |t|
+    t.string   "team"
+    t.integer  "played"
+    t.integer  "won"
+    t.integer  "drawn"
+    t.integer  "lost"
+    t.integer  "for"
+    t.integer  "against"
+    t.integer  "gd"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "matchdays", force: true do |t|
