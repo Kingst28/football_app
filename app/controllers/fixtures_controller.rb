@@ -44,6 +44,12 @@ class FixturesController < ApplicationController
   matchday_count = teamCount - 2
   @matchday_data = Matchday.new(:matchday_number => 0, :matchday_count => matchday_count, :haflag => "Home")
   @matchday_data.save
+
+  for u in @users do
+    @table_team = LeagueTable.new(:team => u.first_name)
+    @table_team.save
+  end
+
 end
 
   # GET /fixtures/new
