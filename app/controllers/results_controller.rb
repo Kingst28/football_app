@@ -90,24 +90,17 @@ class ResultsController < ApplicationController
     @result_new = Result.new(:user_id => u.id, :score => final_score)
     @result_new.save
     end
-    end
+  end
     
-    # need to save matchday in the database and extract what the current matchday is for that league of users
-    # first we need to know how many teams we have in the league (this will give us an expected season fixture count)
-    # the expected season fixture count will give us the mid way point to switch the home/away flag
-    # we then need to create a matchday count model which tracks the matchday number and what the current home/away flag is set to? (this gets updated as the league table does with results)
-    # we will first do the number of teams calculation set the matchday and home/away flag when the fixtures are created by the fixtures controller
     @matchday = Matchday.find(9)
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
     matchday_haflag = @matchday.read_attribute(:haflag)
-    if matchday_haflag == "Home" && matchday_number <= matchday_count then
+   if matchday_haflag == "Home" && matchday_number <= matchday_count then
       @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Home")
-      @matchday.update(:matchday_number => matchday_number + 1)
-    elsif 
+   elsif 
       matchday_haflag == "Away" && matchday_number <= matchday_count then
       @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Away")
-      @matchday.update(:matchday_number => matchday_number + 1)
     else
       if matchday_haflag = "Home" then
          @matchday = Matchday.find(9)
@@ -125,35 +118,28 @@ class ResultsController < ApplicationController
     end
     
     for f in @fixtures do
-    fuser1 = f.read_attribute(:hteam).to_i
-    fuser2 = f.read_attribute(:ateam).to_i
-    result1 = Result.find_by_user_id(f.read_attribute(:hteam).to_i).read_attribute(:score)
-    result2 = Result.find_by_user_id(f.read_attribute(:hteam).to_i).read_attribute(:score)
+    fuser1 = f.read_attribute(:hteam)
+    fuser2 = f.read_attribute(:ateam)
+    result1 = Result.find_by_user_id(fuser1).read_attribute(:score)
+    result2 = Result.find_by_user_id(fuser2).read_attribute(:score)
     final_score = ""
     if result1 >= 0 && result2 >= 0 then
-    final_score = result1.to_s + result2.to_s
+    final_score = result1.to_s + result2.to_s 
     f.update(:finalscore => final_score)
     elsif
     while result1 < 0 || result2 < 0 do
       result1 +=1
       result2 +=1
-      final_score = result1.to_s + result2.to_s
+      final_score = result1.to_s + result2.to_s 
       f.update(:finalscore => final_score)
       end
       end
  end
- 
- Result.delete_all
- Teamsheet.update_all(:played => '')
- Teamsheet.update_all(:scored => '')
- Teamsheet.update_all(:scorenum => '')
- Teamsheet.update_all(:conceded => '')
- Teamsheet.update_all(:concedednum => '')
 end
 
 def updateLeagueTable 
-    #need to find matchday number and haflag and only update the league table for those fixtures results
-    #need to put some actual results in and do everything in the right order then test to see if it works
+    #need to go through every win/draw/loss combination from the last week to ensure all works correctly. 
+    #Loss the week before then draw causes error. Loss and win the week before causes error.  
     @matchday = Matchday.find(9)
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
@@ -189,6 +175,28 @@ def updateLeagueTable
       else
       end
     end
+    if matchday_haflag == "Home" && matchday_number <= matchday_count then
+   elsif 
+      matchday_haflag == "Away" && matchday_number <= matchday_count then
+    else
+      if matchday_haflag = "Home" then
+         @matchday = Matchday.find(9)
+         @matchday.update(:matchday_number => 0)
+         @matchday.update(:haflag => "Away")
+      else
+        @matchday = Matchday.find(9)
+        @matchday.update(:matchday_number => 0)
+        @matchday.update(:haflag => "Home")
+      end
+    end
+    @matchday = Matchday.find(9)
+    @matchday.update(:matchday_number => matchday_number + 1)
+    Result.delete_all
+    #Teamsheet.update_all(:played => '')
+    #Teamsheet.update_all(:scored => '')
+    #Teamsheet.update_all(:scorenum => '')
+    #Teamsheet.update_all(:conceded => '')
+    #Teamsheet.update_all(:concedednum => '')
   end
 
   # DELETE /results/1

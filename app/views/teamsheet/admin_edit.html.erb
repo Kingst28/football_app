@@ -114,6 +114,7 @@ function sortTable() {
     <td><%=h teamsheet.player.name  %></td>
     <td><%=h teamsheet.player.position %></td>
     <td><input id="<%=teamsheet.id%>" value="<%=teamsheet.id%>" name="teamsheet_ids[]" type="checkbox">&nbsp;<label for="<%=teamsheet.id%>"></label></td>
+    <td><%=h User.find(teamsheet.user_id).first_name %></td>
   </tr>
 <% end %>
 </table>
