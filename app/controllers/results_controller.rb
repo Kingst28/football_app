@@ -154,24 +154,24 @@ def updateLeagueTable
       homescore = finalscore[0].to_i
       awayscore = finalscore[1].to_i
       if homescore > awayscore then
-        currentPoints = LeagueTable.find(hteam).read_attribute(:points).to_i
-        finalPointsHome = currentPoints + 3
+        currentPoints1 = LeagueTable.find(hteam).read_attribute(:points).to_i
+        finalPointsHome1 = currentPoints + 3
         lhome = LeagueTable.find_by_team(first_nameh)
-        lhome.update(:points => finalPointsHome)
+        lhome.update(:points => finalPointsHome1)
       elsif awayscore > homescore
-        currentPoints = LeagueTable.find(ateam).read_attribute(:points).to_i
-        finalPointsAway = currentPoints + 3
+        currentPoints2 = LeagueTable.find(ateam).read_attribute(:points).to_i
+        finalPointsAway2 = currentPoints2 + 3
         laway = LeagueTable.find_by_team(first_namea)
-        laway.update(:points => finalPointsAway)
+        laway.update(:points => finalPointsAway2)
             elsif homescore == awayscore 
-              currentPointsHome = LeagueTable.find(hteam).read_attribute(:points).to_i
-              finalPointsHome = currentPointsHome + 1
-              currentPointsAway = LeagueTable.find(ateam).read_attribute(:points).to_i
-              finalPointsAway = currentPointsAway + 1
+              currentPointsHome3 = LeagueTable.find(hteam).read_attribute(:points).to_i
+              finalPointsHome3 = currentPointsHome3 + 1
+              currentPointsAway3 = LeagueTable.find(ateam).read_attribute(:points).to_i
+              finalPointsAway3 = currentPointsAway3 + 1
         lhome = LeagueTable.find_by_team(first_nameh)
-        lhome.update(:points => finalPointsHome)
+        lhome.update(:points => finalPointsHome3)
         laway = LeagueTable.find_by_team(first_namea)
-        laway.update(:points => finalPointsAway)
+        laway.update(:points => finalPointsAway3)
       else
       end
     end
