@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get '/results/fixture_results' => 'results#fixture_results'
   get '/results/updateLeagueTable' => 'results#updateLeagueTable'
   get '/league_table/updateLeagueTable' => 'league_table#updateLeagueTable'
+  get '/league_table/viewLeagueTable' => 'league_table#viewLeagueTable'
   get '/teamsheets/edit_multiple' => 'teamsheet#edit_multiple'
   patch '/sessions/:id' => 'sessions#update'
   patch '/bids/:id' => 'bids#update'

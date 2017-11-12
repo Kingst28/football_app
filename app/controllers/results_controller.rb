@@ -137,68 +137,6 @@ class ResultsController < ApplicationController
  end
 end
 
-def updateLeagueTable 
-    #need to go through every win/draw/loss combination from the last week to ensure all works correctly. 
-    #Loss the week before then draw causes error. Loss and win the week before causes error.  
-    @matchday = Matchday.find(9)
-    matchday_number = @matchday.read_attribute(:matchday_number)
-    matchday_count = @matchday.read_attribute(:matchday_count)
-    matchday_haflag = @matchday.read_attribute(:haflag)
-    @results = Fixture.where(:matchday => matchday_number).where(:haflag => matchday_haflag)
-    for r in @results do
-      hteam = User.find(r.read_attribute(:hteam))
-      first_nameh = hteam.first_name
-      ateam = User.find(r.read_attribute(:ateam))
-      first_namea = ateam.first_name
-      finalscore = r.finalscore.to_s
-      homescore = finalscore[0].to_i
-      awayscore = finalscore[1].to_i
-      if homescore > awayscore then
-        currentPoints1 = LeagueTable.find(hteam).read_attribute(:points).to_i
-        finalPointsHome1 = currentPoints + 3
-        lhome = LeagueTable.find_by_team(first_nameh)
-        lhome.update(:points => finalPointsHome1)
-      elsif awayscore > homescore
-        currentPoints2 = LeagueTable.find(ateam).read_attribute(:points).to_i
-        finalPointsAway2 = currentPoints2 + 3
-        laway = LeagueTable.find_by_team(first_namea)
-        laway.update(:points => finalPointsAway2)
-            elsif homescore == awayscore 
-              currentPointsHome3 = LeagueTable.find(hteam).read_attribute(:points).to_i
-              finalPointsHome3 = currentPointsHome3 + 1
-              currentPointsAway3 = LeagueTable.find(ateam).read_attribute(:points).to_i
-              finalPointsAway3 = currentPointsAway3 + 1
-        lhome = LeagueTable.find_by_team(first_nameh)
-        lhome.update(:points => finalPointsHome3)
-        laway = LeagueTable.find_by_team(first_namea)
-        laway.update(:points => finalPointsAway3)
-      else
-      end
-    end
-    if matchday_haflag == "Home" && matchday_number <= matchday_count then
-   elsif 
-      matchday_haflag == "Away" && matchday_number <= matchday_count then
-    else
-      if matchday_haflag = "Home" then
-         @matchday = Matchday.find(9)
-         @matchday.update(:matchday_number => 0)
-         @matchday.update(:haflag => "Away")
-      else
-        @matchday = Matchday.find(9)
-        @matchday.update(:matchday_number => 0)
-        @matchday.update(:haflag => "Home")
-      end
-    end
-    @matchday = Matchday.find(9)
-    @matchday.update(:matchday_number => matchday_number + 1)
-    Result.delete_all
-    #Teamsheet.update_all(:played => '')
-    #Teamsheet.update_all(:scored => '')
-    #Teamsheet.update_all(:scorenum => '')
-    #Teamsheet.update_all(:conceded => '')
-    #Teamsheet.update_all(:concedednum => '')
-  end
-
   # DELETE /results/1
   # DELETE /results/1.json
   def destroy

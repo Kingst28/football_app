@@ -1,24 +1,129 @@
 class LeagueTableController < ApplicationController
-	#hteams score is the first number thats stored in the database so need to extract the first digit 
-	def updateLeagueTable 
-		@results = Fixtures.all
-		for r in @results do
-			hteam = User.find(r.read_attribute(:hteam))
-			ateam = User.find(r.read_attribute(:ateam))
-			homescore, awayscore = r.finalscore.to_s.split('').map { |digit| digit.to_i }
-			if homescore > awayscore then 
-				currentPoints = LeagueTable.find(hteam).read_attribute(:points)
-				LeagueTable.update(:points => currentPoints + 3).where(:team => User.find(r.read_attribute(:hteam)).first_name)
-			elsif awayscore > homescore then
-				currentPoints = LeagueTable.find(ateam).read_attribute(:points)
-				LeagueTable.update(:points => currentPoints + 3).where(:team => User.find(r.read_attribute(:ateam)).first_name)
-            elsif homescore == awayscore then 
-            	currentPointsHome = LeagueTable.find(hteam).read_attribute(:points)
-            	currentPointsAway = LeagueTable.find(ateam).read_attribute(:points)
-				LeagueTable.update(:points => currentPoints + 1).where(:team => User.find(r.read_attribute(:hteam)).first_name)
-				LeagueTable.update(:points => currentPoints + 1).where(:team => User.find(r.read_attribute(:ateam)).first_name)
-			else
-			end
-		end
-	end
+   
+   def updateLeagueTable 
+    #find out why this method runs twice in Safari?
+    #fix the matchday count as this is no longer switching over to Away and back to zero once matchday_count is met.
+    @table = LeagueTable.all 
+    @matchday = Matchday.find(9)
+    matchday_number = @matchday.read_attribute(:matchday_number)
+    matchday_count = @matchday.read_attribute(:matchday_count)
+    matchday_haflag = @matchday.read_attribute(:haflag)
+    @results = Fixture.where(:matchday => matchday_number).where(:haflag => matchday_haflag)
+    
+    for r in @results do
+      hteam = User.find(r.read_attribute(:hteam))
+      first_nameh = hteam.first_name
+      ateam = User.find(r.read_attribute(:ateam))
+      first_namea = ateam.first_name
+      finalscore = r.finalscore.to_s
+      homescore = finalscore[0].to_i
+      awayscore = finalscore[1].to_i
+      if homescore > awayscore then
+        #add points to the team who won the game and add all other league table statistics.
+        currentPoints1 = LeagueTable.find_by_team(first_nameh).read_attribute(:points).to_i
+        finalPointsHome1 = currentPoints1 + 3
+        lhome = LeagueTable.find_by_team(first_nameh)
+        lhome.update(:points => finalPointsHome1)
+        updatePlayed(first_nameh, first_namea)
+        haflag = "Home"
+        updateWonDrawLoss(first_nameh, first_namea, haflag)
+      elsif awayscore > homescore
+        currentPoints2 = LeagueTable.find_by_team(first_namea).read_attribute(:points).to_i
+        finalPointsAway2 = currentPoints2 + 3
+        laway = LeagueTable.find_by_team(first_namea)
+        laway.update(:points => finalPointsAway2)
+        updatePlayed(first_nameh, first_namea)
+        haflag = "Away" 
+        updateWonDrawLoss(first_nameh, first_namea, haflag)
+      elsif homescore == awayscore 
+        currentPointsHome3 = LeagueTable.find_by_team(first_nameh).read_attribute(:points).to_i
+        finalPointsHome3 = currentPointsHome3 + 1
+        currentPointsAway3 = LeagueTable.find_by_team(first_namea).read_attribute(:points).to_i
+        finalPointsAway3 = currentPointsAway3 + 1
+        lhome1 = LeagueTable.find_by_team(first_nameh)
+        lhome1.update(:points => finalPointsHome3)
+        laway1 = LeagueTable.find_by_team(first_namea)
+        laway1.update(:points => finalPointsAway3)
+        updatePlayed(first_nameh, first_namea)
+        haflag = "Draw" 
+        updateWonDrawLoss(first_nameh, first_namea, haflag)
+      else
+      end
+    end
+    @matchday1 = Matchday.find(9)
+    @matchday1.update(:matchday_number => matchday_number + 1)
+    
+   matchday_number1 = @matchday1.read_attribute(:matchday_number)
+   matchday_count1 = @matchday1.read_attribute(:matchday_count)
+   matchday_haflag1 = @matchday1.read_attribute(:haflag)
+   if matchday_haflag1 == "Home" && matchday_number1 <= matchday_count1 then
+   elsif 
+      matchday_haflag1 == "Away" && matchday_number1 <= matchday_count1 then
+    else
+      if matchday_haflag1 = "Home" then
+         @matchday1.update(:matchday_number => 0)
+         @matchday1.update(:haflag => "Away")
+      else
+        @matchday1.update(:matchday_number => 0)
+        @matchday1.update(:haflag => "Home")
+      end
+    end
+    Result.delete_all
+    #Teamsheet.update_all(:played => '')
+    #Teamsheet.update_all(:scored => '')
+    #Teamsheet.update_all(:scorenum => '')
+    #Teamsheet.update_all(:conceded => '')
+    #Teamsheet.update_all(:concedednum => '')
+  end
+
+  def viewLeagueTable 
+    @table = LeagueTable.all
+  end
+
+  def updatePlayed(homeTeam, awayTeam)
+      homeCurrentPlayed = LeagueTable.find_by_team(homeTeam).read_attribute(:played).to_i
+      awayCurrentPlayed = LeagueTable.find_by_team(awayTeam).read_attribute(:played).to_i
+      homeNewPlayed = homeCurrentPlayed + 1
+      awayNewPlayed = awayCurrentPlayed + 1
+      home = LeagueTable.find_by_team(homeTeam)
+      away = LeagueTable.find_by_team(awayTeam)
+      home.update(:played => homeNewPlayed)
+      away.update(:played => awayNewPlayed)
+  end
+
+  def updateWonDrawLoss(homeTeam, awayTeam, haflag)
+    if haflag == "Home" then
+      homeCurrentWon = LeagueTable.find_by_team(homeTeam).read_attribute(:won).to_i
+      homeNewWon = homeCurrentWon + 1
+      home = LeagueTable.find_by_team(homeTeam)
+      home.update(:won => homeNewWon)
+
+      awayCurrentLost = LeagueTable.find_by_team(awayTeam).read_attribute(:lost).to_i
+      awayNewLost = awayCurrentLost + 1
+      away = LeagueTable.find_by_team(awayTeam)
+      away.update(:lost => awayNewLost)
+
+    elsif haflag == "Away"
+      awayCurrentWon = LeagueTable.find_by_team(awayTeam).read_attribute(:won).to_i
+      awayNewWon = awayCurrentWon + 1
+      away = LeagueTable.find_by_team(awayTeam)
+      away.update(:won => awayNewWon)
+
+      homeCurrentLost = LeagueTable.find_by_team(homeTeam).read_attribute(:lost).to_i
+      homeNewLost = homeCurrentLost + 1
+      home = LeagueTable.find_by_team(homeTeam)
+      home.update(:lost => homeNewLost)
+
+    elsif haflag == "Draw"
+      homeCurrentDraw = LeagueTable.find_by_team(homeTeam).read_attribute(:drawn).to_i
+      homenewDraw = homeCurrentDraw + 1
+      home = LeagueTable.find_by_team(homeTeam)
+      home.update(:drawn => homenewDraw)
+      awayCurrentDraw = LeagueTable.find_by_team(awayTeam).read_attribute(:drawn).to_i
+      awaynewDraw = awayCurrentDraw + 1
+      away = LeagueTable.find_by_team(awayTeam)
+      away.update(:drawn => awaynewDraw)
+    else
+  end
+end
 end
