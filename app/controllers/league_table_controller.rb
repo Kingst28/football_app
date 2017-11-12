@@ -27,6 +27,8 @@ class LeagueTableController < ApplicationController
         updatePlayed(first_nameh, first_namea)
         haflag = "Home"
         updateWonDrawLoss(first_nameh, first_namea, haflag)
+        updateForAgainst(first_nameh, first_namea, homescore, awayscore)
+        updateGD(first_nameh, first_namea)
       elsif awayscore > homescore
         currentPoints2 = LeagueTable.find_by_team(first_namea).read_attribute(:points).to_i
         finalPointsAway2 = currentPoints2 + 3
@@ -35,6 +37,8 @@ class LeagueTableController < ApplicationController
         updatePlayed(first_nameh, first_namea)
         haflag = "Away" 
         updateWonDrawLoss(first_nameh, first_namea, haflag)
+        updateForAgainst(first_nameh, first_namea, homescore, awayscore)
+        updateGD(first_nameh, first_namea)
       elsif homescore == awayscore 
         currentPointsHome3 = LeagueTable.find_by_team(first_nameh).read_attribute(:points).to_i
         finalPointsHome3 = currentPointsHome3 + 1
@@ -47,6 +51,8 @@ class LeagueTableController < ApplicationController
         updatePlayed(first_nameh, first_namea)
         haflag = "Draw" 
         updateWonDrawLoss(first_nameh, first_namea, haflag)
+        updateForAgainst(first_nameh, first_namea, homescore, awayscore)
+        updateGD(first_nameh, first_namea)
       else
       end
     end
@@ -125,5 +131,37 @@ class LeagueTableController < ApplicationController
       away.update(:drawn => awaynewDraw)
     else
   end
+end
+
+def updateForAgainst(homeTeam, awayTeam, homescore, awayscore)
+  homeCurrentFor = LeagueTable.find_by_team(homeTeam).read_attribute(:for).to_i
+  homeNewFor = homeCurrentFor + homescore
+  home = LeagueTable.find_by_team(homeTeam)
+  home.update(:for => homeNewFor)
+  homeCurrentAgainst = LeagueTable.find_by_team(homeTeam).read_attribute(:against).to_i
+  homeNewAgainst = homeCurrentAgainst + awayscore
+  home.update(:against => homeNewAgainst)
+
+  awayCurrentFor = LeagueTable.find_by_team(awayTeam).read_attribute(:for).to_i
+  awayNewFor = awayCurrentFor + awayscore
+  away = LeagueTable.find_by_team(awayTeam)
+  away.update(:for => awayNewFor)
+  awayCurrentAgainst = LeagueTable.find_by_team(awayTeam).read_attribute(:against).to_i
+  awayNewAgainst = awayCurrentAgainst + homescore
+  away.update(:against => awayNewAgainst)
+end
+
+def updateGD(homeTeam, awayTeam)
+  homeCurrentFor = LeagueTable.find_by_team(homeTeam).read_attribute(:for).to_i
+  homeCurrentAgainst = LeagueTable.find_by_team(homeTeam).read_attribute(:against).to_i
+  homeGD = homeCurrentFor - homeCurrentAgainst
+  home = LeagueTable.find_by_team(homeTeam)
+  home.update(:gd => homeGD)
+
+  awayCurrentFor = LeagueTable.find_by_team(awayTeam).read_attribute(:for).to_i
+  awayCurrentAgainst = LeagueTable.find_by_team(awayTeam).read_attribute(:against).to_i
+  awayGD = awayCurrentFor - awayCurrentAgainst
+  away = LeagueTable.find_by_team(awayTeam)
+  away.update(:gd => awayGD)
 end
 end
