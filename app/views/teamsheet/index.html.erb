@@ -273,13 +273,13 @@
 <% end %>
 
     <div class="col-sm-3" style="background-color:white;">
-    <% @players.each do |p| %>
+    <% @playerList.each do |p| %>
   <div id="columns"> 
   <div class="column"><header> 
       <%= p.player.name %> <br></header>     
       <%= p.player.position %> <br>
       <%= Team.find(Player.find(p.player_id).teams_id).name %> <br>
-      <%= link_to "Set as active squad player", edit_teamsheet_path(p.id) %>
+      <%= link_to "Choose player", edit_teamsheet_path(p.id) %>
       </div>
   </div>
     <% end %>

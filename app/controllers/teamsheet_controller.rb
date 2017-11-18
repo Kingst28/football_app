@@ -1,8 +1,8 @@
 class TeamsheetController < ApplicationController
 
    def index 
-  	@players = Teamsheet.where(:user_id => current_user.id)
-
+  	@players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
+    @playerList = Teamsheet.where(:user_id => current_user.id)
     @goalkeeper = []
     @defender = []
     @midfielder = []

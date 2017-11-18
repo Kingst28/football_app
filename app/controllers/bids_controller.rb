@@ -1,5 +1,8 @@
 class BidsController < ApplicationController
+  include SessionsHelper
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  before_action :require_canView, only: [:new, :showall, :index]
+  helper_method :current_user, :logged_in?
 
   # GET /bids
   # GET /bids.json
@@ -24,6 +27,14 @@ class BidsController < ApplicationController
       @striker << p
     end
   end
+end
+
+def current_user 
+  @current_user ||= User.find(session[:user_id]) if session[:user_id] 
+end
+
+def require_canView
+  current_user.canView?
 end
 
   # GET /bids/1
