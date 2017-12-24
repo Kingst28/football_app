@@ -279,7 +279,9 @@
       <%= p.player.name %> <br></header>     
       <%= p.player.position %> <br>
       <%= Team.find(Player.find(p.player_id).teams_id).name %> <br>
+      <% if canView? %>
       <%= link_to "Choose player", edit_teamsheet_path(p.id) %>
+      <% end %>
       </div>
   </div>
     <% end %>

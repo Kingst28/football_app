@@ -44,6 +44,10 @@ Rails.application.routes.draw do
   get '/league_table/updateLeagueTable' => 'league_table#updateLeagueTable'
   get '/league_table/viewLeagueTable' => 'league_table#viewLeagueTable'
   get '/teamsheets/edit_multiple' => 'teamsheet#edit_multiple'
+  get '/manage_permissions' => 'application#manage_permissions'
+  get '/manage_permissions_on' => 'application#manage_permissions_on'
+  get '/manage_permissions_off' => 'application#manage_permissions_off'
+  get '/admin_controls' => 'application#admin_controls'
   patch '/sessions/:id' => 'sessions#update'
   patch '/bids/:id' => 'bids#update'
   resources :users

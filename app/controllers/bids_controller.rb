@@ -1,8 +1,9 @@
 class BidsController < ApplicationController
   include SessionsHelper
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
-  before_action :require_canView, only: [:new, :showall, :index]
-  helper_method :current_user, :logged_in?
+  before_action :require_canView, :only => :new
+  before_filter :authorize, :except => :index
+  helper_method :current_user, :logged_in?, :canView?
 
   # GET /bids
   # GET /bids.json
@@ -43,10 +44,11 @@ end
      @bids = Bid.all
   end
 
-  # GET /bids/new
+  # GET /bids/new 
   def new
     @bid = Bid.new
-    @player_options = Player.order('teams_id ASC').all
+    #create a flag in player model which sets if players have been won or not here. 
+    @player_options = Player.order('teams_id ASC').where(:taken => "No")
   end
 
   def checkBids 
@@ -54,7 +56,7 @@ end
     @playerbids = []
     @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1")
   end
-
+  
   def insertWinners
     @users = User.all
     for u in @users do
@@ -62,15 +64,16 @@ end
     @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1")
     for d in @duplicates do
       if Teamsheet.exists?(:player_id => d.player_id)
+       Player.find(d.player_id).update_column(:taken,"Yes")
       else
-       @teamsheet_new = Teamsheet.new(:user_id => d.user_id, :player_id => d.player_id, :amount => d.amount)
+       Player.find(d.player_id).update_column(:taken,"Yes")
+       @teamsheet_new = Teamsheet.new(:user_id => d.user_id, :player_id => d.player_id, :amount => d.amount, :active => "true")
        @teamsheet_new.save
        @destroyOtherBids = Bid.where(:player_id => d.player_id).where.not(:user_id => d.user_id)
        refunded = false
        @destroyOtherBids.each do |b| 
        bidAmount = b.read_attribute(:amount) 
        if b.read_attribute(:amount).to_i == d.amount.to_i && refunded == false then
-       # <a href='http://www.freepik.com/free-vector/white-and-red-football-kit_848831.htm'>Designed by Freepik</a>
        @user = User.find(d.user_id)
        currentBudget = @user.budget.to_i
        newBudget = currentBudget + d.amount.to_i
@@ -101,8 +104,10 @@ end
   end
     for o in @outrightWinners do
       if Teamsheet.exists?(:player_id => o.player_id)
+      Player.find(o.player_id).update_column(:taken,"Yes")
       else
-      @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount)
+      Player.find(o.player_id).update_column(:taken,"Yes")
+      @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :active => "true")
       @teamsheet_new.save
       end
       end

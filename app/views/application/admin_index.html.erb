@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
@@ -14,6 +15,22 @@
     $(".button-collapse").sideNav();
   });
   </script>
+  <style type="text/css">
+   .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}  
+
+.breadcrumb{
+background-color: white;
+border: none;
+}
+
+.card-deck{
+  margin-top: 10px;
+}
+  </style>
 </head>
 <body>
 <!-- Dropdown Structure -->
@@ -73,6 +90,13 @@
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
 
+<ul id="dropdown5" class="dropdown-content">
+ <li><%= link_to "Player Results", '/teamsheet/admin_edit'%></li>
+ <li><%= link_to "Fixture Results", '/results/fixture_results' %></li>
+ <li><%= link_to "Manage Permissions", '/manage_permissions' %></li>
+ <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Manage Clubs<i class="material-icons right">arrow_drop_down</i></a></li>
+</ul>
+
 <div class="container-fluid">
     <nav>
     <div class="nav-wrapper green lighten-2">
@@ -83,19 +107,14 @@
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Manage Clubs<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/admin_edit">Player Results<span class="sr-only"></span></a></li>
-        <li><a href="/results/fixture_results">Fixture Results<span class="sr-only"></span></a></li>
-        <li><a href="">League Table<span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
+       <li><a href="">Manage Permissions<span class="sr-only"></span></a></li>
        <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Manage Clubs<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
+        <li><a href="/bids">Transfers<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">Pick Team<span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/admin_edit">Player Results<span class="sr-only"></span></a></li>
         <li><a href="/results/fixture_results">Fixture Results<span class="sr-only"></span></a></li>
          <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
@@ -108,17 +127,49 @@
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
-  <div class="row">
-    
-    <div class="col-sm-3" style="background-color:white;"></div>
-    
-    <div class="col-sm-3" style="background-color:white;"></div>
-    
-    <div class="col-sm-3" style="background-color:white;"></div>
-    
-    <div class="col-sm-3" style="background-color:white;"></div>
+    <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Pick Team</h4>
+      <p class="card-text">Choose your ultimate starting 11</p>
+       <a href="teamsheet/index" class="btn btn-primary">Pick Team</a>
+    </div>
   </div>
-</div>
+  <div class="card">
+    <img class="card-img-top" src="assets/football-shoes-green-grass-80715.jpeg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Transfers</h4>
+      <p class="card-text">Bid on new players to add to your sqaud</p>
+      <a href="bids" class="btn btn-primary">Submit Bid</a>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="assets/the-ball-stadion-football-the-pitch-46798.jpeg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">League Table</h4>
+      <p class="card-text">View your position in the league table</p>
+       <a href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
+    </div>
+  </div>
+   <div class="card">
+    <img class="card-img-top" src="assets/pexels-photo-149356.jpeg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Results</h4>
+      <p class="card-text">View past matchday fixture results</p>
+      <a href="results/fixture_results" class="btn btn-primary">View Results</a>
+    </div>
+  </div>
+    <div class="card">
+    <img class="card-img-top" src="assets/pexels-photo-270700.jpeg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Admin Controls</h4>
+      <p class="card-text">Control your Ultimate Fantasy Football League settings</p>
+      <a href="admin_controls" class="btn btn-primary">Admin Controls</a>
+    </div>
+    </div>
+  </div>
+    </div>
 
 </body>
 </html>
