@@ -22,8 +22,17 @@ class TeamsheetController < ApplicationController
     end
    end
 
+   def index2 
+    all_teams = Teamsheet.all
+    @teamPlayers = all_teams.group_by(&:user_id)
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+   end
+
    def new 
    	@teamsheet = Teamsheet.new
+   end
+
+   def show 
    end
 
    def edit

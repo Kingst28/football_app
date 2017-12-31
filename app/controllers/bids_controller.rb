@@ -66,9 +66,10 @@ end
       if Teamsheet.exists?(:player_id => d.player_id)
        Player.find(d.player_id).update_column(:taken,"Yes")
       else
-       Player.find(d.player_id).update_column(:taken,"Yes")
        @teamsheet_new = Teamsheet.new(:user_id => d.user_id, :player_id => d.player_id, :amount => d.amount, :active => "true")
        @teamsheet_new.save
+       @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d.amount}")
+       @notification_new.save
        @destroyOtherBids = Bid.where(:player_id => d.player_id).where.not(:user_id => d.user_id)
        refunded = false
        @destroyOtherBids.each do |b| 
@@ -109,6 +110,17 @@ end
       Player.find(o.player_id).update_column(:taken,"Yes")
       @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :active => "true")
       @teamsheet_new.save
+      @notify_users = User.all 
+      
+      for nu in @notify_users do
+        if nu.id == u.id 
+        else
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+        @notification_new.save
+      end
+      end
+      @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+      @notification_new.save
       end
       end
     end
@@ -160,6 +172,17 @@ end
   def create
     @bid = Bid.new(bid_params)
     @bid.user_id = current_user.id 
+    @notify_users = User.all 
+      
+      for nu in @notify_users do
+        if nu.id == current_user.id 
+        else
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => "yes")
+        @notification_new.save
+      end
+      end
+    @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => "yes")
+    @notification_new.save
     respond_to do |format|
       if @bid.save 
         subtract_amount()
@@ -191,6 +214,7 @@ end
   def delete 
     player_id = Bid.find(params[:id]).player_id
     @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
+    @playerUpdate = Player.find(player_id).update_column(:taken, "No")
     bidAmount = Bid.find(params[:id]).amount
     @user = current_user
     currentBudget = @user.budget

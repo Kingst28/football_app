@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   get '/players/:id/edit' => 'players#edit', as: :edit_players 
   get '/players/:id/delete' => 'players#delete', as: :delete_players 
   get '/bids/:id/delete' => 'bids#delete', as: :delete_bids 
+  get '/notifications/:id/destroy' => 'notifications#destroy', as: :delete_notifications_path 
   patch '/players/:id' => 'players#update'
   patch '/teamsheet/:id' => 'teamsheet#update'
   get '/teams/:id/edit' => 'teams#edit', as: :edit_teams
@@ -47,7 +50,11 @@ Rails.application.routes.draw do
   get '/manage_permissions' => 'application#manage_permissions'
   get '/manage_permissions_on' => 'application#manage_permissions_on'
   get '/manage_permissions_off' => 'application#manage_permissions_off'
+  get '/notification_settings_on' => 'application#notification_settings_on'
+  get '/notification_settings_off' => 'application#notification_settings_off'
+  get '/fixtures/index' => 'fixtures#index'
   get '/admin_controls' => 'application#admin_controls'
+  get '/teamsheet/index2' => 'teamsheet#index2'
   patch '/sessions/:id' => 'sessions#update'
   patch '/bids/:id' => 'bids#update'
   resources :users

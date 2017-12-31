@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
+  });
+  </script>
+  <style type="text/css">
+   .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}  
+
+.breadcrumb{
+background-color: white;
+border: none;
+}
+
+.card-deck{
+  margin-top: 10px;
+}
+
+#rcorners1 {
+    border-radius: 25px;
+    background: #D3D3D3;
+    padding: 10px; 
+    width: 200px;
+    height: 80px;    
+}
+  </style>
+</head>
+<body>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+ <li><a href="/players/1">AFC Bournemouth</a></li>
+            <li><a href="/players/2">Arsenal</a></li>
+            <li><a href="/players/3">Burnley</a></li>
+            <li><a href="/players/4">Chelsea</a></li>
+            <li><a href="/players/5">Crystal Palace</a></li>
+            <li><a href="/players/6">Everton</a></li>
+            <li><a href="/players/7">Hull City</a></li>
+            <li><a href="/players/8">Leicester City</a></li>
+            <li><a href="/players/9">Liverpool</a></li>
+            <li><a href="/players/10">Manchester City</a></li>
+            <li><a href="/players/11">Manchester United</a></li>
+            <li><a href="/players/12">Middlesbrough</a></li>
+            <li><a href="/players/13">Southampton</a></li>
+            <li><a href="/players/14">Stoke City</a></li>
+            <li><a href="/players/15">Sunderland</a></li>
+            <li><a href="/players/16">Swansea City</a></li>
+            <li><a href="/players/17">Tottenham Hotspur</a></li>
+            <li><a href="/players/18">Watford</a></li>
+            <li><a href="/players/19">West Bromwich Albion</a></li>
+            <li><a href="/players/20">West Ham United</a></li>
+</ul>
+
+<ul id="dropdown2" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
+<ul id="dropdown3" class="dropdown-content">
+ <li><a href="/players/1">AFC Bournemouth</a></li>
+            <li><a href="/players/2">Arsenal</a></li>
+            <li><a href="/players/3">Burnley</a></li>
+            <li><a href="/players/4">Chelsea</a></li>
+            <li><a href="/players/5">Crystal Palace</a></li>
+            <li><a href="/players/6">Everton</a></li>
+            <li><a href="/players/7">Hull City</a></li>
+            <li><a href="/players/8">Leicester City</a></li>
+            <li><a href="/players/9">Liverpool</a></li>
+            <li><a href="/players/10">Manchester City</a></li>
+            <li><a href="/players/11">Manchester United</a></li>
+            <li><a href="/players/12">Middlesbrough</a></li>
+            <li><a href="/players/13">Southampton</a></li>
+            <li><a href="/players/14">Stoke City</a></li>
+            <li><a href="/players/15">Sunderland</a></li>
+            <li><a href="/players/16">Swansea City</a></li>
+            <li><a href="/players/17">Tottenham Hotspur</a></li>
+            <li><a href="/players/18">Watford</a></li>
+            <li><a href="/players/19">West Bromwich Albion</a></li>
+            <li><a href="/players/20">West Ham United</a></li>
+</ul>
+
+<ul id="dropdown4" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
+<ul id="dropdown5" class="dropdown-content">
+ <li><%= link_to "Player Results", '/teamsheet/admin_edit'%></li>
+ <li><%= link_to "Fixture Results", '/results/fixture_results' %></li>
+ <li><%= link_to "Manage Permissions", '/manage_permissions' %></li>
+ <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Manage Clubs<i class="material-icons right">arrow_drop_down</i></a></li>
+</ul>
+
+<div class="container-fluid">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+    &nbsp; &nbsp; 
+      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
+      link_to "UFFL", '/index', class: "brand-logo"
+      end
+      %></a>
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <div class="dropdown left">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <% @notifications_all.each do |n| %>
+      <% if n.show == "yes" %>
+      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
+      <% end %>
+      <% end %>
+      <a href="/notifications">Manage notifications</a>
+    </ul>
+  </div>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+       <li><a href="">Manage Permissions<span class="sr-only"></span></a></li>
+       <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Manage Clubs<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="/bids">Transfers<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">Pick Team<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/admin_edit">Player Results<span class="sr-only"></span></a></li>
+        <li><a href="/results/fixture_results">Fixture Results<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+ <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "alert alert-#{key}" %>
+<% end %>
+<div class="container">
+  <% @teamPlayers.each do |user_id, players| %>
+  <div class="card">
+    <div class="card-block">
+    <h4 class="card-title"><%= User.find(user_id).first_name %></h4>
+    <p class="card-text">
+    <% for p in players do %>
+    <%= Player.find(p.player_id).position %> - <%= Player.find(p.player_id).name %>
+    </p>
+  <% end %>
+  </div>
+  </div>
+  <% end %>
+</div>
+</body>
+</html>
+

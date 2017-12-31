@@ -10,12 +10,39 @@ before_filter :authorize_admin, :only => :admin_index
   helper_method :current_user, :logged_in?, :canView?, :adminUser?
 
 def admin_index
+  @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
 end 
 
 def manage_permissions
 end
 
 def admin_controls
+end
+
+def notification_settings_off
+  @notifications_all = Notification.all
+  for n in @notifications_all do 
+    n.update_attribute(:show, "no")
+  end
+  flash[:error] = "notification permissions revoked"
+    if require_admin then
+    redirect_to '/admin_index'
+    else
+    redirect_to '/index' 
+  end
+end
+
+def notification_settings_on
+  @notifications_all = Notification.all
+  for n in @notifications_all do 
+    n.update_attribute(:show, "yes")
+  end
+  flash[:error] = "notification permissions revoked"
+    if require_admin then
+    redirect_to '/admin_index'
+    else
+    redirect_to '/index' 
+  end
 end
 
 def manage_permissions_off
@@ -45,6 +72,7 @@ def manage_permissions_on
   end  
 
 def index
+  @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
 end 
 
 def current_user 

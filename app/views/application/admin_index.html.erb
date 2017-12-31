@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
@@ -29,6 +31,14 @@ border: none;
 
 .card-deck{
   margin-top: 10px;
+}
+
+#rcorners1 {
+    border-radius: 25px;
+    background: #D3D3D3;
+    padding: 10px; 
+    width: 200px;
+    height: 80px;    
 }
   </style>
 </head>
@@ -100,13 +110,25 @@ border: none;
 <div class="container-fluid">
     <nav>
     <div class="nav-wrapper green lighten-2">
-       &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
+    &nbsp; &nbsp; 
+      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
       link_to "UFFL", '/index', class: "brand-logo"
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+          <div class="dropdown left">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <% @notifications_all.each do |n| %>
+      <% if n.show == "yes" %>
+      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
+      <% end %>
+      <% end %>
+      <a href="/notifications">Manage notifications</a>
+    </ul>
+  </div>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
@@ -117,7 +139,7 @@ border: none;
         <li><a href="/teamsheet/index">Pick Team<span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/admin_edit">Player Results<span class="sr-only"></span></a></li>
         <li><a href="/results/fixture_results">Fixture Results<span class="sr-only"></span></a></li>
-         <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
@@ -128,6 +150,7 @@ border: none;
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
     <div class="card-deck">
+  <div class="row">
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
     <div class="card-block">
@@ -157,9 +180,20 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">Results</h4>
       <p class="card-text">View past matchday fixture results</p>
-      <a href="results/fixture_results" class="btn btn-primary">View Results</a>
+      <a href="fixtures/index" class="btn btn-primary">View Results</a>
     </div>
   </div>
+</div>
+  <div class="row">
+      <div class="card">
+    <img class="card-img-top" src="assets/pexels-photo-262524.jpeg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">View Teams</h4>
+      <p class="card-text">View other UFFL managers teams</p>
+      <a href="teamsheet/index2" class="btn btn-primary">View Teams</a>
+    </div>
+    </div>
+
     <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270700.jpeg" alt="Card image cap">
     <div class="card-block">
@@ -168,6 +202,7 @@ border: none;
       <a href="admin_controls" class="btn btn-primary">Admin Controls</a>
     </div>
     </div>
+  </div>
   </div>
     </div>
 

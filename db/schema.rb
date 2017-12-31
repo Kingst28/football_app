@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171223140811) do
+ActiveRecord::Schema.define(version: 20171229113740) do
 
   create_table "bids", force: true do |t|
     t.integer  "amount"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20171223140811) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "matchday_count"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "show"
   end
 
   create_table "players", force: true do |t|
