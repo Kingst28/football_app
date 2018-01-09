@@ -83,7 +83,7 @@ class LeagueTableController < ApplicationController
   end
 
   def viewLeagueTable 
-    @table = LeagueTable.order('points ASC').reorder('gd DESC')
+    @table = LeagueTable.order('points DESC').order('gd ASC')
   end
 
   def updatePlayed(homeTeam, awayTeam)
