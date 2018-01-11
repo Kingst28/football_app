@@ -22,8 +22,8 @@ Rails.application.configure do
     address: "smtp.gmail.com",
     port: 587,
     domain: "gmail.com",
-    user_name: "jaceace28@googlemail.com",
-    password: "kirbycane1"
+    user_name: "",
+    password: ""
   }  
 
   # Print deprecation notices to the Rails logger.
