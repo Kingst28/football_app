@@ -5,7 +5,7 @@ namespace :csv do
   desc "Import CSV Data"
   task :players => :environment do
 
-    csv_file_path = 'football_app/lib/tasks/players.csv'
+    csv_file_path = 'players.csv'
 
     CSV.foreach(csv_file_path) do |row|
       Player.create!({
