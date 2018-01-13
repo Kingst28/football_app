@@ -1,318 +1,287 @@
-Asmir Begovic,Goalkeeper,1,,,
-Nathan Ake,Defender,1,,,
-Steve Cook,Defender,1,,,
-Charlie Daniels,Defender,1,,,
-Simon Francis,Defender,1,,,
-Harry Arter,Midfielder,1,,,
-Ryan Fraser,Midfielder,1,,,
-Dan Gosling,Midfielder,1,,,
-Junior Stanislas,Midfielder,1,,,
-Jermain Defoe,Striker,1,,,
-Josh King,Striker,1,,,
-Callum Wilson,Striker,1,,,
-Petr Cech,Goalkeeper,2,,,
-Hector Bellerin,Defender,2,,,
-Sead Kolasinac,Defender,2,,,
-Laurent Koscielny,Defender,2,,,
-Nacho Monreal,Defender,2,,,
-Shkodran Mustafi,Defender,2,,,
-Alex Iwobi,Midfielder,2,,,
-Ainsley Maitland-Niles,Midfielder,2,,,
-Mesut Ozil,Midfielder,2,,,
-Jack Wilshere,Midfielder,2,,,
-Granit Xhaka,Midfielder,2,,,
-Alexandre Lacazette,Striker,2,,,
-Alexis Sanchez,Striker,2,,,
-Danny Welbeck,Striker,2,,,
-Mathew Ryan,Goalkeeper,3,,,
-Shane Duffy,Defender,3,,,
-Lewis Dunk,Defender,3,,,
-Pascal Gross,Midfielder,3,,,
-Jose Izquierdo-Mena,Midfielder,3,,,
-Anthony Knockeart,Midfielder,3,,,
-Solly March,Midfielder,3,,,
-Glenn Murray,Striker,3,,,
-Tom Heaton,Goalkeeper,4,,,
-Nick Pope,Goalkeeper,4,,,
-Phil Bardsley,Defender,4,,,
-Matthew Lowton,Defender,4,,,
-Ben Mee,Defender,4,,,
-James Tarkowski,Defender,4,,,
-Stephen Ward,Defender,4,,,
-Scott Arfield,Midfielder,4,,,
-Steven Defour,Midfielder,4,,,
-Johann Berg Gudmundsson,Midfielder,4,,,
-Jeff Hendrick,Midfielder,4,,,
-Ashley Barnes,Striker,4,,,
-Sam Vokes,Striker,4,,,
-Chris Wood,Striker,4,,,
-Thibaut Courtois,Goalkeeper,5,,,
-Marcos Alonso,Defender,5,,,
-Cezar Azpilicueta,Defender,5,,,
-Gary Cahill,Defender,5,,,
-Andreas Christensen,Defender,5,,,
-Antonio Rudiger,Defender,5,,,
-Davide Zapacosta,Defender,5,,,
-Tiemoue Bakayoko,Midfielder,5,,,
-Ross Barkley,Midfielder,5,,,
-Danny Drinkwater,Midfielder,5,,,
-Cesc Fabregas,Midfielder,5,,,
-Eden Hazard,Midfielder,5,,,
-N'Golo Kante ,Midfielder,5,,,
-Victor Moses,Midfielder,5,,,
-Pedro,Midfielder,5,,,
-Willian,Midfielder,5,,,
-Michy Batshuayi,Striker,5,,,
-Alvaro Morata,Striker,5,,,
-Wayne Hennessey,Goalkeeper,6,,,
-Julian Speroni,Goalkeeper,6,,,
-Scott Dann,Defender,6,,,
-Jairo Riedewald,Defender,6,,,
-Mamadou Sakho,Defender,6,,,
-Jeffrey Schlupp,Defender,6,,,
-James Tomkins,Defender,6,,,
-Yohan Cabaye,Midfielder,6,,,
-Ruben Loftus-Cheek,Midfielder,6,,,
-James McArthur,Midfielder,6,,,
-Luka Milivojevic,Midfielder,6,,,
-Andros Townsend,Midfielder,6,,,
-Christian Benteke,Striker,6,,,
-Wilfried Zaha,Striker,6,,,
-Jordan Pickford,Goalkeeper,7,,,
-Phil Jagielka,Defender,7,,,
-Michael Keane,Defender,7,,,
-Jonjoe Kenny,Defender,7,,,
-Cuco Martina,Defender,7,,,
-Ashley Williams,Defender,7,,,
-Idrissa Gana-Gueye,Midfielder,7,,,
-Aaron Lennon,Midfielder,7,,,
-Morgan Schneiderlin,Midfielder,7,,,
-Gylfi Sigurdsson,Midfielder,7,,,
-Dominic Calvert-Lewin,Striker,7,,,
-Wayne Rooney,Striker,7,,,
-Cenk Tosun,Striker,7,,,
-Jonas Lossl,Goalkeeper,8,,,
-Terence Kongolo,Defender,8,,,
-Tom Ince,Midfielder,8,,,
-Aaron Mooy,Midfielder,8,,,
-Alex Pritchard,Midfielder,8,,,
-Rajiv van La Parra,Midfielder,8,,,
-Laurent Depoitre,Striker,8,,,
-Steve Mounie,Striker,8,,,
-Kasper Schmeichel,Goalkeeper,9,,,
-Christian Fuchs,Defender,9,,,
-Harry Maguire,Defender,9,,,
-Danny Simpson,Defender,9,,,
-Demarai Gray,Midfielder,9,,,
-Vicente Iborra,Midfielder,9,,,
-Riyad Mahrez,Midfielder,9,,,
-Adrien Silva,Midfielder,9,,,
-Shinji Okazaki,Striker,9,,,
-Islam Slimani,Striker,9,,,
-Jamie Vardy,Striker,9,,,
-Simon Mignolet,Goalkeeper,10,,,
-Ragnar Klavan,Defender,10,,,
-Dejan Lovren,Defender,10,,,
-Joel Matip,Defender,10,,,
-Andrew Robertson,Defender,10,,,
-Virgil van Dijk,Defender,10,,,
-Emre Can,Midfielder,10,,,
-Alex Oxlade-Chamberlain,Midfielder,10,,,
-Adam Lallana,Midfielder,10,,,
-Sadio Mane,Midfielder,10,,,
-James Milner,Midfielder,10,,,
-Mohamed Salah,Midfielder,10,,,
-Georginio Wijnaldum,Midfielder,10,,,
-Roberto Firmino,Striker,10,,,
-Ederson Santana de Moraes,Goalkeeper,11,,,
-Danilo,Defender,11,,,
-Vincent Kompany,Defender,11,,,
-Nicolas Otamendi,Defender,11,,,
-John Stones,Defender,11,,,
-Kyle Walker,Defender,11,,,
-Kevin de Bruyne,Midfielder,11,,,
-Fabian Delph,Midfielder,11,,,
-Fernandinho,Midfielder,11,,,
-Ilkay Gundogan,Midfielder,11,,,
-Leroy Sane,Midfielder,11,,,
-Bernardo Silva,Midfielder,11,,,
-David Silva,Midfielder,11,,,
-Raheem Sterling,Midfielder,11,,,
-Sergio Aguero,Striker,11,,,
-David de Gea,Goalkeeper,12,,,
-Phil Jones,Defender,12,,,
-Victor Lindelof,Defender,12,,,
-Marcos Rojo,Defender,12,,,
-Luke Shaw,Defender,12,,,
-Chris Smalling,Defender,12,,,
-Antonio Valencia,Defender,12,,,
-Ander Herrera,Midfielder,12,,,
-Jesse Lingard,Midfielder,12,,,
-Juan Mata,Midfielder,12,,,
-Nemanja Matic,Midfielder,12,,,
-Henrikh Mkhitaryan,Midfielder,12,,,
-Paul Pogba,Midfielder,12,,,
-Ashley Young,Midfielder,12,,,
-Zlatan Ibrahimovic,Striker,12,,,
-Romelu Lukaku,Striker,12,,,
-Anthony Martial,Striker,12,,,
-Marcus Rashford,Striker,12,,,
-Karl Darlow,Goalkeeper,13,,,
-Rob Elliott,Goalkeeper,13,,,
-Ciaran Clark,Defender,13,,,
-Paul Dummett,Defender,13,,,
-Isaac Hayden,Defender,13,,,
-Jamaal Lascelles,Defender,13,,,
-Florian Lejeune,Defender,13,,,
-DeAndre Yedlin,Defender,13,,,
-Christian Atsu,Midfielder,13,,,
-Mikel Merino,Midfielder,13,,,
-Jacob Murphy ,Midfielder,13,,,
-Matt Ritchie,Midfielder,13,,,
-Jonjo Shelvey,Midfielder,13,,,
-Dwight Gayle,Striker,13,,,
-Joselu,Striker,13,,,
-Ayoze Perez,Striker,13,,,
-Fraser Forster,Goalkeeper,14,,,
-Ryan Bertrand,Defender,14,,,
-Wesley Hoedt,Defender,14,,,
-Cedric Soares,Defender,14,,,
-Matt Targett,Defender,14,,,
-Maya Yoshida,Defender,14,,,
-Sofiane Boufal,Midfielder,14,,,
-Steven Davis,Midfielder,14,,,
-Nathan Redmond,Midfielder,14,,,
-Oriol Romeu,Midfielder,14,,,
-Dusan Tadic,Midfielder,14,,,
-James Ward-Prowse,Midfielder,14,,,
-Manolo Gabbiadini,Striker,14,,,
-Shane Long,Striker,14,,,
-Jack Butland,Goalkeeper,15,,,
-Geoff Cameron,Defender,15,,,
-Bruno Martins-Indi,Defender,15,,,
-Erik Pieters,Defender,15,,,
-Ryan Shawcross,Defender,15,,,
-Kevin Wimmer,Defender,15,,,
-Kurt Zouma,Defender,15,,,
-Charlie Adam,Midfielder,15,,,
-Ibrahim Afellay,Midfielder,15,,,
-Joe Allen,Midfielder,15,,,
-Darren Fletcher,Midfielder,15,,,
-Jese Rodriguez,Midfielder,15,,,
-Xherdan Shaquiri,Midfielder,15,,,
-Ramadan Sobhi-Ahmed,Midfielder,15,,,
-Saido Berahino,Striker,15,,,
-Eric Maxim Choupo-Moting,Striker,15,,,
-Peter Crouch,Striker,15,,,
-Mame Biram Diouf,Striker,15,,,
-Lukasz Fabianski,Goalkeeper,16,,,
-Federico Fernandez,Defender,16,,,
-Alfie Mawson,Defender,16,,,
-Kyle Naughton,Defender,16,,,
-Martin Olsson,Defender,16,,,
-Mike van der Hoorn,Defender,16,,,
-Tom Carroll,Midfielder,16,,,
-Sam Clucas,Midfielder,16,,,
-Nathan Dyer,Midfielder,16,,,
-Leroy Fer,Midfielder,16,,,
-Luciano Narsingh,Midfielder,16,,,
-Wayne Routledge,Midfielder,16,,,
-Renato Sanches,Midfielder,16,,,
-Tammy Abraham,Striker,16,,,
-Jordan Ayew,Striker,16,,,
-Hugo Lloris,Goalkeeper,17,,,
-Toby Alderweireld,Defender,17,,,
-Serge Aurier,Defender,17,,,
-Ben Davies,Defender,17,,,
-Eric Dier,Defender,17,,,
-Danny Rose,Defender,17,,,
-Davinson Sanchez-Mina,Defender,17,,,
-Kieran Trippier,Defender,17,,,
-Jan Vertonghen,Defender,17,,,
-Dele Alli,Midfielder,17,,,
-Mousa Dembele,Midfielder,17,,,
-Christian Eriksen,Midfielder,17,,,
-Moussa Sissoko,Midfielder,17,,,
-Victor Wanyama,Midfielder,17,,,
-Harry Winks,Midfielder,17,,,
-Harry Kane,Striker,17,,,
-Fernando Llorente,Striker,17,,,
-Heung-Min Son,Striker,17,,,
-Heurelho Gomes,Goalkeeper,18,,,
-Miguel Britos,Defender,18,,,
-Jose Holebas,Defender,18,,,
-Daryl Janmaat,Defender,18,,,
-Christian Kabsele,Defender,18,,,
-Adrian Mariappa,Defender,18,,,
-Juan Carlos Paredes,Defender,18,,,
-Sebastian Prodl,Defender,18,,,
-Marvin Zeegelaar,Defender,18,,,
-Juan-Camilo Zuniga,Defender,18,,,
-Andre Carrillo,Midfielder,18,,,
-Tom Cleverley,Midfielder,18,,,
-Abdoulaye Doucoure,Midfielder,18,,,
-Richarlison deAndrade,Striker,18,,,
-Troy Deeney,Striker,18,,,
-Andre Gray,Striker,18,,,
-Stefano Okaka,Striker,18,,,
-Ben Foster,Goalkeeper,19,,,
-Craig Dawson,Defender,19,,,
-Jonny Evans,Defender,19,,,
-Kieran Gibbs,Defender,19,,,
-Ahmed Hegazi,Defender,19,,,
-Gareth McAuley,Defender,19,,,
-Allan Nyom,Defender,19,,,
-Jonas Olsson,Defender,19,,,
-Gregorz Krychowiak,Midfielder,19,,,
-Jake Livermore,Midfielder,19,,,
-James McClean,Midfielder,19,,,
-Hal Robson-Kanu,Striker,19,,,
-Jay Rodriguez,Striker,19,,,
-Salomon Rondon,Striker,19,,,
-Adrian,Goalkeeper,20,,,
-Joe Hart,Goalkeeper,20,,,
-James Collins,Defender,20,,,
-Aaron Cresswell,Defender,20,,,
-Angelo Ogbonna,Defender,20,,,
-Winston Reid,Defender,20,,,
-Pablo Maffeo Zabaleta,Defender,20,,,
-Michail Antonio,Midfielder,20,,,
-Cheikhou Kouyate,Midfielder,20,,,
-Manuel Lanzini,Midfielder,20,,,
-Mark Noble,Midfielder,20,,,
-Pedro Obiang,Midfielder,20,,,
-Marko Arnautovic,Striker,20,,,
-Andre Ayew,Striker,20,,,
-Andy Carroll,Striker,20,,,
-Javier Hernandez,Striker,20,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
+Asmir Begovic,Goalkeeper,1
+Nathan Ake,Defender,1
+Steve Cook,Defender,1
+Charlie Daniels,Defender,1
+Simon Francis,Defender,1
+Harry Arter,Midfielder,1
+Ryan Fraser,Midfielder,1
+Dan Gosling,Midfielder,1
+Junior Stanislas,Midfielder,1
+Jermain Defoe,Striker,1
+Josh King,Striker,1
+Callum Wilson,Striker,1
+Petr Cech,Goalkeeper,2
+Hector Bellerin,Defender,2
+Sead Kolasinac,Defender,2
+Laurent Koscielny,Defender,2
+Nacho Monreal,Defender,2
+Shkodran Mustafi,Defender,2
+Alex Iwobi,Midfielder,2
+Ainsley Maitland-Niles,Midfielder,2
+Mesut Ozil,Midfielder,2
+Jack Wilshere,Midfielder,2
+Granit Xhaka,Midfielder,2
+Alexandre Lacazette,Striker,2
+Alexis Sanchez,Striker,2
+Danny Welbeck,Striker,2
+Mathew Ryan,Goalkeeper,3
+Shane Duffy,Defender,3
+Lewis Dunk,Defender,3
+Pascal Gross,Midfielder,3
+Jose Izquierdo-Mena,Midfielder,3
+Anthony Knockeart,Midfielder,3
+Solly March,Midfielder,3
+Glenn Murray,Striker,3
+Tom Heaton,Goalkeeper,4
+Nick Pope,Goalkeeper,4
+Phil Bardsley,Defender,4
+Matthew Lowton,Defender,4
+Ben Mee,Defender,4
+James Tarkowski,Defender,4
+Stephen Ward,Defender,4
+Scott Arfield,Midfielder,4
+Steven Defour,Midfielder,4
+Johann Berg Gudmundsson,Midfielder,4
+Jeff Hendrick,Midfielder,4
+Ashley Barnes,Striker,4
+Sam Vokes,Striker,4
+Chris Wood,Striker,4
+Thibaut Courtois,Goalkeeper,5
+Marcos Alonso,Defender,5
+Cezar Azpilicueta,Defender,5
+Gary Cahill,Defender,5
+Andreas Christensen,Defender,5
+Antonio Rudiger,Defender,5
+Davide Zapacosta,Defender,5
+Tiemoue Bakayoko,Midfielder,5
+Ross Barkley,Midfielder,5
+Danny Drinkwater,Midfielder,5
+Cesc Fabregas,Midfielder,5
+Eden Hazard,Midfielder,5
+N'Golo Kante ,Midfielder,5
+Victor Moses,Midfielder,5
+Pedro,Midfielder,5
+Willian,Midfielder,5
+Michy Batshuayi,Striker,5
+Alvaro Morata,Striker,5
+Wayne Hennessey,Goalkeeper,6
+Julian Speroni,Goalkeeper,6
+Scott Dann,Defender,6
+Jairo Riedewald,Defender,6
+Mamadou Sakho,Defender,6
+Jeffrey Schlupp,Defender,6
+James Tomkins,Defender,6
+Yohan Cabaye,Midfielder,6
+Ruben Loftus-Cheek,Midfielder,6
+James McArthur,Midfielder,6
+Luka Milivojevic,Midfielder,6
+Andros Townsend,Midfielder,6
+Christian Benteke,Striker,6
+Wilfried Zaha,Striker,6
+Jordan Pickford,Goalkeeper,7
+Phil Jagielka,Defender,7
+Michael Keane,Defender,7
+Jonjoe Kenny,Defender,7
+Cuco Martina,Defender,7
+Ashley Williams,Defender,7
+Idrissa Gana-Gueye,Midfielder,7
+Aaron Lennon,Midfielder,7
+Morgan Schneiderlin,Midfielder,7
+Gylfi Sigurdsson,Midfielder,7
+Dominic Calvert-Lewin,Striker,7
+Wayne Rooney,Striker,7
+Cenk Tosun,Striker,7
+Jonas Lossl,Goalkeeper,8
+Terence Kongolo,Defender,8
+Tom Ince,Midfielder,8
+Aaron Mooy,Midfielder,8
+Alex Pritchard,Midfielder,8
+Rajiv van La Parra,Midfielder,8
+Laurent Depoitre,Striker,8
+Steve Mounie,Striker,8
+Kasper Schmeichel,Goalkeeper,9
+Christian Fuchs,Defender,9
+Harry Maguire,Defender,9
+Danny Simpson,Defender,9
+Demarai Gray,Midfielder,9
+Vicente Iborra,Midfielder,9
+Riyad Mahrez,Midfielder,9
+Adrien Silva,Midfielder,9
+Shinji Okazaki,Striker,9
+Islam Slimani,Striker,9
+Jamie Vardy,Striker,9
+Simon Mignolet,Goalkeeper,10
+Ragnar Klavan,Defender,10
+Dejan Lovren,Defender,10
+Joel Matip,Defender,10
+Andrew Robertson,Defender,10
+Virgil van Dijk,Defender,10
+Emre Can,Midfielder,10
+Alex Oxlade-Chamberlain,Midfielder,10
+Adam Lallana,Midfielder,10
+Sadio Mane,Midfielder,10
+James Milner,Midfielder,10
+Mohamed Salah,Midfielder,10
+Georginio Wijnaldum,Midfielder,10
+Roberto Firmino,Striker,10
+Ederson Santana de Moraes,Goalkeeper,11
+Danilo,Defender,11
+Vincent Kompany,Defender,11
+Nicolas Otamendi,Defender,11
+John Stones,Defender,11
+Kyle Walker,Defender,11
+Kevin de Bruyne,Midfielder,11
+Fabian Delph,Midfielder,11
+Fernandinho,Midfielder,11
+Ilkay Gundogan,Midfielder,11
+Leroy Sane,Midfielder,11
+Bernardo Silva,Midfielder,11
+David Silva,Midfielder,11
+Raheem Sterling,Midfielder,11
+Sergio Aguero,Striker,11
+David de Gea,Goalkeeper,12
+Phil Jones,Defender,12
+Victor Lindelof,Defender,12
+Marcos Rojo,Defender,12
+Luke Shaw,Defender,12
+Chris Smalling,Defender,12
+Antonio Valencia,Defender,12
+Ander Herrera,Midfielder,12
+Jesse Lingard,Midfielder,12
+Juan Mata,Midfielder,12
+Nemanja Matic,Midfielder,12
+Henrikh Mkhitaryan,Midfielder,12
+Paul Pogba,Midfielder,12
+Ashley Young,Midfielder,12
+Zlatan Ibrahimovic,Striker,12
+Romelu Lukaku,Striker,12
+Anthony Martial,Striker,12
+Marcus Rashford,Striker,12
+Karl Darlow,Goalkeeper,13
+Rob Elliott,Goalkeeper,13
+Ciaran Clark,Defender,13
+Paul Dummett,Defender,13
+Isaac Hayden,Defender,13
+Jamaal Lascelles,Defender,13
+Florian Lejeune,Defender,13
+DeAndre Yedlin,Defender,13
+Christian Atsu,Midfielder,13
+Mikel Merino,Midfielder,13
+Jacob Murphy ,Midfielder,13
+Matt Ritchie,Midfielder,13
+Jonjo Shelvey,Midfielder,13
+Dwight Gayle,Striker,13
+Joselu,Striker,13
+Ayoze Perez,Striker,13
+Fraser Forster,Goalkeeper,14
+Ryan Bertrand,Defender,14
+Wesley Hoedt,Defender,14
+Cedric Soares,Defender,14
+Matt Targett,Defender,14
+Maya Yoshida,Defender,14
+Sofiane Boufal,Midfielder,14
+Steven Davis,Midfielder,14
+Nathan Redmond,Midfielder,14
+Oriol Romeu,Midfielder,14
+Dusan Tadic,Midfielder,14
+James Ward-Prowse,Midfielder,14
+Manolo Gabbiadini,Striker,14
+Shane Long,Striker,14
+Jack Butland,Goalkeeper,15
+Geoff Cameron,Defender,15
+Bruno Martins-Indi,Defender,15
+Erik Pieters,Defender,15
+Ryan Shawcross,Defender,15
+Kevin Wimmer,Defender,15
+Kurt Zouma,Defender,15
+Charlie Adam,Midfielder,15
+Ibrahim Afellay,Midfielder,15
+Joe Allen,Midfielder,15
+Darren Fletcher,Midfielder,15
+Jese Rodriguez,Midfielder,15
+Xherdan Shaquiri,Midfielder,15
+Ramadan Sobhi-Ahmed,Midfielder,15
+Saido Berahino,Striker,15
+Eric Maxim Choupo-Moting,Striker,15
+Peter Crouch,Striker,15
+Mame Biram Diouf,Striker,15
+Lukasz Fabianski,Goalkeeper,16
+Federico Fernandez,Defender,16
+Alfie Mawson,Defender,16
+Kyle Naughton,Defender,16
+Martin Olsson,Defender,16
+Mike van der Hoorn,Defender,16
+Tom Carroll,Midfielder,16
+Sam Clucas,Midfielder,16
+Nathan Dyer,Midfielder,16
+Leroy Fer,Midfielder,16
+Luciano Narsingh,Midfielder,16
+Wayne Routledge,Midfielder,16
+Renato Sanches,Midfielder,16
+Tammy Abraham,Striker,16
+Jordan Ayew,Striker,16
+Hugo Lloris,Goalkeeper,17
+Toby Alderweireld,Defender,17
+Serge Aurier,Defender,17
+Ben Davies,Defender,17
+Eric Dier,Defender,17
+Danny Rose,Defender,17
+Davinson Sanchez-Mina,Defender,17
+Kieran Trippier,Defender,17
+Jan Vertonghen,Defender,17
+Dele Alli,Midfielder,17
+Mousa Dembele,Midfielder,17
+Christian Eriksen,Midfielder,17
+Moussa Sissoko,Midfielder,17
+Victor Wanyama,Midfielder,17
+Harry Winks,Midfielder,17
+Harry Kane,Striker,17
+Fernando Llorente,Striker,17
+Heung-Min Son,Striker,17
+Heurelho Gomes,Goalkeeper,18
+Miguel Britos,Defender,18
+Jose Holebas,Defender,18
+Daryl Janmaat,Defender,18
+Christian Kabsele,Defender,18
+Adrian Mariappa,Defender,18
+Juan Carlos Paredes,Defender,18
+Sebastian Prodl,Defender,18
+Marvin Zeegelaar,Defender,18
+Juan-Camilo Zuniga,Defender,18
+Andre Carrillo,Midfielder,18
+Tom Cleverley,Midfielder,18
+Abdoulaye Doucoure,Midfielder,18
+Richarlison deAndrade,Striker,18
+Troy Deeney,Striker,18
+Andre Gray,Striker,18
+Stefano Okaka,Striker,18
+Ben Foster,Goalkeeper,19
+Craig Dawson,Defender,19
+Jonny Evans,Defender,19
+Kieran Gibbs,Defender,19
+Ahmed Hegazi,Defender,19
+Gareth McAuley,Defender,19
+Allan Nyom,Defender,19
+Jonas Olsson,Defender,19
+Gregorz Krychowiak,Midfielder,19
+Jake Livermore,Midfielder,19
+James McClean,Midfielder,19
+Hal Robson-Kanu,Striker,19
+Jay Rodriguez,Striker,19
+Salomon Rondon,Striker,19
+Adrian,Goalkeeper,20
+Joe Hart,Goalkeeper,20
+James Collins,Defender,20
+Aaron Cresswell,Defender,20
+Angelo Ogbonna,Defender,20
+Winston Reid,Defender,20
+Pablo Maffeo Zabaleta,Defender,20
+Michail Antonio,Midfielder,20
+Cheikhou Kouyate,Midfielder,20
+Manuel Lanzini,Midfielder,20
+Mark Noble,Midfielder,20
+Pedro Obiang,Midfielder,20
+Marko Arnautovic,Striker,20
+Andre Ayew,Striker,20
+Andy Carroll,Striker,20
+Javier Hernandez,Striker,20
