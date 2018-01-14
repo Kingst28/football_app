@@ -35,9 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'round_robin_tournament'
 
-gem 'sunspot_rails'
+#gem 'sunspot_rails'
 
-gem 'sunspot_solr'
+#gem 'sunspot_solr'
 
 gem 'jquery-turbolinks'
 
