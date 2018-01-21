@@ -54,14 +54,14 @@ end
   def checkBids 
     @bids = Bid.all
     @playerbids = []
-    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id. :user_id).having("count(*) > 1")
+    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1")
   end
   
   def insertWinners
     @users = User.all
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
-    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1")
+    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1") 
     for d in @duplicates do
       if Teamsheet.exists?(:player_id => d.player_id)
        Player.find(d.player_id).update_column(:taken,"Yes")
