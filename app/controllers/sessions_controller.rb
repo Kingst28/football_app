@@ -28,6 +28,7 @@ def show
 end
 
  def edit
+   @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
  end
 
  def user_param
