@@ -1,8 +1,9 @@
 class TeamsheetController < ApplicationController
 
    def index 
-  	@players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
+  	 @players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
     @playerList = Teamsheet.where(:user_id => current_user.id)
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @goalkeeper = []
     @defender = []
     @midfielder = []
