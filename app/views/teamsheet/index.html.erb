@@ -385,7 +385,7 @@ border: none;
               <span class="card-title"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
               <p> 
       <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
-      <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
+      <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %><br>
       Bid amount:
       <%= quid(p.amount) %> <br> 
       </p>
