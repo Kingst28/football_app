@@ -41,8 +41,6 @@ $(document).ready(function(){
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
