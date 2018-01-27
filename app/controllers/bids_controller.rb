@@ -61,7 +61,8 @@ end
     @users = User.all
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
-    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(bid.player_id).having("count(*) > 1") 
+    #@duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1") 
+    @duplicates = Bid.where("player_id in (select player_id, user_id, amount, MAX(amount) from bids group by player_id having count(*)>1)").order(:player_id)
     for d in @duplicates do
       if Teamsheet.exists?(:player_id => d.player_id)
        Player.find(d.player_id).update_column(:taken,"Yes")
