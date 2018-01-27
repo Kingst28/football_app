@@ -66,7 +66,7 @@ end
       if Teamsheet.exists?(:player_id => d.player_id)
        Player.find(d.player_id).update_column(:taken,"Yes")
       else
-       @teamsheet_new = Teamsheet.new(:user_id => d.pluck(:user_id), :player_id => d.player_id, :amount => d.amount, :active => "true")
+       @teamsheet_new = Teamsheet.new(:user_id => d.find(:user_id), :player_id => d.player_id, :amount => d.amount, :active => "true")
        @teamsheet_new.save
        @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d.amount}")
        @notification_new.save
