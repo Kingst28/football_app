@@ -60,7 +60,7 @@ $(document).ready(function(){
   <div class="col s6" style="background-color:white;">
 		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
      <div class="input-field">
-    <%= f.select :player_id, options_from_collection_for_select(@player_options,
+    <%= f.select :player_id, :position, options_from_collection_for_select(@player_options,
  :id,:name,:position), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
