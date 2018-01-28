@@ -61,7 +61,7 @@ $(document).ready(function(){
 		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
 		<div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@player_options,
- :id,:name), {}, 
+ :id,:name, :position, Player.select(:position).where(:id => :id).pluck(:position).to_s.tr('""','').tr('[]','') ), {}, 
 id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
@@ -83,3 +83,6 @@ id: "template-example", data: { placeholder: "Select a player" } %>
 
 </body>
 </html>
+
+      <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
+      <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %><br>
