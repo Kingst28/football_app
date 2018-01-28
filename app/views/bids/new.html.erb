@@ -83,6 +83,3 @@ id: "template-example", data: { placeholder: "Select a player" } %>
 
 </body>
 </html>
-
-      <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
-      <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %><br>
