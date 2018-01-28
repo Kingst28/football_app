@@ -61,7 +61,7 @@ $(document).ready(function(){
 		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
      <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@player_options,
- :id,:name, :position), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+ :id,:name,:position), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
