@@ -95,6 +95,8 @@ end
        currentBudget1 = @user1.budget
        newBudget1 = currentBudget1 + bidAmount
        @user1.update_attribute(:budget, newBudget1)
+       @deleteTeamsheet = Teamsheet.where(:player_id => d.player_id).destroy_all
+       @deleteBids = Bid.where(:player_id => d.player_id).destroy_all
        if Bid.exists?(b.read_attribute(:id))
        @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
        else
