@@ -65,11 +65,13 @@
 
   <tbody>
     <% @notifications.where(:user_id => current_user.id).each do |notification| %>
+    <% if n.show == "yes" %>
       <tr>
         <td><%= User.find(notification.user_id).first_name %></td>
         <td><%= notification.message %></td>
         <td><%= link_to 'Mark as read', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
