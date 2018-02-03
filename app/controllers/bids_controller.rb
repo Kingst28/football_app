@@ -37,6 +37,11 @@ end
 def require_canView
   current_user.canView?
 end
+      
+def notificationStatus
+  show = Notification.find(1).read_attribute(:show)
+  return show
+end
 
   # GET /bids/1
   # GET /bids/1.json
