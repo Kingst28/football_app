@@ -39,8 +39,12 @@ def require_canView
 end
       
 def notificationStatus
-  show = Notification.find(1).read_attribute(:show)
-  return show
+  if Notification.exists? 
+    show = Notification.first.read_attribute(:show)
+    return show
+  else 
+    return "no"
+  end
 end
 
   # GET /bids/1
@@ -122,11 +126,11 @@ end
       for nu in @notify_users do
         if nu.id == u.id 
         else
-        @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => notificationStatus())
         @notification_new.save
       end
       end
-      @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+      @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => notificationStatus())
       @notification_new.save
       end
       end
@@ -184,11 +188,11 @@ end
       for nu in @notify_users do
         if nu.id == current_user.id 
         else
-        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => "yes")
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => notificationStatus())
         @notification_new.save
       end
       end
-    @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => "yes")
+    @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => notificationStatus())
     @notification_new.save
     respond_to do |format|
       if @bid.save 
