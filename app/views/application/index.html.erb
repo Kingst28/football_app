@@ -122,7 +122,9 @@ border: none;
     </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <% @notifications_all.each do |n| %>
+      <% if n.show == "yes" %>
       <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
+      <% end %>
       <% end %>
       <a href="/notifications">Manage notifications</a>
     </ul>
