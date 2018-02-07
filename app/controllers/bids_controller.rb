@@ -75,10 +75,10 @@ end
       if Teamsheet.exists?(:player_id => d.player_id)
        Player.find(d.player_id).update_column(:taken,"Yes")
       else
-       #@teamsheet_new = Teamsheet.new(:user_id => d.user_id, :player_id => d.player_id, :amount => d.amount, :active => "true")
-       #@teamsheet_new.save
-       #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d.amount}")
-       #@notification_new.save
+       @teamsheet_new = Teamsheet.new(:user_id => d.user_id, :player_id => d.player_id, :amount => d.amount, :active => "true")
+       @teamsheet_new.save
+       @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d.amount}")
+       @notification_new.save
        @destroyOtherBids = Bid.where(:player_id => d.player_id).where.not(:user_id => d.user_id)
        refunded = false
        @destroyOtherBids.each do |b| 
