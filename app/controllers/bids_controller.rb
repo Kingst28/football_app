@@ -70,23 +70,31 @@ end
     @users = User.all
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
-    @duplicates = Bid.find_by_sql("SELECT player_id, user_id, amount, MAX(amount) FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)") 
-    for d in @duplicates do
-      if Teamsheet.exists?(:player_id => d.player_id)
-       Player.find(d.player_id).update_column(:taken,"Yes")
+    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1") 
+    #@highest_amount = Bid.find_by_sql("SELECT MAX(amount) as amount FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
+    @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
+    @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
+    #need to extract all bids that are in the @highest_amount array getting all attributes along with them from the SELECT * call in @duplicates1
+    @final_duplicates = []
+    for element in @highest_amount do
+      @final_duplicates << @duplicates1.select { |record| record.amount == element.read_attribute(:amount) }
+    end
+    for d in @final_duplicates do
+      if Teamsheet.exists?(:player_id => d[0].player_id)
+       Player.find(d[0].player_id).update_column(:taken,"Yes")
       else
-       #@teamsheet_new = Teamsheet.new(:user_id => d.user_id, :player_id => d.player_id, :amount => d.amount, :active => "true")
-       #@teamsheet_new.save
-       #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d.amount}")
-       #@notification_new.save
-       @destroyOtherBids = Bid.where(:player_id => d.player_id).where.not(:user_id => d.user_id)
+       @teamsheet_new = Teamsheet.new(:user_id => d[0].user_id, :player_id => d[0].player_id, :amount => d[0].amount, :active => "true")
+       @teamsheet_new.save
+       @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d[0].amount}")
+       @notification_new.save
+       @destroyOtherBids = Bid.where(:player_id => d[0].player_id).where.not(:user_id => d[0].user_id)
        refunded = false
        @destroyOtherBids.each do |b| 
        bidAmount = b.read_attribute(:amount) 
-       if b.read_attribute(:amount).to_i == d.amount.to_i && refunded == false then
-       @user = User.find(d.user_id)
+       if b.read_attribute(:amount).to_i == d[0].amount.to_i && refunded == false then
+       @user = User.find(d[0].user_id)
        currentBudget = @user.budget.to_i
-       newBudget = currentBudget + d.amount.to_i
+       newBudget = currentBudget + d[0].amount.to_i
        if newBudget > 1000000 then
        @user.update_attribute(:budget, 1000000)
        else
@@ -96,16 +104,14 @@ end
        currentBudget1 = @user1.budget.to_i
        newBudget1 = currentBudget1 + b.read_attribute(:amount).to_i
        @user1.update_attribute(:budget, newBudget1)
-       @deleteTeamsheet = Teamsheet.where(:player_id => d.player_id).destroy_all
-       @deleteBids = Bid.where(:player_id => d.player_id).destroy_all
+       @deleteTeamsheet = Teamsheet.where(:player_id => d[0].player_id).destroy_all
+       @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
        refunded = true
        else
        @user1 = User.find(b.read_attribute(:user_id))
        currentBudget1 = @user1.budget
        newBudget1 = currentBudget1 + bidAmount
        @user1.update_attribute(:budget, newBudget1)
-       @deleteTeamsheet = Teamsheet.where(:player_id => d.player_id).destroy_all
-       @deleteBids = Bid.where(:player_id => d.player_id).destroy_all
        if Bid.exists?(b.read_attribute(:id))
        @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
        else
@@ -126,17 +132,17 @@ end
       for nu in @notify_users do
         if nu.id == u.id 
         else
-        @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => notificationStatus())
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
         @notification_new.save
       end
       end
-      @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => notificationStatus())
+      @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
       @notification_new.save
       end
       end
     end
 end
-
+      
   def subtract_amount
     @bidCount = Bid.where(:user_id => current_user.id)
     @bidAmount = @bidCount.pluck(:amount)
