@@ -60,7 +60,17 @@ border: none;
       link_to "UFFL", '/index', class: "brand-logo"
       end
       %></a>
-      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
       <ul class="right hide-on-med-and-down">
     <div class="dropdown left">
     <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
@@ -76,13 +86,6 @@ border: none;
   </div>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/bids">Transfers<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">Pick Team<span class="sr-only"></span></a></li>
-        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
