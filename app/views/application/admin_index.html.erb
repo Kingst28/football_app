@@ -51,8 +51,8 @@ border: none;
 
 <body>
 <div class="container-fluid">
-    <nav style="width:100% !important">
-    <div class="nav-wrapper green lighten-2">
+    <nav>
+    <div style="width:100% !important;" class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
       <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
       link_to "UFFL", '/index', class: "brand-logo"
