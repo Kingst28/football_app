@@ -51,7 +51,6 @@ border: none;
 
 <body>
 <div class="container-fluid">
-    <div class="row">
     <nav>
     <div style="width:100% !important;" class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
@@ -85,7 +84,6 @@ border: none;
     </div>
   </div>
   </nav>
-  </div>
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
