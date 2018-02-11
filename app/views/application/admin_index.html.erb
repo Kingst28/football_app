@@ -53,7 +53,7 @@ border: none;
 
 <body>
 <div class="container-fluid">
-    <nav>
+    <nav class="navbar navbar-default" role="navigation">
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
       <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
