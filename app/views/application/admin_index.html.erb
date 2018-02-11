@@ -53,7 +53,7 @@ border: none;
 
 <body>
 <div class="container-fluid">
-    <nav class="navbar navbar-default" role="navigation">
+    <nav>
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
       <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
@@ -86,6 +86,7 @@ border: none;
     </div>
   </div>
   </nav>
+  </div>
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
