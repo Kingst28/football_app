@@ -157,11 +157,11 @@ border: none;
     <p class="card-text">
     <% for f in fixtures do %>
     <% if f.haflag == "Home" %>
-    Home - <%= User.find(f.hteam).first_name %> <% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%> <% end %> <%=User.find(f.ateam).first_name %> 
+    Home - <%= User.find(f.hteam).first_name %> <% if f.finalscore != null %> <%=f.finalscore.insert(1,"-")%> <% end %> <%=User.find(f.ateam).first_name %> 
     <br />
     <br />
     <% else %>
-    Away - <%= User.find(f.hteam).first_name %> <% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%> <% end %> <%=User.find(f.ateam).first_name %>
+    Away - <%= User.find(f.hteam).first_name %> <% if f.finalscore != null %> <%=f.finalscore.insert(1,"-")%> <% end %> <%=User.find(f.ateam).first_name %>
     </p>
   <% end %>
   <% end %>
