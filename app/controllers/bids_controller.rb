@@ -57,7 +57,10 @@ end
   def new
     @bid = Bid.new
     #create a flag in player model which sets if players have been won or not here. 
-    @player_options = Player.order('teams_id ASC').where(:taken => "No")
+    @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")
+    @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
+    @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
+    @strikers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Striker")
   end
 
   def checkBids 
