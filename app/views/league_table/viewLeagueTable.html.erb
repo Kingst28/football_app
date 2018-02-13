@@ -118,9 +118,9 @@ tr:nth-child(even) {
   <div class="row center">
     
     <div class="col-sm-3" style="background-color:white;">
-  <table id="myTable">
+  <table>
   <tr>
-    <th>Pos<th>
+    <th>Pos</th>
     <th>Team</th>
     <th>Played</th>
     <th>Won</th>
@@ -129,11 +129,11 @@ tr:nth-child(even) {
     <th>For</th>
     <th>Against</th>
     <th>GD</th>
-    <th>Points</th  
+    <th>Points</th>  
   </tr>
   <% @table.each_with_index do |t, index| %>
   <tr class="item">
-    <td><p><%= index + 1%></p><td>
+    <td><p><%= index + 1%></p></td>
     <td><p><%= t.team %></p></td>
     <td><p><%= t.played %></p></td>
     <td><p><%= t.won %></p></td>
