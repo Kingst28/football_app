@@ -156,7 +156,7 @@ border: none;
     <h4 class="card-title"><%= User.find(user_id).first_name %></h4>
     <p class="card-text">
     <% for p in players do %>
-    <%= Player.find(p.player_id).position %> - <%= Player.find(p.player_id).name %> - <%= Teamsheet.find(:player_id => p.player_id).active %>
+    <%= Player.find(p.player_id).position %> - <%= Player.find(p.player_id).name %> - <%= Teamsheet.where(:player_id => p.player_id).active %>
     </p>
   <% end %>
   </div>
