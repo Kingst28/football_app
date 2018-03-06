@@ -61,7 +61,7 @@ class ResultsController < ApplicationController
 
       @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => 'true')
       for p in @teamsheet_scorers do
-      if(p.read_attribute(:scored) == true) then
+      if(p.read_attribute(:scored) == t) then
       scorenum = p.read_attribute(:scorenum).to_i
       total_scorenum = total_scorenum + scorenum
       else
@@ -70,7 +70,7 @@ class ResultsController < ApplicationController
 
       @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => 'true')
       for p in @teamsheet_conceders do 
-        if(p.read_attribute(:conceded) == true) then
+        if(p.read_attribute(:conceded) == t) then
         concedednum = p.read_attribute(:concedednum) 
         total_connum = total_connum + concedednum 
       else
