@@ -59,7 +59,7 @@ class ResultsController < ApplicationController
       defenderCount = 0
       scorenum = 0
 
-      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => t)
+      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_scorers do
       if(p.read_attribute(:scored) == t) then
       scorenum = p.read_attribute(:scorenum).to_i
@@ -68,7 +68,7 @@ class ResultsController < ApplicationController
       end
       end
 
-      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => t)
+      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_conceders do 
         if(p.read_attribute(:conceded) == t) then
         concedednum = p.read_attribute(:concedednum) 
