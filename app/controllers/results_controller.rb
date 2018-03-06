@@ -87,8 +87,8 @@ class ResultsController < ApplicationController
     con_score1 = 5 - defenderCount
     con_score2 = total_connum / defenderCount
     final_con_score = con_score1 + con_score2
-    con_score = final_con_score
-    final_score = total_scorenum - con_score
+    con_score = final_con_score * -1
+    final_score = total_scorenum + con_score
     @result_new = Result.new(:user_id => u.id, :score => final_score)
     @result_new.save
     end
