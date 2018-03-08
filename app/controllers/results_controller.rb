@@ -59,18 +59,18 @@ class ResultsController < ApplicationController
       defenderCount = 0
       scorenum = 0
 
-      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => 'true')
+      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_scorers do
-      if(p.read_attribute(:scored) == 'true') then
+      if(p.read_attribute(:scored) == true) then
       scorenum = p.read_attribute(:scorenum).to_i
       total_scorenum = total_scorenum + scorenum
       else
       end
       end
 
-      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => 'true')
+      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_conceders do 
-        if(p.read_attribute(:conceded) == 'true') then
+        if(p.read_attribute(:conceded) == true) then
         concedednum = p.read_attribute(:concedednum) 
         total_connum = total_connum + concedednum 
       else
@@ -78,7 +78,7 @@ class ResultsController < ApplicationController
       end
 
       for p in @teamsheet_conceders do
-      if p.player.position == 'Defender' || p.player.position == 'Goalkeeper' && p.read_attribute(:played) == 'true' then
+      if p.player.position == 'Defender' || p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
          defenderCount = defenderCount + 1
       end
     end
