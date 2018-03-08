@@ -66,7 +66,7 @@ class TeamsheetController < ApplicationController
       defenderCount = 0
       scorenum = 0
 
-      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => 'true')
+      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_scorers do
       if(p.read_attribute(:scored) == true) then
       scorenum = p.read_attribute(:scorenum).to_i
@@ -75,7 +75,7 @@ class TeamsheetController < ApplicationController
       end
       end
 
-      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => 'true')
+      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_conceders do 
         if(p.read_attribute(:conceded) == true) then
         concedednum = p.read_attribute(:concedednum) 
@@ -91,9 +91,11 @@ class TeamsheetController < ApplicationController
     end
     if defenderCount == 0 then
     else
-    con_score = total_connum / defenderCount
-    con_score = con_score * -1
-    final_score = con_score + total_scorenum
+    con_score1 = 5 - defenderCount
+    con_score2 = total_connum / defenderCount
+    final_con_score = con_score1 + con_score2
+    con_score = final_con_score * -1
+    final_score = total_scorenum + con_score
     @result_new = Result.new(:user_id => u.id, :score => final_score)
     @result_new.save
     end
