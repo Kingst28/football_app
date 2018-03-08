@@ -71,7 +71,7 @@ class ResultsController < ApplicationController
       @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => true)
       for p in @teamsheet_conceders do 
         if(p.read_attribute(:conceded) == true) then
-        concedednum = p.read_attribute(:concedednum) 
+        concedednum = p.read_attribute(:concedednum).to_i 
         total_connum = total_connum + concedednum 
       else
       end
