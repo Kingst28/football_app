@@ -75,11 +75,11 @@ class LeagueTableController < ApplicationController
       end
     end
     Result.delete_all
-    #Teamsheet.update_all(:played => '')
-    #Teamsheet.update_all(:scored => '')
-    #Teamsheet.update_all(:scorenum => '')
-    #Teamsheet.update_all(:conceded => '')
-    #Teamsheet.update_all(:concedednum => '')
+    #Teamsheet.update_all(:played => null)
+    #Teamsheet.update_all(:scored => null)
+    #Teamsheet.update_all(:scorenum => null)
+    #Teamsheet.update_all(:conceded => null)
+    #Teamsheet.update_all(:concedednum => null)
   end
 
   def viewLeagueTable 
