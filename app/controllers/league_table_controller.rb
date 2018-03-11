@@ -3,7 +3,7 @@ class LeagueTableController < ApplicationController
    def updateLeagueTable 
     #find out why this method runs twice in Safari?
     #fix the matchday count as this is no longer switching over to Away and back to zero once matchday_count is met.
-    @table = LeagueTable.order('points DESC').order('gd DESC').order('team DESC')
+    @table = LeagueTable.order('points ASC').order('gd DESC').order('team ASC')
     @matchday = Matchday.find(9)
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
@@ -83,7 +83,7 @@ class LeagueTableController < ApplicationController
   end
 
   def viewLeagueTable 
-    @table = LeagueTable.order('points DESC').order('gd DESC').order('team DESC')
+    @table = LeagueTable.order('points ASC').order('gd DESC').order('team ASC')
   end
 
   def updatePlayed(homeTeam, awayTeam)
