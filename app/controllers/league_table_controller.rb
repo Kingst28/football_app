@@ -3,6 +3,7 @@ class LeagueTableController < ApplicationController
    def updateLeagueTable 
     #find out why this method runs twice in Safari?
     #fix the matchday count as this is no longer switching over to Away and back to zero once matchday_count is met.
+    #for the league table order I need to ensure null values for the first update of the table equate to 0 as it messes up the ordering if not all columns have a numeric value
     @table = LeagueTable.order('points DESC').order('gd DESC').order('team ASC')
     @matchday = Matchday.find(9)
     matchday_number = @matchday.read_attribute(:matchday_number)
