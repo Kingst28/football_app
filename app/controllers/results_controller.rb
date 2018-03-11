@@ -81,7 +81,7 @@ class ResultsController < ApplicationController
       if p.player.position == 'Defender' || p.player.position == 'Goalkeeper' && p.read_attribute(:played) == 'true' then
         defenderCount = defenderCount + 1
       elsif p.player.position == 'Defender' || p.player.position == 'Goalkeeper' && p.read_attribute(:played) == 'false' then
-        defenderCount = defenderCount - 1 
+        defenderCount = defenderCount
       end
     end
     if defenderCount == 0 then
