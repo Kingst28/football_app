@@ -80,8 +80,6 @@ class ResultsController < ApplicationController
       for p in @teamsheet_conceders do
       if p.player.position == 'Defender' || p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
         defenderCount = defenderCount + 1
-      else 
-        defenderCount = defenderCount - 1
       end
     end
     if defenderCount == 0 then
