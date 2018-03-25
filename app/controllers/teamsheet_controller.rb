@@ -3,7 +3,8 @@ class TeamsheetController < ApplicationController
    def index 
   	 players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
     @players = players.sort_by {|p| p.player.read_attribute(:position)}
-    @playerList = Teamsheet.where(:user_id => current_user.id)
+    playerList = Teamsheet.where(:user_id => current_user.id)
+    @playerList = playerList.sort_by {|p| p.player.read_attribute(:position)}
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @goalkeeper = []
     @defender = []
