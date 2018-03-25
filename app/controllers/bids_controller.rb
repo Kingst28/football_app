@@ -9,7 +9,8 @@ class BidsController < ApplicationController
   # GET /bids.json
   def index
     @bids = Bid.all 
-    @players = Bid.where(:user_id => current_user.id)
+    players = Bid.where(:user_id => current_user.id)
+    @players = players.sort_by {|p| p.player.read_attribute(:position)}
     
     @goalkeeper = []
     @defender = []
