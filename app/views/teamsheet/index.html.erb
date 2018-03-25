@@ -11,13 +11,31 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
+  <script src="/assets/jquery.matchcenter.js"></script>
+ 
+ <script type="text/javascript">
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
   });
-  </script>
-  <style type="text/css">
+
+$(document).ready(function(){
+var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
+$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[1] %> <%= Player.where(:id => @players[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @players[3] %> <%= Player.where(:id => @players[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @players[5] %> <%= Player.where(:id => @players[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @players[6] %> <%= Player.where(:id => @players[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @players[7] %> <%= Player.where(:id => @players[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @players[8] %> <%= Player.where(:id => @players[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%= Player.where(:id => @players[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+});
+
+</script>
+<style type="text/css">
    .card-img-top {
     width: 100%;
     height: 15vw;
@@ -41,231 +59,90 @@ border: none;
     height: 80px;    
 }
 
-<style>
-
-/* DivTable.com */
-.divTable{
-  display: table;
-  width: 100%;
-}
-.divTableRow {
-  display: table-row;
-}
-.divTableHeading {
-  background-color: #EEE;
-  display: table-header-group;
-}
-.divTableCell, .divTableHead {
-  display: table-cell;
-  max-width:600px;
-  padding: 3px 10px;
-  padding-left: 0px !important;
-}
-.divTableHeading {
-  background-color: #EEE;
-  display: table-header-group;
-  font-weight: bold;
-}
-.divTableFoot {
-  background-color: #EEE;
-  display: table-footer-group;
-  font-weight: bold;
-}
-.divTableBody {
-  display: table-row-group;
+.matchcenter-field {
+    background-image: url(/assets/field-bg.png);
+    width: 400px;
+    height: 500px;
+    position: relative;
 }
 
-/* Prevent the text contents of draggable elements from being selectable. */
-[draggable] {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  /* Required to make elements draggable in old WebKit */
-  -khtml-user-drag: element;
-  -webkit-user-drag: element;
-}
-.column {
-  height: 120px;
-  width: 200px;
-  float: left;
-  border: 2px solid #666666;
-  margin-left: 35px;
-  background-color: #fff;
-  margin-right: 5px;
-  -webkit-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 3px #000;
-  -ms-box-shadow: inset 0 0 3px #000;
-  box-shadow: inset 0 0 3px #000;
-  text-align: center;
-  cursor: move;
-}
-.column header {
-  color: #000;
-  text-shadow: #fff 0 1px;
-  box-shadow: 5px;
-  padding: 5px;
-  background: -moz-linear-gradient(left center, rgb(255,255,255), rgb(255,255,255), rgb(255,255,255));
-  background: -webkit-gradient(linear, left top, right top,
-                               color-stop(0, rgb(255,255,255)),
-                               color-stop(0.50, rgb(255,255,255)),
-                               color-stop(1, rgb(255,255,255)));
-  background: -webkit-linear-gradient(left center, rgb(255,255,255), rgb(255,255,255), rgb(255,255,255));
-  background: -ms-linear-gradient(left center, rgb(255,255,255), rgb(255,255,255), rgb(255,255,255));
-  border-bottom: 1px solid #ddd;
-  -webkit-border-top-left-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  -ms-border-radius-topleft: 10px;
-  border-top-left-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  -ms-border-top-right-radius: 10px;
-  -moz-border-radius-topright: 10px;
-  border-top-right-radius: 10px;
+.matchcenter-field .player {
+    position: absolute;
+    border: 1px solid #38870f;
+    display: none;
+    -moz-box-shadow: 1px 1px 2px #6a9627;
+    -webkit-box-shadow: 1px 1px 2px #6a9627;
+    box-shadow: 1px 1px 2px #6a9627;
 }
 
-.columnplayer {
-  height: 100px;
-  width: 100px;
-  float: left;
-  border: 2px solid #666666;
-  margin-left: 35px;
-  background-color: #fff;
-  margin-right: 5px;
-  -webkit-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 3px #000;
-  -ms-box-shadow: inset 0 0 3px #000;
-  box-shadow: inset 0 0 3px #000;
-  text-align: center;
-  cursor: move;
-}
-.columnplayer header {
-  color: #000;
-  text-shadow: #fff 0 1px;
-  box-shadow: 5px;
-  padding: 5px;
-  background: -moz-linear-gradient(left center, rgb(255,255,255), rgb(255,255,255), rgb(255,255,255));
-  background: -webkit-gradient(linear, left top, right top,
-                               color-stop(0, rgb(255,255,255)),
-                               color-stop(0.50, rgb(255,255,255)),
-                               color-stop(1, rgb(255,255,255)));
-  background: -webkit-linear-gradient(left center, rgb(255,255,255), rgb(255,255,255), rgb(255,255,255));
-  background: -ms-linear-gradient(left center, rgb(255,255,255), rgb(255,255,255), rgb(255,255,255));
-  border-bottom: 1px solid #ddd;
-  -webkit-border-top-left-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  -ms-border-radius-topleft: 10px;
-  border-top-left-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  -ms-border-top-right-radius: 10px;
-  -moz-border-radius-topright: 10px;
-  border-top-right-radius: 10px;
+.matchcenter-field .player-nr {
+    width: 14px;
+    float: left;
+    color: #5f9610;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #a8ce36;
+    padding: 4px 4px;
+    text-align: center;
+    font-size: 12px;
+    border-right: 1px solid #38870f;
+    border-top: 1px solid #8dc639;
+    background: -moz-linear-gradient(top, #7db42e, #8cc539);
+    background: -webkit-gradient(linear, center top, center bottom, from(#7db42e), to(#8cc539));
+    background: -o-linear-gradient(top, #7db42e, #8cc539);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db42e', endColorstr='#8cc539');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db42e', endColorstr='#8cc539')";
+    background: linear-gradient(top, #7db42e, #8cc539);
 }
 
-/* draggable targets */
-[data-draggable="target"]
-{
-    float:left;
-    list-style-type:none;
-    
-    width:100%;
-    height:10em;
-    overflow-y:auto;
-    
-    margin:0 0.5em 0.5em 0;
-    padding:0.5em;
-    
-    border-radius: 5px;
-    
-    background:transparent;
-    color:#555;
+.matchcenter-field .player-name {
+    width: 65px;
+    color: white;
+    float: left;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #61871c;
+    padding: 4px 6px;
+    font-size: 12px;
+    border-top: 1px solid #beda5a;
+    background: -moz-linear-gradient(top, #adcf35, #8ac439);
+    background: -webkit-gradient(linear, center top, center bottom, from(#adcf35), to(#8ac439));
+    background: -o-linear-gradient(top, #adcf35, #8ac439);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#adcf35', endColorstr='#8ac439');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#adcf35', endColorstr='#8ac439')";
+    background: linear-gradient(top, #adcf35, #8ac439);
 }
 
+.matchcenter-field .player-yellowcard {
+    width: 8px;
+    height: 12px;
+    border: 1px solid #797900;
+    position: absolute;
+    top: -8px;
+    right: 5px;
+    display: none;
+    background: -moz-linear-gradient(top, #fdf875, #e8eb00);
+    background: -webkit-gradient(linear, center top, center bottom, from(#fdf875), to(#e8eb00));
+    background: -o-linear-gradient(top, #fdf875, #e8eb00);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf875', endColorstr='#e8eb00');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf875', endColorstr='#e8eb00')";
+    background: linear-gradient(top, #fdf875, #e8eb00);
+}
+
+.matchcenter-field .player-redcard {
+    width: 8px;
+    height: 12px;
+    border: 1px solid #a50000;
+    position: absolute;
+    top: -8px;
+    right: 2px;
+    display: none;
+    background: -moz-linear-gradient(top, #fd7575, #eb0000);
+    background: -webkit-gradient(linear, center top, center bottom, from(#fd7575), to(#eb0000));
+    background: -o-linear-gradient(top, #fd7575, #eb0000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fd7575', endColorstr='#eb0000');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fd7575', endColorstr='#eb0000')";
+    background: linear-gradient(top, #fd7575, #eb0000);
+}
 </style>
-<script>
-(function()
-{
-
-    //exclude older browsers by the features we need them to support
-    //and legacy opera explicitly so we don't waste time on a dead browser
-    if
-    (
-        !document.querySelectorAll 
-        || 
-        !('draggable' in document.createElement('span')) 
-        || 
-        window.opera
-    ) 
-    { return; }
-    
-    //get the collection of draggable items and add their draggable attribute
-    for(var 
-        items = document.querySelectorAll('[data-draggable="item"]'), 
-        len = items.length, 
-        i = 0; i < len; i ++)
-    {
-        items[i].setAttribute('draggable', 'true');
-    }
-
-    //variable for storing the dragging item reference 
-    //this will avoid the need to define any transfer data 
-    //which means that the elements don't need to have IDs 
-    var item = null;
-
-    //dragstart event to initiate mouse dragging
-    document.addEventListener('dragstart', function(e)
-    {
-        //set the item reference to this element
-        item = e.target;
-        
-        //we don't need the transfer data, but we have to define something
-        //otherwise the drop action won't work at all in firefox
-        //most browsers support the proper mime-type syntax, eg. "text/plain"
-        //but we have to use this incorrect syntax for the benefit of IE10+
-        e.dataTransfer.setData('text', '');
-    
-    }, false);
-
-    //dragover event to allow the drag by preventing its default
-    //ie. the default action of an element is not to allow dragging 
-    document.addEventListener('dragover', function(e)
-    {
-        if(item)
-        {
-            e.preventDefault();
-        }
-    
-    }, false);  
-
-    //drop event to allow the element to be dropped into valid targets
-    document.addEventListener('drop', function(e)
-    {
-        //if this element is a drop target, move the item here 
-        //then prevent default to allow the action (same as dragover)
-        if(e.target.getAttribute('data-draggable') == 'target')
-        {
-            e.target.appendChild(item);
-            
-            e.preventDefault();
-        }
-    
-    }, false);
-    
-    //dragend event to clean-up after drop or abort
-    //which fires whether or not the drop target was valid
-    document.addEventListener('dragend', function(e)
-    {
-        item = null;
-    
-    }, false);
-
-})();   
-</script>
 </head>
 <body>
 <!-- Dropdown Structure -->
@@ -375,43 +252,25 @@ border: none;
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
 <div class="container-fluid">
+<br></br>
+<h5 style="text-align:center;"> My Starting 11 </h5>
+<div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
+<h5 style="text-align:center;"> My Squad Players </h5>
 <div class="row">
-  <div class="col s6" style="background-color:white;">
-    <h5 style="text-align:center;"> Your Squad </h5>
-  <% @playerList.each do |p| %>
-        <div class="col s6">
-          <div class="card white darken-1">
-            <div class="card-content black-text">
-              <span class="card-title"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
-              <p> 
-      <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
-      <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %><br>
-      Bid amount:
-      <%= quid(p.amount) %> <br> 
-      </p>
-            </div>
-            <div class="card-action">
-      <% if canView? %>
-      <%= link_to "Choose player", edit_teamsheet_path(p.id) %>
-      <% end %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-<div class="col s6" style="background-color:white;">
-  <h5 style="text-align:center;"> Your Active Team</h5>
-      <% @players.each do |p| %>
-        <div class="col s6">
+      <% @playerList.each do |p| %>
+        <div class="col s12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
-              <p> 
+              <span class="card-title" style="text-align:center;"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
+              <p style="text-align:center;"> 
       <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
       </p>
             </div>
-            <div class="card-action">
+            <div class="card-action" style="text-align:center;">
+              <% if canView? %>
+              <%= link_to "Choose player", edit_teamsheet_path(p.id) %>
+              <% end %>
             </div>
           </div>
         </div>
