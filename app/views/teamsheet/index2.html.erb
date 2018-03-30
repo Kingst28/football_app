@@ -153,11 +153,17 @@ border: none;
   <% @teamPlayers.each do |user_id, players| %>
   <div class="card">
     <div class="card-block">
-    <h4 class="card-title"><%= User.find(user_id).first_name %></h4>
+    <h2 class="card-title"><%= User.find(user_id).first_name %> <%= User.find(user_id).last_name %></h2>
     <p class="card-text">
     <% for p in players do %>
-    <%= Player.find(p.player_id).name %> - <%= Player.find(p.player_id).position %> - active = <%= Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') %>
-    </p>
+    <ul>
+    <li>
+    <% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h6 style="color:green;"><%= Player.find(p.player_id).name %></h6> <%= Player.find(p.player_id).position %> <br> active is <%= Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') %> 
+
+    <% else %> <h6 style="color:red;"><%= Player.find(p.player_id).name %></h6> <%= Player.find(p.player_id).position %> <br> active is <%= Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') %> <% end %>
+      
+    </li>
+  </ul>
   <% end %>
   </div>
   </div>
