@@ -256,12 +256,15 @@ border: none;
 <h5 style="text-align:center;"> My Starting 11 </h5>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <h5 style="text-align:center;"> My Squad Players </h5>
+<span class="badge red" style="color:white;">On the Bench</span>
+<span class="badge green" style="color:white;">Starting 11</span>
 <div class="row">
       <% @playerList.each do |p| %>
         <div class="col s12">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title" style="text-align:center;"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
+    <div class="card grey lighten-5">
+    <div class="card-content white-text">
+    <span class="card-title" style="text-align:center;"><% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h5 style="color:green;"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> </h5> 
+    <% else %> <h5 style="color:red;"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> </h5></header> </span> <% end %>
               <p style="text-align:center;"> 
       <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
