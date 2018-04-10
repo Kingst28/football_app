@@ -27,9 +27,7 @@ class TeamsheetController < ApplicationController
 
    def index2 
     all_teams = Teamsheet.all
-    @teamPlayers = all_teams.group_by(&:user_id).each do |user_id, teamsheet|
-       teamsheet.order(:matchday)
-    end
+    @teamPlayers = all_teams.group_by(&:user_id)
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
    end
 
