@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet”>
   <script type="text/javascript">
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
@@ -58,8 +59,8 @@ border: none;
     <nav>
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
-      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
-      link_to "UFFL", '/index', class: "brand-logo"
+      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo", style="font-family: 'Gugi', cursive; color:white; font-size:30px;" do
+      link_to "UFFL", '/index', class: "brand-logo", style="font-family: 'Gugi', cursive; color:white; font-size:30px;"
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
