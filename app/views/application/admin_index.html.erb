@@ -59,7 +59,7 @@ border: none;
     <nav>
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
-      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo", style="font-family: 'Gugi', cursive; color:white; font-size:30px;" do
+      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
       link_to "UFFL", '/index', class: "brand-logo"
       end
       %></a>
