@@ -269,8 +269,6 @@ border: none;
     <div class="card-content white-text">
     <span class="card-title" style="text-align:center;"><% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h5 style="color:green;"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> </h5> 
     <% else %> <h5 style="color:red;"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> </h5></header> </span> <% end %>
-     <% if Teamsheet.where(:player_id => p.player_id).pluck(:priority).to_s.tr('""','').tr('[]','') != 'nil' %>
-      Priority <%= Teamsheet.where(:player_id => p.player_id).pluck(:priority).to_s.tr('""','').tr('[]','') %> <% end %> <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
               <p style="text-align:center; color:black;"> 
       <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
@@ -289,3 +287,4 @@ border: none;
   </div>
 </body>
 </html>
+
