@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229113740) do
+ActiveRecord::Schema.define(version: 20180512161306) do
 
   create_table "bids", force: true do |t|
     t.integer  "amount"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20171229113740) do
 
   create_table "fixtures", force: true do |t|
     t.integer  "matchday"
-    t.integer  "hteam",      limit: 255
-    t.integer  "ateam",      limit: 255
+    t.text     "hteam",      limit: 255
+    t.text     "ateam",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "haflag"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20171229113740) do
     t.integer  "scorenum"
     t.boolean  "conceded"
     t.integer  "concedednum"
+    t.integer  "priority"
   end
 
   create_table "users", force: true do |t|
