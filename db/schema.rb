@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20180512161306) do
 
-  create_table "bids", force: true do |t|
+  create_table "bids", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "user_id"
     t.integer  "player_id"
@@ -24,18 +24,18 @@ ActiveRecord::Schema.define(version: 20180512161306) do
   add_index "bids", ["player_id"], name: "index_bids_on_player_id"
   add_index "bids", ["user_id"], name: "index_bids_on_user_id"
 
-  create_table "fixtures", force: true do |t|
+  create_table "fixtures", force: :cascade do |t|
     t.integer  "matchday"
     t.text     "hteam",      limit: 255
     t.text     "ateam",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "haflag"
-    t.string   "finalscore"
+    t.string   "haflag",     limit: 255
+    t.string   "finalscore", limit: 255
   end
 
-  create_table "league_tables", force: true do |t|
-    t.string   "team"
+  create_table "league_tables", force: :cascade do |t|
+    t.string   "team",       limit: 255
     t.integer  "played"
     t.integer  "won"
     t.integer  "drawn"
@@ -48,47 +48,47 @@ ActiveRecord::Schema.define(version: 20180512161306) do
     t.datetime "updated_at"
   end
 
-  create_table "matchdays", force: true do |t|
+  create_table "matchdays", force: :cascade do |t|
     t.integer  "matchday_number"
-    t.string   "haflag"
+    t.string   "haflag",          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "matchday_count"
   end
 
-  create_table "notifications", force: true do |t|
+  create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "show"
+    t.string   "show",       limit: 255
   end
 
-  create_table "players", force: true do |t|
-    t.string   "name"
+  create_table "players", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "teams_id"
-    t.string   "position"
-    t.string   "taken"
+    t.string   "position",   limit: 255
+    t.string   "taken",      limit: 255
   end
 
   add_index "players", ["teams_id"], name: "index_players_on_teams_id"
 
-  create_table "results", force: true do |t|
+  create_table "results", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
-    t.string   "name"
+  create_table "teams", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teamsheets", force: true do |t|
+  create_table "teamsheets", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "player_id"
     t.integer  "amount"
@@ -103,21 +103,21 @@ ActiveRecord::Schema.define(version: 20180512161306) do
     t.integer  "priority"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "password_digest"
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",        limit: 255
+    t.string   "last_name",         limit: 255
+    t.string   "email",             limit: 255
+    t.string   "password_digest",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.string   "activation_digest", limit: 255
+    t.boolean  "activated",                     default: false
     t.datetime "activated_at"
-    t.string   "reset_digest"
+    t.string   "reset_digest",      limit: 255
     t.datetime "reset_sent_at"
-    t.string   "access",            default: "user"
-    t.integer  "budget",            default: 1000000
-    t.string   "canView"
+    t.string   "access",            limit: 255, default: "user"
+    t.integer  "budget",                        default: 1000000
+    t.string   "canView",           limit: 255
   end
 
 end
