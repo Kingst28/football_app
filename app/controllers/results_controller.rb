@@ -167,21 +167,21 @@ end
       if midSubCount = 1 then 
         @all_players3 = Teamsheet.where(:user_id => u.id)
         @priority_players1 = @all_players3.where(:priority => 1)
-        for p in @priority_players1 do 
-          if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-             p.update(:active => true)
-          elsif 
-            @priority_players2 = @all_players3.where(:priority => 2)
-            for p in @priority_players2 do
-              if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-                p.update(:active => true)
+          for p in @priority_players1 do 
+            if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+              p.update(:active => true)
+            elsif 
+              @priority_players2 = @all_players3.where(:priority => 2)
+                for p in @priority_players2 do
+                  if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+                    p.update(:active => true)
+                end
               end
             end
-        end
-      end
+          end
     elsif midSubCount = 2 then 
-      @all_players8 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
+        @all_players8 = Teamsheet.where(:user_id => u.id)
+        @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
       if p.player.position == 'Midfielder' then
          p.update(:active => true)
   end
@@ -212,18 +212,18 @@ end
 
       @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true'])
       for p in @teamsheet_scorers do
-      if(p.read_attribute(:scored) == true) then
-      scorenum = p.read_attribute(:scorenum).to_i
-      total_scorenum = total_scorenum + scorenum
-      else
+        if (p.read_attribute(:scored) == true) then
+          scorenum = p.read_attribute(:scorenum).to_i
+          total_scorenum = total_scorenum + scorenum
+        else
       end
       end
 
       @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true'])
       for p in @teamsheet_conceders do 
         if(p.read_attribute(:conceded) == true) then
-        concedednum = p.read_attribute(:concedednum).to_i 
-        total_connum = total_connum + concedednum 
+          concedednum = p.read_attribute(:concedednum).to_i 
+          total_connum = total_connum + concedednum 
       else
       end
       end
@@ -235,22 +235,17 @@ end
         defenderCount = defenderCount + 1
       end
     end
+
+    #This code is no longer running properly. 
     if defenderCount == 0 then
     else
-    con_score1 = 5 - defenderCount
-    con_score2 = total_connum / defenderCount
-    final_con_score = con_score1 + con_score2
-    con_score = final_con_score * -1
-    final_score = total_scorenum + con_score
-    @result_new = Result.new(:user_id => u.id, :score => final_score)
-    @result_new.save
-    #con_score1 = 5 - defenderCount
-    #con_score2 = total_connum / defenderCount
-    #final_con_score = con_score1 + con_score2
-    #con_score = final_con_score * -1
-    #final_score = total_scorenum + con_score
-    #@result_new = Result.new(:user_id => u.id, :score => final_score)
-    #@result_new.save
+      con_score1 = 5 - defenderCount
+      con_score2 = total_connum / defenderCount
+      final_con_score = con_score1 + con_score2
+      con_score = final_con_score * -1
+      final_score = total_scorenum + con_score
+      @result_new = Result.new(:user_id => u.id, :score => final_score)
+      @result_new.save
     end
   end
     
@@ -258,6 +253,7 @@ end
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
     matchday_haflag = @matchday.read_attribute(:haflag)
+   
    if matchday_haflag == "Home" && matchday_number <= matchday_count then
       @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Home")
    elsif 
@@ -280,22 +276,23 @@ end
     end
     
     for f in @fixtures do
-    fuser1 = f.read_attribute(:hteam).to_i
-    fuser2 = f.read_attribute(:ateam).to_i
-    result1 = Result.find_by_user_id(fuser1).read_attribute(:score)
-    result2 = Result.find_by_user_id(fuser2).read_attribute(:score)
-    final_score = ""
-    if result1 >= 0 && result2 >= 0 then
-    final_score = result1.to_s + result2.to_s 
-    f.update(:finalscore => final_score)
-    elsif
-    while result1 < 0 || result2 < 0 do
-      result1 +=1
-      result2 +=1
-      final_score = result1.to_s + result2.to_s 
-      f.update(:finalscore => final_score)
+      fuser1 = f.read_attribute(:hteam).to_i
+      fuser2 = f.read_attribute(:ateam).to_i
+      result1 = Result.find_by_user_id(fuser1).read_attribute(:score)
+      result2 = Result.find_by_user_id(fuser2).read_attribute(:score)
+      final_score = ""
+      
+      if result1 >= 0 && result2 >= 0 then
+        final_score = result1.to_s + result2.to_s 
+        f.update(:finalscore => final_score)
+      elsif
+        while result1 < 0 || result2 < 0 do
+          result1 +=1
+          result2 +=1
+          final_score = result1.to_s + result2.to_s 
+          f.update(:finalscore => final_score)
       end
-      end
+    end
  end
 end
 

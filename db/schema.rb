@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512161306) do
+ActiveRecord::Schema.define(version: 20180624183635) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20180512161306) do
     t.datetime "updated_at"
     t.integer  "teams_id"
     t.string   "position",   limit: 255
-    t.string   "taken",      limit: 255
+    t.string   "taken",      limit: 255, default: "No"
   end
 
   add_index "players", ["teams_id"], name: "index_players_on_teams_id"
@@ -78,12 +78,6 @@ ActiveRecord::Schema.define(version: 20180512161306) do
   create_table "results", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
