@@ -99,7 +99,9 @@ def fixture_results
              p.update(:active => false)
            end
          end
-      elsif defenders != 4 then
+      end
+      
+      if defenders != 4 then
         @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
         @false_played_players = @all_players.where(:played => false)
         defenderSubCount = 0
@@ -108,8 +110,10 @@ def fixture_results
              defenderSubCount = defenderSubCount + 1
              p.update(:active => false)
            end
+        end
       end
-      elsif midfielders != 4 then
+
+      if midfielders != 4 then
         @all_players = Teamsheet.where(:user_id => u.id)
         @false_played_players = @all_players.where(:played => false)
         midSubCount = 0
@@ -118,8 +122,10 @@ def fixture_results
              midSubCount = midSubCount + 1
              p.update(:active => false)
            end
+        end
       end
-      elsif strikers != 2 then
+
+      if strikers != 2 then
         @all_players = Teamsheet.where(:user_id => u.id)
         @false_played_players = @all_players.where(:played => false)
         strikerSubCount = 0
@@ -128,7 +134,7 @@ def fixture_results
              strikerSubCount = strikerSubCount + 1
              p.update(:active => false)
            end
-      end
+          end
       end
       
       if goalkeeperSubCount = 1 then 
