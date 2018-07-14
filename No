@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20180624183635_add_default_to_taken.rb

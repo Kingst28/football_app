@@ -76,6 +76,7 @@
     <%= form_for @teamsheet, :url =>{:action => "update", :id => @teamsheet.id} do |f| %>
     <div class="form-group">
     Active: <%= f.check_box 'active', :class => "form-control"%>
+    Priority: <%= f.text_field 'priority', :class => "form-control"%>
     </div>
     <%= f.submit "Save changes" %>
     <% end %>

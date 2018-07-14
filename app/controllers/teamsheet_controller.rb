@@ -1,7 +1,7 @@
 class TeamsheetController < ApplicationController
 
    def index 
-  	 players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
+  	players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
     @players = players.sort_by {|p| p.player.read_attribute(:position)}
     playerList = Teamsheet.where(:user_id => current_user.id)
     @playerList = playerList.sort_by {|p| p.player.read_attribute(:position)}
@@ -57,7 +57,7 @@ class TeamsheetController < ApplicationController
   end
 
    def teamsheet_params
-      params.require(:teamsheet).permit(:user_id, :player_id, :amount, :active, :played, :scored, :scorenum, :conceded, :concedednum)
+      params.require(:teamsheet).permit(:user_id, :player_id, :amount, :active, :played, :scored, :scorenum, :conceded, :concedednum, :priority)
    end
 
    def calculate_score 
