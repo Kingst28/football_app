@@ -74,6 +74,7 @@ border: none;
     <div class="dropdown left">
     <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
     </button>
+    <button onclick="on()">Turn on overlay effect</button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <% @notifications_all.each do |n| %>
       <% if n.show == "yes" %>
@@ -148,6 +149,44 @@ border: none;
   </div>
   </div>
     </div>
+<div id="overlay" onclick="off()">
+    <% @notifications_all.each do |n| %>
+      <% if n.show == "yes" %>
+      <div class="row">
+      <div class="col s4">
+      <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= n.message %></p>
+      <a href="" class="btn btn-primary">Delete</a>
+    </div>
+    </div>
+    </div>
+      <% end %>
+      <% end %>
+</div>
+<style type="text/css">
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: auto; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+</style>
+<script type="text/javascript">
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
 
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
 </body>
 </html>
