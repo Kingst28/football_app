@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180624183635) do
+ActiveRecord::Schema.define(version: 20180727204653) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180624183635) do
     t.integer  "teams_id"
     t.string   "position",   limit: 255
     t.string   "taken",      limit: 255, default: "No"
+    t.string   "playerteam"
   end
 
   add_index "players", ["teams_id"], name: "index_players_on_teams_id"
@@ -81,6 +82,9 @@ ActiveRecord::Schema.define(version: 20180624183635) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+# Could not dump table "teams" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "teamsheets", force: :cascade do |t|
     t.integer  "user_id"

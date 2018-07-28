@@ -62,7 +62,7 @@ $(document).ready(function(){
 		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
 		<div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@goalkeepers,
- :id, 'name'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
@@ -79,7 +79,7 @@ $(document).ready(function(){
     <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
     <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@defenders,
- :id, 'name'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
@@ -96,7 +96,7 @@ $(document).ready(function(){
     <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
     <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@midfielders,
- :id, 'name'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
@@ -113,7 +113,7 @@ $(document).ready(function(){
     <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
     <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@strikers,
- :id, 'name'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>

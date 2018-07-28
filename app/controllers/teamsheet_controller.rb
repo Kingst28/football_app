@@ -2,9 +2,9 @@ class TeamsheetController < ApplicationController
 
    def index 
   	players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
-    @players = players.sort_by {|p| p.player.read_attribute(:position)}
+    @players = players.sort_by {|p| p.read_attribute(:position)}
     playerList = Teamsheet.where(:user_id => current_user.id)
-    @playerList = playerList.sort_by {|p| p.player.read_attribute(:position)}
+    @playerList = playerList.sort_by {|p| p.read_attribute(:position)}
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @goalkeeper = []
     @defender = []
@@ -13,13 +13,13 @@ class TeamsheetController < ApplicationController
     
     @players.each do |p|
     
-    if p.player.read_attribute(:position) == 'Goalkeeper' then
+    if p.read_attribute(:position) == 'Goalkeeper' then
       @goalkeeper << p.player
-    elsif p.player.read_attribute(:position) == 'Defender' then
+    elsif p.read_attribute(:position) == 'Defender' then
       @defender << p.player
-    elsif p.player.read_attribute(:position) == 'Midfielder' then
+    elsif p.read_attribute(:position) == 'Midfielder' then
       @midfielder << p.player
-    elsif p.player.read_attribute(:position) == 'Striker' then
+    elsif p.read_attribute(:position) == 'Striker' then
       @striker << p.player
     end
     end
