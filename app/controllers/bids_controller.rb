@@ -10,7 +10,7 @@ class BidsController < ApplicationController
   def index
     @bids = Bid.all 
     players = Bid.where(:user_id => current_user.id)
-    @players = players.sort_by {|p| p.player.read_attribute(:position)}
+    @players = players.sort_by {|p| p.read_attribute(:position)}
     
     @goalkeeper = []
     @defender = []

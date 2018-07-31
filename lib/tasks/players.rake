@@ -11,7 +11,8 @@ namespace :csv do
       Player.create!({
         :name => row[0],
         :position => row[1],
-        :teams_id => row[2],        
+        :teams_id => row[2],
+        :playerteam => row[4]        
       })
       puts "Row added!"
     end
