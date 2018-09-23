@@ -34,6 +34,36 @@ $('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%
 $('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
 });
 
+// Set the date we're counting down to
+var countDownDate = new Date("<%= Timer.first.read_attribute(:date) %>").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var text = "Time left to submit bids: "
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("bid_timer").innerHTML = text + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+
 </script>
 <style type="text/css">
    .card-img-top {
@@ -256,6 +286,7 @@ border: none;
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
 <div class="container-fluid">
+<p id="bid_timer"></p>
 <br></br>
 <h5 style="text-align:center;"> My Starting 11 </h5>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
