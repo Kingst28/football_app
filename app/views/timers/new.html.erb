@@ -1,5 +1,26 @@
 <h1>New Timer</h1>
+<p> Date Format Required: Jan 5, 2019 15:37:25 </p>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', timers_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Existing Timers</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timers.each do |timer| %>
+      <tr>
+        <td><%= timer.date %></td>
+        <td><%= link_to 'Show', timer %></td>
+        <td><%= link_to 'Edit', edit_timer_path(timer) %></td>
+        <td><%= link_to 'Destroy', timer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
