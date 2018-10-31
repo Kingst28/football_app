@@ -104,7 +104,6 @@ border: none;
     <div class="dropdown left">
     <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
     </button>
-    <button onclick="on()">Turn on overlay effect</button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <% @notifications_all.each do |n| %>
       <% if n.show == "yes" %>
