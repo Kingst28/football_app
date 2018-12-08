@@ -5,7 +5,7 @@ namespace :csv do
   desc "Import CSV Data"
   task :users => :environment do
 
-    csv_file_path = '/Users/JasonKing/Desktop/rails_repo/football_app/lib/tasks/users.csv'
+    csv_file_path = 'lib/tasks/users.csv'
 
     CSV.foreach(csv_file_path) do |row|
       User.create!({
