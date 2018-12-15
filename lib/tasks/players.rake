@@ -7,7 +7,7 @@ namespace :csv do
 
     csv_file_path = 'lib/tasks/players.csv'
 
-    CSV.foreach(csv_file_path, :encoding => 'windows-1251:utf-8') do |row|
+    CSV.foreach(csv_file_path) do |row|
       Player.create!({
         :name => row[0],
         :position => row[1],
