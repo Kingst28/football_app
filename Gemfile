@@ -47,6 +47,8 @@ gem 'simple_form'
 
 gem 'datetime_picker_input' 
 
+gem 'sort_alphabetical'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
