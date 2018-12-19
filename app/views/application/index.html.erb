@@ -154,8 +154,7 @@ border: none;
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
           <div class="dropdown left">
-    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
-    </button>
+    <a href="notifications" class="btn btn-primary">Notifications</a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <% @notifications_all.each do |n| %>
       <% if n.show == "yes" %>
