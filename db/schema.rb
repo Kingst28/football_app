@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180727204653) do
+ActiveRecord::Schema.define(version: 20180923151217) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20180727204653) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "matchday_count"
+  end
+
+  create_table "models", force: :cascade do |t|
+    t.string   "timer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -99,6 +105,12 @@ ActiveRecord::Schema.define(version: 20180727204653) do
     t.boolean  "conceded"
     t.integer  "concedednum"
     t.integer  "priority"
+  end
+
+  create_table "timers", force: :cascade do |t|
+    t.string   "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,6 +1,7 @@
 {
   "name": "football_app",
   "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
     "LANG": {

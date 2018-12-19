@@ -16,6 +16,42 @@
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
   });
+
+ // Set the date we're counting down to
+var countDownDate = new Date("<% if Timer.exists? %> <%= Timer.first.read_attribute(:date) %> <% end %>").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var text = "Bid Countdown: "
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("bid_timer").innerHTML = text + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("bid_timer").innerHTML = "BID COUNTDOWN: EXPIRED";
+    }
+
+    else if(isNaN(countDownDate)){ 
+      clearInterval(x);
+      document.getElementById("bid_timer").innerHTML = "";
+    }
+
+}, 1000);
   </script>
   <style type="text/css">
    .card-img-top {
@@ -118,16 +154,7 @@ border: none;
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
           <div class="dropdown left">
-    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
-    </button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <% @notifications_all.each do |n| %>
-      <% if n.show == "yes" %>
-      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
-      <% end %>
-      <% end %>
-      <a href="/notifications">Manage notifications</a>
-    </ul>
+    <a href="notifications" class="btn btn-primary">Notifications</a>
   </div>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
@@ -146,6 +173,7 @@ border: none;
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
     <div class="card-deck">
+   <p id="bid_timer"></p>
    <div class="row">
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">

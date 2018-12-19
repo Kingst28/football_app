@@ -12,7 +12,7 @@ namespace :csv do
         :name => row[0],
         :position => row[1],
         :teams_id => row[2],
-        :playerteam => row[4]        
+        :playerteam => row[3]        
       })
       puts "Row added!"
     end

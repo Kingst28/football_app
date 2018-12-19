@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :timers
+  resources :timers
+  resources :models
   resources :notifications
 
   get 'password_resets/new'
@@ -6,6 +9,7 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
 
   get '/players' => 'players#index'
+  get '/timers/new' => 'timers#new'
   get '/players/new' => 'players#new'
   get '/bids/new' => 'bids#new'
   get '/bids/showall' => 'bids#showall'
@@ -60,6 +64,7 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :timers
   root to: 'teamsheet#index'
   resources :teamsheet do
     collection do
