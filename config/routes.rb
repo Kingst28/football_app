@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :playerstats
   resources :timers
   resources :timers
   resources :models
@@ -59,6 +60,7 @@ Rails.application.routes.draw do
   get '/fixtures/index' => 'fixtures#index'
   get '/admin_controls' => 'application#admin_controls'
   get '/teamsheet/index2' => 'teamsheet#index2'
+  get '/playerstats/:id' => 'playerstats#show', as: :show_player_stats_path
   patch '/sessions/:id' => 'sessions#update'
   patch '/bids/:id' => 'bids#update'
   resources :users
