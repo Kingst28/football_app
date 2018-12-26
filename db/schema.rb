@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181223134835) do
+ActiveRecord::Schema.define(version: 20181226173335) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -31,19 +31,19 @@ ActiveRecord::Schema.define(version: 20181223134835) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "haflag",     limit: 255
-    t.string   "finalscore", limit: 255
+    t.string   "finalscore", limit: 255, default: ""
   end
 
   create_table "league_tables", force: :cascade do |t|
     t.string   "team",       limit: 255
-    t.integer  "played"
-    t.integer  "won"
-    t.integer  "drawn"
-    t.integer  "lost"
-    t.integer  "for"
-    t.integer  "against"
-    t.integer  "gd"
-    t.integer  "points"
+    t.integer  "played",                 default: 0
+    t.integer  "won",                    default: 0
+    t.integer  "drawn",                  default: 0
+    t.integer  "lost",                   default: 0
+    t.integer  "for",                    default: 0
+    t.integer  "against",                default: 0
+    t.integer  "gd",                     default: 0
+    t.integer  "points",                 default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
