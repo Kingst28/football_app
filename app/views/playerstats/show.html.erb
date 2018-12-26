@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="pitch.css.scss">
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
+  });
+
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
+</head>
+<ul id="dropdown2" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
+<ul id="dropdown4" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+<body>
+<div class="container-fluid">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+       &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
+      link_to "UFFL", '/index', class: "brand-logo"
+      end
+      %></a>
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+<div class="container">
+<ul class="collection">
+    <li class="collection-item avatar">
+      <i class="material-icons circle blue">account_circle</i>
+      <span class="title"><h5><%= Player.find(@playerstat.player_id).playerteam %></h5></span>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle tooltipped" data-tooltip="Number of games the player has played in, in this UFFL season.">directions_run</i>
+      <span class="title">Games Played</span>
+      <p class="card-text"><%= @playerstat.played %></p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green tooltipped" data-tooltip="Number of games the player has scored in, in this UFFL season.">trending_up</i>
+      <span class="title">Games Scored</span>
+      <p class="card-text"><%= @playerstat.scored %></p>
+    </li>
+     <li class="collection-item avatar">
+      <i class="material-icons circle red tooltipped" data-tooltip="Number of games the player has conceded in, in this UFFL season.">trending_down</i>
+      <span class="title">Games Conceded</span>
+      <p><p class="card-text"><%= @playerstat.conceded %></p></p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green tooltipped" data-tooltip="Number of goals the player has scored this UFFL season.">exposure_plus_1</i>
+      <span class="title">Goals Scored</span>
+      <p class="card-text"><%= @playerstat.scorenum %></p>
+    </li>
+     <li class="collection-item avatar">
+      <i class="material-icons circle red tooltipped" data-tooltip="Number of goals the player has conceded this UFFL season.">exposure_neg_1</i>
+      <span class="title">Goals Conceded</span>
+      <p class="card-text"><%= @playerstat.concedednum %></p>
+    </li>
+  </ul>
+</div>
+</div>
+</body>
+</html>

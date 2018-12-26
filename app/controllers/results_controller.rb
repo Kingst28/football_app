@@ -242,7 +242,6 @@ end
       end
     end
 
-    #This code is no longer running properly. 
     if defenderCount == 0 then
     else
       con_score1 = 5 - defenderCount

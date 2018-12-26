@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180923151217) do
+ActiveRecord::Schema.define(version: 20181223134835) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -81,6 +81,17 @@ ActiveRecord::Schema.define(version: 20180923151217) do
   end
 
   add_index "players", ["teams_id"], name: "index_players_on_teams_id"
+
+  create_table "playerstats", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "played"
+    t.integer  "scored"
+    t.integer  "scorenum"
+    t.integer  "conceded"
+    t.integer  "concedednum"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "results", force: :cascade do |t|
     t.integer  "user_id"
