@@ -84,6 +84,12 @@ var x = setInterval(function() {
   </div>
   </nav>
   <p id="bid_timer"></p>
+  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
+</br>
+</br>
   <% if canView? %>
   <a href="/bids/new" style="margin-bottom:10px;" class="btn btn-default">Enter New Bid</a>
   <% end %>
