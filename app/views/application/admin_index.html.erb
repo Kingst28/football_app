@@ -130,7 +130,11 @@ border: none;
 <% end %>
     <div class="card-deck">
   <div class="row">
-  <p id="bid_timer" style="display:inline;"></p>
+  <p id="bid_timer" style="display:inline;"></p> &nbsp;
+  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
     <div class="card-block">
