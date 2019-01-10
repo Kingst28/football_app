@@ -96,13 +96,15 @@ end
        @destroyOtherBids.each do |b| 
        bidAmount = b.read_attribute(:amount) 
        if b.read_attribute(:amount).to_i == d[0].amount.to_i && refunded == false then
-       @user = User.find(d[0].user_id)
-       currentBudget = @user.budget.to_i
-       newBudget = currentBudget + d[0].amount.to_i
+          @user = User.find(d[0].user_id)
+          currentBudget = @user.budget.to_i
+          newBudget = currentBudget + d[0].amount.to_i
+          #@notification_same_bid = Notification.new(:user_id => u.id, :message => "You bid the same amount for #{Player.find(d[0].player_id).name} for #{d[0].amount}")
+          #@notification_same_bid.save
        if newBudget > 1000000 then
-       @user.update_attribute(:budget, 1000000)
+          @user.update_attribute(:budget, 1000000)
        else
-       @user.update_attribute(:budget, newBudget)
+          @user.update_attribute(:budget, newBudget)
        end
        @user1 = User.find(b.read_attribute(:user_id))
        currentBudget1 = @user1.budget.to_i
@@ -112,12 +114,12 @@ end
        @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
        refunded = true
        else
-       @user1 = User.find(b.read_attribute(:user_id))
-       currentBudget1 = @user1.budget
-       newBudget1 = currentBudget1 + bidAmount
-       @user1.update_attribute(:budget, newBudget1)
+          @user1 = User.find(b.read_attribute(:user_id))
+          currentBudget1 = @user1.budget
+          newBudget1 = currentBudget1 + bidAmount
+          @user1.update_attribute(:budget, newBudget1)
        if Bid.exists?(b.read_attribute(:id))
-       @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
+          @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
        else
        end
        end
@@ -126,24 +128,24 @@ end
   end
     for o in @outrightWinners do
       if Teamsheet.exists?(:player_id => o.player_id)
-      Player.find(o.player_id).update_column(:taken,"Yes")
+          Player.find(o.player_id).update_column(:taken,"Yes")
       else
-      Player.find(o.player_id).update_column(:taken,"Yes")
-      @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :active => "true")
-      @player_stats_new = Playerstat.new(:player_id => o.player_id, :played => 0, :scored => 0, :scorenum => 0, :conceded => 0, :concedednum => 0)
-      @player_stats_new.save
-      @teamsheet_new.save
-      @notify_users = User.all 
+          Player.find(o.player_id).update_column(:taken,"Yes")
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :active => "true")
+          @player_stats_new = Playerstat.new(:player_id => o.player_id, :played => 0, :scored => 0, :scorenum => 0, :conceded => 0, :concedednum => 0)
+          @player_stats_new.save
+          @teamsheet_new.save
+          @notify_users = User.all 
       
       for nu in @notify_users do
         if nu.id == u.id 
         else
-        @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
-        @notification_new.save
+          @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+          @notification_new.save
       end
       end
-      @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
-      @notification_new.save
+          @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+          @notification_new.save
       end
       end
     end
