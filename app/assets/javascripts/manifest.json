@@ -3,13 +3,13 @@
   "name": "UFFL",
   "icons": [
     {
-      "src": "",
-      "type": "assets/images/UFFL_Icon_192.png",
+      "src": "assets/images/UFFL_Icon_192.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "",
-      "type": "assets/images/assets/images/UFFL_Icon_512.png",
+      "src": "assets/images/UFFL_Icon_512.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
