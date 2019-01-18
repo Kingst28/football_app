@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require jquery.matchcenter
 //= require datetime_picker_input
+//= require manifest
 //= require_tree .
