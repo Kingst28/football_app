@@ -89,6 +89,20 @@ def fixture_results
           end
         end
 
+      if playedCount = 11 then
+         for p in @teamsheet_players_played do 
+            if p.player.position == 'Goalkeeper' then
+              goalkeepers = goalkeepers + 1 
+            elsif p.player.position == 'Defender' then
+              defenders  = defenders + 1
+            elsif p.player.position == 'Midfielder' then
+              midfielders = midfielders + 1
+            elsif p.player.position == 'Striker' then
+              strikers = strikers + 1 
+            end
+          end
+        end
+
       if goalkeepers != 1 then
         @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
         @false_played_players = @all_players.where(:played => false)
