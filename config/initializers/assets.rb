@@ -1,1 +1,1 @@
-Rails.configuration.assets.precompile += %w[manifest.json]
+Rails.configuration.assets.precompile += %w[javascripts/manifest.json]
