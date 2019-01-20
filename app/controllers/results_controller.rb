@@ -89,6 +89,20 @@ def fixture_results
           end
         end
 
+      if playedCount == 11 then
+         for p in @teamsheet_players_played do 
+            if p.player.position == 'Goalkeeper' then
+              goalkeepers = goalkeepers + 1 
+            elsif p.player.position == 'Defender' then
+              defenders  = defenders + 1
+            elsif p.player.position == 'Midfielder' then
+              midfielders = midfielders + 1
+            elsif p.player.position == 'Striker' then
+              strikers = strikers + 1 
+            end
+          end
+        end
+
       if goalkeepers != 1 then
         @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
         @false_played_players = @all_players.where(:played => false)
@@ -114,7 +128,7 @@ def fixture_results
       end
 
       if midfielders != 4 then
-        @all_players = Teamsheet.where(:user_id => u.id)
+        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
         @false_played_players = @all_players.where(:played => false)
         midSubCount = 0
         for p in @false_played_players do
@@ -126,7 +140,7 @@ def fixture_results
       end
 
       if strikers != 2 then
-        @all_players = Teamsheet.where(:user_id => u.id)
+        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
         @false_played_players = @all_players.where(:played => false)
         strikerSubCount = 0
         for p in @false_played_players do
@@ -137,7 +151,7 @@ def fixture_results
           end
       end
       
-      if goalkeeperSubCount = 1 then 
+      if goalkeeperSubCount == 1 then 
         @all_players2 = Teamsheet.where(:user_id => u.id)
         @priority_players = @all_players2.where(:priority => 1)
         for p in @priority_players do 
@@ -147,7 +161,7 @@ def fixture_results
       end
   end
     
-    if defenderSubCount = 1 then 
+    if defenderSubCount == 1 then 
         @all_players4 = Teamsheet.where(:user_id => u.id)
         @priority_players2 = @all_players4.where(:priority => 1)
         for p in @priority_players2 do 
@@ -162,7 +176,7 @@ def fixture_results
             end
         end
       end
-    elsif defenderSubCount = 2 then 
+    elsif defenderSubCount == 2 then 
       @all_players7 = Teamsheet.where(:user_id => u.id)
       @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
       if p.player.position == 'Defender' then
@@ -170,7 +184,7 @@ def fixture_results
   end
 end
 
-      if midSubCount = 1 then 
+      if midSubCount == 1 then 
         @all_players3 = Teamsheet.where(:user_id => u.id)
         @priority_players1 = @all_players3.where(:priority => 1)
           for p in @priority_players1 do 
@@ -185,7 +199,7 @@ end
               end
             end
           end
-    elsif midSubCount = 2 then 
+    elsif midSubCount == 2 then 
         @all_players8 = Teamsheet.where(:user_id => u.id)
         @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
       if p.player.position == 'Midfielder' then
@@ -193,7 +207,7 @@ end
   end
 end
 
-      if strikerSubCount = 1 then 
+      if strikerSubCount == 1 then 
         @all_players5 = Teamsheet.where(:user_id => u.id)
         @priority_players5 = @all_players5.where(:priority => 1)
         for p in @priority_players5 do 
@@ -208,7 +222,7 @@ end
             end
         end
       end
-    elsif strikerSubCount = 2 then 
+    elsif strikerSubCount == 2 then 
       @all_players9 = Teamsheet.where(:user_id => u.id)
       @all_priority_players2 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
       if p.player.position == 'Striker' then
