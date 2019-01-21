@@ -149,7 +149,7 @@ def fixture_results
         @all_players2 = Teamsheet.where(:user_id => u.id)
         @priority_players = @all_players2.where(:priority => 1)
         for p in @priority_players do 
-          if p.player.position == 'Goalkeeper' then
+          if p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
              p.update(:active => true)
         end
       end
