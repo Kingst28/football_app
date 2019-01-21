@@ -14,12 +14,12 @@
   <script src="/assets/jquery.matchcenter.js"></script>
  
  <script type="text/javascript">
- $(document).on('turbolinks:load', function() {
+ $(document).on('page:load', function() {
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
   });
 
-$(document).on('turbolinks:load', function() {
+$(document).on('page:load', function() {
 var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
 $('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
 $('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
