@@ -9,10 +9,10 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require turbolinks
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require turbolinks
 //= require jquery.matchcenter
 //= require datetime_picker_input
 //= manifest.json
