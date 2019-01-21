@@ -13,7 +13,6 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
-//= require turbolinks-compatibility
 //= require jquery.matchcenter
 //= require datetime_picker_input
 //= manifest.json

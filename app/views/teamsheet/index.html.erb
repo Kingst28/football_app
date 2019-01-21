@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="turbolinks-cache-control" content="no-cache">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <!-- Compiled and minified CSS -->
@@ -12,66 +11,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/assets/jquery.matchcenter.js"></script>
- 
- <script type="text/javascript">
- $(document).ready(function() {
-    $(".dropdown-button").dropdown();
-    $(".button-collapse").sideNav();
-  });
-
-$(document).ready(function() {
-var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
-$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[1] %> <%= Player.where(:id => @players[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @players[3] %> <%= Player.where(:id => @players[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @players[5] %> <%= Player.where(:id => @players[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @players[6] %> <%= Player.where(:id => @players[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @players[7] %> <%= Player.where(:id => @players[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @players[8] %> <%= Player.where(:id => @players[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%= Player.where(:id => @players[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-});
-
-// Set the date we're counting down to
-var countDownDate = new Date("<% if Timer.exists? %> <%= Timer.first.read_attribute(:date) %><% end %>").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var text = "Bid Countdown: "
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="demo"
-    document.getElementById("bid_timer").innerHTML = text + days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("bid_timer").innerHTML = "EXPIRED";
-    }
-
-    else if(isNaN(countDownDate)){ 
-      clearInterval(x);
-      document.getElementById("bid_timer").innerHTML = "";
-    }
-}, 1000);
-
-</script>
-<style type="text/css">
+  <meta name="turbolinks-visit-control" content="reload">
+  <style type="text/css">
    .card-img-top {
     width: 100%;
     height: 15vw;
@@ -185,6 +126,65 @@ border: none;
 </style>
 </head>
 <body>
+<script src="/assets/jquery.matchcenter.js"></script>
+ 
+ <script type="text/javascript">
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
+  });
+
+$(document).ready(function(){
+var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
+$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[1] %> <%= Player.where(:id => @players[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @players[3] %> <%= Player.where(:id => @players[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @players[5] %> <%= Player.where(:id => @players[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @players[6] %> <%= Player.where(:id => @players[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @players[7] %> <%= Player.where(:id => @players[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @players[8] %> <%= Player.where(:id => @players[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%= Player.where(:id => @players[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+});
+
+// Set the date we're counting down to
+var countDownDate = new Date("<% if Timer.exists? %> <%= Timer.first.read_attribute(:date) %><% end %>").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var text = "Bid Countdown: "
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("bid_timer").innerHTML = text + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("bid_timer").innerHTML = "EXPIRED";
+    }
+
+    else if(isNaN(countDownDate)){ 
+      clearInterval(x);
+      document.getElementById("bid_timer").innerHTML = "";
+    }
+}, 1000);
+
+</script>
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
  <li><a href="/players/1">AFC Bournemouth</a></li>

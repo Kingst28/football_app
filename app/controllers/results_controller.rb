@@ -64,12 +64,6 @@ def fixture_results
       midfielders = 0
       strikers = 0
 
-      #Iterate through each player in the teamsheet to get a list of players who are active true and played true. 
-      #If that list is not equal to 11 then find the position which it is not equal and pull in a reserve which is played true. 
-      #Then run teamsheet conceders and scorers over this new list. 
-      #In this system the admin must check the played box over each player for a user, even if they are not active.
-      
-      #this code does not work
       @teamsheet_players = Teamsheet.where(:user_id => u.id).where(:active => true)
       @teamsheet_players_played = @teamsheet_players.where(:played => true)
 
@@ -155,7 +149,7 @@ def fixture_results
         @all_players2 = Teamsheet.where(:user_id => u.id)
         @priority_players = @all_players2.where(:priority => 1)
         for p in @priority_players do 
-          if p.player.position == 'Goalkeeper' then
+          if p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
              p.update(:active => true)
         end
       end
@@ -179,7 +173,7 @@ def fixture_results
     elsif defenderSubCount == 2 then 
       @all_players7 = Teamsheet.where(:user_id => u.id)
       @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
-      if p.player.position == 'Defender' then
+      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
          p.update(:active => true)
   end
 end
@@ -202,7 +196,7 @@ end
     elsif midSubCount == 2 then 
         @all_players8 = Teamsheet.where(:user_id => u.id)
         @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
-      if p.player.position == 'Midfielder' then
+      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
          p.update(:active => true)
   end
 end
@@ -225,7 +219,7 @@ end
     elsif strikerSubCount == 2 then 
       @all_players9 = Teamsheet.where(:user_id => u.id)
       @all_priority_players2 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
-      if p.player.position == 'Striker' then
+      if p.player.position == 'Striker' && p.read_attribute(:played) == true then
          p.update(:active => true)
   end
   end
