@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,7 +16,7 @@
     $(".button-collapse").sideNav();
   });
 
- // Set the date we're counting down to
+  // Set the date we're counting down to
 var countDownDate = new Date("<% if Timer.exists? %> <%= Timer.first.read_attribute(:date) %> <% end %>").getTime();
 
 // Update the count down every 1 second
@@ -56,7 +58,7 @@ var x = setInterval(function() {
     height: 15vw;
     object-fit: cover;
 }  
-
+ 
 .breadcrumb{
 background-color: white;
 border: none;
@@ -64,6 +66,10 @@ border: none;
 
 .card-deck{
   margin-top: 10px;
+}
+    
+.container-fluid { 
+  padding: 0px;
 }
 
 #rcorners1 {
@@ -75,6 +81,7 @@ border: none;
 }
 </style>
 </head>
+
 <body>
 <ul id="dropdown2" class="dropdown-content">
  <li><%= link_to "Profile", '/edit_profile'%></li>
@@ -85,11 +92,10 @@ border: none;
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
-
 <div class="container-fluid">
-<nav>
+    <nav>
     <div class="nav-wrapper green lighten-2">
-     &nbsp; &nbsp; <a><%= 
+       &nbsp; &nbsp; <a><%= 
       link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
       link_to image_tag("UFFLLogo.png"), '/index', class: "brand-logo"
       end
@@ -100,8 +106,8 @@ border: none;
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
         <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
@@ -112,13 +118,17 @@ border: none;
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
     <div class="card-deck">
-   <p id="bid_timer"></p>
-   <div class="row">
+  <div class="row">
+  <p id="bid_timer" style="display:inline;"></p> &nbsp;
+  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">My Starting 11</h4>
-      <p class="card-text">Choose your starting 11 for this game week. </p>
+      <p class="card-text">Choose your starting 11 for this game week.</p>
        <a href="teamsheet/index" class="btn btn-primary">Pick Team</a>
     </div>
   </div>
@@ -126,7 +136,7 @@ border: none;
     <img class="card-img-top" src="assets/football-shoes-green-grass-80715.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">My Bids</h4>
-      <p class="card-text">Bid on new players to add to your sqaud and view your current bids.</p>
+      <p class="card-text">Bid on new players to add to your squad and view your current bids.</p>
       <a href="bids" class="btn btn-primary">Submit Bid</a>
     </div>
   </div>
@@ -138,8 +148,6 @@ border: none;
        <a href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
     </div>
   </div>
-</div>
-  <div class="row">
    <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-149356.jpeg" alt="Card image cap">
     <div class="card-block">
@@ -148,7 +156,9 @@ border: none;
       <a href="fixtures/index" class="btn btn-primary">View Results</a>
     </div>
   </div>
-     <div class="card">
+</div>
+  <div class="row">
+      <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-262524.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">View Teams</h4>
@@ -157,8 +167,9 @@ border: none;
     </div>
     </div>
   </div>
-    </div>
   </div>
-
+  </div>
+</div>
 </body>
 </html>
+
