@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="text/javascript">
+  <script>
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
@@ -78,9 +79,10 @@ border: none;
     width: 200px;
     height: 80px;    
 }
-  </style>
+</style>
 </head>
 
+<body>
 <ul id="dropdown2" class="dropdown-content">
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
@@ -90,37 +92,24 @@ border: none;
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
-
-<body>
 <div class="container-fluid">
     <nav>
     <div class="nav-wrapper green lighten-2">
-    &nbsp; &nbsp; 
-      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
-      link_to "UFFL", '/index', class: "brand-logo"
+       &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
+      link_to image_tag("UFFLLogo.png"), '/index', class: "brand-logo"
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
       <ul class="right hide-on-med-and-down">
-    <div class="dropdown left">
-    <a href="notifications" class="btn btn-primary">Notifications</a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <% @notifications_all.each do |n| %>
-      <% if n.show == "yes" %>
-      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
-      <% end %>
-      <% end %>
-      <a href="/notifications">Manage notifications</a>
-    </ul>
-  </div>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
@@ -189,44 +178,6 @@ border: none;
   </div>
   </div>
     </div>
-<div id="overlay" onclick="off()">
-    <% @notifications_all.each do |n| %>
-      <% if n.show == "yes" %>
-      <div class="row">
-      <div class="col s4">
-      <div class="card">
-    <div class="card-block">
-      <p class="card-text"><%= n.message %></p>
-      <a href="" class="btn btn-primary">Delete</a>
-    </div>
-    </div>
-    </div>
-      <% end %>
-      <% end %>
 </div>
-<style type="text/css">
-#overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: auto; /* Full height (cover the whole page) */
-    top: 0; 
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
-}
-</style>
-<script type="text/javascript">
-function on() {
-    document.getElementById("overlay").style.display = "block";
-}
-
-function off() {
-    document.getElementById("overlay").style.display = "none";
-}
-</script>
 </body>
 </html>

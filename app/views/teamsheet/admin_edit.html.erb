@@ -8,21 +8,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="text/javascript">
-  $(document).ready(function(){
+<script type="text/javascript">
+
+  document.addEventListener("turbolinks:load", function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
   });
-  </script>
-  <script type="text/javascript">
-      function selectAll(){
-        $("input:checkbox").each(function(){
-          $(this).attr('checked', true);
-        });
-        return false;
-      }
-  </script>
-  <script>
+  
+  document.addEventListener("turbolinks:load", function(){
+  function selectAll(){
+    $("input:checkbox").each(function(){
+      $(this).attr('checked', true);
+      });
+    return false;
+    }
+  });
+
 function sortTable() {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("myTable2");
