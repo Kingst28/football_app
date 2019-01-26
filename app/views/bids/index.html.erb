@@ -64,8 +64,8 @@ var x = setInterval(function() {
 <div class="container-fluid">
     <nav>
     <div class="nav-wrapper green lighten-2">
-      &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: 150, height: 50), '/admin_index', class: "brand-logo" do
+    &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
       link_to image_tag("UFFLLogo.png"), '/index', class: "brand-logo"
       end
       %></a>
