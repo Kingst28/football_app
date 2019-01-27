@@ -59,7 +59,7 @@ border: none;
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; <a><%= 
       link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
-      link_to image_tag("UFFLLogo.png"), '/index', class: "brand-logo"
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo"
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
