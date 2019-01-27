@@ -36,29 +36,6 @@
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
 
-<ul id="dropdown3" class="dropdown-content">
- <li><a href="/players/1">AFC Bournemouth</a></li>
-            <li><a href="/players/2">Arsenal</a></li>
-            <li><a href="/players/3">Brighton and Hove Albion</a></li>
-            <li><a href="/players/4">Burnley</a></li>
-            <li><a href="/players/5">Cardiff City</a></li>
-            <li><a href="/players/6">Chelsea</a></li>
-            <li><a href="/players/7">Crystal Palace</a></li>
-            <li><a href="/players/8">Everton</a></li>
-            <li><a href="/players/9">Fulham</a></li>
-            <li><a href="/players/10">Huddersfield Town</a></li>
-            <li><a href="/players/11">Leicester City</a></li>
-            <li><a href="/players/12">Liverpool</a></li>
-            <li><a href="/players/13">Manchester City</a></li>
-            <li><a href="/players/14">Manchester United</a></li>
-            <li><a href="/players/15">Newcastle United</a></li>
-            <li><a href="/players/16">Southampton</a></li>
-            <li><a href="/players/17">Tottenham Hotspur</a></li>
-            <li><a href="/players/18">Watford</a></li>
-            <li><a href="/players/19">West Hame United</a></li>
-            <li><a href="/players/20">Wolverhampton Wanderers</a></li>
-</ul>
-
 <ul id="dropdown4" class="dropdown-content">
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
@@ -81,6 +58,12 @@
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="side-nav" id="mobile-demo">
+        <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
