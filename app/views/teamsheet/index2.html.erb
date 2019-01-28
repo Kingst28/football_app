@@ -42,7 +42,7 @@ border: none;
     width: 200px;
     height: 80px;    
 }
-  </style>
+</style>
 </head>
 <body>
 <ul id="dropdown2" class="dropdown-content">
@@ -99,16 +99,20 @@ border: none;
   <% @teamPlayers.each do |user_id, players| %>
   <div class="card">
     <div class="card-block">
-    <span class="badge red" style="color:white;"> On the Bench</span>
-    <span class="badge green" style="color:white;">Starting 11</span>
-    <h2 class="card-title"><%= User.find(user_id).first_name %> <%= User.find(user_id).last_name %></h2>
+    <div>  
+    <ul>  
+    <li><span class="badge red label" style="color:white;">On the Bench</span></li>
+    <li><span class="badge green label" style="color:white;">Starting 11</span></li>
+    </ul>
+    </div>
+    <h5 class="card-title"><%= User.find(user_id).first_name %> <%= User.find(user_id).last_name %></h5>
     <p class="card-text">
     <% for p in players do %>
     <ul>
     <li>
-    <% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h6 style="color:green;"><%= Player.find(p.player_id).name %></h6> <%= Player.find(p.player_id).position %> 
+    <% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h6 style="color:green;"><%= Player.find(p.player_id).name %></h6><p class="label badge green"><%= Player.find(p.player_id).position %></p>
 
-    <% else %> <h6 style="color:red;"><%= Player.find(p.player_id).name %></h6> <%= Player.find(p.player_id).position %><% end %>
+    <% else %> <h6 style="color:red;"><%= Player.find(p.player_id).name %></h6> <p class="label badge red"><%= Player.find(p.player_id).position %></p><% end %>
       
     </li>
   </ul>
