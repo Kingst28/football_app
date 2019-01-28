@@ -26,7 +26,7 @@ class TeamsheetController < ApplicationController
 
    def index2 
     all_teams = Teamsheet.all.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc")
-    @teamPlayers = all_teams.group_by(&:user_id).sort_by{|user_id, player_id| player_id.sort_by{|p| p.player.position.downcase}}
+    @teamPlayers = all_teams.joins(:user).order("first_name", "last_name").group_by(&:user_id)
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
    end
 
