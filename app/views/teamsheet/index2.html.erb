@@ -99,8 +99,8 @@ border: none;
   <% @teamPlayers.each do |user_id, players| %>
   <div class="card">
     <div class="card-block">
-    <span class="badge red label" style="color:white;">On the Bench</span>
-    <span class="badge green label" style="color:white;">Starting 11</span>
+    <span class="badge red" style="color:white;">On the Bench</span>
+    <span class="badge green" style="color:white;">Starting 11</span>
     <h2 class="card-title"><%= User.find(user_id).first_name %> <%= User.find(user_id).last_name %></h2>
     <p class="card-text">
     <% for p in players do %>
