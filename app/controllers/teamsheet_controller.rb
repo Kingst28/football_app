@@ -1,10 +1,10 @@
 class TeamsheetController < ApplicationController
 
    def index 
-  	players = Teamsheet.where(:user_id => current_user.id).where(:active => ['true',true])
-    @players = players.sort_by { |p| p.player.position.downcase }
-    playerList = Teamsheet.where(:user_id => current_user.id)
-    @playerList = playerList.sort_by {|p| p.read_attribute(:position)}
+  	players = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").where(:user_id => current_user.id).where(:active => ['true',true])
+    @players = players
+    playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").where(:user_id => current_user.id)
+    @playerList = playerList
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @goalkeeper = []
     @defender = []
@@ -25,8 +25,8 @@ class TeamsheetController < ApplicationController
    end
 
    def index2 
-    all_teams = Teamsheet.all
-    @teamPlayers = all_teams.group_by(&:user_id).sort_by{|user_id, team| team.sort}
+    all_teams = Teamsheet.all.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc")
+    @teamPlayers = all_teams.group_by(&:user_id).sort_by{|user_id, player_id| player_id.sort_by{|p| p.player.position.downcase}}
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
    end
 

@@ -9,26 +9,8 @@ class BidsController < ApplicationController
   # GET /bids.json
   def index
     @bids = Bid.all 
-    players = Bid.where(:user_id => current_user.id)
-    @players = players.sort_by {|p| p.read_attribute(:position)}
-    
-    @goalkeeper = []
-    @defender = []
-    @midfielder = []
-    @striker = []
-    
-    @players.each do |p|
-    
-    if p.read_attribute(:position) == 'Goalkeeper' then
-      @goalkeeper << p
-    elsif p.read_attribute(:position) == 'Defender' then
-      @defender << p
-    elsif p.read_attribute(:position) == 'Midfielder' then
-      @midfielder << p
-    elsif p.read_attribute(:position) == 'Striker' then
-      @striker << p
-    end
-  end
+    players = Bid.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").where(:user_id => current_user.id)
+    @players = players    
 end
 
 def current_user 
