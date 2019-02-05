@@ -176,22 +176,6 @@ def fixture_results
       for p in @all_priority_players do
       if p.player.position == 'Defender' && p.read_attribute(:played) == true then
          p.update(:active => true)
-  end
-end
-   elsif defenderSubCount == 3 then 
-      @all_players7 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players do
-      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-   elsif defenderSubCount == 4 then 
-      @all_players7 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players do
-      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-         p.update(:active => true)
 end
 end
 end
@@ -219,22 +203,6 @@ end
          p.update(:active => true)
   end
   end
-    elsif midSubCount == 3 then 
-        @all_players8 = Teamsheet.where(:user_id => u.id)
-        @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players1 do 
-      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-    elsif midSubCount == 4 then 
-      @all_players7 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players do
-      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
 end
 
       if strikerSubCount == 1 then 
