@@ -176,7 +176,7 @@ def fixture_results
       for p in @all_priority_players do
       if p.player.position == 'Defender' && p.read_attribute(:played) == true then
          p.update(:active => true)
-  end
+end
 end
 end
 
@@ -201,7 +201,7 @@ end
       for p in @all_priority_players1 do 
       if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
          p.update(:active => true)
-  end
+end
 end
 end
 
