@@ -1,7 +1,7 @@
 {
   "short_name": "UFFL",
   "name": "UFFL",
-  "start_url": "https://infinite-wave-35818.herokuapp.com/index",
+  "start_url": "http://localhost:3000/login",
   "background_color": "#79C17D",
   "display": "standalone",
   "theme_color": "#79C17D",
