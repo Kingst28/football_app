@@ -17,3 +17,4 @@
 //= require datetime_picker_input
 //= manifest.json
 //= require_tree .
+//= require serviceworker-companion

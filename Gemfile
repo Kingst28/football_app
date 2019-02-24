@@ -49,6 +49,8 @@ gem 'datetime_picker_input'
 
 gem 'sort_alphabetical'
 
+gem 'serviceworker-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
