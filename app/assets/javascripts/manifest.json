@@ -2,9 +2,9 @@
   "short_name": "UFFL",
   "name": "UFFL",
   "start_url": "https://infinite-wave-35818.herokuapp.com/login",
-  "background_color": "#79C17D",
+  "background_color": "#80C783",
   "display": "standalone",
-  "theme_color": "#79C17D",
+  "theme_color": "#80C783",
   "icons": [
     {
       "src": "UFFL_Icon_192.png",
