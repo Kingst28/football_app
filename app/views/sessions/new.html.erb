@@ -65,8 +65,13 @@
    window.addEventListener('appinstalled', installed);		
 		
    root.addEventListener('click', install.bind(this));		
-   root.addEventListener('touchend', install.bind(this));		
- };
+   root.addEventListener('touchend', install.bind(this));
+	   
+  window.addEventListener('load', function() {
+  const installEl = document.getElementById('installer');
+  const installer = new Installer(installEl);
+  let isLooping = false;
+  };
   </script>
 </head>
 <body>
