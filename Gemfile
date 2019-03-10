@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
+gem 'sqlite3', '~> 1.3.13', group: :development
 
 gem 'pg', '0.18.1', group: :production
 
@@ -48,6 +48,8 @@ gem 'simple_form'
 gem 'datetime_picker_input' 
 
 gem 'sort_alphabetical'
+
+gem 'serviceworker-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

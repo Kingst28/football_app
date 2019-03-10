@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
   		@defenders = @players.where(:position => 'Defender')
   		@midfielders = @players.where(:position => 'Midfielder')
   		@strikers = @players.where(:position => 'Striker')
-	        @notifications_all = Notification.all
+	    @notifications_all = Notification.all
 	end
 
  def new
