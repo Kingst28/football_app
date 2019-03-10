@@ -21,6 +21,7 @@
 <link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <script type ="text/javascript">
   //This is the "Offline page" service worker
+
 //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
 if (navigator.serviceWorker.controller) {
   console.log('[PWA Builder] active service worker found, no need to register')
@@ -34,8 +35,10 @@ if (navigator.serviceWorker.controller) {
 }
 (function() {
 'use strict';
+
 const Installer = function(root) {
   let promptEvent;
+
   const install = function(e) {
     if(promptEvent) {
       promptEvent.prompt();
@@ -55,12 +58,14 @@ const Installer = function(root) {
         });
     }
   };
+
   const installed = function(e) {
     promptEvent = null;
     // This fires after onbeforinstallprompt OR after manual add to homescreen.
     ga('send', 'event', 'install', 'installed');
     root.classList.remove('available');
   };
+
   const beforeinstallprompt = function(e) {
     promptEvent = e;
     promptEvent.preventDefault();
@@ -68,11 +73,14 @@ const Installer = function(root) {
     root.classList.add('available');
     return false;
   };
+
   window.addEventListener('beforeinstallprompt', beforeinstallprompt);
   window.addEventListener('appinstalled', installed);
+
   root.addEventListener('click', install.bind(this));
   root.addEventListener('touchend', install.bind(this));
 };
+
 window.addEventListener('load', function() {
   const installEl = document.getElementById('installer');
   const installer = new Installer(installEl);
