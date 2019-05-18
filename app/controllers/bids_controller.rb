@@ -39,7 +39,6 @@ end
   # GET /bids/new 
   def new
     @bid = Bid.new
-    #create a flag in player model which sets if players have been won or not here. 
     @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")
     @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
@@ -56,11 +55,8 @@ end
     @users = User.all
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
-    #@duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1") 
-    #@highest_amount = Bid.find_by_sql("SELECT MAX(amount) as amount FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
     @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
     @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
-    #need to extract all bids that are in the @highest_amount array getting all attributes along with them from the SELECT * call in @duplicates1
     @final_duplicates = []
     for element in @highest_amount do
       @final_duplicates << @duplicates1.select { |record| record.amount == element.read_attribute(:amount) }
@@ -69,10 +65,6 @@ end
       if Teamsheet.exists?(:player_id => d[0].player_id)
        Player.find(d[0].player_id).update_column(:taken,"Yes")
       else
-       #@teamsheet_new = Teamsheet.new(:user_id => d[0].user_id, :player_id => d[0].player_id, :amount => d[0].amount, :active => "true")
-       #@teamsheet_new.save
-       #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won a player for #{d[0].amount}")
-       #@notification_new.save
        @destroyOtherBids = Bid.where(:player_id => d[0].player_id).where.not(:user_id => d[0].user_id)
        refunded = false
        @destroyOtherBids.each do |b| 
@@ -81,8 +73,6 @@ end
           @user = User.find(d[0].user_id)
           currentBudget = @user.budget.to_i
           newBudget = currentBudget + d[0].amount.to_i
-          #@notification_same_bid = Notification.new(:user_id => u.id, :message => "You bid the same amount for #{Player.find(d[0].player_id).name} for #{d[0].amount}")
-          #@notification_same_bid.save
        if newBudget > 1000000 then
           @user.update_attribute(:budget, 1000000)
        else

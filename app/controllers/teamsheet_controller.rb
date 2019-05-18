@@ -1,9 +1,9 @@
 class TeamsheetController < ApplicationController
 
    def index 
-  	players = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").where(:user_id => current_user.id).where(:active => ['true',true])
+  	players = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => current_user.id).where(:active => ['true',true])
     @players = players
-    playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").where(:user_id => current_user.id)
+    playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => current_user.id)
     @playerList = playerList
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @goalkeeper = []
@@ -25,7 +25,7 @@ class TeamsheetController < ApplicationController
    end
 
    def index2 
-    all_teams = Teamsheet.all.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc")
+    all_teams = Teamsheet.all.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc")
     @teamPlayers = all_teams.joins(:user).order("first_name", "last_name").group_by(&:user_id)
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
    end
