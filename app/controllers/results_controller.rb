@@ -186,6 +186,14 @@ end
          p.update(:active => true)
 end
 end
+    elsif defenderSubCount == 4 then 
+      @all_players8 = Teamsheet.where(:user_id => u.id)
+      @all_priority_players = @all_players8.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players do
+      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+end
+end
 end
 
       if midSubCount == 1 then 
@@ -214,6 +222,15 @@ end
    elsif midSubCount == 3 then 
         @all_players8 = Teamsheet.where(:user_id => u.id)
         @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players1 do 
+      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+end
+end
+
+   elsif midSubCount == 4 then 
+        @all_players9 = Teamsheet.where(:user_id => u.id)
+        @all_priority_players1 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
       for p in @all_priority_players1 do 
       if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
          p.update(:active => true)
@@ -289,23 +306,23 @@ end
     matchday_count = @matchday.read_attribute(:matchday_count)
     matchday_haflag = @matchday.read_attribute(:haflag)
    
-   if matchday_haflag == "Home" && matchday_number <= matchday_count then
-      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Home")
+   if matchday_haflag == 'Home' && matchday_number <= matchday_count then
+      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => 'Home')
    elsif 
-      matchday_haflag == "Away" && matchday_number <= matchday_count then
-      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => "Away")
+      matchday_haflag == 'Away' && matchday_number <= matchday_count then
+      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => 'Away')
     else
-      if matchday_haflag = "Home" then
+      if matchday_haflag = 'Home' then
          @matchday = Matchday.find(9)
          @matchday.update(:matchday_number => 0)
-         @matchday.update(:haflag => "Away".to_s)
-         @fixtures = Fixture.where(:matchday => 0).where(:haflag => "Away")
+         @matchday.update(:haflag => 'Away'.to_s)
+         @fixtures = Fixture.where(:matchday => 0).where(:haflag => 'Away')
          @matchday.update(:matchday_number => 0 + 1)
       else
         @matchday = Matchday.find(9)
         @matchday.update(:matchday_number => 0)
-        @matchday.update(:haflag => "Home")
-        @fixtures = Fixture.where(:matchday => 0).where(:haflag => "Home")
+        @matchday.update(:haflag => 'Home')
+        @fixtures = Fixture.where(:matchday => 0).where(:haflag => 'Home')
         @matchday.update(:matchday_number => 0 + 1)
       end
     end
