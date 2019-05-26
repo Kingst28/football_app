@@ -63,6 +63,7 @@ def fixture_results
       defenders = 0
       midfielders = 0
       strikers = 0
+      goalkeeperSubCount = 0
 
       @teamsheet_players = Teamsheet.where(:user_id => u.id).where(:active => true)
       @teamsheet_players_played = @teamsheet_players.where(:played => true)
@@ -97,17 +98,7 @@ def fixture_results
           end
         end
 
-      if goalkeepers != 1 then
-        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
-        @false_played_players = @all_players.where(:played => false)
-        goalkeeperSubCount = 0
-        for p in @false_played_players do
-          if p.player.position == 'Goalkeeper' then
-             goalkeeperSubCount = goalkeeperSubCount + 1
-             p.update(:active => false)
-           end
-         end
-      end
+      goalkeeperSubCount = checkGoalkeepers(goalkeepers, u)
       
       if defenders != 4 then
         @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
@@ -347,6 +338,21 @@ end
     end
  end
 end
+
+def checkGoalkeepers (goalkeepers, u)
+    if goalkeepers != 1 then
+        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
+        @false_played_players = @all_players.where(:played => false)
+        goalkeeperSubCount = 0
+        for p in @false_played_players do
+          if p.player.position == 'Goalkeeper' then
+             goalkeeperSubCount = goalkeeperSubCount + 1
+             p.update(:active => false)
+           end
+         end
+      end
+      return goalkeeperSubCount
+    end
 
   # DELETE /results/1
   # DELETE /results/1.json
