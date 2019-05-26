@@ -64,6 +64,9 @@ def fixture_results
       midfielders = 0
       strikers = 0
       goalkeeperSubCount = 0
+      defenderSubCount = 0
+      midSubCount = 0
+      strikerSubCount = 0
 
       @teamsheet_players = Teamsheet.where(:user_id => u.id).where(:active => true)
       @teamsheet_players_played = @teamsheet_players.where(:played => true)
@@ -98,161 +101,15 @@ def fixture_results
           end
         end
 
-      goalkeeperSubCount = checkGoalkeepers(goalkeepers, u)
-      
-      if defenders != 4 then
-        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
-        @false_played_players = @all_players.where(:played => false)
-        defenderSubCount = 0
-        for p in @false_played_players do
-          if p.player.position == 'Defender' then
-             defenderSubCount = defenderSubCount + 1
-             p.update(:active => false)
-           end
-        end
-      end
+      goalkeeperSubCount = getGoalkeeperSubCount(goalkeepers, u)
+      defenderSubCount = getDefenderSubCount(defenders,u)
+      midSubCount = getMidSubCount(midfielders,u)
+      strikerSubCount = getStrikerSubCount(strikers,u)      
 
-      if midfielders != 4 then
-        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
-        @false_played_players = @all_players.where(:played => false)
-        midSubCount = 0
-        for p in @false_played_players do
-          if p.player.position == 'Midfielder' then
-             midSubCount = midSubCount + 1
-             p.update(:active => false)
-           end
-        end
-      end
-
-      if strikers != 2 then
-        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
-        @false_played_players = @all_players.where(:played => false)
-        strikerSubCount = 0
-        for p in @false_played_players do
-          if p.player.position == 'Striker' then
-             strikerSubCount = strikerSubCount + 1
-             p.update(:active => false)
-           end
-          end
-      end
-      
-      if goalkeeperSubCount == 1 then 
-        @all_players2 = Teamsheet.where(:user_id => u.id)
-        @priority_players = @all_players2.where(:priority => 1)
-        for p in @priority_players do 
-          if p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
-             p.update(:active => true)
-        end
-      end
-  end
-    
-    if defenderSubCount == 1 then 
-        @all_players4 = Teamsheet.where(:user_id => u.id)
-        @priority_players2 = @all_players4.where(:priority => 1)
-        for p in @priority_players2 do 
-          if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-             p.update(:active => true)
-          elsif 
-            @priority_players3 = @all_players4.where(:priority => 2)
-            for p in @priority_players3 do
-              if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-                p.update(:active => true)
-              end
-            end
-        end
-      end
-    elsif defenderSubCount == 2 then 
-      @all_players7 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players do
-      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-    elsif defenderSubCount == 3 then 
-      @all_players7 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players do
-      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-    elsif defenderSubCount == 4 then 
-      @all_players8 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players = @all_players8.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players do
-      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-end
-
-      if midSubCount == 1 then 
-        @all_players3 = Teamsheet.where(:user_id => u.id)
-        @priority_players1 = @all_players3.where(:priority => 1)
-          for p in @priority_players1 do 
-            if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-              p.update(:active => true)
-            elsif 
-              @priority_players2 = @all_players3.where(:priority => 2)
-                for p in @priority_players2 do
-                  if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-                    p.update(:active => true)
-                end
-              end
-            end
-          end
-    elsif midSubCount == 2 then 
-        @all_players8 = Teamsheet.where(:user_id => u.id)
-        @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players1 do 
-      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-   elsif midSubCount == 3 then 
-        @all_players8 = Teamsheet.where(:user_id => u.id)
-        @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players1 do 
-      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-
-   elsif midSubCount == 4 then 
-        @all_players9 = Teamsheet.where(:user_id => u.id)
-        @all_priority_players1 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players1 do 
-      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-end
-end
-end
-
-      if strikerSubCount == 1 then 
-        @all_players5 = Teamsheet.where(:user_id => u.id)
-        @priority_players5 = @all_players5.where(:priority => 1)
-        for p in @priority_players5 do 
-          if p.player.position == 'Striker' && p.read_attribute(:played) == true then
-             p.update(:active => true)
-          elsif 
-            @priority_players4 = @all_players5.where(:priority => 2)
-            for p in @priority_players4 do
-              if p.player.position == 'Striker' && p.read_attribute(:played) == true then
-                p.update(:active => true)
-              end
-            end
-        end
-      end
-    elsif strikerSubCount == 2 then 
-      @all_players9 = Teamsheet.where(:user_id => u.id)
-      @all_priority_players2 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
-      for p in @all_priority_players2 do
-      if p.player.position == 'Striker' && p.read_attribute(:played) == true then
-         p.update(:active => true)
-  end
-  end
-  end
+      subGoalkeepers(goalkeeperSubCount,u)
+      subDefenders(defenderSubCount,u)
+      subMidfielders(midSubCount,u)
+      subStrikers(strikerSubCount,u)
 
       @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true'])
       for p in @teamsheet_scorers do
@@ -339,7 +196,7 @@ end
  end
 end
 
-def checkGoalkeepers (goalkeepers, u)
+def getGoalkeeperSubCount (goalkeepers, u)
     if goalkeepers != 1 then
         @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
         @false_played_players = @all_players.where(:played => false)
@@ -353,6 +210,183 @@ def checkGoalkeepers (goalkeepers, u)
       end
       return goalkeeperSubCount
     end
+
+def getDefenderSubCount (defenders,u) 
+ if defenders != 4 then
+        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
+        @false_played_players = @all_players.where(:played => false)
+        defenderSubCount = 0
+        for p in @false_played_players do
+          if p.player.position == 'Defender' then
+             defenderSubCount = defenderSubCount + 1
+             p.update(:active => false)
+           end
+        end
+      end
+      return defenderSubCount
+    end
+ 
+def getMidSubCount (midfielders,u)
+ if midfielders != 4 then
+        @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
+        @false_played_players = @all_players.where(:played => false)
+        midSubCount = 0
+        for p in @false_played_players do
+          if p.player.position == 'Midfielder' then
+             midSubCount = midSubCount + 1
+             p.update(:active => false)
+           end
+        end
+      end
+      return midSubCount
+    end
+
+def getStrikerSubCount (strikers,u)
+  if strikers != 2 then
+      @all_players = Teamsheet.where(:user_id => u.id).where(:active => true)
+      @false_played_players = @all_players.where(:played => false)
+      strikerSubCount = 0
+      for p in @false_played_players do
+        if p.player.position == 'Striker' then
+            strikerSubCount = strikerSubCount + 1
+            p.update(:active => false)
+          end
+        end
+    end
+    return strikerSubCount
+  end
+
+def subGoalkeepers (goalkeeperSubCount,u)
+     if goalkeeperSubCount == 1 then 
+        @all_players2 = Teamsheet.where(:user_id => u.id)
+        @priority_players = @all_players2.where(:priority => 1)
+        for p in @priority_players do 
+          if p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
+             p.update(:active => true)
+        end
+      end
+  end
+end
+
+def subDefenders (defenderSubCount,u)
+  if defenderSubCount == 1 then 
+        @all_players4 = Teamsheet.where(:user_id => u.id)
+        @priority_players2 = @all_players4.where(:priority => 1)
+        for p in @priority_players2 do 
+          if p.player.position == 'Defender' && p.read_attribute(:played) == true then
+             p.update(:active => true)
+          elsif 
+            @priority_players3 = @all_players4.where(:priority => 2)
+            for p in @priority_players3 do
+              if p.player.position == 'Defender' && p.read_attribute(:played) == true then
+                p.update(:active => true)
+              end
+            end
+         end
+      end
+    
+    elsif defenderSubCount == 2 then 
+      @all_players7 = Teamsheet.where(:user_id => u.id)
+      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players do
+       if p.player.position == 'Defender' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+       end
+      end
+    
+    elsif defenderSubCount == 3 then 
+      @all_players7 = Teamsheet.where(:user_id => u.id)
+      @all_priority_players = @all_players7.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players do
+       if p.player.position == 'Defender' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+       end
+      end
+    
+    elsif defenderSubCount == 4 then 
+      @all_players8 = Teamsheet.where(:user_id => u.id)
+      @all_priority_players = @all_players8.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players do
+       if p.player.position == 'Defender' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+        end
+      end
+   end
+end
+
+def subMidfielders (midSubCount,u)
+  if midSubCount == 1 then 
+        @all_players3 = Teamsheet.where(:user_id => u.id)
+        @priority_players1 = @all_players3.where(:priority => 1)
+          for p in @priority_players1 do 
+            if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+              p.update(:active => true)
+            elsif 
+              @priority_players2 = @all_players3.where(:priority => 2)
+                for p in @priority_players2 do
+                  if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+                    p.update(:active => true)
+                end
+              end
+            end
+          end
+    
+    elsif midSubCount == 2 then 
+        @all_players8 = Teamsheet.where(:user_id => u.id)
+        @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players1 do 
+       if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+       end
+      end
+   
+   elsif midSubCount == 3 then 
+        @all_players8 = Teamsheet.where(:user_id => u.id)
+        @all_priority_players1 = @all_players8.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players1 do 
+       if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+        end
+      end
+
+   elsif midSubCount == 4 then 
+        @all_players9 = Teamsheet.where(:user_id => u.id)
+        @all_priority_players1 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players1 do 
+       if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+       end
+      end
+    end
+  end
+
+def subStrikers(strikerSubCount,u)
+  if strikerSubCount == 1 then 
+    @all_players5 = Teamsheet.where(:user_id => u.id)
+    @priority_players5 = @all_players5.where(:priority => 1)
+      for p in @priority_players5 do 
+        if p.player.position == 'Striker' && p.read_attribute(:played) == true then
+           p.update(:active => true)
+         elsif 
+          @priority_players4 = @all_players5.where(:priority => 2)
+           for p in @priority_players4 do
+            if p.player.position == 'Striker' && p.read_attribute(:played) == true then
+              p.update(:active => true)
+            end
+          end
+        end
+      end
+    
+    elsif strikerSubCount == 2 then 
+      @all_players9 = Teamsheet.where(:user_id => u.id)
+      @all_priority_players2 = @all_players9.where('priority= ? OR priority= ?', 1, 2)
+      for p in @all_priority_players2 do
+       if p.player.position == 'Striker' && p.read_attribute(:played) == true then
+         p.update(:active => true)
+       end
+    end
+  end
+end
 
   # DELETE /results/1
   # DELETE /results/1.json
