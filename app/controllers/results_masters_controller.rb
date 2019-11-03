@@ -82,7 +82,7 @@ end
 def update_multiple
  ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
 end
-
+  #comment added
   # POST /results_masters
   # POST /results_masters.json
   def create
