@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+  <style type="text/css">
+  
+  body {
+    background-image: url("football-452569_1920") !important;
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;
+  }
+  .login_errors {
+     background-color: #e57373;
+     color: white;
+  }
+</style>
+</head>
+<body>
+<div class="container-fluid">
+  <nav class="nav-wrapper green lighten-2">
+  <div class="container-fluid">
+    <div class="navbar-header green lighten-2"> 
+      &nbsp; &nbsp; <a class="brand-logo center" href="/login"> <%= image_tag("UFFLLogo.png", width: '150', height: '50') %></a>
+    </div>
+</nav>
+<div class="container" style="width:35%;">
+<div align="center">
+<h4>Create a new league by giving it a name</h4>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', accounts_path %>
+</div>
+</div>
+</html>
+

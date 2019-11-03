@@ -3,8 +3,12 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def signup_options
+		
+	end
+
 	def create 
-  		@user = User.new(user_params) 
+			@user = User.new(user_params) 
   		if @user.save 
     	session[:user_id] = @user.id 
     	UserMailer.account_activation(@user).deliver
@@ -17,6 +21,6 @@ class UsersController < ApplicationController
 
 	private
   		def user_params
-    	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-  	end
+    	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :account_id)
+		end
 end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_id: 1
+  played: false
+  scored: false
+  scorenum: 1
+  conceded: false
+  concedednum: 1
+
+two:
+  player_id: 1
+  played: false
+  scored: false
+  scorenum: 1
+  conceded: false
+  concedednum: 1

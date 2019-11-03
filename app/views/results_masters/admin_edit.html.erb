@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="pitch.css.scss">
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript">
+
+  document.addEventListener("turbolinks:load", function(){
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
+  });
+  
+  document.addEventListener("turbolinks:load", function(){
+  function selectAll(){
+    $("input:checkbox").each(function(){
+      $(this).attr('checked', true);
+      });
+    return false;
+    }
+  });
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable2");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch= true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+</head>
+<ul id="dropdown2" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
+<ul id="dropdown4" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+<body>
+<div class="container-fluid">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+       &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
+      link_to "UFFL", '/index', class: "brand-logo"
+      end
+      %></a>
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <div class="container">
+  <p><button onclick="sortTable()" class="btn btn-default">Sort by club</button></p>
+  <p><button href="#" onclick="selectAll()" class="btn btn-default" style="float:left">Select All</button>
+  <div align="center">
+  <div class="row">
+  <div class="col-sm-12" style="background-color:white;">
+<%= form_tag edit_multiple_results_masters_path, method: :post do %>
+<table id="myTable2">
+  <tr>
+    <th>Club</th>
+    <th>Player</th>
+    <th>Position</th>
+    <th>Enter Results?</th>
+  </tr>
+<% for player in @results_masters %>
+  <tr>
+    <td><%=h Team.where(:id => player.player.teams_id).first.read_attribute(:name) %></td>
+    <td><%=h player.player.name  %></td>
+    <td><%=h player.player.position %></td>
+    <td><input id="<%=player.id%>" value="<%=player.id%>" name="results_masters_ids[]" type="checkbox">&nbsp;<label for="<%=player.id%>"></label></td>
+  </tr>
+<% end %>
+</table>
+<div style="text-align:left"><%= submit_tag "Enter Results",  class: 'btn btn-default' %></div>
+<% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 </head>
 <body>
   <nav class="nav-wrapper green lighten-2">
-  &nbsp; &nbsp; <a class="brand-logo center" href="#">Fantasy Football League</a>
+  &nbsp; &nbsp; <a class="brand-logo center" href="/login"> <%= image_tag("UFFLLogo.png", width: '150', height: '50') %></a>
   </nav>
     <div class="container">
     <div align="center">
@@ -24,6 +24,9 @@
       </div>
       <div class="input-field">
       <%= f.email_field :email, :placeholder => "Email", :class => "input-field" %>
+      </div>
+      <div class="input-field">
+      <%= f.text_field :account_id, :placeholder => "League ID (Enter to join an existing RFFL league)", :class => "input-field" %>
       </div>
       <div class="input-field">
       <%= f.password_field :password, :placeholder => "Password", :class => "input-field" %>

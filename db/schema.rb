@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181226173335) do
+ActiveRecord::Schema.define(version: 20191020191549) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -19,8 +25,10 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
+  add_index "bids", ["account_id"], name: "index_bids_on_account_id"
   add_index "bids", ["player_id"], name: "index_bids_on_player_id"
   add_index "bids", ["user_id"], name: "index_bids_on_user_id"
 
@@ -32,7 +40,10 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.datetime "updated_at"
     t.string   "haflag",     limit: 255
     t.string   "finalscore", limit: 255, default: ""
+    t.integer  "account_id"
   end
+
+  add_index "fixtures", ["account_id"], name: "index_fixtures_on_account_id"
 
   create_table "league_tables", force: :cascade do |t|
     t.string   "team",       limit: 255
@@ -46,7 +57,10 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.integer  "points",                 default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
+
+  add_index "league_tables", ["account_id"], name: "index_league_tables_on_account_id"
 
   create_table "matchdays", force: :cascade do |t|
     t.integer  "matchday_number"
@@ -54,7 +68,10 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "matchday_count"
+    t.integer  "account_id"
   end
+
+  add_index "matchdays", ["account_id"], name: "index_matchdays_on_account_id"
 
   create_table "models", force: :cascade do |t|
     t.string   "timer"
@@ -68,7 +85,10 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "show",       limit: 255
+    t.integer  "account_id"
   end
+
+  add_index "notifications", ["account_id"], name: "index_notifications_on_account_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -78,8 +98,10 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.string   "position",   limit: 255
     t.string   "taken",      limit: 255, default: "No"
     t.string   "playerteam"
+    t.integer  "account_id"
   end
 
+  add_index "players", ["account_id"], name: "index_players_on_account_id"
   add_index "players", ["teams_id"], name: "index_players_on_teams_id"
 
   create_table "playerstats", force: :cascade do |t|
@@ -91,15 +113,31 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.integer  "concedednum"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "account_id"
   end
+
+  add_index "playerstats", ["account_id"], name: "index_playerstats_on_account_id"
 
   create_table "results", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
+  add_index "results", ["account_id"], name: "index_results_on_account_id"
+
+  create_table "results_masters", force: :cascade do |t|
+    t.integer  "player_id"
+    t.boolean  "played"
+    t.boolean  "scored"
+    t.integer  "scorenum"
+    t.boolean  "conceded"
+    t.integer  "concedednum"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 # Could not dump table "teams" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
 
@@ -116,13 +154,19 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.boolean  "conceded"
     t.integer  "concedednum"
     t.integer  "priority"
+    t.integer  "account_id"
   end
+
+  add_index "teamsheets", ["account_id"], name: "index_teamsheets_on_account_id"
 
   create_table "timers", force: :cascade do |t|
     t.string   "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "account_id"
   end
+
+  add_index "timers", ["account_id"], name: "index_timers_on_account_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",        limit: 255
@@ -139,6 +183,9 @@ ActiveRecord::Schema.define(version: 20181226173335) do
     t.string   "access",            limit: 255, default: "user"
     t.integer  "budget",                        default: 1000000
     t.string   "canView",           limit: 255
+    t.integer  "account_id"
   end
+
+  add_index "users", ["account_id"], name: "index_users_on_account_id"
 
 end

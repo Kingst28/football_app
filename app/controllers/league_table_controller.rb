@@ -75,7 +75,7 @@ class LeagueTableController < ApplicationController
         @matchday1.update(:haflag => "Home")
       end
     end
-    Result.delete_all
+    Result.delete_all   
     #update the amount of games a player has played. 
     @teamsheets = Teamsheet.all
     for t in @teamsheets do 

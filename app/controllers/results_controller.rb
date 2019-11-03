@@ -111,7 +111,7 @@ def fixture_results
       subMidfielders(midSubCount,u)
       subStrikers(strikerSubCount,u)
 
-      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true'])
+      @teamsheet_scorers = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true']).where(:played => [true,'true'])
       for p in @teamsheet_scorers do
         if (p.read_attribute(:scored) == true) then
           scorenum = p.read_attribute(:scorenum).to_i
@@ -120,24 +120,31 @@ def fixture_results
       end
       end
 
-      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true'])
+      @teamsheet_conceders = Teamsheet.where(:user_id => u.id).where(:active => [true, 'true']).where(:played => [true,'true'])
       for p in @teamsheet_conceders do 
-        if(p.read_attribute(:conceded) == true) then
+        if(p.read_attribute(:conceded) == true && p.player.position == "Goalkeeper") then
           concedednum = p.read_attribute(:concedednum).to_i 
           total_connum = total_connum + concedednum 
-      else
+        elsif(p.read_attribute(:conceded) == true && p.player.position == "Defender") then
+          concedednum = p.read_attribute(:concedednum).to_i 
+          total_connum = total_connum + concedednum 
       end
       end
 
       for p in @teamsheet_conceders do
-      if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-        defenderCount = defenderCount + 1
-      elsif p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
-        defenderCount = defenderCount + 1
+      if p.player.position == 'Defender' && p.read_attribute(:active) == true && p.read_attribute(:played) == true  then
+        defenderCount += 1
+      elsif p.player.position == 'Goalkeeper' && p.read_attribute(:active) == true && p.read_attribute(:played) == true then
+        defenderCount += 1
       end
     end
 
     if defenderCount == 0 then
+      con_score = 5 
+      con_score = con_score * -1
+      final_score = total_scorenum + con_score 
+      @result_new = Result.new(:user_id => u.id, :score => final_score)
+      @result_new.save
     else
       con_score1 = 5 - defenderCount
       con_score2 = total_connum / defenderCount
@@ -149,31 +156,34 @@ def fixture_results
     end
   end
     
-    @matchday = Matchday.find(9)
-    matchday_number = @matchday.read_attribute(:matchday_number)
-    matchday_count = @matchday.read_attribute(:matchday_count)
-    matchday_haflag = @matchday.read_attribute(:haflag)
-   
-   if matchday_haflag == 'Home' && matchday_number <= matchday_count then
-      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => 'Home')
-   elsif 
-      matchday_haflag == 'Away' && matchday_number <= matchday_count then
-      @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => 'Away')
+  matchday_id = Matchday.find(Matchday.where(:account_id => u.account_id)).read_attribute(:id)
+  @matchday = Matchday.find(matchday_id)
+  matchday_number = @matchday.read_attribute(:matchday_number)
+  matchday_count = @matchday.read_attribute(:matchday_count)
+  matchday_haflag = @matchday.read_attribute(:haflag)
+ 
+ if matchday_haflag == 'Home' && matchday_number <= matchday_count then
+    @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => 'Home')
+ elsif 
+    matchday_haflag == 'Away' && matchday_number <= matchday_count then
+    @fixtures = Fixture.where(:matchday => matchday_number).where(:haflag => 'Away')
+  else
+    if matchday_haflag = 'Home' then
+       matchday_id = Matchday.find(Matchday.where(:account_id => u.account_id)).read_attribute(:id)
+       @matchday = Matchday.find(matchday_id)
+       @matchday.update(:matchday_number => 0)
+       @matchday.update(:haflag => 'Away'.to_s)
+       @fixtures = Fixture.where(:matchday => 0).where(:haflag => 'Away')
+       @matchday.update(:matchday_number => 0 + 1)
     else
-      if matchday_haflag = 'Home' then
-         @matchday = Matchday.find(9)
-         @matchday.update(:matchday_number => 0)
-         @matchday.update(:haflag => 'Away'.to_s)
-         @fixtures = Fixture.where(:matchday => 0).where(:haflag => 'Away')
-         @matchday.update(:matchday_number => 0 + 1)
-      else
-        @matchday = Matchday.find(9)
-        @matchday.update(:matchday_number => 0)
-        @matchday.update(:haflag => 'Home')
-        @fixtures = Fixture.where(:matchday => 0).where(:haflag => 'Home')
-        @matchday.update(:matchday_number => 0 + 1)
-      end
+      matchday_id = Matchday.find(Matchday.where(:account_id => u.account_id)).read_attribute(:id)
+      @matchday = Matchday.find(matchday_id)
+      @matchday.update(:matchday_number => 0)
+      @matchday.update(:haflag => 'Home')
+      @fixtures = Fixture.where(:matchday => 0).where(:haflag => 'Home')
+      @matchday.update(:matchday_number => 0 + 1)
     end
+  end
     
     for f in @fixtures do
       fuser1 = f.read_attribute(:hteam).to_i
@@ -218,7 +228,7 @@ def getDefenderSubCount (defenders,u)
         defenderSubCount = 0
         for p in @false_played_players do
           if p.player.position == 'Defender' then
-             defenderSubCount = defenderSubCount + 1
+             defenderSubCount += 1
              p.update(:active => false)
            end
         end
@@ -263,6 +273,9 @@ def subGoalkeepers (goalkeeperSubCount,u)
         for p in @priority_players do 
           if p.player.position == 'Goalkeeper' && p.read_attribute(:played) == true then
              p.update(:active => true)
+          elsif p.player.position == 'Goalkeeper' && p.read_attribute(:played) == false then
+            total_connum = 0
+            total_connum = total_connum + 1
         end
       end
   end
@@ -271,12 +284,18 @@ end
 def subDefenders (defenderSubCount,u)
   if defenderSubCount == 1 then 
         @all_players4 = Teamsheet.where(:user_id => u.id)
-        @priority_players2 = @all_players4.where(:priority => 1)
+        @priority_players2 = @all_players4.where(:priority => '1')
         for p in @priority_players2 do 
           if p.player.position == 'Defender' && p.read_attribute(:played) == true then
-             p.update(:active => true)
-          elsif 
-            @priority_players3 = @all_players4.where(:priority => 2)
+             p.update(:active => true) 
+             @priority_players3 = @all_players4.where(:priority => '2')
+             for p in @priority_players3 do 
+             if p.player.position == 'Defender' then
+                p.update(:played => nil)
+             end
+             end
+          else 
+            @priority_players3 = @all_players4.where(:priority => '2')
             for p in @priority_players3 do
               if p.player.position == 'Defender' && p.read_attribute(:played) == true then
                 p.update(:active => true)
@@ -316,20 +335,26 @@ end
 
 def subMidfielders (midSubCount,u)
   if midSubCount == 1 then 
-        @all_players3 = Teamsheet.where(:user_id => u.id)
-        @priority_players1 = @all_players3.where(:priority => 1)
-          for p in @priority_players1 do 
-            if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-              p.update(:active => true)
-            elsif 
-              @priority_players2 = @all_players3.where(:priority => 2)
-                for p in @priority_players2 do
-                  if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
-                    p.update(:active => true)
-                end
-              end
-            end
+    @all_players4 = Teamsheet.where(:user_id => u.id)
+    @priority_players2 = @all_players4.where(:priority => '1')
+    for p in @priority_players2 do 
+      if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+         p.update(:active => true) 
+         @priority_players3 = @all_players4.where(:priority => '2')
+         for p in @priority_players3 do 
+          if p.player.position == 'Midfielder' then
+            p.update(:played => nil)
           end
+         end
+      else 
+        @priority_players3 = @all_players4.where(:priority => '2')
+        for p in @priority_players3 do
+          if p.player.position == 'Midfielder' && p.read_attribute(:played) == true then
+            p.update(:active => true)
+          end
+        end
+     end
+  end
     
     elsif midSubCount == 2 then 
         @all_players8 = Teamsheet.where(:user_id => u.id)
@@ -362,20 +387,26 @@ def subMidfielders (midSubCount,u)
 
 def subStrikers(strikerSubCount,u)
   if strikerSubCount == 1 then 
-    @all_players5 = Teamsheet.where(:user_id => u.id)
-    @priority_players5 = @all_players5.where(:priority => 1)
-      for p in @priority_players5 do 
-        if p.player.position == 'Striker' && p.read_attribute(:played) == true then
-           p.update(:active => true)
-         elsif 
-          @priority_players4 = @all_players5.where(:priority => 2)
-           for p in @priority_players4 do
-            if p.player.position == 'Striker' && p.read_attribute(:played) == true then
-              p.update(:active => true)
-            end
+    @all_players4 = Teamsheet.where(:user_id => u.id)
+    @priority_players2 = @all_players4.where(:priority => '1')
+    for p in @priority_players2 do 
+      if p.player.position == 'Striker' && p.read_attribute(:played) == true then
+         p.update(:active => true) 
+         @priority_players3 = @all_players4.where(:priority => '2')
+         for p in @priority_players3 do 
+          if p.player.position == 'Striker' then
+            p.update(:played => nil)
+          end
+         end
+      else 
+        @priority_players3 = @all_players4.where(:priority => '2')
+        for p in @priority_players3 do
+          if p.player.position == 'Striker' && p.read_attribute(:played) == true then
+            p.update(:active => true)
           end
         end
-      end
+     end
+  end
     
     elsif strikerSubCount == 2 then 
       @all_players9 = Teamsheet.where(:user_id => u.id)
