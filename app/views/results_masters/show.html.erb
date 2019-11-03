@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @results_master.player_id %>
+</p>
+
+<p>
+  <strong>Played:</strong>
+  <%= @results_master.played %>
+</p>
+
+<p>
+  <strong>Scored:</strong>
+  <%= @results_master.scored %>
+</p>
+
+<p>
+  <strong>Scorenum:</strong>
+  <%= @results_master.scorenum %>
+</p>
+
+<p>
+  <strong>Conceded:</strong>
+  <%= @results_master.conceded %>
+</p>
+
+<p>
+  <strong>Concedednum:</strong>
+  <%= @results_master.concedednum %>
+</p>
+
+<%= link_to 'Edit', edit_results_master_path(@results_master) %> |
+<%= link_to 'Back', results_masters_path %>

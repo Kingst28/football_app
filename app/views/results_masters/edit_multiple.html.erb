@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="pitch.css.scss">
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript">
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("example");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch= true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
+  });
+</script>
+</head>
+<ul id="dropdown2" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
+<ul id="dropdown4" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+<body>
+<div class="container-fluid">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+       &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
+      link_to "UFFL", '/index', class: "brand-logo"
+      end
+      %></a>
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/notifications" class="btn btn-primary">Notifications</a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+<div class="container"> 
+<!--<p><button onclick="sortTable()" class="btn btn-default">Sort by position</button></p> -->
+<div class="center">  
+<div class="row">
+<div class="col s12 m12">
+<%= form_tag update_multiple_results_masters_path, :method => :put do %>
+  <% for teamsheet in @results_masters %>
+    <%= fields_for "results_masters[]", teamsheet do |f| %>
+    <table id="example">
+    <tr>
+    <th></th>  
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+    <tr>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h teamsheet.player.name %></b>
+    </div>
+    </td>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h teamsheet.player.position %></b>
+    </div>
+    </td>
+    <td>
+    <div class="input-field inline">  
+    <%= f.check_box :played %>
+    <%= f.label 'played', id:'played' %>
+    </div>
+    </td>
+    <td>
+    <div class="input-field inline">
+    <%= f.check_box :scored %>
+    <%= f.label 'scored', id:'scored' %>
+    </div>
+    </td>
+    <% if teamsheet.player.position == 'Midfielder' || teamsheet.player.position == 'Striker' %>
+    <td>
+    </td>
+    <% else %>
+    <td>
+    <div class="input-field inline">
+    <%= f.check_box :conceded %>
+    <%= f.label 'conceded', id:'conceded' %>
+    </div>
+    </td>
+    <% end %>
+    <td>
+    <div class="input-field inline">
+    <%= f.label 'Amount Scored', id:'scorenum' %>
+    <%= f.number_field :scorenum %>
+    </div>
+    </td>
+    <% if teamsheet.player.position == 'Midfielder' || teamsheet.player.position == 'Striker' %>
+    <td>
+    </td>
+    <% else %>
+    <td>
+    <div class="input-field inline">
+    <%= f.number_field :concedednum %>
+    <%= f.label 'Amount Conceded', id:'concedednum' %>
+    </div>
+    </td>
+    <% end %>
+    <div class="divider"></div>
+    </tr>
+    <% end %>
+    </table>
+  <% end %>
+  <p><%= submit_tag "Update", class: 'btn btn-default' %></p>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

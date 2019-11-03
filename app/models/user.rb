@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
                     :uniqueness=> {:on => :create}
   validates :password, :length=> { :minimum => 5, :maximum => 40, :on => :create }
   validates :budget, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 1000000 }
-
+  
+  acts_as_tenant(:account)
   # Returns true if the given token matches the digest.
     def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
 
     def user? 
     self.access == 'user' 
+    end
+
+    def account_id?
+    self.access == 'account_id'
     end
 
     private

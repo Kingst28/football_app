@@ -9,7 +9,8 @@ namespace :csv do
 
     CSV.foreach(csv_file_path) do |row|
       Team.create!({
-        :name => row[0],        
+        :id => row[0],
+        :name => row[1]        
       })
       puts "Row added!"
     end

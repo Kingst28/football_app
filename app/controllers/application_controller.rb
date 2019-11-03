@@ -3,15 +3,25 @@ include SessionsHelper
 before_action :require_user, only: [:admin_index, :index]
 before_action :require_admin, only: [:admin_index]
 before_action :require_participant, only: [:index]
+before_action :find_current_tenant
 before_filter :authorize_admin, :only => :admin_index
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :canView?, :adminUser?
+  set_current_tenant_through_filter
 
 def admin_index
   @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
 end 
+
+def find_current_tenant
+  if current_user == nil then
+  else
+    current_account = current_user.account # this line
+    set_current_tenant(current_account)
+  end
+end
 
 def manage_permissions
 end

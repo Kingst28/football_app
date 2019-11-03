@@ -79,6 +79,7 @@ border: none;
     width: 200px;
     height: 80px;    
 }
+
 </style>
 </head>
 
@@ -102,12 +103,15 @@ border: none;
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/notifications" class="btn btn-primary">Notifications</a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a style="color:white;" href="/notifications" class="btn btn-primary">Notifications</a></li>
+        <li><a style="color:white;" href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%>
+        <br/> &nbsp; &nbsp;
+        <%=Account.find(current_user.account_id).name %>
+        </a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
+        <li><a style href="/notifications">Notifications<span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
         <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
         <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
@@ -134,7 +138,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">My Starting 11</h4>
       <p class="card-text">Choose your starting 11 for this game week.</p>
-       <a href="teamsheet/index" class="btn btn-primary">Pick Team</a>
+       <a style="color:white;" href="teamsheet/index" class="btn btn-primary">Pick Team</a>
     </div>
   </div>
   <div class="card">
@@ -142,7 +146,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">My Bids</h4>
       <p class="card-text">Bid on new players to add to your squad and view your current bids.</p>
-      <a href="bids" class="btn btn-primary">Submit Bid</a>
+      <a style="color:white;" href="bids" class="btn btn-primary">Submit Bid</a>
     </div>
   </div>
   <div class="card">
@@ -150,7 +154,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">League Table</h4>
       <p class="card-text">View your position in the league table</p>
-       <a href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
+       <a style="color:white;" href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
     </div>
   </div>
    <div class="card">
@@ -158,26 +162,26 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">Fixtures & Results</h4>
       <p class="card-text">View upcoming fixtures and past results.</p>
-      <a href="fixtures/index" class="btn btn-primary">View Results</a>
+      <a style="color:white;" href="fixtures/index" class="btn btn-primary">View Results</a>
     </div>
   </div>
 </div>
   <div class="row">
       <div class="card">
-    <img class="card-img-top" src="assets/pexels-photo-262524.jpeg" alt="Card image cap">
+    <img class="card-img-top" src="/assets/pexels-photo-262524.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">View Teams</h4>
       <p class="card-text">View other UFFL managers teams</p>
-      <a href="teamsheet/index2" class="btn btn-primary">View Teams</a>
+      <a style="color:white;" href="teamsheet/index2" class="btn btn-primary">View Teams</a>
     </div>
     </div>
 
     <div class="card">
-    <img class="card-img-top" src="assets/pexels-photo-270700.jpeg" alt="Card image cap">
+    <img class="card-img-top" src="/assets/pexels-photo-270700.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">Admin Controls</h4>
       <p class="card-text">Control your Ultimate Fantasy Football League settings</p>
-      <a href="admin_controls" class="btn btn-primary">Admin Controls</a>
+      <a style="color:white;" href="admin_controls" class="btn btn-primary">Admin Controls</a>
     </div>
     </div>
   </div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav-wrapper green lighten-2">
+  &nbsp; &nbsp; <a class="brand-logo center" href="/login"> <%= image_tag("UFFLLogo.png", width: '150', height: '50') %></a>
+  </nav>
+    <div class="container center">
+      <div class="row">
+        <div class="col s6">
+        <div class="card">
+            <div class="card-image">
+            <img class="card-img-top" src="/assets/pexels-photo-1594937.jpg" width="100%" alt="Card image cap">
+            <span class="card-title black">Create</span>
+            </div>
+            <div class="card-content">
+            <p>Sign up to RFFL and create a new league.</p>
+            </div>
+            <div class="card-action">
+             <a href="/accounts/new">Create League</a>
+            </div>
+        </div>
+        </div>
+        <div class="col s6">
+        <div class="card">
+            <div class="card-image">
+            <img class="card-img-top" src="/assets/pexels-photo-1594942.jpg" width="100%" alt="Card image cap">
+            <span class="card-title black">Join</span>
+            </div>
+            <div class="card-content">
+            <p>Sign up to RFFL and join an existing league.</p>
+            </div>
+            <div class="card-action">
+            <%= link_to "Join League", signup_path %> 
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+</html>

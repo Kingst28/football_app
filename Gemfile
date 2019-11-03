@@ -51,6 +51,8 @@ gem 'sort_alphabetical'
 
 gem 'serviceworker-rails'
 
+gem 'acts_as_tenant'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

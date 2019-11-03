@@ -1,4 +1,5 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+  resources :accounts
   resources :playerstats
   resources :timers
   resources :models
@@ -30,11 +31,19 @@ Rails.application.routes.draw do
   get '/notifications/:id/destroy' => 'notifications#destroy', as: :delete_notifications_path 
   patch '/players/:id' => 'players#update'
   patch '/teamsheet/:id' => 'teamsheet#update'
+  patch '/results_masters/:id' => 'results_masters#update'
   get '/teams/:id/edit' => 'teams#edit', as: :edit_teams
   get '/teams/:id/delete' => 'teams#delete', as: :delete_teams
   get '/bids/checkBids' => 'bids#checkBids'
   get '/bids/insertWinners' => 'bids#insertWinners'
   get '/teamsheet/index' => 'teamsheet#index'
+  get '/results_masters/admin_edit' => 'results_masters#admin_edit', as: :admin_edit_results_masters
+  get '/results_masters/:id/edit' => 'results_masters#edit', as: :edit_results_masters
+  get '/results_masters/edit_multiple' => 'results_masters#edit_multiple'
+  get '/results_masters/index' => 'results_masters#index'
+  get 'results_masters/show' => 'results_masters#show'
+  get 'results_masters/copy_results' => 'results_masters#copy_results'
+  get 'results_masters/copy_results_to_teamsheets' => 'results_masters#copy_results_to_teamsheets'
   get '/teamsheet/admin_edit' => 'teamsheet#admin_edit', as: :admin_edit_teamsheet
   get '/teamsheet/:id/edit' => 'teamsheet#edit', as: :edit_teamsheet
   patch '/teams/:id' => 'teams#update'
@@ -61,6 +70,7 @@ Rails.application.routes.draw do
   get '/admin_controls' => 'application#admin_controls'
   get '/teamsheet/index2' => 'teamsheet#index2'
   get '/playerstats/:id' => 'playerstats#show', as: :show_player_stats_path
+  get '/signup_options' => 'users#signup_options', as: :signup_options_path
   patch '/sessions/:id' => 'sessions#update'
   patch '/bids/:id' => 'bids#update'
   resources :users
@@ -71,6 +81,12 @@ Rails.application.routes.draw do
     collection do
       post :edit_multiple
       put :update_multiple
+end
+end
+resources :results_masters do
+  collection do
+    post :edit_multiple
+    put :update_multiple
 end
 end
   
