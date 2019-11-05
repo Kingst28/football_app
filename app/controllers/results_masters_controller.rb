@@ -85,6 +85,7 @@ end
 
   # POST /results_masters
   # POST /results_masters.json
+  # Comment
   def create
     @results_master = ResultsMaster.new(results_master_params)
 
