@@ -7,12 +7,12 @@
   "theme_color": "#80C783",
   "icons": [
     {
-      "src": "UFFL_Icon_192.png",
+      "src": "UFFL_Icon_192 stage.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "UFFL_Icon_512.png",
+      "src": "UFFL_Icon_512 stage.png",
       "type": "image/png",
       "sizes": "512x512"
     }
