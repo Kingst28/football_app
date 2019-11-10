@@ -1,4 +1,5 @@
 class TeamsheetController < ApplicationController
+  before_action :authorize_admin, only: [:admin_edit]
 
    def index 
   	players = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => current_user.id).where(:active => ['true',true])
@@ -113,4 +114,19 @@ class TeamsheetController < ApplicationController
    def delete 
    	  @teamsheetDelete = Teamsheet.find(params[:id]).destroy
    end
+
+   def adminUser?
+    current_user.access == "admin"
+  end
+  
+  def authorize_admin 
+    unless adminUser?
+      flash[:error] = "unauthorized access"
+      if require_admin then
+      redirect_to '/admin_index'
+      else
+      redirect_to '/index' 
+    end
+    end
+  end
 end

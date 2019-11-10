@@ -1,5 +1,6 @@
 class FixturesController < ApplicationController
   before_action :set_fixture, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_admin, only: [:createFixtures]
   require "round_robin_tournament"
   # GET /fixtures
   # GET /fixtures.json
@@ -100,6 +101,21 @@ end
     respond_to do |format|
       format.html { redirect_to fixtures_url, notice: 'Fixture was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def adminUser?
+    current_user.access == "admin"
+  end
+  
+  def authorize_admin 
+    unless adminUser?
+      flash[:error] = "unauthorized access"
+      if require_admin then
+      redirect_to '/admin_index'
+      else
+      redirect_to '/index' 
+    end
     end
   end
 

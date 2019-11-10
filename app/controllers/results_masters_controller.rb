@@ -1,5 +1,5 @@
 class ResultsMastersController < ApplicationController
-
+  before_action :authorize_admin
   # GET /results_masters
   # GET /results_masters.json
   def index
@@ -113,6 +113,21 @@ end
         format.html { render action: "edit" }
         format.json { render json: @results_master.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def adminUser?
+    current_user.access == "admin"
+  end
+  
+  def authorize_admin 
+    unless adminUser?
+      flash[:error] = "unauthorized access"
+      if require_admin then
+      redirect_to '/admin_index'
+      else
+      redirect_to '/index' 
+    end
     end
   end
 
