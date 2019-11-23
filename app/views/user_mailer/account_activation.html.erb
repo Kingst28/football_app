@@ -1,9 +1,10 @@
-<h1>Fantasy Football League</h1>
+<%= image_tag(attachments['UFFLEMAIL.png'].url, height: '100', width: '200') %>
+<h1>Ultimate Fantasy Football League</h1>
 
 <p>Hi <%= @user.first_name %>,</p>
 
 <p>
-Welcome to the Fantasy Football League! Click on the link below to activate your account:
+Welcome to the Ultimate Fantasy Football League! Click on the link below to activate your account:
 </p>
 
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token,

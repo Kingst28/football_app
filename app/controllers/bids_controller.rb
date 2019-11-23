@@ -186,11 +186,15 @@ end
         format.html { redirect_to '/bids' }
         format.json { render :show, status: :created, location: @bid }
       else
-        format.html { render :new }
-        format.json { render json: @bid.errors, status: :unprocessable_entity }
+        format.html { redirect_to '/bids/new' }
+        if @bid.errors.any?
+           @bid.errors.full_messages.each do |message|
+           flash[:danger] = message 
+         end 
+        end 
       end
     end
-  end
+end
 
   # PATCH/PUT /bids/1
   # PATCH/PUT /bids/1.json

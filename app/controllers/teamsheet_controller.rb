@@ -107,6 +107,13 @@ class TeamsheetController < ApplicationController
   def update
     @teamsheet = Teamsheet.find(params[:id])
     if @teamsheet.update_attributes(teamsheet_params)
+        redirect_to '/teamsheet/index' 
+    else
+      if @teamsheet.errors.any?
+         @teamsheet.errors.full_messages.each do |message|
+         flash[:danger] = message 
+       end 
+      end 
     redirect_to session.delete(:my_previous_url)
   end
   end

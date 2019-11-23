@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "uffl.staging@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -8,6 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def account_activation(user)
     @user = user
+    attachments.inline["UFFLEMAIL.png"] = File.read("#{Rails.root}/app/assets/images/UFFLEMAIL.png")
     mail to: user.email, subject: "Account activation"
   end
 
@@ -18,6 +19,7 @@ class UserMailer < ActionMailer::Base
   #
   def password_reset(user)
       @user = user
+      attachments.inline["UFFLEMAIL.png"] = File.read("#{Rails.root}/app/assets/images/UFFLEMAIL.png")
       mail to: user.email, subject: "Password reset"
   end
 end
