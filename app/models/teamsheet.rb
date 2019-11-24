@@ -7,6 +7,7 @@ class Teamsheet < ActiveRecord::Base
   validate :active, :defender_check
   validate :active, :midfielder_check
   validate :active, :striker_check
+  validates :priority,  inclusion: { :in => [1,2,nil], message: "must be set to 1 or 2" }
 
   def active_check 
     user_id = self.user_id 
