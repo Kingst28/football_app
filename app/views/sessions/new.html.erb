@@ -60,8 +60,13 @@
 <script type="text/javascript">
   function installerHide() {
   if (window.matchMedia('(display-mode: standalone)').matches) {  
-    var installButton = document.getElementById("installer");   // Get the <ul> element with id="myList"
-    installButton.remove();     
+    var installButton = document.getElementById("installer");
+    installButton.remove();
+  }
+  else if (window.navigator.standalone == true){
+    var installButton = document.getElementById("installer");
+    installButton.remove();
+  }
   } 
   }
 </script>
