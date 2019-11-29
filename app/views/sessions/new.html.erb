@@ -22,14 +22,6 @@
      color: white;
   }
 </style>
-<script type="text/javascript">
-  function installerHide() {
-  if (window.matchMedia('(display-mode: standalone)').matches) {  
-    var installButton = document.getElementById("installer");   // Get the <ul> element with id="myList"
-    installButton.removeChild(installButton.childNodes[0]);      
-  } 
-  }
-</script>
 </head>
 <body onload="installerHide()">
 <div class="container-fluid">
@@ -65,4 +57,13 @@
   <button class="button">Install</button>
 </div>
 </div>
+<script type="text/javascript">
+  function installerHide() {
+  if (window.matchMedia('(display-mode: standalone)').matches) {  
+    var installButton = document.getElementById("installer");   // Get the <ul> element with id="myList"
+    installButton.removeChild(installButton.childNodes[0]);      
+  } 
+  }
+</script>
+</body>
 </html>
