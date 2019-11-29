@@ -23,10 +23,12 @@
   }
 </style>
 <script type="text/javascript">
+  window.onload = function(e){
   if (window.matchMedia('(display-mode: standalone)').matches) {  
     var installButton = document.getElementById("installer");   // Get the <ul> element with id="myList"
     installButton.removeChild(installButton.childNodes[0]);      
   } 
+  }
 </script>
 </head>
 <body>
