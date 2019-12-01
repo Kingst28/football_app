@@ -103,13 +103,11 @@ border: none;
     <span class="badge green" style="color:white;">Starting 11</span>
     <h2 class="card-title"><%= User.find(user_id).first_name %> <%= User.find(user_id).last_name %></h2>
     <p class="card-text">
-    <% for p in players do %>
-    <ul>
+    <% for p in players do %>   
+  <ul>
     <li>
-    <% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h6 style="color:green;"><%= Player.find(p.player_id).name %></h6><p class="label badge green"><%= Player.find(p.player_id).position %></p>
-
-    <% else %> <h6 style="color:red;"><%= Player.find(p.player_id).name %></h6> <p class="label badge red"><%= Player.find(p.player_id).position %></p><% end %>
-      
+      <% if Teamsheet.where(:player_id => p.player_id).pluck(:active).to_s.tr('""','').tr('[]','') == 'true' %> <h6 style="color:green;"><%= Player.find(p.player_id).name %></h6><p class="label badge green"><%= Player.find(p.player_id).position %></p>
+      <% else %> <h6 style="color:red;"><%= Player.find(p.player_id).name %></h6> <p class="label badge red"><%= Player.find(p.player_id).position %></p><% end %>
     </li>
   </ul>
   <% end %>
