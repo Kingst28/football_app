@@ -36,6 +36,10 @@ class TeamsheetController < ApplicationController
    end
 
    def show 
+    teamsheet = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => params[:user_id]).where(:active => ['true',true])
+    @teamsheet = teamsheet
+    playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => params[:user_id])
+    @playerList = playerList
    end
 
    def edit

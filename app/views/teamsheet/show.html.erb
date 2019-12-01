@@ -135,17 +135,17 @@ border: none;
 
 $(document).ready(function(){
 var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
-$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[1] %> <%= Player.where(:id => @players[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @players[3] %> <%= Player.where(:id => @players[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @players[5] %> <%= Player.where(:id => @players[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @players[6] %> <%= Player.where(:id => @players[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @players[7] %> <%= Player.where(:id => @players[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @players[8] %> <%= Player.where(:id => @players[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%= Player.where(:id => @players[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @teamsheet[0] %> <%= Player.where(:id => @teamsheet[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @teamsheet[1] %> <%= Player.where(:id => @teamsheet[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @teamsheet[2] %> <%= Player.where(:id => @teamsheet[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @teamsheet[3] %> <%= Player.where(:id => @teamsheet[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @teamsheet[4] %> <%= Player.where(:id => @teamsheet[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @teamsheet[5] %> <%= Player.where(:id => @teamsheet[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @teamsheet[6] %> <%= Player.where(:id => @teamsheet[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @teamsheet[7] %> <%= Player.where(:id => @teamsheet[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @teamsheet[8] %> <%= Player.where(:id => @teamsheet[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @teamsheet[9] %>  <%= Player.where(:id => @teamsheet[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @teamsheet[10] %> <%= Player.where(:id => @teamsheet[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
 });
 
 // Set the date we're counting down to
@@ -205,15 +205,6 @@ var x = setInterval(function() {
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
           <div class="dropdown left">
-    <a href="/notifications" class="btn btn-primary">Notifications</a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <% @notifications_all.each do |n| %>
-      <% if n.show == "yes" %>
-      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
-      <% end %>
-      <% end %>
-      <a href="/notifications">Manage notifications</a>
-    </ul>
   </div>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
@@ -240,13 +231,13 @@ var x = setInterval(function() {
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
-<h5 style="text-align:center;"> My Starting 11 </h5>
+<h5 style="text-align:center;"> <%= User.where(:id => @teamsheet[0].read_attribute(:user_id)).pluck(:first_name).to_s.tr('""','').tr('[]','') %> - Starting 11 </h5>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <h5 style="text-align:center;"> My Squad Players </h5>
 <span class="badge red" style="color:white;">On the Bench</span>
 <span class="badge green" style="color:white;">Starting 11</span>
 <div class="row">
-      <% @playerList.each do |p| %>
+   <% @playerList.each do |p| %>
         <div class="col s12">
     <div class="card grey lighten-5">
     <div class="card-content white-text">
@@ -261,7 +252,6 @@ var x = setInterval(function() {
             <div class="card-action" style="text-align:center;">
               <% if canView? %>
               <a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>
-              <%= link_to "Choose player", edit_teamsheet_path(p.id) %>
               <% end %>
             </div>
           </div>
@@ -269,7 +259,6 @@ var x = setInterval(function() {
         <% end %>
       </div>
     </div>
-  </div>
+</div>
 </body>
 </html>
-
