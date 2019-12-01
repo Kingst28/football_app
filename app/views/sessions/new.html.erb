@@ -23,7 +23,7 @@
   }
 </style>
 </head>
-<body>
+<body onload="installerHide()">
 <div class="container-fluid">
   <nav class="nav-wrapper green lighten-2">
   <div class="container-fluid">
@@ -57,4 +57,17 @@
   <button class="button">Install</button>
 </div>
 </div>
+<script type="text/javascript">
+  function installerHide() {
+  if (window.matchMedia('(display-mode: standalone)').matches) {  
+    var installButton = document.getElementById("installer");
+    installButton.remove();
+  }
+  else if (window.navigator.standalone == true) {
+    var installButton = document.getElementById("installer");
+    installButton.remove();
+  } 
+  }
+</script>
+</body>
 </html>
