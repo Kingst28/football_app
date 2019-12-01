@@ -47,9 +47,10 @@
     background-color: #f2dede;
     border-color: #eed3d7;
     }
+    
     body {
         /* Disables pull-to-refresh and overscroll glow effect.
            Still keeps swipe navigations. */
         overscroll-behavior-y: none;
-      }
-*= require datetime_picker_input
+    }
+ *= require datetime_picker_input
