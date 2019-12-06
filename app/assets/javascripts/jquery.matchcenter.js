@@ -71,7 +71,7 @@
                     system : '4-4-2',
                     width : 400,
                     yspacing : 100,
-                    xspacing : 10,
+                    xspacing : 7.5,
                 }
                 
                 // if the plugin hasn't been initialized yet
