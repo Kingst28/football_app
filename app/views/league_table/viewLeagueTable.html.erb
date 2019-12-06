@@ -32,6 +32,10 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+ p {
+  font-size:16px;
+ }
 </style>
 </head>
 <body>
@@ -82,14 +86,14 @@ tr:nth-child(even) {
   <tr>
     <th>Pos</th>
     <th>Team</th>
-    <th>Played</th>
-    <th>Won</th>
-    <th>Drawn</th>
-    <th>Lost</th>
-    <th>For</th>
-    <th>Against</th>
+    <th>P</th>
+    <th>W</th>
+    <th>D</th>
+    <th>L</th>
+    <th>F</th>
+    <th>A</th>
     <th>GD</th>
-    <th>Points</th>  
+    <th>Pts</th>  
   </tr>
   <% @table.each_with_index do |t, index| %>
   <tr class="item">
