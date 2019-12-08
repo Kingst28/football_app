@@ -102,6 +102,7 @@ border: none;
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+        <li><a style="color:white;" href="/notifications" class="btn btn-primary">Notifications</a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%>
         <br/> &nbsp; &nbsp;
         <%=Account.find(current_user.account_id).name %>
