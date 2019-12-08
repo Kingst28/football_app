@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
+ *= require datetime_picker_input
+ 
  .alert {
     padding: 8px 35px 8px 14px;
     margin-bottom: 18px;
@@ -49,8 +50,9 @@
     }
     
     body {
-        /* Disables pull-to-refresh and overscroll glow effect.
-           Still keeps swipe navigations. */
         overscroll-behavior-y: none;
     }
- *= require datetime_picker_input
+
+    p {
+        font-size: 16px;
+    }
