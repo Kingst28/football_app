@@ -28,10 +28,12 @@ class ResultsMastersController < ApplicationController
   end
 
   def create_records
+    ActsAsTenant.without_tenant do
     Player.find_each do |player|
     ResultsMaster.create(:player_id => player.id)
     end
     redirect_to '/admin_index'
+  end
   end
 
   def admin_edit
