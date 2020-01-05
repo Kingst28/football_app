@@ -16,14 +16,12 @@
     $(".button-collapse").sideNav();
   });
   
-  document.addEventListener("turbolinks:load", function(){
   function selectAll(){
     $("input:checkbox").each(function(){
       $(this).attr('checked', true);
       });
     return false;
     }
-  });
 
 function sortTable() {
   var table, rows, switching, i, x, y, shouldSwitch;

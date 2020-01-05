@@ -60,9 +60,9 @@ class TeamsheetController < ApplicationController
    Teamsheet.update(params[:teamsheets].keys, params[:teamsheets].values)
   end
 
-   def teamsheet_params
-      params.require(:teamsheet).permit(:user_id, :player_id, :amount, :active, :played, :scored, :scorenum, :conceded, :concedednum, :priority)
-   end
+  def teamsheet_params
+      params.require(:teamsheet).permit(:user_id, :player_id, :amount, :active, :played, :scored, :scorenum, :conceded, :concedednum, :priority, :account_id)
+  end
 
    def calculate_score 
       @users = User.all

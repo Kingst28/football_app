@@ -1,17 +1,18 @@
 class Teamsheet < ActiveRecord::Base
   acts_as_tenant(:account)
+  attr_accessor :validate
   belongs_to :user
   belongs_to :player
-  validate :active, :active_check
-  validate :active, :goalkeeper_check
-  validate :active, :defender_check
-  validate :active, :midfielder_check
-  validate :active, :striker_check
-  validates :priority,  inclusion: { :in => [1,2,nil], message: "must be set to 1 or 2" }
-  validate :priority, :priority_goalkeeper
-  validate :priority, :priority_defender
-  validate :priority, :priority_midfielder
-  validate :priority, :priority_striker
+  validate :active, :active_check, unless: :validate
+  validate :active, :goalkeeper_check, unless: :validate
+  validate :active, :defender_check, unless: :validate
+  validate :active, :midfielder_check, unless: :validate
+  validate :active, :striker_check, unless: :validate
+  validates :priority,  inclusion: { :in => [1,2,nil], message: "must be set to 1 or 2" }, unless: :validate
+  validate :priority, :priority_goalkeeper, unless: :validate
+  validate :priority, :priority_defender, unless: :validate
+  validate :priority, :priority_midfielder, unless: :validate
+  validate :priority, :priority_striker, unless: :validate
 
   def active_check 
     user_id = self.user_id 

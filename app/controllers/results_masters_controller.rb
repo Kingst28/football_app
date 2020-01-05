@@ -49,29 +49,54 @@ class ResultsMastersController < ApplicationController
         
         for duplicate_player in @duplicate_players do
           duplicate_player_id = duplicate_player.id
-          results_master_player = ResultsMaster.where(:player_id => duplicate_player_id)
-          results_master_player.update_all(:played => player.read_attribute(:played))
-          results_master_player.update_all(:scored => player.read_attribute(:scored))
-          results_master_player.update_all(:scorenum => player.read_attribute(:scorenum))
-          results_master_player.update_all(:conceded => player.read_attribute(:conceded))
-          results_master_player.update_all(:concedednum => player.read_attribute(:concedednum))
+          results_master_player = ResultsMaster.where(:player_id => duplicate_player_id).pluck(:id)
+          results_master_id = results_master_player[0]
+          @results_master_player = ResultsMaster.find(results_master_id)
+          @results_master_player.update(:played => player.read_attribute(:played))
+          @results_master_player.update(:scored => player.read_attribute(:scored))
+          @results_master_player.update(:scorenum => player.read_attribute(:scorenum))
+          @results_master_player.update(:conceded => player.read_attribute(:conceded))
+          @results_master_player.update(:concedednum => player.read_attribute(:concedednum))
         end
       end
-  end
+    end
 end
 
 def copy_results_to_teamsheets
   ActsAsTenant.without_tenant do
   @results_masters = ResultsMaster.all
     for player in @results_masters do    
-        teamsheet_master_player = Teamsheet.where(:player_id => player.player_id)
-        teamsheet_master_player.update_all(:played => player.read_attribute(:played))
-        teamsheet_master_player.update_all(:scored => player.read_attribute(:scored))
-        teamsheet_master_player.update_all(:scorenum => player.read_attribute(:scorenum))
-        teamsheet_master_player.update_all(:conceded => player.read_attribute(:conceded))
-        teamsheet_master_player.update_all(:concedednum => player.read_attribute(:concedednum))
+        teamsheet_id = Teamsheet.where(:player_id => player.player_id).pluck(:id)
+        teamsheet_id_final = teamsheet_id[0]
+        if Teamsheet.exists?(id: teamsheet_id_final) then
+          teamsheet = Teamsheet.find(teamsheet_id[0])
+          teamsheet.validate = true
+          playerPlayed = convertValue(player.played)
+          playerScored = convertValue(player.scored)
+          playerConceded = convertValue(player.conceded)
+          playerScoreNum = player.scorenum.to_s
+          teamsheet.played_will_change!
+          teamsheet.scored_will_change!
+          teamsheet.scorenum_will_change!
+          teamsheet.conceded_will_change!
+          teamsheet.concedednum_will_change!
+          teamsheet.save(:played => playerPlayed)
+          teamsheet.save(:scored => playerScored)
+          teamsheet.save(:scorenum => player.scorenum.to_s)
+          teamsheet.save(:conceded => playerConceded)
+          teamsheet.save(:concedednum => player.concedednum.to_s)
+        end
     end
-    redirect_to "/admin_index"
+    redirect_to '/admin_index'
+end
+end
+end
+
+def convertValue (playerValue)
+  if playerValue == true then
+    return 't'
+  elsif playerValue == false then
+    return 'f'  
 end
 end
 
@@ -128,7 +153,6 @@ end
       else
       redirect_to '/index' 
     end
-    end
   end
 
   # DELETE /results_masters/1
@@ -151,4 +175,4 @@ end
     def set_results_master
       @results_masters = ResultsMaster.find(params[:id])
     end
-end
+  end
