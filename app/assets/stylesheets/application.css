@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
- *= require datetime_picker_input
  
  .alert {
     padding: 8px 35px 8px 14px;
