@@ -30,6 +30,7 @@ class ResultsMastersController < ApplicationController
   def create_records
     Player.find_each do |player|
     ResultsMaster.create(:player_id => player.id)
+    end
     redirect_to '/admin_index'
   end
 
