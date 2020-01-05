@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get 'results_masters/show' => 'results_masters#show'
   get 'results_masters/copy_results' => 'results_masters#copy_results'
   get 'results_masters/copy_results_to_teamsheets' => 'results_masters#copy_results_to_teamsheets'
+  get 'results_masters/create_records' => 'results_masters#create_records'
   get '/teamsheet/admin_edit' => 'teamsheet#admin_edit', as: :admin_edit_teamsheet
   get '/teamsheet/:id/edit' => 'teamsheet#edit', as: :edit_teamsheet
   get '/teamsheet/:user_id/show' => 'teamsheet#show'
