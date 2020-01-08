@@ -113,9 +113,9 @@ function sortTable() {
   </tr>
 <% for player in @results_masters %>
   <tr>
-    <td><%=h Team.where(:id => player.player.teams_id).first.read_attribute(:name) %></td>
-    <td><%=h player.player.name  %></td>
-    <td><%=h player.player.position %></td>
+    <td><%=h Team.where(:id => Player.find(player.player_id).teams_id).first.read_attribute(:name) %></td>
+    <td><%=h Player.find(player.player_id).name  %></td>
+    <td><%=h Player.find(player.player_id).position %></td>
     <td><input id="<%=player.id%>" value="<%=player.id%>" name="results_masters_ids[]" type="checkbox">&nbsp;<label for="<%=player.id%>"></label></td>
   </tr>
 <% end %>
