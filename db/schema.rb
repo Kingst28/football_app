@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20191020191549) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
 # Could not dump table "teams" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
 
