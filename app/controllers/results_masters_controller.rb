@@ -69,9 +69,9 @@ class ResultsMastersController < ApplicationController
         end
       end
     end
-end
+  end
 
-def copy_results_to_teamsheets
+  def copy_results_to_teamsheets
   ActsAsTenant.without_tenant do
   @results_masters = ResultsMaster.all
     for player in @results_masters do    
@@ -97,25 +97,28 @@ def copy_results_to_teamsheets
         end
     end
     redirect_to '/admin_index'
-end
-end
-end
+  end
+  end
 
-def convertValue (playerValue)
-  if playerValue == true then
-    return 't'
-  elsif playerValue == false then
-    return 'f'  
-end
-end
+  def convertValue (playerValue)
+    if playerValue == true then
+      return 't'
+    elsif playerValue == false then
+      return 'f'  
+  end
+  end
 
-def edit_multiple
+  def edit_multiple
     @results_masters = ResultsMaster.find(params[:results_masters_ids])
-end
+  end
 
-def update_multiple
- ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
-end
+  def update_multiple
+  ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
+  end
+
+  def results_master_params
+    params.require(:results_master).permit(:player_id, :played, :scored, :scorenum, :conceded, :concedednum)
+  end
 
   # POST /results_masters
   # POST /results_masters.json
@@ -163,6 +166,7 @@ end
       redirect_to '/index' 
     end
   end
+  end
 
   # DELETE /results_masters/1
   # DELETE /results_masters/1.json
@@ -174,14 +178,9 @@ end
     end
   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def results_master_params
-      params.require(:results_master).permit(:player_id, :played, :scored, :scorenum, :conceded, :concedednum)
-    end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_results_master
       @results_masters = ResultsMaster.find(params[:id])
     end
-  end
+end
