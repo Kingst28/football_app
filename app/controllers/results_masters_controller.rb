@@ -178,8 +178,7 @@ end
     def results_master_params
       params.require(:results_master).permit(:player_id, :played, :scored, :scorenum, :conceded, :concedednum)
     end
-
-  private
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_results_master
       @results_masters = ResultsMaster.find(params[:id])
