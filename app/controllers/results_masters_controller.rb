@@ -45,6 +45,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def copy_results
+    ActsAsTenant.without_tenant do
     @results_masters = ResultsMaster.all
     league_count = Player.count("DISTINCT account_id") 
     player_count = Player.count()
@@ -68,6 +69,7 @@ class ResultsMastersController < ApplicationController
         end
       end
     end
+  end
 
   def copy_results_to_teamsheets
   ActsAsTenant.without_tenant do
