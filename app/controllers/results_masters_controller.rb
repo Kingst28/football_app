@@ -109,11 +109,15 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
+    ActsAsTenant.without_tenant do
     @results_masters = ResultsMaster.find(params[:results_masters_ids])
+    end
   end
 
   def update_multiple
+    ActsAsTenant.without_tenant do
     ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
+    end
   end
 
   def results_master_params

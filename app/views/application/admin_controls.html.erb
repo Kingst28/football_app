@@ -73,30 +73,29 @@
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
-<div class="row">
     <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="assets/night.jpg" alt="Card image cap">
+    <div class="card">
+    <img class="card-img-top" src="assets/pexels-photo-114296.jpeg" alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title">Player Results</h4>
-      <p class="card-text">Enter the game weeks player results</p>
-       <a href="/teamsheet/admin_edit" class="btn btn-primary">Player Results</a>
+      <h4 class="card-title">Master Player Results</h4>
+      <p class="card-text">Enter the game weeks master player results</p>
+       <a href="results_masters/admin_edit" class="btn btn-primary" style="color:white;">Master Player Results</a>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="assets/pexels-photo-114296.jpeg" alt="Card image cap">
+    <img class="card-img-top" src="assets/night.jpg" alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title">Fixture Results</h4>
-      <p class="card-text">View your fantasy leagues fixture results</p>
-      <a href="/results/fixture_results" class="btn btn-primary">Fixture Results</a>
+      <h4 class="card-title">League Player Results</h4>
+      <p class="card-text">Enter the game weeks player results</p>
+       <a href="teamsheet/admin_edit" class="btn btn-primary" style="color:white;">League Player Results</a>
     </div>
   </div>
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-211151.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">Manage Permissions</h4>
-      <p class="card-text">Manage ultimate fantasy football league user permissions</p>
-       <a href="manage_permissions" class="btn btn-primary">Manage Permissions</a>
+      <p class="card-text">Manage UFFL user permission settings</p>
+       <a href="manage_permissions" class="btn btn-primary" style="color:white;">Manage Permissions</a>
     </div>
   </div>
   <div class="card">
@@ -104,11 +103,10 @@
     <div class="card-block">
       <h4 class="card-title">Insert winning bids</h4>
       <p class="card-text">Insert each users winning player bids</p>
-        <a href="bids/insertWinners" class="btn btn-primary">Insert winning bids</a>
+        <a href="bids/insertWinners" class="btn btn-primary" style="color:white;">Insert winning bids</a>
     </div>
   </div>
 </div>
-<div class="row">
    <div class="card">
     <img class="card-img-top" src="assets/sport-soccer-canon-87198.jpeg" alt="Card image cap">
     <div class="card-block">
@@ -136,9 +134,5 @@
        <a href="fixtures/createFixtures" style="margin-bottom:10px;" class="btn btn-default">Create Fixtures</a>
     </div>
   </div>
-  </div>
-</div>
-    </div>
-
 </body>
 </html>

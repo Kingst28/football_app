@@ -93,6 +93,7 @@ function sortTable() {
 <div class="center">  
 <div class="row">
 <div class="col s12 m12">
+<%= ActsAsTenant.without_tenant do %>
 <%= form_tag update_multiple_results_masters_path, :method => :put do %>
   <% for teamsheet in @results_masters %>
     <%= fields_for "results_masters[]", teamsheet do |f| %>
@@ -163,6 +164,7 @@ function sortTable() {
     </table>
   <% end %>
   <p><%= submit_tag "Update", class: 'btn btn-default' %></p>
+<% end %>
 <% end %>
 </div>
 </div>
