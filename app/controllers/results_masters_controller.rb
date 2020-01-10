@@ -46,7 +46,7 @@ class ResultsMastersController < ApplicationController
 
   def copy_results
     ActsAsTenant.without_tenant do
-    @results_masters = ResultsMaster.all
+    @results_masters = ResultsMaster.all.joins(:player).order("name, position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'")
     league_count = Player.count("DISTINCT account_id") 
     player_count = Player.count()
     player_set_count = player_count / league_count
@@ -113,7 +113,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def update_multiple
-  ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
+    ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
   end
 
   def results_master_params
