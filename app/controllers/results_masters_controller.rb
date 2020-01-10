@@ -46,7 +46,7 @@ class ResultsMastersController < ApplicationController
 
   def copy_results
     ActsAsTenant.without_tenant do
-    @results_masters = ResultsMaster.all
+    @results_masters = ResultsMaster.all.joins(:player).order("name, position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'")
     league_count = Player.count("DISTINCT account_id") 
     player_count = Player.count()
     player_set_count = player_count / league_count
