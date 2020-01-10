@@ -45,8 +45,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def copy_results
-    ActsAsTenant.without_tenant do
-    @results_masters = ResultsMaster.all.joins(:player).order("name, position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'")
+    @results_masters = ResultsMaster.all
     league_count = Player.count("DISTINCT account_id") 
     player_count = Player.count()
     player_set_count = player_count / league_count
@@ -69,7 +68,6 @@ class ResultsMastersController < ApplicationController
         end
       end
     end
-  end
 
   def copy_results_to_teamsheets
   ActsAsTenant.without_tenant do
@@ -89,11 +87,11 @@ class ResultsMastersController < ApplicationController
           teamsheet.scorenum_will_change!
           teamsheet.conceded_will_change!
           teamsheet.concedednum_will_change!
-          teamsheet.save(:played => playerPlayed)
-          teamsheet.save(:scored => playerScored)
-          teamsheet.save(:scorenum => player.scorenum.to_s)
-          teamsheet.save(:conceded => playerConceded)
-          teamsheet.save(:concedednum => player.concedednum.to_s)
+          teamsheet.update(:played => playerPlayed)
+          teamsheet.update(:scored => playerScored)
+          teamsheet.update(:scorenum => player.scorenum.to_s)
+          teamsheet.update(:conceded => playerConceded)
+          teamsheet.update(:concedednum => player.concedednum.to_s)
         end
     end
     redirect_to '/admin_index'
@@ -109,15 +107,11 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
-    ActsAsTenant.without_tenant do
     @results_masters = ResultsMaster.find(params[:results_masters_ids])
-    end
   end
 
   def update_multiple
-    ActsAsTenant.without_tenant do
     ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
-    end
   end
 
   def results_master_params

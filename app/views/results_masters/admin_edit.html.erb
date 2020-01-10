@@ -67,7 +67,6 @@
   <div class="row">
   <div class="col-sm-12" style="background-color:white;">
 <%= form_tag edit_multiple_results_masters_path, method: :post do %>
-<% ActsAsTenant.without_tenant do %>
 <table id="myTable2">
   <tr>
     <th>Club</th>
@@ -84,7 +83,6 @@
   </tr>
 <% end %>
 </table>
-<% end %>
 <div style="text-align:left"><%= submit_tag "Enter Results",  class: 'btn btn-default' %></div>
 <% end %>
     </div>
