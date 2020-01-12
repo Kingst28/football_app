@@ -40,6 +40,15 @@ class TeamsheetController < ApplicationController
     @teamsheet = teamsheet
     playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => params[:user_id])
     @playerList = playerList
+    user_matches = LeagueTable.where(:team => User.where(:id => params[:user_id]).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','')
+    user_wins = LeagueTable.where(:team => User.where(:id => params[:user_id]).pluck(:first_name)).pluck(:won).to_s.tr('""','').tr('[]','')
+    user_points = LeagueTable.where(:team => User.where(:id => params[:user_id]).pluck(:first_name)).pluck(:points).to_s.tr('""','').tr('[]','')
+    user_goals_scored = LeagueTable.where(:team => User.where(:id => params[:user_id]).pluck(:first_name)).pluck(:for).to_s.tr('""','').tr('[]','')
+    user_goals_conceded = LeagueTable.where(:team => User.where(:id => params[:user_id]).pluck(:first_name)).pluck(:against).to_s.tr('""','').tr('[]','')
+    @win_average = user_wins.to_d / user_matches.to_d  
+    @points_average = user_points.to_d / user_matches.to_d
+    @goals_average = user_goals_scored.to_d / user_matches.to_d  
+    @conceded_average = user_goals_conceded.to_d / user_matches.to_d  
    end
 
    def edit
