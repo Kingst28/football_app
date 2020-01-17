@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get '/teamsheet/admin_edit' => 'teamsheet#admin_edit', as: :admin_edit_teamsheet
   get '/teamsheet/:id/edit' => 'teamsheet#edit', as: :edit_teamsheet
   get '/teamsheet/:user_id/show' => 'teamsheet#show'
+  get '/teamsheet/stats' => 'teamsheet#stats'
   patch '/teams/:id' => 'teams#update'
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
