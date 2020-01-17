@@ -11,9 +11,45 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script>
+  function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[1];
+      y = rows[i + 1].getElementsByTagName("TD")[1];
+      //check if the two rows should switch place:
+      if (x.innerHTML < y.innerHTML) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
+    sortTable();
   });
 
   // Set the date we're counting down to
@@ -124,14 +160,14 @@ border: none;
   </div>
   </nav>
 <p id="notice"><%= notice %></p>
-<table>
+<table id="myTable">
   <thead>
     <tr>
-      <th>Team</th>
-      <th>Win Average</th>
-      <th>Points Average</th>
-      <th>Goal Average</th>
-      <th>Conceded Average</th>
+      <th>Team Averages</th>
+      <th>Wins</th>
+      <th>Points</th>
+      <th>Goals</th>
+      <th>Conceded</th>
     </tr>
   </thead>
 
@@ -139,10 +175,14 @@ border: none;
     <% @users.each do |user| %>
       <tr>
         <td><%= user.first_name %></td>
-        <td><%= @win_average %></td>
-        <td><%= @points_average %></td>
-        <td><%= @goals_average %></td>
-        <td><%= @conceded_average %></td>
+        <td><%= number_to_percentage(LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:won).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d * 100, precision: 0) %></td>
+        <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:points).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d %></td>
+        <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:for).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d %></td>
+        <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:against).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d %></td>
       </tr>
     <% end %>
   </tbody>
