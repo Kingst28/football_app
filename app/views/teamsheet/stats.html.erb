@@ -163,18 +163,18 @@ border: none;
 <table id="myTable">
   <thead>
     <tr>
-      <th>Team Averages</th>
-      <th>Wins</th>
-      <th>Points</th>
-      <th>Goals</th>
-      <th>Conceded</th>
+      <th>Team</th>
+      <th>Win (%)</th>
+      <th>Avg points (per game)</th>
+      <th>Avg goals (per game)</th>
+      <th>Avg conceded (per game)</th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
+        <td><a><%= link_to(user.first_name, "/teamsheet/#{User.where(:first_name => user.first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></td>
         <td><%= number_to_percentage(LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:won).to_s.tr('""','').tr('[]','').to_d / 
         LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d * 100, precision: 0) %></td>
         <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:points).to_s.tr('""','').tr('[]','').to_d / 
