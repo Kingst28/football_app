@@ -29,6 +29,9 @@ end
 def admin_controls
 end
 
+def uffl 
+end
+
 def notification_settings_off
   @notifications_all = Notification.all
   for n in @notifications_all do 

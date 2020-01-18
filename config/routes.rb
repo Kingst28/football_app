@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   get '/notification_settings_off' => 'application#notification_settings_off'
   get '/fixtures/index' => 'fixtures#index'
   get '/admin_controls' => 'application#admin_controls'
+  get '/uffl' => 'application#uffl'
   get '/teamsheet/index2' => 'teamsheet#index2'
   get '/playerstats/:id' => 'playerstats#show', as: :show_player_stats_path
   get '/signup_options' => 'users#signup_options', as: :signup_options_path
@@ -79,7 +80,7 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  root to: 'teamsheet#index'
+  root to: 'application#uffl'
   resources :teamsheet do
     collection do
       post :edit_multiple
