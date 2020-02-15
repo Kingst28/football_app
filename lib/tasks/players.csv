@@ -1,1446 +1,723 @@
-Asmir Begovic,Goalkeeper,1,Asmir Begovic - AFC Bournemouth
-Artur Boruc,Goalkeeper,1,Artur Boruc - AFC Bournemouth
-Aaron Ramsdale,Goalkeeper,1,Aaron Ramsdale - AFC Bournemouth
-Nathan Ake,Defender,1,Nathan Ake - AFC Bournemouth
-Steve Cook,Defender,1,Steve Cook - AFC Bournemouth
-Charlie Daniels,Defender,1,Charlie Daniels - AFC Bournemouth
-Simon Francis,Defender,1,Simon Francis - AFC Bournemouth
-Jordan Lee,Defender,1,Jordan Lee - AFC Bournemouth
-Tyrone Mings,Defender,1,Tyrone Mings - AFC Bournemouth
-Diego Rico,Defender,1,Diego Rico - AFC Bournemouth
-Jack Simpson,Defender,1,Jack Simpson - AFC Bournemouth
-Adam Smith,Defender,1,Adam Smith - AFC Bournemouth
-Brad Smith,Defender,1,Brad Smith - AFC Bournemouth
-David Brooks,Midfielder,1,David Brooks - AFC Bournemouth
-Matt Butcher,Midfielder,1,Matt Butcher - AFC Bournemouth
-Lewis Cook,Midfielder,1,Lewis Cook - AFC Bournemouth
-Ryan Fraser,Midfielder,1,Ryan Fraser - AFC Bournemouth
-Dan Gosling,Midfielder,1,Dan Gosling - AFC Bournemouth
-Emerson Hyndman,Midfielder,1,Emerson Hyndman - AFC Bournemouth
-Jordon Ibe,Midfielder,1,Jordon Ibe - AFC Bournemouth
-Jefferson Lerma,Midfielder,1,Jefferson Lerma - AFC Bournemouth
-Connor Mahoney,Midfielder,1,Connor Mahoney - AFC Bournemouth
-Mark Pugh,Midfielder,1,Mark Pugh - AFC Bournemouth
-Junior Stanislas,Midfielder,1,Junior Stanislas - AFC Bournemouth
-Andrew Surman,Midfielder,1,Andrew Surman - AFC Bournemouth
-Kyle Taylor,Midfielder,1,Kyle Taylor - AFC Bournemouth
-Matthew Worthington,Midfielder,1,Matthew Worthington - AFC Bournemouth
-Jermain Defoe,Striker,1,Jermain Defoe - AFC Bournemouth
-Josh King,Striker,1,Josh King - AFC Bournemouth
-Lys Mousset,Striker,1,Lys Mousset - AFC Bournemouth
-Sam Surridge,Striker,1,Sam Surridge - AFC Bournemouth
-Callum Wilson,Striker,2,Callum Wilson - AFC Bournemouth
-Petr Cech,Goalkeeper,2,Petr Cech - Arsenal
-Bernd Leno,Goalkeeper,2,Bernd Leno - Arsenal
-Matthew Macey,Goalkeeper,2,Matthew Macey - Arsenal
-Emiliano Martinez,Goalkeeper,2,Emiliano Martinez - Arsenal
-David Ospina,Goalkeeper,2,David Ospina - Arsenal
-Hector Bellerin,Defender,2,Hector Bellerin - Arsenal
-Rob Holding,Defender,2,Rob Holding - Arsenal
-Carl Jenkinson,Defender,2,Carl Jenkinson - Arsenal
-Sead Kolasinac,Defender,2,Sead Kolasinac - Arsenal
-Laurent Koscielny,Defender,2,Laurent Koscielny - Arsenal
-Stephan Lichtsteiner,Defender,2,Stephan Lichtsteiner - Arsenal
-Konstantinos Mavropanos,Defender,2,Konstantinos Mavropanos - Arsenal
-Nacho Monreal,Defender,2,Nacho Monreal - Arsenal
-Shkodran Mustafi,Defender,2,Shkodran Mustafi - Arsenal
-Jordi Osei-Tutu,Defender,2,Jordi Osei-Tutu - Arsenal
-Papa(stathopoulos) Sokratis,Defender,2,Papa(stathopoulos) Sokratis - Arsenal
-Mohamed Elneny,Midfielder,2,Mohamed Elneny - Arsenal
-Matteo Guendouzi,Midfielder,2,Matteo Guendouzi - Arsenal
-Alex Iwobi,Midfielder,2,Alex Iwobi - Arsenal
-Ainsley Maitland-Niles,Midfielder,2,Ainsley Maitland-Niles - Arsenal
-Henrikh Mkhitaryan,Midfielder,2,Henrikh Mkhitaryan - Arsenal
-Reiss Nelson,Midfielder,2,Reiss Nelson - Arsenal
-Kelechi Nwakali,Midfielder,2,Kelechi Nwakali - Arsenal
-Mesut Ozil,Midfielder,2,Mesut Ozil - Arsenal
-Aaron Ramsey,Midfielder,2,Aaron Ramsey - Arsenal
-Lucas Torreira,Midfielder,2,Lucas Torreira - Arsenal
-Joseph Willock,Midfielder,2,Joseph Willock - Arsenal
-Granit Xhaka,Midfielder,2,Granit Xhaka - Arsenal
-Chuba Akpom,Striker,2,Chuba Akpom - Arsenal
-Takuma Asano,Striker,2,Takuma Asano - Arsenal
-Pierre-Emerick Aubameyang,Striker,2,Pierre-Emerick Aubameyang - Arsenal
-Alexandre Lacazette,Striker,2,Alexandre Lacazette - Arsenal
-Edward Nketiah,Striker,2,Edward Nketiah - Arsenal
-Emile Smith-Rowe,Striker,2,Emile Smith-Rowe - Arsenal
-Danny Welbeck,Striker,2,Danny Welbeck - Arsenal
-David Button,Goalkeeper,3,David Button - Brighton & Hove Albion
-Mathew Ryan,Goalkeeper,3,Mathew Ryan - Brighton & Hove Albion
-Jason Steele,Goalkeeper,3,Jason Steele - Brighton & Hove Albion
-Leonardo Balogun,Defender,3,Leonardo Balogun - Brighton & Hove Albion
-Bernardo,Defender,3,Bernardo - Brighton & Hove Albion
-Gaetan Bong,Defender,3,Gaetan Bong - Brighton & Hove Albion
-Bruno,Defender,3,Bruno - Brighton & Hove Albion
-Dan Burn,Defender,3,Dan Burn - Brighton & Hove Albion
-Shane Duffy,Defender,3,Shane Duffy - Brighton & Hove Albion
-Lewis Dunk,Defender,3,Lewis Dunk - Brighton & Hove Albion
-Joshua Kerr,Defender,3,Joshua Kerr - Brighton & Hove Albion
-Ales Mateju,Defender,3,Ales Mateju - Brighton & Hove Albion
-Martin Montoya,Defender,3,Martin Montoya - Brighton & Hove Albion
-Masato Morishige,Defender,3,Masato Morishige - Brighton & Hove Albion
-Leo Skiri Ostigard,Defender,3,Leo Skiri Ostigard - Brighton & Hove Albion
-Ben White,Defender,3,Ben White - Brighton & Hove Albion
-Soufyan Ahannach,Midfielder,3,Soufyan Ahannach - Brighton & Hove Albion
-Billy Arce,Midfielder,3,Billy Arce - Brighton & Hove Albion
-Yves Bissouma,Midfielder,3,Yves Bissouma - Brighton & Hove Albion
-Pascal Gross,Midfielder,3,Pascal Gross - Brighton & Hove Albion
-Des Hutchinson,Midfielder,3,Des Hutchinson - Brighton & Hove Albion
-Alireza Jahanbakhsh,Midfielder,3,Alireza Jahanbakhsh - Brighton & Hove Albion
-Beram Kayal,Midfielder,3,Beram Kayal - Brighton & Hove Albion
-Anthony Knockaert,Midfielder,3,Anthony Knockaert - Brighton & Hove Albion
-Solly March,Midfielder,3,Solly March - Brighton & Hove Albion
-Jayson Molumby,Midfielder,3,Jayson Molumby - Brighton & Hove Albion
-Oliver Norwood,Midfielder,3,Oliver Norwood - Brighton & Hove Albion
-Davy Propper,Midfielder,3,Davy Propper - Brighton & Hove Albion
-Ezequiel Schelotto,Midfielder,3,Ezequiel Schelotto - Brighton & Hove Albion
-Dale Stephens,Midfielder,3,Dale Stephens - Brighton & Hove Albion
-Markus Suttner,Midfielder,3,Markus Suttner - Brighton & Hove Albion
-Richie Towell,Midfielder,3,Richie Towell - Brighton & Hove Albion
-Florin(e) Andone,Striker,3,Florin(e) Andone - Brighton & Hove Albion
-Sam Baldock,Striker,3,Sam Baldock - Brighton & Hove Albion
-Isaiah Brown,Striker,3,Isaiah Brown - Brighton & Hove Albion
-Tomer Hemed,Striker,3,Tomer Hemed - Brighton & Hove Albion
-Jose Izquierdo-Mena,Striker,3,Jose Izquierdo-Mena - Brighton & Hove Albion
-Jurgen Locadia,Striker,3,Jurgen Locadia - Brighton & Hove Albion
-Glenn Murray,Striker,3,Glenn Murray - Brighton & Hove Albion
-Jiri Skalak,Striker,3,Jiri Skalak - Brighton & Hove Albion
-Percy Tau,Striker,3,Percy Tau - Brighton & Hove Albion
-Joe Hart,Goalkeeper,4,Joe Hart - Burnley
-Tom Heaton,Goalkeeper,4,Tom Heaton - Burnley
-Adam Legzdins,Goalkeeper,4,Adam Legzdins - Burnley
-Anders Lindegaard,Goalkeeper,4,Anders Lindegaard - Burnley
-Nick Pope,Goalkeeper,4,Nick Pope - Burnley
-Phil Bardsley,Defender,4,Phil Bardsley - Burnley
-Ben Gibson,Defender,4,Ben Gibson - Burnley
-Kevin Long,Defender,4,Kevin Long - Burnley
-Matthew Lowton,Defender,4,Matthew Lowton - Burnley
-Ben Mee,Defender,4,Ben Mee - Burnley
-James Tarkowski,Defender,4,James Tarkowski - Burnley
-Charlie Taylor,Defender,4,Charlie Taylor - Burnley
-Stephen Ward,Defender,4,Stephen Ward - Burnley
-Robbie Brady,Midfielder,4,Robbie Brady - Burnley
-Jack Cork,Midfielder,4,Jack Cork - Burnley
-Steven Defour,Midfielder,4,Steven Defour - Burnley
-Johann Berg Gudmundsson,Midfielder,4,Johann Berg Gudmundsson - Burnley
-Jeff Hendrick,Midfielder,4,Jeff Hendrick - Burnley
-Robbie Leitch,Midfielder,4,Robbie Leitch - Burnley
-Aaron Lennon,Midfielder,4,Aaron Lennon - Burnley
-Aiden O'Neill,Midfielder,4,Aiden O'Neill - Burnley
-Ashley Westwood,Midfielder,4,Ashley Westwood - Burnley
-Dan Agyei,Striker,4,Dan Agyei - Burnley
-Ashley Barnes,Striker,4,Ashley Barnes - Burnley
-Rouwen Hennings,Striker,4,Rouwen Hennings - Burnley
-Dwight McNeil,Striker,4,Dwight McNeil - Burnley
-Sam Vokes,Striker,4,Sam Vokes - Burnley
-Matej Vydra,Striker,4,Matej Vydra - Burnley
-Jon Walters,Striker,4,Jon Walters - Burnley
-Nahki Wells,Striker,4,Nahki Wells - Burnley
-Chris Wood,Striker,4,Chris Wood - Burnley
-Neil Etheridge,Goalkeeper,5,Neil Etheridge - Cardiff City
-Brian Murphy,Goalkeeper,5,Brian Murphy - Cardiff City
-Alex Smithies,Goalkeeper,5,Alex Smithies - Cardiff City
-Ben Wilson,Goalkeeper,5,Ben Wilson - Cardiff City
-Solly Bamba,Defender,5,Solly Bamba - Cardiff City
-Joe Bennett,Defender,5,Joe Bennett - Cardiff City
-Matthew Connolly,Defender,5,Matthew Connolly - Cardiff City
-Greg Cunningham,Defender,5,Greg Cunningham - Cardiff City
-Greg Halford,Defender,5,Greg Halford - Cardiff City
-Bruno Ecuele Manga,Defender,5,Bruno Ecuele Manga - Cardiff City
-Sean Morrison,Defender,5,Sean Morrison - Cardiff City
-Callum Paterson,Defender,5,Callum Paterson - Cardiff City
-Lee Peltier,Defender,5,Lee Peltier - Cardiff City
-Jazz Richards,Defender,5,Jazz Richards - Cardiff City
-Armand Traore,Defender,5,Armand Traore - Cardiff City
-Craig Bryson,Midfielder,5,Craig Bryson - Cardiff City
-Harry Arter,Midfielder,5,Harry Arter - Cardiff City
-Loic Damour,Midfielder,5,Loic Damour - Cardiff City
-Liam Feeney,Midfielder,5,Liam Feeney - Cardiff City
-Aron Gunnarsson,Midfielder,5,Aron Gunnarsson - Cardiff City
-Kadeem Harris,Midfielder,5,Kadeem Harris - Cardiff City
-Junior Hoilett,Midfielder,5,Junior Hoilett - Cardiff City
-Nathaniel Mendez-Laing,Midfielder,5,Nathaniel Mendez-Laing - Cardiff City
-Josh Murphy,Midfielder,5,Josh Murphy - Cardiff City
-Anthony Pilkington,Midfielder,5,Anthony Pilkington - Cardiff City
-Joe Ralls,Midfielder,5,Joe Ralls - Cardiff City
-Yanic Wildschut,Midfielder,5,Yanic Wildschut - Cardiff City
-Victor Camarasa,Striker,5,Victor Camarasa - Cardiff City
-Frederic Gounongbe,Striker,5,Frederic Gounongbe - Cardiff City
-Gary Madine,Striker,5,Gary Madine - Cardiff City
-Ibrahim Meite,Striker,5,Ibrahim Meite - Cardiff City
-Bobby Reid,Striker,5,Bobby Reid - Cardiff City
-Danny Ward,Striker,5,Danny Ward - Cardiff City
-Kenneth Zohore,Striker,5,Kenneth Zohore - Cardiff City
-Kepa Arrizabalaga,Goalkeeper,6,Kepa Arrizabalaga - Chelsea
-Willy Caballero,Goalkeeper,6,Willy Caballero - Chelsea
-Metaj Delac,Goalkeeper,6,Metaj Delac - Chelsea
-Eduardo,Goalkeeper,6,Eduardo - Chelsea
-Robert Green,Goalkeeper,6,Robert Green - Chelsea
-Temitayo Olufisayo 'Ola'oluwa Aina,Defender,6,Temitayo Olufisayo 'Ola'oluwa Aina - Chelsea
-Marcos Alonso,Defender,6,Marcos Alonso - Chelsea
-Cezar Azpilicueta,Defender,6,Cezar Azpilicueta - Chelsea
-Gary Cahill,Defender,6,Gary Cahill - Chelsea
-Trevoh Chalobah,Defender,6,Trevoh Chalobah - Chelsea
-Andreas Christensen,Defender,6,Andreas Christensen - Chelsea
-Jake Clarke-Salter,Defender,6,Jake Clarke-Salter - Chelsea
-David Luiz,Defender,6,David Luiz - Chelsea
-Matt Miazga,Defender,6,Matt Miazga - Chelsea
-Emerson Palmieri dos Santos,Defender,6,Emerson Palmieri dos Santos - Chelsea
-Baba Rahman,Defender,6,Baba Rahman - Chelsea
-Antonio Rudiger,Defender,6,Antonio Rudiger - Chelsea
-Dujon Sterling,Defender,6,Dujon Sterling - Chelsea
-Fikayo Tomori,Defender,6,Fikayo Tomori - Chelsea
-Davide Zappacosta,Defender,6,Davide Zappacosta - Chelsea
-Ethan Ampadu,Midfielder,6,Ethan Ampadu - Chelsea
-Tiemoue Bakayoko,Midfielder,6,Tiemoue Bakayoko - Chelsea
-Ross Barkley,Midfielder,6,Ross Barkley - Chelsea
-Cristian Cuevas,Midfielder,6,Cristian Cuevas - Chelsea
-Danny Drinkwater,Midfielder,6,Danny Drinkwater - Chelsea
-Cesc Fabregas,Midfielder,6,Cesc Fabregas - Chelsea
-Eden Hazard,Midfielder,6,Eden Hazard - Chelsea
-Callum Hudson-Odoi,Midfielder,6,Callum Hudson-Odoi - Chelsea
-Jorginho,Midfielder,6,Jorginho - Chelsea
-N'Golo Kante,Midfielder,6,N'Golo Kante - Chelsea
-Mateo Kovacic,Midfielder,6,Mateo Kovacic - Chelsea
-Ruben Loftus-Cheek,Midfielder,6,Ruben Loftus-Cheek - Chelsea
-Victor Moses,Midfielder,6,Victor Moses - Chelsea
-Charly Musonda,Midfielder,6,Charly Musonda - Chelsea
-Pedro,Midfielder,6,Pedro - Chelsea
-Kyle Scott,Midfielder,6,Kyle Scott - Chelsea
-Marcos van Ginkel,Midfielder,6,Marcos van Ginkel - Chelsea
-Willian,Midfielder,6,Willian - Chelsea
-Tammy Abraham,Striker,6,Tammy Abraham - Chelsea
-Michy Batshuayi,Striker,6,Michy Batshuayi - Chelsea
-Izzy Brown,Striker,6,Izzy Brown - Chelsea
-Olivier Giroud,Striker,6,Olivier Giroud - Chelsea
-Alvaro Morata,Striker,6,Alvaro Morata - Chelsea
-Kasey Palmer,Striker,6,Kasey Palmer - Chelsea
-Vicente Guaita,Goalkeeper,7,Vicente Guaita - Crystal Palace
-Wayne Hennessey,Goalkeeper,7,Wayne Hennessey - Crystal Palace
-Julian Speroni,Goalkeeper,7,Julian Speroni - Crystal Palace
-Scott Dann,Defender,7,Scott Dann - Crystal Palace
-Jaroslaw Jach,Defender,7,Jaroslaw Jach - Crystal Palace
-Martin Kelly,Defender,7,Martin Kelly - Crystal Palace
-Jairo Riedewald,Defender,7,Jairo Riedewald - Crystal Palace
-Mamadou Sakho,Defender,7,Mamadou Sakho - Crystal Palace
-Jeffrey Schlupp,Defender,7,Jeffrey Schlupp - Crystal Palace
-Pape Souare,Defender,7,Pape Souare - Crystal Palace
-James Tomkins,Defender,7,James Tomkins - Crystal Palace
-Patrick van Aanholt,Defender,7,Patrick van Aanholt - Crystal Palace
-Joel Ward,Defender,7,Joel Ward - Crystal Palace
-Nya Kirby,Midfielder,7,Nya Kirby - Crystal Palace
-Cheikhou Kouyate,Midfielder,7,Cheikhou Kouyate - Crystal Palace
-Jason Lokilo,Midfielder,7,Jason Lokilo - Crystal Palace
-James McArthur,Midfielder,7,James McArthur - Crystal Palace
-Max Meyer,Midfielder,7,Max Meyer - Crystal Palace
-Luka Milivojevic,Midfielder,7,Luka Milivojevic - Crystal Palace
-Jordon Mutch,Midfielder,7,Jordon Mutch - Crystal Palace
-Jason Puncheon,Midfielder,7,Jason Puncheon - Crystal Palace
-Erdal Rakip,Midfielder,7,Erdal Rakip - Crystal Palace
-Bakary Sako,Midfielder,7,Bakary Sako - Crystal Palace
-Andros Townsend,Midfielder,7,Andros Townsend - Crystal Palace
-Aaron Wan-Bissaka,Midfielder,7,Aaron Wan-Bissaka - Crystal Palace
-Jonny Williams,Midfielder,7,Jonny Williams - Crystal Palace
-Jordan Ayew,Striker,7,Jordan Ayew - Crystal Palace
-Christian Benteke,Striker,7,Christian Benteke - Crystal Palace
-Sullay Kaikai,Striker,7,Sullay Kaikai - Crystal Palace
-Levi Lumeka,Striker,7,Levi Lumeka - Crystal Palace
-Alexander Sorloth,Striker,7,Alexander Sorloth - Crystal Palace
-Connor Wickham,Striker,7,Connor Wickham - Crystal Palace
-Wilfried Zaha,Striker,7,Wilfried Zaha - Crystal Palace
-Mateusz Hewelt,Goalkeeper,8,Mateusz Hewelt - Everton
-Jordan Pickford,Goalkeeper,8,Jordan Pickford - Everton
-Maarten Stekelenburg,Goalkeeper,8,Maarten Stekelenburg - Everton
-Joao Virginia,Goalkeeper,8,Joao Virginia - Everton
-Leighton Baines,Defender,8,Leighton Baines - Everton
-Tyias Browning,Defender,8,Tyias Browning - Everton
-Seamus Coleman,Defender,8,Seamus Coleman - Everton
-Lucas Digne,Defender,8,Lucas Digne - Everton
-Luke Garbutt,Defender,8,Luke Garbutt - Everton
-Phil Jagielka,Defender,8,Phil Jagielka - Everton
-Michael Keane,Defender,8,Michael Keane - Everton
-Jonjoe Kenny,Defender,8,Jonjoe Kenny - Everton
-Eliaquim Mangala,Defender,8,Eliaquim Mangala - Everton
-Cuco Martina,Defender,8,Cuco Martina - Everton
-Yerry Mina,Defender,8,Yerry Mina - Everton
-Matthew Pennington,Defender,8,Matthew Pennington - Everton
-Ashley Williams,Defender,8,Ashley Williams - Everton
-Kurt Zouma,Defender,8,Kurt Zouma - Everton
-Beni Baningime,Midfielder,8,Beni Baningime - Everton
-Muhamed Besic,Midfielder,8,Muhamed Besic - Everton
-Yannick Bolasie,Midfielder,8,Yannick Bolasie - Everton
-Tom Davies,Midfielder,8,Tom Davies - Everton
-Kieran Dowell,Midfielder,8,Kieran Dowell - Everton
-Morgan Feeney,Midfielder,8,Morgan Feeney - Everton
-Idrissa Gana-Gueye,Midfielder,8,Idrissa Gana-Gueye - Everton
-Andre Gomes,Midfielder,8,Andre Gomes - Everton
-Mason Holgate,Midfielder,8,Mason Holgate - Everton
-James McCarthy,Midfielder,8,James McCarthy - Everton
-Kevin Mirallas,Midfielder,8,Kevin Mirallas - Everton
-Morgan Schneiderlin,Midfielder,8,Morgan Schneiderlin - Everton
-Gylfi Sigurdsson,Midfielder,8,Gylfi Sigurdsson - Everton
-Nikola Vlasic,Midfielder,8,Nikola Vlasic - Everton
-Theo Walcott,Midfielder,8,Theo Walcott - Everton
-Joe Williams,Midfielder,8,Joe Williams - Everton
-Bernard,Striker,8,Bernard - Everton
-Dominic Calvert-Lewin,Striker,8,Dominic Calvert-Lewin - Everton
-Richarlison deAndrade,Striker,8,Richarlison deAndrade - Everton
-Ademola Lookman,Striker,8,Ademola Lookman - Everton
-Oumar Niasse,Striker,8,Oumar Niasse - Everton
-Henry Onyekuru,Striker,8,Henry Onyekuru - Everton
-Sandro Ramirez,Striker,8,Sandro Ramirez - Everton
-Bassala Sambou,Striker,8,Bassala Sambou - Everton
-Shani Tarashaj,Striker,8,Shani Tarashaj - Everton
-Cenk Tosun,Striker,8,Cenk Tosun - Everton
-Marcus Bettinelli,Goalkeeper,9,Marcus Bettinelli - Fulham
-Fabri(cio) Agosto Ramirez,Goalkeeper,9,Fabri(cio) Agosto Ramirez - Fulham
-Sergio Rico,Goalkeeper,9,Sergio Rico - Fulham
-Joe Bryan,Defender,9,Joe Bryan - Fulham
-Calum Chambers,Defender,9,Calum Chambers - Fulham
-Cyrus Christie,Defender,9,Cyrus Christie - Fulham
-Marcelo Djalo,Defender,9,Marcelo Djalo - Fulham
-Adetayo Edun,Defender,9,Adetayo Edun - Fulham
-Timothy Fosu-Mensah,Defender,9,Timothy Fosu-Mensah - Fulham
-Tomas Kalas,Defender,9,Tomas Kalas - Fulham
-Maxime Le Marchand,Defender,9,Maxime Le Marchand - Fulham
-Alfie Mawson,Defender,9,Alfie Mawson - Fulham
-Denis Odoi,Defender,9,Denis Odoi - Fulham
-Tim Ream,Defender,9,Tim Ream - Fulham
-Joe Ryan,Defender,9,Joe Ryan - Fulham
-Ryan Sessegnon,Defender,9,Ryan Sessegnon - Fulham
-Zeze Steven Sessegnon,Defender,9,Zeze Steven Sessegnon - Fulham
-Tom Cairney,Midfielder,9,Tom Cairney - Fulham
-Ibrahima Cisse,Midfielder,9,Ibrahima Cisse - Fulham
-Stefan Johansen,Midfielder,9,Stefan Johansen - Fulham
-Neeskens Kebano,Midfielder,9,Neeskens Kebano - Fulham
-Kevin McDonald,Midfielder,9,Kevin McDonald - Fulham
-Oliver Norwood,Midfielder,9,Oliver Norwood - Fulham
-Lucas Piazon,Midfielder,9,Lucas Piazon - Fulham
-Andre Schurrle,Midfielder,9,Andre Schurrle - Fulham
-Jean Michael Seri,Midfielder,9,Jean Michael Seri - Fulham
-Andre-Frank Zambo Anguissa,Midfielder,9,Andre-Frank Zambo Anguissa - Fulham
-Floyd Ayite,Striker,9,Floyd Ayite - Fulham
-Lucas De La Torre,Striker,9,Lucas De La Torre - Fulham
-Rui Fonte,Striker,9,Rui Fonte - Fulham
-Aboubakar Kamara,Striker,9,Aboubakar Kamara - Fulham
-Aleksandar Mitrovic,Striker,9,Aleksandar Mitrovic - Fulham
-Luciano Vietto,Striker,9,Luciano Vietto - Fulham
-Joel Coleman,Goalkeeper,10,Joel Coleman - Huddersfield Town
-Ben Hamer,Goalkeeper,10,Ben Hamer - Huddersfield Town
-Jonas Lossl,Goalkeeper,10,Jonas Lossl - Huddersfield Town
-Martin Cranie,Defender,10,Martin Cranie - Huddersfield Town
-Erik Durm,Defender,10,Erik Durm - Huddersfield Town
-Florent Hadergjonaj,Defender,10,Florent Hadergjonaj - Huddersfield Town
-Marko Hudson,Defender,10,Marko Hudson - Huddersfield Town
-Mathias Jorgensen,Defender,10,Mathias Jorgensen - Huddersfield Town
-Terence Kongolo,Defender,10,Terence Kongolo - Huddersfield Town
-Chris Lowe,Defender,10,Chris Lowe - Huddersfield Town
-Christopher Schindler,Defender,10,Christopher Schindler - Huddersfield Town
-Tommy Smith,Defender,10,Tommy Smith - Huddersfield Town
-Juninho Bacuna,Midfielder,10,Juninho Bacuna - Huddersfield Town
-Philippe Billing,Midfielder,10,Philippe Billing - Huddersfield Town
-Regan Booty,Midfielder,10,Regan Booty - Huddersfield Town
-Adama Diakhaby,Midfielder,10,Adama Diakhaby - Huddersfield Town
-Jonathan Hogg,Midfielder,10,Jonathan Hogg - Huddersfield Town
-Isaac Mbenza,Midfielder,10,Isaac Mbenza - Huddersfield Town
-Aaron Mooy,Midfielder,10,Aaron Mooy - Huddersfield Town
-Jack Payne,Midfielder,10,Jack Payne - Huddersfield Town
-Alex Pritchard,Midfielder,10,Alex Pritchard - Huddersfield Town
-Abdelhamid Sabiri,Midfielder,10,Abdelhamid Sabiri - Huddersfield Town
-Ramadan Sobhi,Midfielder,10,Ramadan Sobhi - Huddersfield Town
-Jon Stankovic,Midfielder,10,Jon Stankovic - Huddersfield Town
-Rajiv van La Parra,Midfielder,10,Rajiv van La Parra - Huddersfield Town
-Danny Williams,Midfielder,10,Danny Williams - Huddersfield Town
-Isiah Brown,Striker,10,Isiah Brown - Huddersfield Town
-Laurent Depoitre,Striker,10,Laurent Depoitre - Huddersfield Town
-Elias Kachunga,Striker,10,Elias Kachunga - Huddersfield Town
-Joe Lolley,Striker,10,Joe Lolley - Huddersfield Town
-Steve Mounie,Striker,10,Steve Mounie - Huddersfield Town
-Collin Quaner,Striker,10,Collin Quaner - Huddersfield Town
-Sean Scannell,Striker,10,Sean Scannell - Huddersfield Town
-Eldin Jakupovic,Goalkeeper,11,Eldin Jakupovic - Leicester City
-Kasper Schmeichel,Goalkeeper,11,Kasper Schmeichel - Leicester City
-Danny Ward,Goalkeeper,11,Danny Ward - Leicester City
-Yohan Benalouane,Defender,11,Yohan Benalouane - Leicester City
-Filip Benkovic,Defender,11,Filip Benkovic - Leicester City
-Ben Chilwell,Defender,11,Ben Chilwell - Leicester City
-Aleksandar Dragovic,Defender,11,Aleksandar Dragovic - Leicester City
-Jonny Evans,Defender,11,Jonny Evans - Leicester City
-Christian Fuchs,Defender,11,Christian Fuchs - Leicester City
-Harry Maguire,Defender,11,Harry Maguire - Leicester City
-Elliot Moore,Defender,11,Elliot Moore - Leicester City
-Wes Morgan,Defender,11,Wes Morgan - Leicester City
-Ricardo Pereira,Defender,11,Ricardo Pereira - Leicester City
-Danny Simpson,Defender,11,Danny Simpson - Leicester City
-Caglar Soyuncu,Defender,11,Caglar Soyuncu - Leicester City
-Marc Albrighton,Midfielder,11,Marc Albrighton - Leicester City
-Daniel Amartey,Midfielder,11,Daniel Amartey - Leicester City
-Harvey Barnes,Midfielder,11,Harvey Barnes - Leicester City
-Mamza Choudhury,Midfielder,11,Mamza Choudhury - Leicester City
-Fousseni Diabate,Midfielder,11,Fousseni Diabate - Leicester City
-Rachid Ghezzal,Midfielder,11,Rachid Ghezzal - Leicester City
-Demarai Gray,Midfielder,11,Demarai Gray - Leicester City
-Sam Hughes,Midfielder,11,Sam Hughes - Leicester City
-Vicente Iborra,Midfielder,11,Vicente Iborra - Leicester City
-Matty James,Midfielder,11,Matty James - Leicester City
-Bartosz Kapustka,Midfielder,11,Bartosz Kapustka - Leicester City
-James Maddison,Midfielder,11,James Maddison - Leicester City
-Nampalys Mendy,Midfielder,11,Nampalys Mendy - Leicester City
-Onyinye Wilfred Ndidi,Midfielder,11,Onyinye Wilfred Ndidi - Leicester City
-Layton Ndukwu,Midfielder,11,Layton Ndukwu - Leicester City
-Adrien Silva,Midfielder,11,Adrien Silva - Leicester City
-George Thomas,Midfielder,11,George Thomas - Leicester City
-Kelechi Iheanacho,Striker,11,Kelechi Iheanacho - Leicester City
-Shinji Okazaki,Striker,11,Shinji Okazaki - Leicester City
-Islam Slimani,Striker,11,Islam Slimani - Leicester City
-Raul Uche-Rubio,Striker,11,Raul Uche-Rubio - Leicester City
-Jamie Vardy,Striker,11,Jamie Vardy - Leicester City
-Allison (Becker),Goalkeeper,12,Allison (Becker) - Liverpool
-Adam Bogdan,Goalkeeper,12,Adam Bogdan - Liverpool
-Loris Karius,Goalkeeper,12,Loris Karius - Liverpool
-Simon Mignolet,Goalkeeper,12,Simon Mignolet - Liverpool
-Trent Alexander-Arnold,Defender,12,Trent Alexander-Arnold - Liverpool
-Nathaniel Clyne,Defender,12,Nathaniel Clyne - Liverpool
-Fabinho,Defender,12,Fabinho - Liverpool
-Joe Gomez,Defender,12,Joe Gomez - Liverpool
-Dejan Lovren,Defender,12,Dejan Lovren - Liverpool
-Joel Matip,Defender,12,Joel Matip - Liverpool
-Alberto Moreno,Defender,12,Alberto Moreno - Liverpool
-Connor Randall,Defender,12,Connor Randall - Liverpool
-Andrew Robertson,Defender,12,Andrew Robertson - Liverpool
-Virgil van Dijk,Defender,12,Virgil van Dijk - Liverpool
-Alex Oxlade-Chamberlain,Midfielder,12,Alex Oxlade-Chamberlain - Liverpool
-Pedro Chirivella,Midfielder,12,Pedro Chirivella - Liverpool
-Oviemuno Ejaria,Midfielder,12,Oviemuno Ejaria - Liverpool
-Marko Grujic,Midfielder,12,Marko Grujic - Liverpool
-Jordan Henderson,Midfielder,12,Jordan Henderson - Liverpool
-Curtis Jones,Midfielder,12,Curtis Jones - Liverpool
-Naby Keita,Midfielder,12,Naby Keita - Liverpool
-Ryan Kent,Midfielder,12,Ryan Kent - Liverpool
-Adam Lallana,Midfielder,12,Adam Lallana - Liverpool
-Lazar Markovic,Midfielder,12,Lazar Markovic - Liverpool
-James Milner,Midfielder,12,James Milner - Liverpool
-Sheyi Ojo,Midfielder,12,Sheyi Ojo - Liverpool
-Mohamed Salah,Midfielder,12,Mohamed Salah - Liverpool
-Xherdan Shaqiri,Midfielder,12,Xherdan Shaqiri - Liverpool
-Georginio Wijnaldum,Midfielder,12,Georginio Wijnaldum - Liverpool
-Harry Wilson,Midfielder,12,Harry Wilson - Liverpool
-Ben Woodburn,Midfielder,12,Ben Woodburn - Liverpool
-Rhian Brewster,Striker,12,Rhian Brewster - Liverpool
-Roberto Firmino,Striker,12,Roberto Firmino - Liverpool
-Sadio Mane,Striker,12,Sadio Mane - Liverpool
-Divock Origi,Striker,12,Divock Origi - Liverpool
-Dominic Solanke,Striker,12,Dominic Solanke - Liverpool
-Daniel Sturridge,Striker,12,Daniel Sturridge - Liverpool
-Claudio Bravo,Goalkeeper,13,Claudio Bravo - Manchester City
-Aro Muric,Goalkeeper,13,Aro Muric - Manchester City
-Ederson Santana de Moraes,Goalkeeper,13,Ederson Santana de Moraes - Manchester City
-Oluwatosin Adarabioyo,Defender,13,Oluwatosin Adarabioyo - Manchester City
-Pablo Maffeo Becerra,Defender,13,Pablo Maffeo Becerra - Manchester City
-Danilo,Defender,13,Danilo - Manchester City
-Demeaco Duhaney,Defender,13,Demeaco Duhaney - Manchester City
-Cameron Humphreys-Grant,Defender,13,Cameron Humphreys-Grant - Manchester City
-Vincent Kompany,Defender,13,Vincent Kompany - Manchester City
-Aymeric Laporte,Defender,13,Aymeric Laporte - Manchester City
-Benjamin Mendy,Defender,13,Benjamin Mendy - Manchester City
-Nicolas Otamendi,Defender,13,Nicolas Otamendi - Manchester City
-Philippe Sandler,Defender,13,Philippe Sandler - Manchester City
-John Stones,Defender,13,John Stones - Manchester City
-Jose Angel Esmoris Tasende,Defender,13,Jose Angel Esmoris Tasende - Manchester City
-Kyle Walker,Defender,13,Kyle Walker - Manchester City
-Manuel Garcia Alonso,Midfielder,13,Manuel Garcia Alonso - Manchester City
-Daniel Arzani,Midfielder,13,Daniel Arzani - Manchester City
-Luke Brattan,Midfielder,13,Luke Brattan - Manchester City
-Anthony Caceres,Midfielder,13,Anthony Caceres - Manchester City
-Kevin de Bruyne,Midfielder,13,Kevin de Bruyne - Manchester City
-Ayotomiwa Dele-Bashiru,Midfielder,13,Ayotomiwa Dele-Bashiru - Manchester City
-Fabian Delph,Midfielder,13,Fabian Delph - Manchester City
-Brahim Diaz,Midfielder,13,Brahim Diaz - Manchester City
-Fernandinho,Midfielder,13,Fernandinho - Manchester City
-Aleix Garcia-Serrano,Midfielder,13,Aleix Garcia-Serrano - Manchester City
-Claudio Gomes,Midfielder,13,Claudio Gomes - Manchester City
-Ilkay Gundogan,Midfielder,13,Ilkay Gundogan - Manchester City
-Jack Harrison,Midfielder,13,Jack Harrison - Manchester City
-Douglas Luiz (Soares de Pauo),Midfielder,13,Douglas Luiz (Soares de Pauo) - Manchester City
-Riyad Mahrez,Midfielder,13,Riyad Mahrez - Manchester City
-Patrick Roberts,Midfielder,13,Patrick Roberts - Manchester City
-Leroy Sane,Midfielder,13,Leroy Sane - Manchester City
-David Silva,Midfielder,13,David Silva - Manchester City
-Raheem Sterling,Midfielder,13,Raheem Sterling - Manchester City
-Oleksandr Zinchenko,Midfielder,13,Oleksandr Zinchenko - Manchester City
-Sergio Aguero,Striker,13,Sergio Aguero - Manchester City
-Brandon Barker,Striker,13,Brandon Barker - Manchester City
-Phil Foden,Striker,13,Phil Foden - Manchester City
-Daniel Grimshaw,Striker,13,Daniel Grimshaw - Manchester City
-Gabriel (Fernando de) Jesus,Striker,13,Gabriel (Fernando de) Jesus - Manchester City
-Olarenwaju Kayode,Striker,13,Olarenwaju Kayode - Manchester City
-Marlos Moreno,Striker,13,Marlos Moreno - Manchester City
-Lucas Nmecha,Striker,13,Lucas Nmecha - Manchester City
-Bernardo Silva,Striker,13,Bernardo Silva - Manchester City
-Joel Castro Pereira,Goalkeeper,14,Joel Castro Pereira - Manchester United
-David De Gea,Goalkeeper,14,David De Gea - Manchester United
-Lee Grant,Goalkeeper,14,Lee Grant - Manchester United
-Dean Henderson,Goalkeeper,14,Dean Henderson - Manchester United
-Kieran O'Hara,Goalkeeper,14,Kieran O'Hara - Manchester United
-Sergio Romero,Goalkeeper,14,Sergio Romero - Manchester United
-Eric Bailly,Defender,14,Eric Bailly - Manchester United
-Cameron Borthwick-Jackson,Defender,14,Cameron Borthwick-Jackson - Manchester United
-Diego Dalot,Defender,14,Diego Dalot - Manchester United
-Matteo Darmian,Defender,14,Matteo Darmian - Manchester United
-Phil Jones,Defender,14,Phil Jones - Manchester United
-Victor Lindelof,Defender,14,Victor Lindelof - Manchester United
-Demetri Mitchell,Defender,14,Demetri Mitchell - Manchester United
-Regan Poole,Defender,14,Regan Poole - Manchester United
-Marcos Rojo,Defender,14,Marcos Rojo - Manchester United
-Luke Shaw,Defender,14,Luke Shaw - Manchester United
-Chris Smalling,Defender,14,Chris Smalling - Manchester United
-Axel Tuanzebe,Defender,14,Axel Tuanzebe - Manchester United
-Antonio Valencia,Defender,14,Antonio Valencia - Manchester United
-Ro-Shaun Williams,Defender,14,Ro-Shaun Williams - Manchester United
-Zachery Dearnley,Midfielder,14,Zachery Dearnley - Manchester United
-Marouane Fellaini,Midfielder,14,Marouane Fellaini - Manchester United
-Fred(erico) Rodrigues de Paula Santos,Midfielder,14,Fred(erico) Rodrigues de Paula Santos - Manchester United
-Angel Gomes,Midfielder,14,Angel Gomes - Manchester United
-Ander Herrera,Midfielder,14,Ander Herrera - Manchester United
-Jesse Lingard,Midfielder,14,Jesse Lingard - Manchester United
-Juan Mata,Midfielder,14,Juan Mata - Manchester United
-Nemanja Matic,Midfielder,14,Nemanja Matic - Manchester United
-Scott McTominay,Midfielder,14,Scott McTominay - Manchester United
-Andreas Pereira,Midfielder,14,Andreas Pereira - Manchester United
-Paul Pogba,Midfielder,14,Paul Pogba - Manchester United
-Matthew Willock,Midfielder,14,Matthew Willock - Manchester United
-Ashley Young,Midfielder,14,Ashley Young - Manchester United
-Romelu Lukaku,Striker,14,Romelu Lukaku - Manchester United
-Anthony Martial,Striker,14,Anthony Martial - Manchester United
-Marcus Rashford,Striker,14,Marcus Rashford - Manchester United
-Alexis Sanchez,Striker,14,Alexis Sanchez - Manchester United
-Karl Darlow,Goalkeeper,15,Karl Darlow - Newcastle United
-Martin Dubravka,Goalkeeper,15,Martin Dubravka - Newcastle United
-Rob Elliott,Goalkeeper,15,Rob Elliott - Newcastle United
-Ciaran Clark,Defender,15,Ciaran Clark - Newcastle United
-Paul Dummett,Defender,15,Paul Dummett - Newcastle United
-Fedeico Fernandez,Defender,15,Fedeico Fernandez - Newcastle United
-Jesus Gamez,Defender,15,Jesus Gamez - Newcastle United
-Massadio Haidara,Defender,15,Massadio Haidara - Newcastle United
-Isaac Hayden,Defender,15,Isaac Hayden - Newcastle United
-Jamaal Lascelles,Defender,15,Jamaal Lascelles - Newcastle United
-Achraf Lazaar,Defender,15,Achraf Lazaar - Newcastle United
-Florian Lejeune,Defender,15,Florian Lejeune - Newcastle United
-Javier Manquillo,Defender,15,Javier Manquillo - Newcastle United
-Stefan O'Connor,Defender,15,Stefan O'Connor - Newcastle United
-Fabian Schar,Defender,15,Fabian Schar - Newcastle United
-Jamie Sterry,Defender,15,Jamie Sterry - Newcastle United
-Josef Yarney,Defender,15,Josef Yarney - Newcastle United
-DeAndre Yedlin,Defender,15,DeAndre Yedlin - Newcastle United
-Rolando Aarons,Midfielder,15,Rolando Aarons - Newcastle United
-Christian Atsu,Midfielder,15,Christian Atsu - Newcastle United
-Jack Colback,Midfielder,15,Jack Colback - Newcastle United
-Mohamed Diame,Midfielder,15,Mohamed Diame - Newcastle United
-Robert Kenedy Nunes Nascimento,Midfielder,15,Robert Kenedy Nunes Nascimento - Newcastle United
-Jacob Murphy,Midfielder,15,Jacob Murphy - Newcastle United
-Matt Ritchie,Midfielder,15,Matt Ritchie - Newcastle United
-Jonjo Shelvey,Midfielder,15,Jonjo Shelvey - Newcastle United
-Ki Sung-Yeung,Midfielder,15,Ki Sung-Yeung - Newcastle United
-Dwight Gayle,Striker,15,Dwight Gayle - Newcastle United
-Joselu,Striker,15,Joselu - Newcastle United
-Yoshinori Muto,Striker,15,Yoshinori Muto - Newcastle United
-Ayoze Perez,Striker,15,Ayoze Perez - Newcastle United
-Saloman Rondon,Striker,15,Saloman Rondon - Newcastle United
-Fraser Forster,Goalkeeper,16,Fraser Forster - Southampton
-Angus Gunn,Goalkeeper,16,Angus Gunn - Southampton
-Alex McCarthy,Goalkeeper,16,Alex McCarthy - Southampton
-Jan Bednarek,Defender,16,Jan Bednarek - Southampton
-Ryan Bertrand,Defender,16,Ryan Bertrand - Southampton
-Wesley Hoedt,Defender,16,Wesley Hoedt - Southampton
-Cedric Soares,Defender,16,Cedric Soares - Southampton
-Jack Stephens,Defender,16,Jack Stephens - Southampton
-Matt Targett,Defender,16,Matt Targett - Southampton
-Jannick Vestergaard,Defender,16,Jannick Vestergaard - Southampton
-Maya Yoshida,Defender,16,Maya Yoshida - Southampton
-Stuart Armstrong,Midfielder,16,Stuart Armstrong - Southampton
-Sofiane Boufal,Midfielder,16,Sofiane Boufal - Southampton
-Jordy Clasie,Midfielder,16,Jordy Clasie - Southampton
-Steven Davis,Midfielder,16,Steven Davis - Southampton
-Jake Hesketh,Midfielder,16,Jake Hesketh - Southampton
-Pierre-Emile Hojbjerg,Midfielder,16,Pierre-Emile Hojbjerg - Southampton
-Mario Lemina,Midfielder,16,Mario Lemina - Southampton
-Sam McQueen,Midfielder,16,Sam McQueen - Southampton
-Nathan Redmond,Midfielder,16,Nathan Redmond - Southampton
-Harrison Reed,Midfielder,16,Harrison Reed - Southampton
-Oriol Romeu,Midfielder,16,Oriol Romeu - Southampton
-James Ward-Prowse,Midfielder,16,James Ward-Prowse - Southampton
-Charlie Austin,Striker,16,Charlie Austin - Southampton
-Guido Carrillo,Striker,16,Guido Carrillo - Southampton
-Mohamed Elyounoussi,Striker,16,Mohamed Elyounoussi - Southampton
-Manolo Gabbiadini,Striker,16,Manolo Gabbiadini - Southampton
-Danny Ings,Striker,16,Danny Ings - Southampton
-Shane Long,Striker,16,Shane Long - Southampton
-Josh Sims,Striker,16,Josh Sims - Southampton
-Paulo Gazzaniga,Goalkeeper,17,Paulo Gazzaniga - Tottenham Hotspur
-Hugo Lloris,Goalkeeper,17,Hugo Lloris - Tottenham Hotspur
-Michel Vorm,Goalkeeper,17,Michel Vorm - Tottenham Hotspur
-Alfie Whiteman,Goalkeeper,17,Alfie Whiteman - Tottenham Hotspur
-Toby Alderweireld,Defender,17,Toby Alderweireld - Tottenham Hotspur
-Serge Aurier,Defender,17,Serge Aurier - Tottenham Hotspur
-Cameron Carter-Vickers,Defender,17,Cameron Carter-Vickers - Tottenham Hotspur
-Ben Davies,Defender,17,Ben Davies - Tottenham Hotspur
-Eric Dier,Defender,17,Eric Dier - Tottenham Hotspur
-Juan Foyth,Defender,17,Juan Foyth - Tottenham Hotspur
-Danny Rose,Defender,17,Danny Rose - Tottenham Hotspur
-Davinson Sanchez-Mina,Defender,17,Davinson Sanchez-Mina - Tottenham Hotspur
-Kieran Trippier,Defender,17,Kieran Trippier - Tottenham Hotspur
-Jan Vertonghen,Defender,17,Jan Vertonghen - Tottenham Hotspur
-Kyle Walker-Peters,Defender,17,Kyle Walker-Peters - Tottenham Hotspur
-Dele Alli,Midfielder,17,Dele Alli - Tottenham Hotspur
-Luke Amos,Midfielder,17,Luke Amos - Tottenham Hotspur
-Mousa Dembele,Midfielder,17,Mousa Dembele - Tottenham Hotspur
-Christian Eriksen,Midfielder,17,Christian Eriksen - Tottenham Hotspur
-Erik Lamela,Midfielder,17,Erik Lamela - Tottenham Hotspur
-Lucas Moura,Midfielder,17,Lucas Moura - Tottenham Hotspur
-Clinton N'Jie,Midfielder,17,Clinton N'Jie - Tottenham Hotspur
-Georges-Kevin N'Koudou,Midfielder,17,Georges-Kevin N'Koudou - Tottenham Hotspur
-Joshua Onomah,Midfielder,17,Joshua Onomah - Tottenham Hotspur
-Moussa Sissoko,Midfielder,17,Moussa Sissoko - Tottenham Hotspur
-Victor Wanyama,Midfielder,17,Victor Wanyama - Tottenham Hotspur
-Harry Winks,Midfielder,17,Harry Winks - Tottenham Hotspur
-Vincent Janssen,Striker,17,Vincent Janssen - Tottenham Hotspur
-Harry Kane,Striker,17,Harry Kane - Tottenham Hotspur
-Fernando Llorente,Striker,17,Fernando Llorente - Tottenham Hotspur
-Samuel Shashoua,Striker,17,Samuel Shashoua - Tottenham Hotspur
-Heung-Min Son,Striker,17,Heung-Min Son - Tottenham Hotspur
-Giedrius Arlauskis,Goalkeeper,18,Giedrius Arlauskis - Watford
-Daniel Bachmann,Goalkeeper,18,Daniel Bachmann - Watford
-Pontus Dahlberg,Goalkeeper,18,Pontus Dahlberg - Watford
-Ben Foster,Goalkeeper,18,Ben Foster - Watford
-Heurelho Gomes,Goalkeeper,18,Heurelho Gomes - Watford
-Orestis Karnezis,Goalkeeper,18,Orestis Karnezis - Watford
-Miguel Britos,Defender,18,Miguel Britos - Watford
-Craig Cathcart,Defender,18,Craig Cathcart - Watford
-Brice Dja Djede,Defender,18,Brice Dja Djede - Watford
-Andrew Eleftheriou,Defender,18,Andrew Eleftheriou - Watford
-Pervis Estupinan,Defender,18,Pervis Estupinan - Watford
-Tommie Hoban,Defender,18,Tommie Hoban - Watford
-Jose Holebas,Defender,18,Jose Holebas - Watford
-Daryl Janmaat,Defender,18,Daryl Janmaat - Watford
-Christian Kabasele,Defender,18,Christian Kabasele - Watford
-Younes Kaboul,Defender,18,Younes Kaboul - Watford
-Adrian Mariappa,Defender,18,Adrian Mariappa - Watford
-Adam Masina,Defender,18,Adam Masina - Watford
-Marc Navarro,Defender,18,Marc Navarro - Watford
-Sebastian Prodl,Defender,18,Sebastian Prodl - Watford
-Ben Wilmot,Defender,18,Ben Wilmot - Watford
-Etienne Capoue,Midfielder,18,Etienne Capoue - Watford
-Andre Carrillo,Midfielder,18,Andre Carrillo - Watford
-Nathaniel Chalobah,Midfielder,18,Nathaniel Chalobah - Watford
-Tom Cleverley,Midfielder,18,Tom Cleverley - Watford
-Abdoulaye Doucoure,Midfielder,18,Abdoulaye Doucoure - Watford
-Kiko Femenia Far,Midfielder,18,Kiko Femenia Far - Watford
-Will Hughes,Midfielder,18,Will Hughes - Watford
-Didier Ndong,Midfielder,18,Didier Ndong - Watford
-Dion Pereira,Midfielder,18,Dion Pereira - Watford
-Roberto Pereyra,Midfielder,18,Roberto Pereyra - Watford
-Domingos Quina,Midfielder,18,Domingos Quina - Watford
-Ken Sema,Midfielder,18,Ken Sema - Watford
-Marvin Zeegelaar,Midfielder,18,Marvin Zeegelaar - Watford
-Troy Deeney,Striker,18,Troy Deeney - Watford
-Gerard Deulofeu,Striker,18,Gerard Deulofeu - Watford
-Andre Gray,Striker,18,Andre Gray - Watford
-Stefano Okaka,Striker,18,Stefano Okaka - Watford
-Mamadou Obbi Oulare,Striker,18,Mamadou Obbi Oulare - Watford
-Adalberto Penaranda,Striker,18,Adalberto Penaranda - Watford
-Jerome Sinclair,Striker,18,Jerome Sinclair - Watford
-Isaac Success,Striker,18,Isaac Success - Watford
-Adrian,Goalkeeper,19,Adrian - West Ham United
-Lucasz Fabianski,Goalkeeper,19,Lucasz Fabianski - West Ham United
-Raphael Spiegel,Goalkeeper,19,Raphael Spiegel - West Ham United
-Fabian Balbuena,Defender,19,Fabian Balbuena - West Ham United
-Sam Byram,Defender,19,Sam Byram - West Ham United
-Aaron Cresswell,Defender,19,Aaron Cresswell - West Ham United
-Issa Diop,Defender,19,Issa Diop - West Ham United
-Ryan Fredericks,Defender,19,Ryan Fredericks - West Ham United
-Arthur Masuaku,Defender,19,Arthur Masuaku - West Ham United
-Angelo Ogbonna,Defender,19,Angelo Ogbonna - West Ham United
-Winston Reid,Defender,19,Winston Reid - West Ham United
-Declan Rice,Defender,19,Declan Rice - West Ham United
-Pablo Maffeo Zabaleta,Defender,19,Pablo Maffeo Zabaleta - West Ham United
-Felipe Anderson,Midfielder,19,Felipe Anderson - West Ham United
-Michail Antonio,Midfielder,19,Michail Antonio - West Ham United
-Marcus Browne,Midfielder,19,Marcus Browne - West Ham United
-Conor Coventry,Midfielder,19,Conor Coventry - West Ham United
-Josh Cullen,Midfielder,19,Josh Cullen - West Ham United
-Edimilson Fernandes,Midfielder,19,Edimilson Fernandes - West Ham United
-Sead Haksabanovic,Midfielder,19,Sead Haksabanovic - West Ham United
-Nathan Holland,Midfielder,19,Nathan Holland - West Ham United
-Dan Kemp,Midfielder,19,Dan Kemp - West Ham United
-Manuel Lanzini,Midfielder,19,Manuel Lanzini - West Ham United
-Moses Makasi,Midfielder,19,Moses Makasi - West Ham United
-Joao Mario,Midfielder,19,Joao Mario - West Ham United
-Mark Noble,Midfielder,19,Mark Noble - West Ham United
-Pedro Obiang,Midfielder,19,Pedro Obiang - West Ham United
-Reece Oxford,Midfielder,19,Reece Oxford - West Ham United
-Lucas Perez,Midfielder,19,Lucas Perez - West Ham United
-Joel Powell,Midfielder,19,Joel Powell - West Ham United
-Carlos Sanchez,Midfielder,19,Carlos Sanchez - West Ham United
-Robert Snodgrass,Midfielder,19,Robert Snodgrass - West Ham United
-Jack Wilshere,Midfielder,19,Jack Wilshere - West Ham United
-Andriy Yarmolenko,Midfielder,19,Andriy Yarmolenko - West Ham United
-Marko Arnautovic,Striker,19,Marko Arnautovic - West Ham United
-Andy Carroll,Striker,19,Andy Carroll - West Ham United
-Javier Hernandez,Striker,19,Javier Hernandez - West Ham United
-Jordan Hugill,Striker,19,Jordan Hugill - West Ham United
-Toni Martinez-Lopez,Striker,19,Toni Martinez-Lopez - West Ham United
-Alex Pike,Striker,19,Alex Pike - West Ham United
-Will Norris,Goalkeeper,20,Will Norris - Wolves
-Rui Patricio,Goalkeeper,20,Rui Patricio - Wolves
-John Ruddy,Goalkeeper,20,John Ruddy - Wolves
-Danny Batth,Defender,20,Danny Batth - Wolves
-Ryan Bennett,Defender,20,Ryan Bennett - Wolves
-Willy Boly,Defender,20,Willy Boly - Wolves
-Jonny Castro-Otto,Defender,20,Jonny Castro-Otto - Wolves
-Conor Coady,Defender,20,Conor Coady - Wolves
-Matt Doherty,Defender,20,Matt Doherty - Wolves
-Kourtney Hause,Defender,20,Kourtney Hause - Wolves
-Phil Ofosu-Ayeh,Defender,20,Phil Ofosu-Ayeh - Wolves
-Roderick,Defender,20,Roderick - Wolves
-Romain Saiss,Defender,20,Romain Saiss - Wolves
-Ruben Vinagre,Defender,20,Ruben Vinagre - Wolves
-Oskar Buur,Midfielder,20,Oskar Buur - Wolves
-Leander Dendoncker,Midfielder,20,Leander Dendoncker - Wolves
-Morgan Gibbs-White,Midfielder,20,Morgan Gibbs-White - Wolves
-Pedro Goncalves,Midfielder,20,Pedro Goncalves - Wolves
-Jordan Graham,Midfielder,20,Jordan Graham - Wolves
-Diogo Jose Jota,Midfielder,20,Diogo Jose Jota - Wolves
-Joao Moutinho,Midfielder,20,Joao Moutinho - Wolves
-Alfred N'Diaye,Midfielder,20,Alfred N'Diaye - Wolves
-Ruben Neves,Midfielder,20,Ruben Neves - Wolves
-Adama Traore,Midfielder,20,Adama Traore - Wolves
-Benik Afobe,Striker,20,Benik Afobe - Wolves
-Lohner Leo Bonatini,Striker,20,Lohner Leo Bonatini - Wolves
-Ivan Cavaleiro,Striker,20,Ivan Cavaleiro - Wolves
-Bright Enobakhare,Striker,20,Bright Enobakhare - Wolves
-Wander Helder-Costa,Striker,20,Wander Helder-Costa - Wolves
-Raul Jimenez,Striker,20,Raul Jimenez - Wolves
-Rafael Mir Vincente,Striker,20,Rafael Mir Vincente - Wolves
-Asmir Begovic,Goalkeeper,21,Asmir Begovic - AFC Bournemouth
-Artur Boruc,Goalkeeper,21,Artur Boruc - AFC Bournemouth
-Aaron Ramsdale,Goalkeeper,21,Aaron Ramsdale - AFC Bournemouth
-Nathan Ake,Defender,21,Nathan Ake - AFC Bournemouth
-Steve Cook,Defender,21,Steve Cook - AFC Bournemouth
-Charlie Daniels,Defender,21,Charlie Daniels - AFC Bournemouth
-Simon Francis,Defender,21,Simon Francis - AFC Bournemouth
-Jordan Lee,Defender,21,Jordan Lee - AFC Bournemouth
-Tyrone Mings,Defender,21,Tyrone Mings - AFC Bournemouth
-Diego Rico,Defender,21,Diego Rico - AFC Bournemouth
-Jack Simpson,Defender,21,Jack Simpson - AFC Bournemouth
-Adam Smith,Defender,21,Adam Smith - AFC Bournemouth
-Brad Smith,Defender,21,Brad Smith - AFC Bournemouth
-David Brooks,Midfielder,21,David Brooks - AFC Bournemouth
-Matt Butcher,Midfielder,21,Matt Butcher - AFC Bournemouth
-Lewis Cook,Midfielder,21,Lewis Cook - AFC Bournemouth
-Ryan Fraser,Midfielder,21,Ryan Fraser - AFC Bournemouth
-Dan Gosling,Midfielder,21,Dan Gosling - AFC Bournemouth
-Emerson Hyndman,Midfielder,21,Emerson Hyndman - AFC Bournemouth
-Jordon Ibe,Midfielder,21,Jordon Ibe - AFC Bournemouth
-Jefferson Lerma,Midfielder,21,Jefferson Lerma - AFC Bournemouth
-Connor Mahoney,Midfielder,21,Connor Mahoney - AFC Bournemouth
-Mark Pugh,Midfielder,21,Mark Pugh - AFC Bournemouth
-Junior Stanislas,Midfielder,21,Junior Stanislas - AFC Bournemouth
-Andrew Surman,Midfielder,21,Andrew Surman - AFC Bournemouth
-Kyle Taylor,Midfielder,21,Kyle Taylor - AFC Bournemouth
-Matthew Worthington,Midfielder,21,Matthew Worthington - AFC Bournemouth
-Jermain Defoe,Striker,21,Jermain Defoe - AFC Bournemouth
-Josh King,Striker,21,Josh King - AFC Bournemouth
-Lys Mousset,Striker,21,Lys Mousset - AFC Bournemouth
-Sam Surridge,Striker,21,Sam Surridge - AFC Bournemouth
-Callum Wilson,Striker,21,Callum Wilson - AFC Bournemouth
-Petr Cech,Goalkeeper,22,Petr Cech - Arsenal
-Bernd Leno,Goalkeeper,22,Bernd Leno - Arsenal
-Matthew Macey,Goalkeeper,22,Matthew Macey - Arsenal
-Emiliano Martinez,Goalkeeper,22,Emiliano Martinez - Arsenal
-David Ospina,Goalkeeper,22,David Ospina - Arsenal
-Hector Bellerin,Defender,22,Hector Bellerin - Arsenal
-Rob Holding,Defender,22,Rob Holding - Arsenal
-Carl Jenkinson,Defender,22,Carl Jenkinson - Arsenal
-Sead Kolasinac,Defender,22,Sead Kolasinac - Arsenal
-Laurent Koscielny,Defender,22,Laurent Koscielny - Arsenal
-Stephan Lichtsteiner,Defender,22,Stephan Lichtsteiner - Arsenal
-Konstantinos Mavropanos,Defender,22,Konstantinos Mavropanos - Arsenal
-Nacho Monreal,Defender,22,Nacho Monreal - Arsenal
-Shkodran Mustafi,Defender,22,Shkodran Mustafi - Arsenal
-Jordi Osei-Tutu,Defender,22,Jordi Osei-Tutu - Arsenal
-Papa(stathopoulos) Sokratis,Defender,22,Papa(stathopoulos) Sokratis - Arsenal
-Mohamed Elneny,Midfielder,22,Mohamed Elneny - Arsenal
-Matteo Guendouzi,Midfielder,22,Matteo Guendouzi - Arsenal
-Alex Iwobi,Midfielder,22,Alex Iwobi - Arsenal
-Ainsley Maitland-Niles,Midfielder,22,Ainsley Maitland-Niles - Arsenal
-Henrikh Mkhitaryan,Midfielder,22,Henrikh Mkhitaryan - Arsenal
-Reiss Nelson,Midfielder,22,Reiss Nelson - Arsenal
-Kelechi Nwakali,Midfielder,22,Kelechi Nwakali - Arsenal
-Mesut Ozil,Midfielder,22,Mesut Ozil - Arsenal
-Aaron Ramsey,Midfielder,22,Aaron Ramsey - Arsenal
-Lucas Torreira,Midfielder,22,Lucas Torreira - Arsenal
-Joseph Willock,Midfielder,22,Joseph Willock - Arsenal
-Granit Xhaka,Midfielder,22,Granit Xhaka - Arsenal
-Chuba Akpom,Striker,22,Chuba Akpom - Arsenal
-Takuma Asano,Striker,22,Takuma Asano - Arsenal
-Pierre-Emerick Aubameyang,Striker,22,Pierre-Emerick Aubameyang - Arsenal
-Alexandre Lacazette,Striker,22,Alexandre Lacazette - Arsenal
-Edward Nketiah,Striker,22,Edward Nketiah - Arsenal
-Emile Smith-Rowe,Striker,22,Emile Smith-Rowe - Arsenal
-Danny Welbeck,Striker,22,Danny Welbeck - Arsenal
-David Button,Goalkeeper,23,David Button - Brighton & Hove Albion
-Mathew Ryan,Goalkeeper,23,Mathew Ryan - Brighton & Hove Albion
-Jason Steele,Goalkeeper,23,Jason Steele - Brighton & Hove Albion
-Leonardo Balogun,Defender,23,Leonardo Balogun - Brighton & Hove Albion
-Bernardo,Defender,23,Bernardo - Brighton & Hove Albion
-Gaetan Bong,Defender,23,Gaetan Bong - Brighton & Hove Albion
-Bruno,Defender,23,Bruno - Brighton & Hove Albion
-Dan Burn,Defender,23,Dan Burn - Brighton & Hove Albion
-Shane Duffy,Defender,23,Shane Duffy - Brighton & Hove Albion
-Lewis Dunk,Defender,23,Lewis Dunk - Brighton & Hove Albion
-Joshua Kerr,Defender,23,Joshua Kerr - Brighton & Hove Albion
-Ales Mateju,Defender,23,Ales Mateju - Brighton & Hove Albion
-Martin Montoya,Defender,23,Martin Montoya - Brighton & Hove Albion
-Masato Morishige,Defender,23,Masato Morishige - Brighton & Hove Albion
-Leo Skiri Ostigard,Defender,23,Leo Skiri Ostigard - Brighton & Hove Albion
-Ben White,Defender,23,Ben White - Brighton & Hove Albion
-Soufyan Ahannach,Midfielder,23,Soufyan Ahannach - Brighton & Hove Albion
-Billy Arce,Midfielder,23,Billy Arce - Brighton & Hove Albion
-Yves Bissouma,Midfielder,23,Yves Bissouma - Brighton & Hove Albion
-Pascal Gross,Midfielder,23,Pascal Gross - Brighton & Hove Albion
-Des Hutchinson,Midfielder,23,Des Hutchinson - Brighton & Hove Albion
-Alireza Jahanbakhsh,Midfielder,23,Alireza Jahanbakhsh - Brighton & Hove Albion
-Beram Kayal,Midfielder,23,Beram Kayal - Brighton & Hove Albion
-Anthony Knockaert,Midfielder,23,Anthony Knockaert - Brighton & Hove Albion
-Solly March,Midfielder,23,Solly March - Brighton & Hove Albion
-Jayson Molumby,Midfielder,23,Jayson Molumby - Brighton & Hove Albion
-Oliver Norwood,Midfielder,23,Oliver Norwood - Brighton & Hove Albion
-Davy Propper,Midfielder,23,Davy Propper - Brighton & Hove Albion
-Ezequiel Schelotto,Midfielder,23,Ezequiel Schelotto - Brighton & Hove Albion
-Dale Stephens,Midfielder,23,Dale Stephens - Brighton & Hove Albion
-Markus Suttner,Midfielder,23,Markus Suttner - Brighton & Hove Albion
-Richie Towell,Midfielder,23,Richie Towell - Brighton & Hove Albion
-Florin(e) Andone,Striker,23,Florin(e) Andone - Brighton & Hove Albion
-Sam Baldock,Striker,23,Sam Baldock - Brighton & Hove Albion
-Isaiah Brown,Striker,23,Isaiah Brown - Brighton & Hove Albion
-Tomer Hemed,Striker,23,Tomer Hemed - Brighton & Hove Albion
-Jose Izquierdo-Mena,Striker,23,Jose Izquierdo-Mena - Brighton & Hove Albion
-Jurgen Locadia,Striker,23,Jurgen Locadia - Brighton & Hove Albion
-Glenn Murray,Striker,23,Glenn Murray - Brighton & Hove Albion
-Jiri Skalak,Striker,23,Jiri Skalak - Brighton & Hove Albion
-Percy Tau,Striker,23,Percy Tau - Brighton & Hove Albion
-Joe Hart,Goalkeeper,24,Joe Hart - Burnley
-Tom Heaton,Goalkeeper,24,Tom Heaton - Burnley
-Adam Legzdins,Goalkeeper,24,Adam Legzdins - Burnley
-Anders Lindegaard,Goalkeeper,24,Anders Lindegaard - Burnley
-Nick Pope,Goalkeeper,24,Nick Pope - Burnley
-Phil Bardsley,Defender,24,Phil Bardsley - Burnley
-Ben Gibson,Defender,24,Ben Gibson - Burnley
-Kevin Long,Defender,24,Kevin Long - Burnley
-Matthew Lowton,Defender,24,Matthew Lowton - Burnley
-Ben Mee,Defender,24,Ben Mee - Burnley
-James Tarkowski,Defender,24,James Tarkowski - Burnley
-Charlie Taylor,Defender,24,Charlie Taylor - Burnley
-Stephen Ward,Defender,24,Stephen Ward - Burnley
-Robbie Brady,Midfielder,24,Robbie Brady - Burnley
-Jack Cork,Midfielder,24,Jack Cork - Burnley
-Steven Defour,Midfielder,24,Steven Defour - Burnley
-Johann Berg Gudmundsson,Midfielder,24,Johann Berg Gudmundsson - Burnley
-Jeff Hendrick,Midfielder,24,Jeff Hendrick - Burnley
-Robbie Leitch,Midfielder,24,Robbie Leitch - Burnley
-Aaron Lennon,Midfielder,24,Aaron Lennon - Burnley
-Aiden O'Neill,Midfielder,24,Aiden O'Neill - Burnley
-Ashley Westwood,Midfielder,24,Ashley Westwood - Burnley
-Dan Agyei,Striker,24,Dan Agyei - Burnley
-Ashley Barnes,Striker,24,Ashley Barnes - Burnley
-Rouwen Hennings,Striker,24,Rouwen Hennings - Burnley
-Dwight McNeil,Striker,24,Dwight McNeil - Burnley
-Sam Vokes,Striker,24,Sam Vokes - Burnley
-Matej Vydra,Striker,24,Matej Vydra - Burnley
-Jon Walters,Striker,24,Jon Walters - Burnley
-Nahki Wells,Striker,24,Nahki Wells - Burnley
-Chris Wood,Striker,24,Chris Wood - Burnley
-Neil Etheridge,Goalkeeper,25,Neil Etheridge - Cardiff City
-Brian Murphy,Goalkeeper,25,Brian Murphy - Cardiff City
-Alex Smithies,Goalkeeper,25,Alex Smithies - Cardiff City
-Ben Wilson,Goalkeeper,25,Ben Wilson - Cardiff City
-Solly Bamba,Defender,25,Solly Bamba - Cardiff City
-Joe Bennett,Defender,25,Joe Bennett - Cardiff City
-Matthew Connolly,Defender,25,Matthew Connolly - Cardiff City
-Greg Cunningham,Defender,25,Greg Cunningham - Cardiff City
-Greg Halford,Defender,25,Greg Halford - Cardiff City
-Bruno Ecuele Manga,Defender,25,Bruno Ecuele Manga - Cardiff City
-Sean Morrison,Defender,25,Sean Morrison - Cardiff City
-Callum Paterson,Defender,25,Callum Paterson - Cardiff City
-Lee Peltier,Defender,25,Lee Peltier - Cardiff City
-Jazz Richards,Defender,25,Jazz Richards - Cardiff City
-Armand Traore,Defender,25,Armand Traore - Cardiff City
-Craig Bryson,Midfielder,25,Craig Bryson - Cardiff City
-Harry Arter,Midfielder,25,Harry Arter - Cardiff City
-Loic Damour,Midfielder,25,Loic Damour - Cardiff City
-Liam Feeney,Midfielder,25,Liam Feeney - Cardiff City
-Aron Gunnarsson,Midfielder,25,Aron Gunnarsson - Cardiff City
-Kadeem Harris,Midfielder,25,Kadeem Harris - Cardiff City
-Junior Hoilett,Midfielder,25,Junior Hoilett - Cardiff City
-Nathaniel Mendez-Laing,Midfielder,25,Nathaniel Mendez-Laing - Cardiff City
-Josh Murphy,Midfielder,25,Josh Murphy - Cardiff City
-Anthony Pilkington,Midfielder,25,Anthony Pilkington - Cardiff City
-Joe Ralls,Midfielder,25,Joe Ralls - Cardiff City
-Yanic Wildschut,Midfielder,25,Yanic Wildschut - Cardiff City
-Victor Camarasa,Striker,25,Victor Camarasa - Cardiff City
-Frederic Gounongbe,Striker,25,Frederic Gounongbe - Cardiff City
-Gary Madine,Striker,25,Gary Madine - Cardiff City
-Ibrahim Meite,Striker,25,Ibrahim Meite - Cardiff City
-Bobby Reid,Striker,25,Bobby Reid - Cardiff City
-Danny Ward,Striker,25,Danny Ward - Cardiff City
-Kenneth Zohore,Striker,25,Kenneth Zohore - Cardiff City
-Kepa Arrizabalaga,Goalkeeper,26,Kepa Arrizabalaga - Chelsea
-Willy Caballero,Goalkeeper,26,Willy Caballero - Chelsea
-Metaj Delac,Goalkeeper,26,Metaj Delac - Chelsea
-Eduardo,Goalkeeper,26,Eduardo - Chelsea
-Robert Green,Goalkeeper,26,Robert Green - Chelsea
-Temitayo Olufisayo 'Ola'oluwa Aina,Defender,26,Temitayo Olufisayo 'Ola'oluwa Aina - Chelsea
-Marcos Alonso,Defender,26,Marcos Alonso - Chelsea
-Cezar Azpilicueta,Defender,26,Cezar Azpilicueta - Chelsea
-Gary Cahill,Defender,26,Gary Cahill - Chelsea
-Trevoh Chalobah,Defender,26,Trevoh Chalobah - Chelsea
-Andreas Christensen,Defender,26,Andreas Christensen - Chelsea
-Jake Clarke-Salter,Defender,26,Jake Clarke-Salter - Chelsea
-David Luiz,Defender,26,David Luiz - Chelsea
-Matt Miazga,Defender,26,Matt Miazga - Chelsea
-Emerson Palmieri dos Santos,Defender,26,Emerson Palmieri dos Santos - Chelsea
-Baba Rahman,Defender,26,Baba Rahman - Chelsea
-Antonio Rudiger,Defender,26,Antonio Rudiger - Chelsea
-Dujon Sterling,Defender,26,Dujon Sterling - Chelsea
-Fikayo Tomori,Defender,26,Fikayo Tomori - Chelsea
-Davide Zappacosta,Defender,26,Davide Zappacosta - Chelsea
-Ethan Ampadu,Midfielder,26,Ethan Ampadu - Chelsea
-Tiemoue Bakayoko,Midfielder,26,Tiemoue Bakayoko - Chelsea
-Ross Barkley,Midfielder,26,Ross Barkley - Chelsea
-Cristian Cuevas,Midfielder,26,Cristian Cuevas - Chelsea
-Danny Drinkwater,Midfielder,26,Danny Drinkwater - Chelsea
-Cesc Fabregas,Midfielder,26,Cesc Fabregas - Chelsea
-Eden Hazard,Midfielder,26,Eden Hazard - Chelsea
-Callum Hudson-Odoi,Midfielder,26,Callum Hudson-Odoi - Chelsea
-Jorginho,Midfielder,26,Jorginho - Chelsea
-N'Golo Kante,Midfielder,26,N'Golo Kante - Chelsea
-Mateo Kovacic,Midfielder,26,Mateo Kovacic - Chelsea
-Ruben Loftus-Cheek,Midfielder,26,Ruben Loftus-Cheek - Chelsea
-Victor Moses,Midfielder,26,Victor Moses - Chelsea
-Charly Musonda,Midfielder,26,Charly Musonda - Chelsea
-Pedro,Midfielder,26,Pedro - Chelsea
-Kyle Scott,Midfielder,26,Kyle Scott - Chelsea
-Marcos van Ginkel,Midfielder,26,Marcos van Ginkel - Chelsea
-Willian,Midfielder,26,Willian - Chelsea
-Tammy Abraham,Striker,26,Tammy Abraham - Chelsea
-Michy Batshuayi,Striker,26,Michy Batshuayi - Chelsea
-Izzy Brown,Striker,26,Izzy Brown - Chelsea
-Olivier Giroud,Striker,26,Olivier Giroud - Chelsea
-Alvaro Morata,Striker,26,Alvaro Morata - Chelsea
-Kasey Palmer,Striker,26,Kasey Palmer - Chelsea
-Vicente Guaita,Goalkeeper,27,Vicente Guaita - Crystal Palace
-Wayne Hennessey,Goalkeeper,27,Wayne Hennessey - Crystal Palace
-Julian Speroni,Goalkeeper,27,Julian Speroni - Crystal Palace
-Scott Dann,Defender,27,Scott Dann - Crystal Palace
-Jaroslaw Jach,Defender,27,Jaroslaw Jach - Crystal Palace
-Martin Kelly,Defender,27,Martin Kelly - Crystal Palace
-Jairo Riedewald,Defender,27,Jairo Riedewald - Crystal Palace
-Mamadou Sakho,Defender,27,Mamadou Sakho - Crystal Palace
-Jeffrey Schlupp,Defender,27,Jeffrey Schlupp - Crystal Palace
-Pape Souare,Defender,27,Pape Souare - Crystal Palace
-James Tomkins,Defender,27,James Tomkins - Crystal Palace
-Patrick van Aanholt,Defender,27,Patrick van Aanholt - Crystal Palace
-Joel Ward,Defender,27,Joel Ward - Crystal Palace
-Nya Kirby,Midfielder,27,Nya Kirby - Crystal Palace
-Cheikhou Kouyate,Midfielder,27,Cheikhou Kouyate - Crystal Palace
-Jason Lokilo,Midfielder,27,Jason Lokilo - Crystal Palace
-James McArthur,Midfielder,27,James McArthur - Crystal Palace
-Max Meyer,Midfielder,27,Max Meyer - Crystal Palace
-Luka Milivojevic,Midfielder,27,Luka Milivojevic - Crystal Palace
-Jordon Mutch,Midfielder,27,Jordon Mutch - Crystal Palace
-Jason Puncheon,Midfielder,27,Jason Puncheon - Crystal Palace
-Erdal Rakip,Midfielder,27,Erdal Rakip - Crystal Palace
-Bakary Sako,Midfielder,27,Bakary Sako - Crystal Palace
-Andros Townsend,Midfielder,27,Andros Townsend - Crystal Palace
-Aaron Wan-Bissaka,Midfielder,27,Aaron Wan-Bissaka - Crystal Palace
-Jonny Williams,Midfielder,27,Jonny Williams - Crystal Palace
-Jordan Ayew,Striker,27,Jordan Ayew - Crystal Palace
-Christian Benteke,Striker,27,Christian Benteke - Crystal Palace
-Sullay Kaikai,Striker,27,Sullay Kaikai - Crystal Palace
-Levi Lumeka,Striker,27,Levi Lumeka - Crystal Palace
-Alexander Sorloth,Striker,27,Alexander Sorloth - Crystal Palace
-Connor Wickham,Striker,27,Connor Wickham - Crystal Palace
-Wilfried Zaha,Striker,27,Wilfried Zaha - Crystal Palace
-Mateusz Hewelt,Goalkeeper,28,Mateusz Hewelt - Everton
-Jordan Pickford,Goalkeeper,28,Jordan Pickford - Everton
-Maarten Stekelenburg,Goalkeeper,28,Maarten Stekelenburg - Everton
-Joao Virginia,Goalkeeper,28,Joao Virginia - Everton
-Leighton Baines,Defender,28,Leighton Baines - Everton
-Tyias Browning,Defender,28,Tyias Browning - Everton
-Seamus Coleman,Defender,28,Seamus Coleman - Everton
-Lucas Digne,Defender,28,Lucas Digne - Everton
-Luke Garbutt,Defender,28,Luke Garbutt - Everton
-Phil Jagielka,Defender,28,Phil Jagielka - Everton
-Michael Keane,Defender,28,Michael Keane - Everton
-Jonjoe Kenny,Defender,28,Jonjoe Kenny - Everton
-Eliaquim Mangala,Defender,28,Eliaquim Mangala - Everton
-Cuco Martina,Defender,28,Cuco Martina - Everton
-Yerry Mina,Defender,28,Yerry Mina - Everton
-Matthew Pennington,Defender,28,Matthew Pennington - Everton
-Ashley Williams,Defender,28,Ashley Williams - Everton
-Kurt Zouma,Defender,28,Kurt Zouma - Everton
-Beni Baningime,Midfielder,28,Beni Baningime - Everton
-Muhamed Besic,Midfielder,28,Muhamed Besic - Everton
-Yannick Bolasie,Midfielder,28,Yannick Bolasie - Everton
-Tom Davies,Midfielder,28,Tom Davies - Everton
-Kieran Dowell,Midfielder,28,Kieran Dowell - Everton
-Morgan Feeney,Midfielder,28,Morgan Feeney - Everton
-Idrissa Gana-Gueye,Midfielder,28,Idrissa Gana-Gueye - Everton
-Andre Gomes,Midfielder,28,Andre Gomes - Everton
-Mason Holgate,Midfielder,28,Mason Holgate - Everton
-James McCarthy,Midfielder,28,James McCarthy - Everton
-Kevin Mirallas,Midfielder,28,Kevin Mirallas - Everton
-Morgan Schneiderlin,Midfielder,28,Morgan Schneiderlin - Everton
-Gylfi Sigurdsson,Midfielder,28,Gylfi Sigurdsson - Everton
-Nikola Vlasic,Midfielder,28,Nikola Vlasic - Everton
-Theo Walcott,Midfielder,28,Theo Walcott - Everton
-Joe Williams,Midfielder,28,Joe Williams - Everton
-Bernard,Striker,28,Bernard - Everton
-Dominic Calvert-Lewin,Striker,28,Dominic Calvert-Lewin - Everton
-Richarlison deAndrade,Striker,28,Richarlison deAndrade - Everton
-Ademola Lookman,Striker,28,Ademola Lookman - Everton
-Oumar Niasse,Striker,28,Oumar Niasse - Everton
-Henry Onyekuru,Striker,28,Henry Onyekuru - Everton
-Sandro Ramirez,Striker,28,Sandro Ramirez - Everton
-Bassala Sambou,Striker,28,Bassala Sambou - Everton
-Shani Tarashaj,Striker,28,Shani Tarashaj - Everton
-Cenk Tosun,Striker,28,Cenk Tosun - Everton
-Marcus Bettinelli,Goalkeeper,29,Marcus Bettinelli - Fulham
-Fabri(cio) Agosto Ramirez,Goalkeeper,29,Fabri(cio) Agosto Ramirez - Fulham
-Sergio Rico,Goalkeeper,29,Sergio Rico - Fulham
-Joe Bryan,Defender,29,Joe Bryan - Fulham
-Calum Chambers,Defender,29,Calum Chambers - Fulham
-Cyrus Christie,Defender,29,Cyrus Christie - Fulham
-Marcelo Djalo,Defender,29,Marcelo Djalo - Fulham
-Adetayo Edun,Defender,29,Adetayo Edun - Fulham
-Timothy Fosu-Mensah,Defender,29,Timothy Fosu-Mensah - Fulham
-Tomas Kalas,Defender,29,Tomas Kalas - Fulham
-Maxime Le Marchand,Defender,29,Maxime Le Marchand - Fulham
-Alfie Mawson,Defender,29,Alfie Mawson - Fulham
-Denis Odoi,Defender,29,Denis Odoi - Fulham
-Tim Ream,Defender,29,Tim Ream - Fulham
-Joe Ryan,Defender,29,Joe Ryan - Fulham
-Ryan Sessegnon,Defender,29,Ryan Sessegnon - Fulham
-Zeze Steven Sessegnon,Defender,29,Zeze Steven Sessegnon - Fulham
-Tom Cairney,Midfielder,29,Tom Cairney - Fulham
-Ibrahima Cisse,Midfielder,29,Ibrahima Cisse - Fulham
-Stefan Johansen,Midfielder,29,Stefan Johansen - Fulham
-Neeskens Kebano,Midfielder,29,Neeskens Kebano - Fulham
-Kevin McDonald,Midfielder,29,Kevin McDonald - Fulham
-Oliver Norwood,Midfielder,29,Oliver Norwood - Fulham
-Lucas Piazon,Midfielder,29,Lucas Piazon - Fulham
-Andre Schurrle,Midfielder,29,Andre Schurrle - Fulham
-Jean Michael Seri,Midfielder,29,Jean Michael Seri - Fulham
-Andre-Frank Zambo Anguissa,Midfielder,29,Andre-Frank Zambo Anguissa - Fulham
-Floyd Ayite,Striker,29,Floyd Ayite - Fulham
-Lucas De La Torre,Striker,29,Lucas De La Torre - Fulham
-Rui Fonte,Striker,29,Rui Fonte - Fulham
-Aboubakar Kamara,Striker,29,Aboubakar Kamara - Fulham
-Aleksandar Mitrovic,Striker,29,Aleksandar Mitrovic - Fulham
-Luciano Vietto,Striker,29,Luciano Vietto - Fulham
-Joel Coleman,Goalkeeper,30,Joel Coleman - Huddersfield Town
-Ben Hamer,Goalkeeper,30,Ben Hamer - Huddersfield Town
-Jonas Lossl,Goalkeeper,30,Jonas Lossl - Huddersfield Town
-Martin Cranie,Defender,30,Martin Cranie - Huddersfield Town
-Erik Durm,Defender,30,Erik Durm - Huddersfield Town
-Florent Hadergjonaj,Defender,30,Florent Hadergjonaj - Huddersfield Town
-Marko Hudson,Defender,30,Marko Hudson - Huddersfield Town
-Mathias Jorgensen,Defender,30,Mathias Jorgensen - Huddersfield Town
-Terence Kongolo,Defender,30,Terence Kongolo - Huddersfield Town
-Chris Lowe,Defender,30,Chris Lowe - Huddersfield Town
-Christopher Schindler,Defender,30,Christopher Schindler - Huddersfield Town
-Tommy Smith,Defender,30,Tommy Smith - Huddersfield Town
-Juninho Bacuna,Midfielder,30,Juninho Bacuna - Huddersfield Town
-Philippe Billing,Midfielder,30,Philippe Billing - Huddersfield Town
-Regan Booty,Midfielder,30,Regan Booty - Huddersfield Town
-Adama Diakhaby,Midfielder,30,Adama Diakhaby - Huddersfield Town
-Jonathan Hogg,Midfielder,30,Jonathan Hogg - Huddersfield Town
-Isaac Mbenza,Midfielder,30,Isaac Mbenza - Huddersfield Town
-Aaron Mooy,Midfielder,30,Aaron Mooy - Huddersfield Town
-Jack Payne,Midfielder,30,Jack Payne - Huddersfield Town
-Alex Pritchard,Midfielder,30,Alex Pritchard - Huddersfield Town
-Abdelhamid Sabiri,Midfielder,30,Abdelhamid Sabiri - Huddersfield Town
-Ramadan Sobhi,Midfielder,30,Ramadan Sobhi - Huddersfield Town
-Jon Stankovic,Midfielder,30,Jon Stankovic - Huddersfield Town
-Rajiv van La Parra,Midfielder,30,Rajiv van La Parra - Huddersfield Town
-Danny Williams,Midfielder,30,Danny Williams - Huddersfield Town
-Isiah Brown,Striker,30,Isiah Brown - Huddersfield Town
-Laurent Depoitre,Striker,30,Laurent Depoitre - Huddersfield Town
-Elias Kachunga,Striker,30,Elias Kachunga - Huddersfield Town
-Joe Lolley,Striker,30,Joe Lolley - Huddersfield Town
-Steve Mounie,Striker,30,Steve Mounie - Huddersfield Town
-Collin Quaner,Striker,30,Collin Quaner - Huddersfield Town
-Sean Scannell,Striker,30,Sean Scannell - Huddersfield Town
-Eldin Jakupovic,Goalkeeper,31,Eldin Jakupovic - Leicester City
-Kasper Schmeichel,Goalkeeper,31,Kasper Schmeichel - Leicester City
-Danny Ward,Goalkeeper,31,Danny Ward - Leicester City
-Yohan Benalouane,Defender,31,Yohan Benalouane - Leicester City
-Filip Benkovic,Defender,31,Filip Benkovic - Leicester City
-Ben Chilwell,Defender,31,Ben Chilwell - Leicester City
-Aleksandar Dragovic,Defender,31,Aleksandar Dragovic - Leicester City
-Jonny Evans,Defender,31,Jonny Evans - Leicester City
-Christian Fuchs,Defender,31,Christian Fuchs - Leicester City
-Harry Maguire,Defender,31,Harry Maguire - Leicester City
-Elliot Moore,Defender,31,Elliot Moore - Leicester City
-Wes Morgan,Defender,31,Wes Morgan - Leicester City
-Ricardo Pereira,Defender,31,Ricardo Pereira - Leicester City
-Danny Simpson,Defender,31,Danny Simpson - Leicester City
-Caglar Soyuncu,Defender,31,Caglar Soyuncu - Leicester City
-Marc Albrighton,Midfielder,31,Marc Albrighton - Leicester City
-Daniel Amartey,Midfielder,31,Daniel Amartey - Leicester City
-Harvey Barnes,Midfielder,31,Harvey Barnes - Leicester City
-Mamza Choudhury,Midfielder,31,Mamza Choudhury - Leicester City
-Fousseni Diabate,Midfielder,31,Fousseni Diabate - Leicester City
-Rachid Ghezzal,Midfielder,31,Rachid Ghezzal - Leicester City
-Demarai Gray,Midfielder,31,Demarai Gray - Leicester City
-Sam Hughes,Midfielder,31,Sam Hughes - Leicester City
-Vicente Iborra,Midfielder,31,Vicente Iborra - Leicester City
-Matty James,Midfielder,31,Matty James - Leicester City
-Bartosz Kapustka,Midfielder,31,Bartosz Kapustka - Leicester City
-James Maddison,Midfielder,31,James Maddison - Leicester City
-Nampalys Mendy,Midfielder,31,Nampalys Mendy - Leicester City
-Onyinye Wilfred Ndidi,Midfielder,31,Onyinye Wilfred Ndidi - Leicester City
-Layton Ndukwu,Midfielder,31,Layton Ndukwu - Leicester City
-Adrien Silva,Midfielder,31,Adrien Silva - Leicester City
-George Thomas,Midfielder,31,George Thomas - Leicester City
-Kelechi Iheanacho,Striker,31,Kelechi Iheanacho - Leicester City
-Shinji Okazaki,Striker,31,Shinji Okazaki - Leicester City
-Islam Slimani,Striker,31,Islam Slimani - Leicester City
-Raul Uche-Rubio,Striker,31,Raul Uche-Rubio - Leicester City
-Jamie Vardy,Striker,31,Jamie Vardy - Leicester City
-Allison (Becker),Goalkeeper,32,Allison (Becker) - Liverpool
-Adam Bogdan,Goalkeeper,32,Adam Bogdan - Liverpool
-Loris Karius,Goalkeeper,32,Loris Karius - Liverpool
-Simon Mignolet,Goalkeeper,32,Simon Mignolet - Liverpool
-Trent Alexander-Arnold,Defender,32,Trent Alexander-Arnold - Liverpool
-Nathaniel Clyne,Defender,32,Nathaniel Clyne - Liverpool
-Fabinho,Defender,32,Fabinho - Liverpool
-Joe Gomez,Defender,32,Joe Gomez - Liverpool
-Dejan Lovren,Defender,32,Dejan Lovren - Liverpool
-Joel Matip,Defender,32,Joel Matip - Liverpool
-Alberto Moreno,Defender,32,Alberto Moreno - Liverpool
-Connor Randall,Defender,32,Connor Randall - Liverpool
-Andrew Robertson,Defender,32,Andrew Robertson - Liverpool
-Virgil van Dijk,Defender,32,Virgil van Dijk - Liverpool
-Alex Oxlade-Chamberlain,Midfielder,32,Alex Oxlade-Chamberlain - Liverpool
-Pedro Chirivella,Midfielder,32,Pedro Chirivella - Liverpool
-Oviemuno Ejaria,Midfielder,32,Oviemuno Ejaria - Liverpool
-Marko Grujic,Midfielder,32,Marko Grujic - Liverpool
-Jordan Henderson,Midfielder,32,Jordan Henderson - Liverpool
-Curtis Jones,Midfielder,32,Curtis Jones - Liverpool
-Naby Keita,Midfielder,32,Naby Keita - Liverpool
-Ryan Kent,Midfielder,32,Ryan Kent - Liverpool
-Adam Lallana,Midfielder,32,Adam Lallana - Liverpool
-Lazar Markovic,Midfielder,32,Lazar Markovic - Liverpool
-James Milner,Midfielder,32,James Milner - Liverpool
-Sheyi Ojo,Midfielder,32,Sheyi Ojo - Liverpool
-Mohamed Salah,Midfielder,32,Mohamed Salah - Liverpool
-Xherdan Shaqiri,Midfielder,32,Xherdan Shaqiri - Liverpool
-Georginio Wijnaldum,Midfielder,32,Georginio Wijnaldum - Liverpool
-Harry Wilson,Midfielder,32,Harry Wilson - Liverpool
-Ben Woodburn,Midfielder,32,Ben Woodburn - Liverpool
-Rhian Brewster,Striker,32,Rhian Brewster - Liverpool
-Roberto Firmino,Striker,32,Roberto Firmino - Liverpool
-Sadio Mane,Striker,32,Sadio Mane - Liverpool
-Divock Origi,Striker,32,Divock Origi - Liverpool
-Dominic Solanke,Striker,32,Dominic Solanke - Liverpool
-Daniel Sturridge,Striker,32,Daniel Sturridge - Liverpool
-Claudio Bravo,Goalkeeper,33,Claudio Bravo - Manchester City
-Aro Muric,Goalkeeper,33,Aro Muric - Manchester City
-Ederson Santana de Moraes,Goalkeeper,33,Ederson Santana de Moraes - Manchester City
-Oluwatosin Adarabioyo,Defender,33,Oluwatosin Adarabioyo - Manchester City
-Pablo Maffeo Becerra,Defender,33,Pablo Maffeo Becerra - Manchester City
-Danilo,Defender,33,Danilo - Manchester City
-Demeaco Duhaney,Defender,33,Demeaco Duhaney - Manchester City
-Cameron Humphreys-Grant,Defender,33,Cameron Humphreys-Grant - Manchester City
-Vincent Kompany,Defender,33,Vincent Kompany - Manchester City
-Aymeric Laporte,Defender,33,Aymeric Laporte - Manchester City
-Benjamin Mendy,Defender,33,Benjamin Mendy - Manchester City
-Nicolas Otamendi,Defender,33,Nicolas Otamendi - Manchester City
-Philippe Sandler,Defender,33,Philippe Sandler - Manchester City
-John Stones,Defender,33,John Stones - Manchester City
-Jose Angel Esmoris Tasende,Defender,33,Jose Angel Esmoris Tasende - Manchester City
-Kyle Walker,Defender,33,Kyle Walker - Manchester City
-Manuel Garcia Alonso,Midfielder,33,Manuel Garcia Alonso - Manchester City
-Daniel Arzani,Midfielder,33,Daniel Arzani - Manchester City
-Luke Brattan,Midfielder,33,Luke Brattan - Manchester City
-Anthony Caceres,Midfielder,33,Anthony Caceres - Manchester City
-Kevin de Bruyne,Midfielder,33,Kevin de Bruyne - Manchester City
-Ayotomiwa Dele-Bashiru,Midfielder,33,Ayotomiwa Dele-Bashiru - Manchester City
-Fabian Delph,Midfielder,33,Fabian Delph - Manchester City
-Brahim Diaz,Midfielder,33,Brahim Diaz - Manchester City
-Fernandinho,Midfielder,33,Fernandinho - Manchester City
-Aleix Garcia-Serrano,Midfielder,33,Aleix Garcia-Serrano - Manchester City
-Claudio Gomes,Midfielder,33,Claudio Gomes - Manchester City
-Ilkay Gundogan,Midfielder,33,Ilkay Gundogan - Manchester City
-Jack Harrison,Midfielder,33,Jack Harrison - Manchester City
-Douglas Luiz (Soares de Pauo),Midfielder,33,Douglas Luiz (Soares de Pauo) - Manchester City
-Riyad Mahrez,Midfielder,33,Riyad Mahrez - Manchester City
-Patrick Roberts,Midfielder,33,Patrick Roberts - Manchester City
-Leroy Sane,Midfielder,33,Leroy Sane - Manchester City
-David Silva,Midfielder,33,David Silva - Manchester City
-Raheem Sterling,Midfielder,33,Raheem Sterling - Manchester City
-Oleksandr Zinchenko,Midfielder,33,Oleksandr Zinchenko - Manchester City
-Sergio Aguero,Striker,33,Sergio Aguero - Manchester City
-Brandon Barker,Striker,33,Brandon Barker - Manchester City
-Phil Foden,Striker,33,Phil Foden - Manchester City
-Daniel Grimshaw,Striker,33,Daniel Grimshaw - Manchester City
-Gabriel (Fernando de) Jesus,Striker,33,Gabriel (Fernando de) Jesus - Manchester City
-Olarenwaju Kayode,Striker,33,Olarenwaju Kayode - Manchester City
-Marlos Moreno,Striker,33,Marlos Moreno - Manchester City
-Lucas Nmecha,Striker,33,Lucas Nmecha - Manchester City
-Bernardo Silva,Striker,33,Bernardo Silva - Manchester City
-Joel Castro Pereira,Goalkeeper,34,Joel Castro Pereira - Manchester United
-David De Gea,Goalkeeper,34,David De Gea - Manchester United
-Lee Grant,Goalkeeper,34,Lee Grant - Manchester United
-Dean Henderson,Goalkeeper,34,Dean Henderson - Manchester United
-Kieran O'Hara,Goalkeeper,34,Kieran O'Hara - Manchester United
-Sergio Romero,Goalkeeper,34,Sergio Romero - Manchester United
-Eric Bailly,Defender,34,Eric Bailly - Manchester United
-Cameron Borthwick-Jackson,Defender,34,Cameron Borthwick-Jackson - Manchester United
-Diego Dalot,Defender,34,Diego Dalot - Manchester United
-Matteo Darmian,Defender,34,Matteo Darmian - Manchester United
-Phil Jones,Defender,34,Phil Jones - Manchester United
-Victor Lindelof,Defender,34,Victor Lindelof - Manchester United
-Demetri Mitchell,Defender,34,Demetri Mitchell - Manchester United
-Regan Poole,Defender,34,Regan Poole - Manchester United
-Marcos Rojo,Defender,34,Marcos Rojo - Manchester United
-Luke Shaw,Defender,34,Luke Shaw - Manchester United
-Chris Smalling,Defender,34,Chris Smalling - Manchester United
-Axel Tuanzebe,Defender,34,Axel Tuanzebe - Manchester United
-Antonio Valencia,Defender,34,Antonio Valencia - Manchester United
-Ro-Shaun Williams,Defender,34,Ro-Shaun Williams - Manchester United
-Zachery Dearnley,Midfielder,34,Zachery Dearnley - Manchester United
-Marouane Fellaini,Midfielder,34,Marouane Fellaini - Manchester United
-Fred(erico) Rodrigues de Paula Santos,Midfielder,34,Fred(erico) Rodrigues de Paula Santos - Manchester United
-Angel Gomes,Midfielder,34,Angel Gomes - Manchester United
-Ander Herrera,Midfielder,34,Ander Herrera - Manchester United
-Jesse Lingard,Midfielder,34,Jesse Lingard - Manchester United
-Juan Mata,Midfielder,34,Juan Mata - Manchester United
-Nemanja Matic,Midfielder,34,Nemanja Matic - Manchester United
-Scott McTominay,Midfielder,34,Scott McTominay - Manchester United
-Andreas Pereira,Midfielder,34,Andreas Pereira - Manchester United
-Paul Pogba,Midfielder,34,Paul Pogba - Manchester United
-Matthew Willock,Midfielder,34,Matthew Willock - Manchester United
-Ashley Young,Midfielder,34,Ashley Young - Manchester United
-Romelu Lukaku,Striker,34,Romelu Lukaku - Manchester United
-Anthony Martial,Striker,34,Anthony Martial - Manchester United
-Marcus Rashford,Striker,34,Marcus Rashford - Manchester United
-Alexis Sanchez,Striker,34,Alexis Sanchez - Manchester United
-Karl Darlow,Goalkeeper,35,Karl Darlow - Newcastle United
-Martin Dubravka,Goalkeeper,35,Martin Dubravka - Newcastle United
-Rob Elliott,Goalkeeper,35,Rob Elliott - Newcastle United
-Ciaran Clark,Defender,35,Ciaran Clark - Newcastle United
-Paul Dummett,Defender,35,Paul Dummett - Newcastle United
-Fedeico Fernandez,Defender,35,Fedeico Fernandez - Newcastle United
-Jesus Gamez,Defender,35,Jesus Gamez - Newcastle United
-Massadio Haidara,Defender,35,Massadio Haidara - Newcastle United
-Isaac Hayden,Defender,35,Isaac Hayden - Newcastle United
-Jamaal Lascelles,Defender,35,Jamaal Lascelles - Newcastle United
-Achraf Lazaar,Defender,35,Achraf Lazaar - Newcastle United
-Florian Lejeune,Defender,35,Florian Lejeune - Newcastle United
-Javier Manquillo,Defender,35,Javier Manquillo - Newcastle United
-Stefan O'Connor,Defender,35,Stefan O'Connor - Newcastle United
-Fabian Schar,Defender,35,Fabian Schar - Newcastle United
-Jamie Sterry,Defender,35,Jamie Sterry - Newcastle United
-Josef Yarney,Defender,35,Josef Yarney - Newcastle United
-DeAndre Yedlin,Defender,35,DeAndre Yedlin - Newcastle United
-Rolando Aarons,Midfielder,35,Rolando Aarons - Newcastle United
-Christian Atsu,Midfielder,35,Christian Atsu - Newcastle United
-Jack Colback,Midfielder,35,Jack Colback - Newcastle United
-Mohamed Diame,Midfielder,35,Mohamed Diame - Newcastle United
-Robert Kenedy Nunes Nascimento,Midfielder,35,Robert Kenedy Nunes Nascimento - Newcastle United
-Jacob Murphy,Midfielder,35,Jacob Murphy - Newcastle United
-Matt Ritchie,Midfielder,35,Matt Ritchie - Newcastle United
-Jonjo Shelvey,Midfielder,35,Jonjo Shelvey - Newcastle United
-Ki Sung-Yeung,Midfielder,35,Ki Sung-Yeung - Newcastle United
-Dwight Gayle,Striker,35,Dwight Gayle - Newcastle United
-Joselu,Striker,35,Joselu - Newcastle United
-Yoshinori Muto,Striker,35,Yoshinori Muto - Newcastle United
-Ayoze Perez,Striker,35,Ayoze Perez - Newcastle United
-Saloman Rondon,Striker,35,Saloman Rondon - Newcastle United
-Fraser Forster,Goalkeeper,36,Fraser Forster - Southampton
-Angus Gunn,Goalkeeper,36,Angus Gunn - Southampton
-Alex McCarthy,Goalkeeper,36,Alex McCarthy - Southampton
-Jan Bednarek,Defender,36,Jan Bednarek - Southampton
-Ryan Bertrand,Defender,36,Ryan Bertrand - Southampton
-Wesley Hoedt,Defender,36,Wesley Hoedt - Southampton
-Cedric Soares,Defender,36,Cedric Soares - Southampton
-Jack Stephens,Defender,36,Jack Stephens - Southampton
-Matt Targett,Defender,36,Matt Targett - Southampton
-Jannick Vestergaard,Defender,36,Jannick Vestergaard - Southampton
-Maya Yoshida,Defender,36,Maya Yoshida - Southampton
-Stuart Armstrong,Midfielder,36,Stuart Armstrong - Southampton
-Sofiane Boufal,Midfielder,36,Sofiane Boufal - Southampton
-Jordy Clasie,Midfielder,36,Jordy Clasie - Southampton
-Steven Davis,Midfielder,36,Steven Davis - Southampton
-Jake Hesketh,Midfielder,36,Jake Hesketh - Southampton
-Pierre-Emile Hojbjerg,Midfielder,36,Pierre-Emile Hojbjerg - Southampton
-Mario Lemina,Midfielder,36,Mario Lemina - Southampton
-Sam McQueen,Midfielder,36,Sam McQueen - Southampton
-Nathan Redmond,Midfielder,36,Nathan Redmond - Southampton
-Harrison Reed,Midfielder,36,Harrison Reed - Southampton
-Oriol Romeu,Midfielder,36,Oriol Romeu - Southampton
-James Ward-Prowse,Midfielder,36,James Ward-Prowse - Southampton
-Charlie Austin,Striker,36,Charlie Austin - Southampton
-Guido Carrillo,Striker,36,Guido Carrillo - Southampton
-Mohamed Elyounoussi,Striker,36,Mohamed Elyounoussi - Southampton
-Manolo Gabbiadini,Striker,36,Manolo Gabbiadini - Southampton
-Danny Ings,Striker,36,Danny Ings - Southampton
-Shane Long,Striker,36,Shane Long - Southampton
-Josh Sims,Striker,36,Josh Sims - Southampton
-Paulo Gazzaniga,Goalkeeper,37,Paulo Gazzaniga - Tottenham Hotspur
-Hugo Lloris,Goalkeeper,37,Hugo Lloris - Tottenham Hotspur
-Michel Vorm,Goalkeeper,37,Michel Vorm - Tottenham Hotspur
-Alfie Whiteman,Goalkeeper,37,Alfie Whiteman - Tottenham Hotspur
-Toby Alderweireld,Defender,37,Toby Alderweireld - Tottenham Hotspur
-Serge Aurier,Defender,37,Serge Aurier - Tottenham Hotspur
-Cameron Carter-Vickers,Defender,37,Cameron Carter-Vickers - Tottenham Hotspur
-Ben Davies,Defender,37,Ben Davies - Tottenham Hotspur
-Eric Dier,Defender,37,Eric Dier - Tottenham Hotspur
-Juan Foyth,Defender,37,Juan Foyth - Tottenham Hotspur
-Danny Rose,Defender,37,Danny Rose - Tottenham Hotspur
-Davinson Sanchez-Mina,Defender,37,Davinson Sanchez-Mina - Tottenham Hotspur
-Kieran Trippier,Defender,37,Kieran Trippier - Tottenham Hotspur
-Jan Vertonghen,Defender,37,Jan Vertonghen - Tottenham Hotspur
-Kyle Walker-Peters,Defender,37,Kyle Walker-Peters - Tottenham Hotspur
-Dele Alli,Midfielder,37,Dele Alli - Tottenham Hotspur
-Luke Amos,Midfielder,37,Luke Amos - Tottenham Hotspur
-Mousa Dembele,Midfielder,37,Mousa Dembele - Tottenham Hotspur
-Christian Eriksen,Midfielder,37,Christian Eriksen - Tottenham Hotspur
-Erik Lamela,Midfielder,37,Erik Lamela - Tottenham Hotspur
-Lucas Moura,Midfielder,37,Lucas Moura - Tottenham Hotspur
-Clinton N'Jie,Midfielder,37,Clinton N'Jie - Tottenham Hotspur
-Georges-Kevin N'Koudou,Midfielder,37,Georges-Kevin N'Koudou - Tottenham Hotspur
-Joshua Onomah,Midfielder,37,Joshua Onomah - Tottenham Hotspur
-Moussa Sissoko,Midfielder,37,Moussa Sissoko - Tottenham Hotspur
-Victor Wanyama,Midfielder,37,Victor Wanyama - Tottenham Hotspur
-Harry Winks,Midfielder,37,Harry Winks - Tottenham Hotspur
-Vincent Janssen,Striker,37,Vincent Janssen - Tottenham Hotspur
-Harry Kane,Striker,37,Harry Kane - Tottenham Hotspur
-Fernando Llorente,Striker,37,Fernando Llorente - Tottenham Hotspur
-Samuel Shashoua,Striker,37,Samuel Shashoua - Tottenham Hotspur
-Heung-Min Son,Striker,37,Heung-Min Son - Tottenham Hotspur
-Giedrius Arlauskis,Goalkeeper,38,Giedrius Arlauskis - Watford
-Daniel Bachmann,Goalkeeper,38,Daniel Bachmann - Watford
-Pontus Dahlberg,Goalkeeper,38,Pontus Dahlberg - Watford
-Ben Foster,Goalkeeper,38,Ben Foster - Watford
-Heurelho Gomes,Goalkeeper,38,Heurelho Gomes - Watford
-Orestis Karnezis,Goalkeeper,38,Orestis Karnezis - Watford
-Miguel Britos,Defender,38,Miguel Britos - Watford
-Craig Cathcart,Defender,38,Craig Cathcart - Watford
-Brice Dja Djede,Defender,38,Brice Dja Djede - Watford
-Andrew Eleftheriou,Defender,38,Andrew Eleftheriou - Watford
-Pervis Estupinan,Defender,38,Pervis Estupinan - Watford
-Tommie Hoban,Defender,38,Tommie Hoban - Watford
-Jose Holebas,Defender,38,Jose Holebas - Watford
-Daryl Janmaat,Defender,38,Daryl Janmaat - Watford
-Christian Kabasele,Defender,38,Christian Kabasele - Watford
-Younes Kaboul,Defender,38,Younes Kaboul - Watford
-Adrian Mariappa,Defender,38,Adrian Mariappa - Watford
-Adam Masina,Defender,38,Adam Masina - Watford
-Marc Navarro,Defender,38,Marc Navarro - Watford
-Sebastian Prodl,Defender,38,Sebastian Prodl - Watford
-Ben Wilmot,Defender,38,Ben Wilmot - Watford
-Etienne Capoue,Midfielder,38,Etienne Capoue - Watford
-Andre Carrillo,Midfielder,38,Andre Carrillo - Watford
-Nathaniel Chalobah,Midfielder,38,Nathaniel Chalobah - Watford
-Tom Cleverley,Midfielder,38,Tom Cleverley - Watford
-Abdoulaye Doucoure,Midfielder,38,Abdoulaye Doucoure - Watford
-Kiko Femenia Far,Midfielder,38,Kiko Femenia Far - Watford
-Will Hughes,Midfielder,38,Will Hughes - Watford
-Didier Ndong,Midfielder,38,Didier Ndong - Watford
-Dion Pereira,Midfielder,38,Dion Pereira - Watford
-Roberto Pereyra,Midfielder,38,Roberto Pereyra - Watford
-Domingos Quina,Midfielder,38,Domingos Quina - Watford
-Ken Sema,Midfielder,38,Ken Sema - Watford
-Marvin Zeegelaar,Midfielder,38,Marvin Zeegelaar - Watford
-Troy Deeney,Striker,38,Troy Deeney - Watford
-Gerard Deulofeu,Striker,38,Gerard Deulofeu - Watford
-Andre Gray,Striker,38,Andre Gray - Watford
-Stefano Okaka,Striker,38,Stefano Okaka - Watford
-Mamadou Obbi Oulare,Striker,38,Mamadou Obbi Oulare - Watford
-Adalberto Penaranda,Striker,38,Adalberto Penaranda - Watford
-Jerome Sinclair,Striker,38,Jerome Sinclair - Watford
-Isaac Success,Striker,38,Isaac Success - Watford
-Adrian,Goalkeeper,39,Adrian - West Ham United
-Lucasz Fabianski,Goalkeeper,39,Lucasz Fabianski - West Ham United
-Raphael Spiegel,Goalkeeper,39,Raphael Spiegel - West Ham United
-Fabian Balbuena,Defender,39,Fabian Balbuena - West Ham United
-Sam Byram,Defender,39,Sam Byram - West Ham United
-Aaron Cresswell,Defender,39,Aaron Cresswell - West Ham United
-Issa Diop,Defender,39,Issa Diop - West Ham United
-Ryan Fredericks,Defender,39,Ryan Fredericks - West Ham United
-Arthur Masuaku,Defender,39,Arthur Masuaku - West Ham United
-Angelo Ogbonna,Defender,39,Angelo Ogbonna - West Ham United
-Winston Reid,Defender,39,Winston Reid - West Ham United
-Declan Rice,Defender,39,Declan Rice - West Ham United
-Pablo Maffeo Zabaleta,Defender,39,Pablo Maffeo Zabaleta - West Ham United
-Felipe Anderson,Midfielder,39,Felipe Anderson - West Ham United
-Michail Antonio,Midfielder,39,Michail Antonio - West Ham United
-Marcus Browne,Midfielder,39,Marcus Browne - West Ham United
-Conor Coventry,Midfielder,39,Conor Coventry - West Ham United
-Josh Cullen,Midfielder,39,Josh Cullen - West Ham United
-Edimilson Fernandes,Midfielder,39,Edimilson Fernandes - West Ham United
-Sead Haksabanovic,Midfielder,39,Sead Haksabanovic - West Ham United
-Nathan Holland,Midfielder,39,Nathan Holland - West Ham United
-Dan Kemp,Midfielder,39,Dan Kemp - West Ham United
-Manuel Lanzini,Midfielder,39,Manuel Lanzini - West Ham United
-Moses Makasi,Midfielder,39,Moses Makasi - West Ham United
-Joao Mario,Midfielder,39,Joao Mario - West Ham United
-Mark Noble,Midfielder,39,Mark Noble - West Ham United
-Pedro Obiang,Midfielder,39,Pedro Obiang - West Ham United
-Reece Oxford,Midfielder,39,Reece Oxford - West Ham United
-Lucas Perez,Midfielder,39,Lucas Perez - West Ham United
-Joel Powell,Midfielder,39,Joel Powell - West Ham United
-Carlos Sanchez,Midfielder,39,Carlos Sanchez - West Ham United
-Robert Snodgrass,Midfielder,39,Robert Snodgrass - West Ham United
-Jack Wilshere,Midfielder,39,Jack Wilshere - West Ham United
-Andriy Yarmolenko,Midfielder,39,Andriy Yarmolenko - West Ham United
-Marko Arnautovic,Striker,39,Marko Arnautovic - West Ham United
-Andy Carroll,Striker,39,Andy Carroll - West Ham United
-Javier Hernandez,Striker,39,Javier Hernandez - West Ham United
-Jordan Hugill,Striker,39,Jordan Hugill - West Ham United
-Toni Martinez-Lopez,Striker,39,Toni Martinez-Lopez - West Ham United
-Alex Pike,Striker,39,Alex Pike - West Ham United
-Will Norris,Goalkeeper,40,Will Norris - Wolves
-Rui Patricio,Goalkeeper,40,Rui Patricio - Wolves
-John Ruddy,Goalkeeper,40,John Ruddy - Wolves
-Danny Batth,Defender,40,Danny Batth - Wolves
-Ryan Bennett,Defender,40,Ryan Bennett - Wolves
-Willy Boly,Defender,40,Willy Boly - Wolves
-Jonny Castro-Otto,Defender,40,Jonny Castro-Otto - Wolves
-Conor Coady,Defender,40,Conor Coady - Wolves
-Matt Doherty,Defender,40,Matt Doherty - Wolves
-Kourtney Hause,Defender,40,Kourtney Hause - Wolves
-Phil Ofosu-Ayeh,Defender,40,Phil Ofosu-Ayeh - Wolves
-Roderick,Defender,40,Roderick - Wolves
-Romain Saiss,Defender,40,Romain Saiss - Wolves
-Ruben Vinagre,Defender,40,Ruben Vinagre - Wolves
-Oskar Buur,Midfielder,40,Oskar Buur - Wolves
-Leander Dendoncker,Midfielder,40,Leander Dendoncker - Wolves
-Morgan Gibbs-White,Midfielder,40,Morgan Gibbs-White - Wolves
-Pedro Goncalves,Midfielder,40,Pedro Goncalves - Wolves
-Jordan Graham,Midfielder,40,Jordan Graham - Wolves
-Diogo Jose Jota,Midfielder,40,Diogo Jose Jota - Wolves
-Joao Moutinho,Midfielder,40,Joao Moutinho - Wolves
-Alfred N'Diaye,Midfielder,40,Alfred N'Diaye - Wolves
-Ruben Neves,Midfielder,40,Ruben Neves - Wolves
-Adama Traore,Midfielder,40,Adama Traore - Wolves
-Benik Afobe,Striker,40,Benik Afobe - Wolves
-Lohner Leo Bonatini,Striker,40,Lohner Leo Bonatini - Wolves
-Ivan Cavaleiro,Striker,40,Ivan Cavaleiro - Wolves
-Bright Enobakhare,Striker,40,Bright Enobakhare - Wolves
-Wander Helder-Costa,Striker,40,Wander Helder-Costa - Wolves
-Raul Jimenez,Striker,40,Raul Jimenez - Wolves
-Rafael Mir Vincente,Striker,40,Rafael Mir Vincente - Wolves
+Asmir Begovic,Goalkeeper,921,Asmir Begovic - AFC Bournemouth,118
+Artur Boruc,Goalkeeper,921,Artur Boruc - AFC Bournemouth,118
+Aaron Ramsdale,Goalkeeper,921,Aaron Ramsdale - AFC Bournemouth,118
+Nathan Ake,Defender,921,Nathan Ake - AFC Bournemouth,118
+Steve Cook,Defender,921,Steve Cook - AFC Bournemouth,118
+Charlie Daniels,Defender,921,Charlie Daniels - AFC Bournemouth,118
+Simon Francis,Defender,921,Simon Francis - AFC Bournemouth,118
+Jordan Lee,Defender,921,Jordan Lee - AFC Bournemouth,118
+Tyrone Mings,Defender,921,Tyrone Mings - AFC Bournemouth,118
+Diego Rico,Defender,921,Diego Rico - AFC Bournemouth,118
+Jack Simpson,Defender,921,Jack Simpson - AFC Bournemouth,118
+Adam Smith,Defender,921,Adam Smith - AFC Bournemouth,118
+Brad Smith,Defender,921,Brad Smith - AFC Bournemouth,118
+David Brooks,Midfielder,921,David Brooks - AFC Bournemouth,118
+Matt Butcher,Midfielder,921,Matt Butcher - AFC Bournemouth,118
+Lewis Cook,Midfielder,921,Lewis Cook - AFC Bournemouth,118
+Ryan Fraser,Midfielder,921,Ryan Fraser - AFC Bournemouth,118
+Dan Gosling,Midfielder,921,Dan Gosling - AFC Bournemouth,118
+Emerson Hyndman,Midfielder,921,Emerson Hyndman - AFC Bournemouth,118
+Jordon Ibe,Midfielder,921,Jordon Ibe - AFC Bournemouth,118
+Jefferson Lerma,Midfielder,921,Jefferson Lerma - AFC Bournemouth,118
+Connor Mahoney,Midfielder,921,Connor Mahoney - AFC Bournemouth,118
+Mark Pugh,Midfielder,921,Mark Pugh - AFC Bournemouth,118
+Junior Stanislas,Midfielder,921,Junior Stanislas - AFC Bournemouth,118
+Andrew Surman,Midfielder,921,Andrew Surman - AFC Bournemouth,118
+Kyle Taylor,Midfielder,921,Kyle Taylor - AFC Bournemouth,118
+Matthew Worthington,Midfielder,921,Matthew Worthington - AFC Bournemouth,118
+Jermain Defoe,Striker,921,Jermain Defoe - AFC Bournemouth,118
+Josh King,Striker,921,Josh King - AFC Bournemouth,118
+Lys Mousset,Striker,921,Lys Mousset - AFC Bournemouth,118
+Sam Surridge,Striker,921,Sam Surridge - AFC Bournemouth,118
+Callum Wilson,Striker,921,Callum Wilson - AFC Bournemouth,118
+Petr Cech,Goalkeeper,922,Petr Cech - Arsenal,118
+Bernd Leno,Goalkeeper,922,Bernd Leno - Arsenal,118
+Matthew Macey,Goalkeeper,922,Matthew Macey - Arsenal,118
+Emiliano Martinez,Goalkeeper,922,Emiliano Martinez - Arsenal,118
+David Ospina,Goalkeeper,922,David Ospina - Arsenal,118
+Hector Bellerin,Defender,922,Hector Bellerin - Arsenal,118
+Rob Holding,Defender,922,Rob Holding - Arsenal,118
+Carl Jenkinson,Defender,922,Carl Jenkinson - Arsenal,118
+Sead Kolasinac,Defender,922,Sead Kolasinac - Arsenal,118
+Laurent Koscielny,Defender,922,Laurent Koscielny - Arsenal,118
+Stephan Lichtsteiner,Defender,922,Stephan Lichtsteiner - Arsenal,118
+Konstantinos Mavropanos,Defender,922,Konstantinos Mavropanos - Arsenal,118
+Nacho Monreal,Defender,922,Nacho Monreal - Arsenal,118
+Shkodran Mustafi,Defender,922,Shkodran Mustafi - Arsenal,118
+Jordi Osei-Tutu,Defender,922,Jordi Osei-Tutu - Arsenal,118
+Papa(stathopoulos) Sokratis,Defender,922,Papa(stathopoulos) Sokratis - Arsenal,118
+Mohamed Elneny,Midfielder,922,Mohamed Elneny - Arsenal,118
+Matteo Guendouzi,Midfielder,922,Matteo Guendouzi - Arsenal,118
+Alex Iwobi,Midfielder,922,Alex Iwobi - Arsenal,118
+Ainsley Maitland-Niles,Midfielder,922,Ainsley Maitland-Niles - Arsenal,118
+Henrikh Mkhitaryan,Midfielder,922,Henrikh Mkhitaryan - Arsenal,118
+Reiss Nelson,Midfielder,922,Reiss Nelson - Arsenal,118
+Kelechi Nwakali,Midfielder,922,Kelechi Nwakali - Arsenal,118
+Mesut Ozil,Midfielder,922,Mesut Ozil - Arsenal,118
+Aaron Ramsey,Midfielder,922,Aaron Ramsey - Arsenal,118
+Lucas Torreira,Midfielder,922,Lucas Torreira - Arsenal,118
+Joseph Willock,Midfielder,922,Joseph Willock - Arsenal,118
+Granit Xhaka,Midfielder,922,Granit Xhaka - Arsenal,118
+Chuba Akpom,Striker,922,Chuba Akpom - Arsenal,118
+Takuma Asano,Striker,922,Takuma Asano - Arsenal,118
+Pierre-Emerick Aubameyang,Striker,922,Pierre-Emerick Aubameyang - Arsenal,118
+Alexandre Lacazette,Striker,922,Alexandre Lacazette - Arsenal,118
+Edward Nketiah,Striker,922,Edward Nketiah - Arsenal,118
+Emile Smith-Rowe,Striker,922,Emile Smith-Rowe - Arsenal,118
+Danny Welbeck,Striker,922,Danny Welbeck - Arsenal,118
+David Button,Goalkeeper,,David Button - Brighton & Hove Albion,118
+Mathew Ryan,Goalkeeper,,Mathew Ryan - Brighton & Hove Albion,118
+Jason Steele,Goalkeeper,,Jason Steele - Brighton & Hove Albion,118
+Leonardo Balogun,Defender,,Leonardo Balogun - Brighton & Hove Albion,118
+Bernardo,Defender,,Bernardo - Brighton & Hove Albion,118
+Gaetan Bong,Defender,,Gaetan Bong - Brighton & Hove Albion,118
+Bruno,Defender,,Bruno - Brighton & Hove Albion,118
+Dan Burn,Defender,,Dan Burn - Brighton & Hove Albion,118
+Shane Duffy,Defender,,Shane Duffy - Brighton & Hove Albion,118
+Lewis Dunk,Defender,,Lewis Dunk - Brighton & Hove Albion,118
+Joshua Kerr,Defender,,Joshua Kerr - Brighton & Hove Albion,118
+Ales Mateju,Defender,,Ales Mateju - Brighton & Hove Albion,118
+Martin Montoya,Defender,,Martin Montoya - Brighton & Hove Albion,118
+Masato Morishige,Defender,,Masato Morishige - Brighton & Hove Albion,118
+Leo Skiri Ostigard,Defender,,Leo Skiri Ostigard - Brighton & Hove Albion,118
+Ben White,Defender,,Ben White - Brighton & Hove Albion,118
+Soufyan Ahannach,Midfielder,,Soufyan Ahannach - Brighton & Hove Albion,118
+Billy Arce,Midfielder,,Billy Arce - Brighton & Hove Albion,118
+Yves Bissouma,Midfielder,,Yves Bissouma - Brighton & Hove Albion,118
+Pascal Gross,Midfielder,,Pascal Gross - Brighton & Hove Albion,118
+Des Hutchinson,Midfielder,,Des Hutchinson - Brighton & Hove Albion,118
+Alireza Jahanbakhsh,Midfielder,,Alireza Jahanbakhsh - Brighton & Hove Albion,118
+Beram Kayal,Midfielder,,Beram Kayal - Brighton & Hove Albion,118
+Anthony Knockaert,Midfielder,,Anthony Knockaert - Brighton & Hove Albion,118
+Solly March,Midfielder,,Solly March - Brighton & Hove Albion,118
+Jayson Molumby,Midfielder,,Jayson Molumby - Brighton & Hove Albion,118
+Oliver Norwood,Midfielder,,Oliver Norwood - Brighton & Hove Albion,118
+Davy Propper,Midfielder,,Davy Propper - Brighton & Hove Albion,118
+Ezequiel Schelotto,Midfielder,,Ezequiel Schelotto - Brighton & Hove Albion,118
+Dale Stephens,Midfielder,,Dale Stephens - Brighton & Hove Albion,118
+Markus Suttner,Midfielder,,Markus Suttner - Brighton & Hove Albion,118
+Richie Towell,Midfielder,,Richie Towell - Brighton & Hove Albion,118
+Florin(e) Andone,Striker,,Florin(e) Andone - Brighton & Hove Albion,118
+Sam Baldock,Striker,,Sam Baldock - Brighton & Hove Albion,118
+Isaiah Brown,Striker,,Isaiah Brown - Brighton & Hove Albion,118
+Tomer Hemed,Striker,,Tomer Hemed - Brighton & Hove Albion,118
+Jose Izquierdo-Mena,Striker,,Jose Izquierdo-Mena - Brighton & Hove Albion,118
+Jurgen Locadia,Striker,,Jurgen Locadia - Brighton & Hove Albion,118
+Glenn Murray,Striker,,Glenn Murray - Brighton & Hove Albion,118
+Jiri Skalak,Striker,,Jiri Skalak - Brighton & Hove Albion,118
+Percy Tau,Striker,,Percy Tau - Brighton & Hove Albion,118
+Joe Hart,Goalkeeper,924,Joe Hart - Burnley,118
+Tom Heaton,Goalkeeper,924,Tom Heaton - Burnley,118
+Adam Legzdins,Goalkeeper,924,Adam Legzdins - Burnley,118
+Anders Lindegaard,Goalkeeper,924,Anders Lindegaard - Burnley,118
+Nick Pope,Goalkeeper,924,Nick Pope - Burnley,118
+Phil Bardsley,Defender,924,Phil Bardsley - Burnley,118
+Ben Gibson,Defender,924,Ben Gibson - Burnley,118
+Kevin Long,Defender,924,Kevin Long - Burnley,118
+Matthew Lowton,Defender,924,Matthew Lowton - Burnley,118
+Ben Mee,Defender,924,Ben Mee - Burnley,118
+James Tarkowski,Defender,924,James Tarkowski - Burnley,118
+Charlie Taylor,Defender,924,Charlie Taylor - Burnley,118
+Stephen Ward,Defender,924,Stephen Ward - Burnley,118
+Robbie Brady,Midfielder,924,Robbie Brady - Burnley,118
+Jack Cork,Midfielder,924,Jack Cork - Burnley,118
+Steven Defour,Midfielder,924,Steven Defour - Burnley,118
+Johann Berg Gudmundsson,Midfielder,924,Johann Berg Gudmundsson - Burnley,118
+Jeff Hendrick,Midfielder,924,Jeff Hendrick - Burnley,118
+Robbie Leitch,Midfielder,924,Robbie Leitch - Burnley,118
+Aaron Lennon,Midfielder,924,Aaron Lennon - Burnley,118
+Aiden O'Neill,Midfielder,924,Aiden O'Neill - Burnley,118
+Ashley Westwood,Midfielder,924,Ashley Westwood - Burnley,118
+Dan Agyei,Striker,924,Dan Agyei - Burnley,118
+Ashley Barnes,Striker,924,Ashley Barnes - Burnley,118
+Rouwen Hennings,Striker,924,Rouwen Hennings - Burnley,118
+Dwight McNeil,Striker,924,Dwight McNeil - Burnley,118
+Sam Vokes,Striker,924,Sam Vokes - Burnley,118
+Matej Vydra,Striker,924,Matej Vydra - Burnley,118
+Jon Walters,Striker,924,Jon Walters - Burnley,118
+Nahki Wells,Striker,924,Nahki Wells - Burnley,118
+Chris Wood,Striker,924,Chris Wood - Burnley,118
+Neil Etheridge,Goalkeeper,925,Neil Etheridge - Cardiff City,118
+Brian Murphy,Goalkeeper,925,Brian Murphy - Cardiff City,118
+Alex Smithies,Goalkeeper,925,Alex Smithies - Cardiff City,118
+Ben Wilson,Goalkeeper,925,Ben Wilson - Cardiff City,118
+Solly Bamba,Defender,925,Solly Bamba - Cardiff City,118
+Joe Bennett,Defender,925,Joe Bennett - Cardiff City,118
+Matthew Connolly,Defender,925,Matthew Connolly - Cardiff City,118
+Greg Cunningham,Defender,925,Greg Cunningham - Cardiff City,118
+Greg Halford,Defender,925,Greg Halford - Cardiff City,118
+Bruno Ecuele Manga,Defender,925,Bruno Ecuele Manga - Cardiff City,118
+Sean Morrison,Defender,925,Sean Morrison - Cardiff City,118
+Callum Paterson,Defender,925,Callum Paterson - Cardiff City,118
+Lee Peltier,Defender,925,Lee Peltier - Cardiff City,118
+Jazz Richards,Defender,925,Jazz Richards - Cardiff City,118
+Armand Traore,Defender,925,Armand Traore - Cardiff City,118
+Craig Bryson,Midfielder,925,Craig Bryson - Cardiff City,118
+Harry Arter,Midfielder,925,Harry Arter - Cardiff City,118
+Loic Damour,Midfielder,925,Loic Damour - Cardiff City,118
+Liam Feeney,Midfielder,925,Liam Feeney - Cardiff City,118
+Aron Gunnarsson,Midfielder,925,Aron Gunnarsson - Cardiff City,118
+Kadeem Harris,Midfielder,925,Kadeem Harris - Cardiff City,118
+Junior Hoilett,Midfielder,925,Junior Hoilett - Cardiff City,118
+Nathaniel Mendez-Laing,Midfielder,925,Nathaniel Mendez-Laing - Cardiff City,118
+Josh Murphy,Midfielder,925,Josh Murphy - Cardiff City,118
+Anthony Pilkington,Midfielder,925,Anthony Pilkington - Cardiff City,118
+Joe Ralls,Midfielder,925,Joe Ralls - Cardiff City,118
+Yanic Wildschut,Midfielder,925,Yanic Wildschut - Cardiff City,118
+Victor Camarasa,Striker,925,Victor Camarasa - Cardiff City,118
+Frederic Gounongbe,Striker,925,Frederic Gounongbe - Cardiff City,118
+Gary Madine,Striker,925,Gary Madine - Cardiff City,118
+Ibrahim Meite,Striker,925,Ibrahim Meite - Cardiff City,118
+Bobby Reid,Striker,925,Bobby Reid - Cardiff City,118
+Danny Ward,Striker,925,Danny Ward - Cardiff City,118
+Kenneth Zohore,Striker,925,Kenneth Zohore - Cardiff City,118
+Kepa Arrizabalaga,Goalkeeper,926,Kepa Arrizabalaga - Chelsea,118
+Willy Caballero,Goalkeeper,926,Willy Caballero - Chelsea,118
+Metaj Delac,Goalkeeper,926,Metaj Delac - Chelsea,118
+Eduardo,Goalkeeper,926,Eduardo - Chelsea,118
+Robert Green,Goalkeeper,926,Robert Green - Chelsea,118
+Temitayo Olufisayo 'Ola'oluwa Aina,Defender,926,Temitayo Olufisayo 'Ola'oluwa Aina - Chelsea,118
+Marcos Alonso,Defender,926,Marcos Alonso - Chelsea,118
+Cezar Azpilicueta,Defender,926,Cezar Azpilicueta - Chelsea,118
+Gary Cahill,Defender,926,Gary Cahill - Chelsea,118
+Trevoh Chalobah,Defender,926,Trevoh Chalobah - Chelsea,118
+Andreas Christensen,Defender,926,Andreas Christensen - Chelsea,118
+Jake Clarke-Salter,Defender,926,Jake Clarke-Salter - Chelsea,118
+David Luiz,Defender,926,David Luiz - Chelsea,118
+Matt Miazga,Defender,926,Matt Miazga - Chelsea,118
+Emerson Palmieri dos Santos,Defender,926,Emerson Palmieri dos Santos - Chelsea,118
+Baba Rahman,Defender,926,Baba Rahman - Chelsea,118
+Antonio Rudiger,Defender,926,Antonio Rudiger - Chelsea,118
+Dujon Sterling,Defender,926,Dujon Sterling - Chelsea,118
+Fikayo Tomori,Defender,926,Fikayo Tomori - Chelsea,118
+Davide Zappacosta,Defender,926,Davide Zappacosta - Chelsea,118
+Ethan Ampadu,Midfielder,926,Ethan Ampadu - Chelsea,118
+Tiemoue Bakayoko,Midfielder,926,Tiemoue Bakayoko - Chelsea,118
+Ross Barkley,Midfielder,926,Ross Barkley - Chelsea,118
+Cristian Cuevas,Midfielder,926,Cristian Cuevas - Chelsea,118
+Danny Drinkwater,Midfielder,926,Danny Drinkwater - Chelsea,118
+Cesc Fabregas,Midfielder,926,Cesc Fabregas - Chelsea,118
+Eden Hazard,Midfielder,926,Eden Hazard - Chelsea,118
+Callum Hudson-Odoi,Midfielder,926,Callum Hudson-Odoi - Chelsea,118
+Jorginho,Midfielder,926,Jorginho - Chelsea,118
+N'Golo Kante,Midfielder,926,N'Golo Kante - Chelsea,118
+Mateo Kovacic,Midfielder,926,Mateo Kovacic - Chelsea,118
+Ruben Loftus-Cheek,Midfielder,926,Ruben Loftus-Cheek - Chelsea,118
+Victor Moses,Midfielder,926,Victor Moses - Chelsea,118
+Charly Musonda,Midfielder,926,Charly Musonda - Chelsea,118
+Pedro,Midfielder,926,Pedro - Chelsea,118
+Kyle Scott,Midfielder,926,Kyle Scott - Chelsea,118
+Marcos van Ginkel,Midfielder,926,Marcos van Ginkel - Chelsea,118
+Willian,Midfielder,926,Willian - Chelsea,118
+Tammy Abraham,Striker,926,Tammy Abraham - Chelsea,118
+Michy Batshuayi,Striker,926,Michy Batshuayi - Chelsea,118
+Izzy Brown,Striker,926,Izzy Brown - Chelsea,118
+Olivier Giroud,Striker,926,Olivier Giroud - Chelsea,118
+Alvaro Morata,Striker,926,Alvaro Morata - Chelsea,118
+Kasey Palmer,Striker,926,Kasey Palmer - Chelsea,118
+Vicente Guaita,Goalkeeper,927,Vicente Guaita - Crystal Palace,118
+Wayne Hennessey,Goalkeeper,927,Wayne Hennessey - Crystal Palace,118
+Julian Speroni,Goalkeeper,927,Julian Speroni - Crystal Palace,118
+Scott Dann,Defender,927,Scott Dann - Crystal Palace,118
+Jaroslaw Jach,Defender,927,Jaroslaw Jach - Crystal Palace,118
+Martin Kelly,Defender,927,Martin Kelly - Crystal Palace,118
+Jairo Riedewald,Defender,927,Jairo Riedewald - Crystal Palace,118
+Mamadou Sakho,Defender,927,Mamadou Sakho - Crystal Palace,118
+Jeffrey Schlupp,Defender,927,Jeffrey Schlupp - Crystal Palace,118
+Pape Souare,Defender,927,Pape Souare - Crystal Palace,118
+James Tomkins,Defender,927,James Tomkins - Crystal Palace,118
+Patrick van Aanholt,Defender,927,Patrick van Aanholt - Crystal Palace,118
+Joel Ward,Defender,927,Joel Ward - Crystal Palace,118
+Nya Kirby,Midfielder,927,Nya Kirby - Crystal Palace,118
+Cheikhou Kouyate,Midfielder,927,Cheikhou Kouyate - Crystal Palace,118
+Jason Lokilo,Midfielder,927,Jason Lokilo - Crystal Palace,118
+James McArthur,Midfielder,927,James McArthur - Crystal Palace,118
+Max Meyer,Midfielder,927,Max Meyer - Crystal Palace,118
+Luka Milivojevic,Midfielder,927,Luka Milivojevic - Crystal Palace,118
+Jordon Mutch,Midfielder,927,Jordon Mutch - Crystal Palace,118
+Jason Puncheon,Midfielder,927,Jason Puncheon - Crystal Palace,118
+Erdal Rakip,Midfielder,927,Erdal Rakip - Crystal Palace,118
+Bakary Sako,Midfielder,927,Bakary Sako - Crystal Palace,118
+Andros Townsend,Midfielder,927,Andros Townsend - Crystal Palace,118
+Aaron Wan-Bissaka,Midfielder,927,Aaron Wan-Bissaka - Crystal Palace,118
+Jonny Williams,Midfielder,927,Jonny Williams - Crystal Palace,118
+Jordan Ayew,Striker,927,Jordan Ayew - Crystal Palace,118
+Christian Benteke,Striker,927,Christian Benteke - Crystal Palace,118
+Sullay Kaikai,Striker,927,Sullay Kaikai - Crystal Palace,118
+Levi Lumeka,Striker,927,Levi Lumeka - Crystal Palace,118
+Alexander Sorloth,Striker,927,Alexander Sorloth - Crystal Palace,118
+Connor Wickham,Striker,927,Connor Wickham - Crystal Palace,118
+Wilfried Zaha,Striker,927,Wilfried Zaha - Crystal Palace,118
+Mateusz Hewelt,Goalkeeper,928,Mateusz Hewelt - Everton,118
+Jordan Pickford,Goalkeeper,928,Jordan Pickford - Everton,118
+Maarten Stekelenburg,Goalkeeper,928,Maarten Stekelenburg - Everton,118
+Joao Virginia,Goalkeeper,928,Joao Virginia - Everton,118
+Leighton Baines,Defender,928,Leighton Baines - Everton,118
+Tyias Browning,Defender,928,Tyias Browning - Everton,118
+Seamus Coleman,Defender,928,Seamus Coleman - Everton,118
+Lucas Digne,Defender,928,Lucas Digne - Everton,118
+Luke Garbutt,Defender,928,Luke Garbutt - Everton,118
+Phil Jagielka,Defender,928,Phil Jagielka - Everton,118
+Michael Keane,Defender,928,Michael Keane - Everton,118
+Jonjoe Kenny,Defender,928,Jonjoe Kenny - Everton,118
+Eliaquim Mangala,Defender,928,Eliaquim Mangala - Everton,118
+Cuco Martina,Defender,928,Cuco Martina - Everton,118
+Yerry Mina,Defender,928,Yerry Mina - Everton,118
+Matthew Pennington,Defender,928,Matthew Pennington - Everton,118
+Ashley Williams,Defender,928,Ashley Williams - Everton,118
+Kurt Zouma,Defender,928,Kurt Zouma - Everton,118
+Beni Baningime,Midfielder,928,Beni Baningime - Everton,118
+Muhamed Besic,Midfielder,928,Muhamed Besic - Everton,118
+Yannick Bolasie,Midfielder,928,Yannick Bolasie - Everton,118
+Tom Davies,Midfielder,928,Tom Davies - Everton,118
+Kieran Dowell,Midfielder,928,Kieran Dowell - Everton,118
+Morgan Feeney,Midfielder,928,Morgan Feeney - Everton,118
+Idrissa Gana-Gueye,Midfielder,928,Idrissa Gana-Gueye - Everton,118
+Andre Gomes,Midfielder,928,Andre Gomes - Everton,118
+Mason Holgate,Midfielder,928,Mason Holgate - Everton,118
+James McCarthy,Midfielder,928,James McCarthy - Everton,118
+Kevin Mirallas,Midfielder,928,Kevin Mirallas - Everton,118
+Morgan Schneiderlin,Midfielder,928,Morgan Schneiderlin - Everton,118
+Gylfi Sigurdsson,Midfielder,928,Gylfi Sigurdsson - Everton,118
+Nikola Vlasic,Midfielder,928,Nikola Vlasic - Everton,118
+Theo Walcott,Midfielder,928,Theo Walcott - Everton,118
+Joe Williams,Midfielder,928,Joe Williams - Everton,118
+Bernard,Striker,928,Bernard - Everton,118
+Dominic Calvert-Lewin,Striker,928,Dominic Calvert-Lewin - Everton,118
+Richarlison deAndrade,Striker,928,Richarlison deAndrade - Everton,118
+Ademola Lookman,Striker,928,Ademola Lookman - Everton,118
+Oumar Niasse,Striker,928,Oumar Niasse - Everton,118
+Henry Onyekuru,Striker,928,Henry Onyekuru - Everton,118
+Sandro Ramirez,Striker,928,Sandro Ramirez - Everton,118
+Bassala Sambou,Striker,928,Bassala Sambou - Everton,118
+Shani Tarashaj,Striker,928,Shani Tarashaj - Everton,118
+Cenk Tosun,Striker,928,Cenk Tosun - Everton,118
+Marcus Bettinelli,Goalkeeper,929,Marcus Bettinelli - Fulham,118
+Fabri(cio) Agosto Ramirez,Goalkeeper,929,Fabri(cio) Agosto Ramirez - Fulham,118
+Sergio Rico,Goalkeeper,929,Sergio Rico - Fulham,118
+Joe Bryan,Defender,929,Joe Bryan - Fulham,118
+Calum Chambers,Defender,929,Calum Chambers - Fulham,118
+Cyrus Christie,Defender,929,Cyrus Christie - Fulham,118
+Marcelo Djalo,Defender,929,Marcelo Djalo - Fulham,118
+Adetayo Edun,Defender,929,Adetayo Edun - Fulham,118
+Timothy Fosu-Mensah,Defender,929,Timothy Fosu-Mensah - Fulham,118
+Tomas Kalas,Defender,929,Tomas Kalas - Fulham,118
+Maxime Le Marchand,Defender,929,Maxime Le Marchand - Fulham,118
+Alfie Mawson,Defender,929,Alfie Mawson - Fulham,118
+Denis Odoi,Defender,929,Denis Odoi - Fulham,118
+Tim Ream,Defender,929,Tim Ream - Fulham,118
+Joe Ryan,Defender,929,Joe Ryan - Fulham,118
+Ryan Sessegnon,Defender,929,Ryan Sessegnon - Fulham,118
+Zeze Steven Sessegnon,Defender,929,Zeze Steven Sessegnon - Fulham,118
+Tom Cairney,Midfielder,929,Tom Cairney - Fulham,118
+Ibrahima Cisse,Midfielder,929,Ibrahima Cisse - Fulham,118
+Stefan Johansen,Midfielder,929,Stefan Johansen - Fulham,118
+Neeskens Kebano,Midfielder,929,Neeskens Kebano - Fulham,118
+Kevin McDonald,Midfielder,929,Kevin McDonald - Fulham,118
+Oliver Norwood,Midfielder,929,Oliver Norwood - Fulham,118
+Lucas Piazon,Midfielder,929,Lucas Piazon - Fulham,118
+Andre Schurrle,Midfielder,929,Andre Schurrle - Fulham,118
+Jean Michael Seri,Midfielder,929,Jean Michael Seri - Fulham,118
+Andre-Frank Zambo Anguissa,Midfielder,929,Andre-Frank Zambo Anguissa - Fulham,118
+Floyd Ayite,Striker,929,Floyd Ayite - Fulham,118
+Lucas De La Torre,Striker,929,Lucas De La Torre - Fulham,118
+Rui Fonte,Striker,929,Rui Fonte - Fulham,118
+Aboubakar Kamara,Striker,929,Aboubakar Kamara - Fulham,118
+Aleksandar Mitrovic,Striker,929,Aleksandar Mitrovic - Fulham,118
+Luciano Vietto,Striker,929,Luciano Vietto - Fulham,118
+Joel Coleman,Goalkeeper,930,Joel Coleman - Huddersfield Town,118
+Ben Hamer,Goalkeeper,930,Ben Hamer - Huddersfield Town,118
+Jonas Lossl,Goalkeeper,930,Jonas Lossl - Huddersfield Town,118
+Martin Cranie,Defender,930,Martin Cranie - Huddersfield Town,118
+Erik Durm,Defender,930,Erik Durm - Huddersfield Town,118
+Florent Hadergjonaj,Defender,930,Florent Hadergjonaj - Huddersfield Town,118
+Marko Hudson,Defender,930,Marko Hudson - Huddersfield Town,118
+Mathias Jorgensen,Defender,930,Mathias Jorgensen - Huddersfield Town,118
+Terence Kongolo,Defender,930,Terence Kongolo - Huddersfield Town,118
+Chris Lowe,Defender,930,Chris Lowe - Huddersfield Town,118
+Christopher Schindler,Defender,930,Christopher Schindler - Huddersfield Town,118
+Tommy Smith,Defender,930,Tommy Smith - Huddersfield Town,118
+Juninho Bacuna,Midfielder,930,Juninho Bacuna - Huddersfield Town,118
+Philippe Billing,Midfielder,930,Philippe Billing - Huddersfield Town,118
+Regan Booty,Midfielder,930,Regan Booty - Huddersfield Town,118
+Adama Diakhaby,Midfielder,930,Adama Diakhaby - Huddersfield Town,118
+Jonathan Hogg,Midfielder,930,Jonathan Hogg - Huddersfield Town,118
+Isaac Mbenza,Midfielder,930,Isaac Mbenza - Huddersfield Town,118
+Aaron Mooy,Midfielder,930,Aaron Mooy - Huddersfield Town,118
+Jack Payne,Midfielder,930,Jack Payne - Huddersfield Town,118
+Alex Pritchard,Midfielder,930,Alex Pritchard - Huddersfield Town,118
+Abdelhamid Sabiri,Midfielder,930,Abdelhamid Sabiri - Huddersfield Town,118
+Ramadan Sobhi,Midfielder,930,Ramadan Sobhi - Huddersfield Town,118
+Jon Stankovic,Midfielder,930,Jon Stankovic - Huddersfield Town,118
+Rajiv van La Parra,Midfielder,930,Rajiv van La Parra - Huddersfield Town,118
+Danny Williams,Midfielder,930,Danny Williams - Huddersfield Town,118
+Isiah Brown,Striker,930,Isiah Brown - Huddersfield Town,118
+Laurent Depoitre,Striker,930,Laurent Depoitre - Huddersfield Town,118
+Elias Kachunga,Striker,930,Elias Kachunga - Huddersfield Town,118
+Joe Lolley,Striker,930,Joe Lolley - Huddersfield Town,118
+Steve Mounie,Striker,930,Steve Mounie - Huddersfield Town,118
+Collin Quaner,Striker,930,Collin Quaner - Huddersfield Town,118
+Sean Scannell,Striker,930,Sean Scannell - Huddersfield Town,118
+Eldin Jakupovic,Goalkeeper,931,Eldin Jakupovic - Leicester City,118
+Kasper Schmeichel,Goalkeeper,931,Kasper Schmeichel - Leicester City,118
+Danny Ward,Goalkeeper,931,Danny Ward - Leicester City,118
+Yohan Benalouane,Defender,931,Yohan Benalouane - Leicester City,118
+Filip Benkovic,Defender,931,Filip Benkovic - Leicester City,118
+Ben Chilwell,Defender,931,Ben Chilwell - Leicester City,118
+Aleksandar Dragovic,Defender,931,Aleksandar Dragovic - Leicester City,118
+Jonny Evans,Defender,931,Jonny Evans - Leicester City,118
+Christian Fuchs,Defender,931,Christian Fuchs - Leicester City,118
+Harry Maguire,Defender,931,Harry Maguire - Leicester City,118
+Elliot Moore,Defender,931,Elliot Moore - Leicester City,118
+Wes Morgan,Defender,931,Wes Morgan - Leicester City,118
+Ricardo Pereira,Defender,931,Ricardo Pereira - Leicester City,118
+Danny Simpson,Defender,931,Danny Simpson - Leicester City,118
+Caglar Soyuncu,Defender,931,Caglar Soyuncu - Leicester City,118
+Marc Albrighton,Midfielder,931,Marc Albrighton - Leicester City,118
+Daniel Amartey,Midfielder,931,Daniel Amartey - Leicester City,118
+Harvey Barnes,Midfielder,931,Harvey Barnes - Leicester City,118
+Mamza Choudhury,Midfielder,931,Mamza Choudhury - Leicester City,118
+Fousseni Diabate,Midfielder,931,Fousseni Diabate - Leicester City,118
+Rachid Ghezzal,Midfielder,931,Rachid Ghezzal - Leicester City,118
+Demarai Gray,Midfielder,931,Demarai Gray - Leicester City,118
+Sam Hughes,Midfielder,931,Sam Hughes - Leicester City,118
+Vicente Iborra,Midfielder,931,Vicente Iborra - Leicester City,118
+Matty James,Midfielder,931,Matty James - Leicester City,118
+Bartosz Kapustka,Midfielder,931,Bartosz Kapustka - Leicester City,118
+James Maddison,Midfielder,931,James Maddison - Leicester City,118
+Nampalys Mendy,Midfielder,931,Nampalys Mendy - Leicester City,118
+Onyinye Wilfred Ndidi,Midfielder,931,Onyinye Wilfred Ndidi - Leicester City,118
+Layton Ndukwu,Midfielder,931,Layton Ndukwu - Leicester City,118
+Adrien Silva,Midfielder,931,Adrien Silva - Leicester City,118
+George Thomas,Midfielder,931,George Thomas - Leicester City,118
+Kelechi Iheanacho,Striker,931,Kelechi Iheanacho - Leicester City,118
+Shinji Okazaki,Striker,931,Shinji Okazaki - Leicester City,118
+Islam Slimani,Striker,931,Islam Slimani - Leicester City,118
+Raul Uche-Rubio,Striker,931,Raul Uche-Rubio - Leicester City,118
+Jamie Vardy,Striker,931,Jamie Vardy - Leicester City,118
+Allison (Becker),Goalkeeper,932,Allison (Becker) - Liverpool,118
+Adam Bogdan,Goalkeeper,932,Adam Bogdan - Liverpool,118
+Loris Karius,Goalkeeper,932,Loris Karius - Liverpool,118
+Simon Mignolet,Goalkeeper,932,Simon Mignolet - Liverpool,118
+Trent Alexander-Arnold,Defender,932,Trent Alexander-Arnold - Liverpool,118
+Nathaniel Clyne,Defender,932,Nathaniel Clyne - Liverpool,118
+Fabinho,Defender,932,Fabinho - Liverpool,118
+Joe Gomez,Defender,932,Joe Gomez - Liverpool,118
+Dejan Lovren,Defender,932,Dejan Lovren - Liverpool,118
+Joel Matip,Defender,932,Joel Matip - Liverpool,118
+Alberto Moreno,Defender,932,Alberto Moreno - Liverpool,118
+Connor Randall,Defender,932,Connor Randall - Liverpool,118
+Andrew Robertson,Defender,932,Andrew Robertson - Liverpool,118
+Virgil van Dijk,Defender,932,Virgil van Dijk - Liverpool,118
+Alex Oxlade-Chamberlain,Midfielder,932,Alex Oxlade-Chamberlain - Liverpool,118
+Pedro Chirivella,Midfielder,932,Pedro Chirivella - Liverpool,118
+Oviemuno Ejaria,Midfielder,932,Oviemuno Ejaria - Liverpool,118
+Marko Grujic,Midfielder,932,Marko Grujic - Liverpool,118
+Jordan Henderson,Midfielder,932,Jordan Henderson - Liverpool,118
+Curtis Jones,Midfielder,932,Curtis Jones - Liverpool,118
+Naby Keita,Midfielder,932,Naby Keita - Liverpool,118
+Ryan Kent,Midfielder,932,Ryan Kent - Liverpool,118
+Adam Lallana,Midfielder,932,Adam Lallana - Liverpool,118
+Lazar Markovic,Midfielder,932,Lazar Markovic - Liverpool,118
+James Milner,Midfielder,932,James Milner - Liverpool,118
+Sheyi Ojo,Midfielder,932,Sheyi Ojo - Liverpool,118
+Mohamed Salah,Midfielder,932,Mohamed Salah - Liverpool,118
+Xherdan Shaqiri,Midfielder,932,Xherdan Shaqiri - Liverpool,118
+Georginio Wijnaldum,Midfielder,932,Georginio Wijnaldum - Liverpool,118
+Harry Wilson,Midfielder,932,Harry Wilson - Liverpool,118
+Ben Woodburn,Midfielder,932,Ben Woodburn - Liverpool,118
+Rhian Brewster,Striker,932,Rhian Brewster - Liverpool,118
+Roberto Firmino,Striker,932,Roberto Firmino - Liverpool,118
+Sadio Mane,Striker,932,Sadio Mane - Liverpool,118
+Divock Origi,Striker,932,Divock Origi - Liverpool,118
+Dominic Solanke,Striker,932,Dominic Solanke - Liverpool,118
+Daniel Sturridge,Striker,932,Daniel Sturridge - Liverpool,118
+Claudio Bravo,Goalkeeper,933,Claudio Bravo - Manchester City,118
+Aro Muric,Goalkeeper,933,Aro Muric - Manchester City,118
+Ederson Santana de Moraes,Goalkeeper,933,Ederson Santana de Moraes - Manchester City,118
+Oluwatosin Adarabioyo,Defender,933,Oluwatosin Adarabioyo - Manchester City,118
+Pablo Maffeo Becerra,Defender,933,Pablo Maffeo Becerra - Manchester City,118
+Danilo,Defender,933,Danilo - Manchester City,118
+Demeaco Duhaney,Defender,933,Demeaco Duhaney - Manchester City,118
+Cameron Humphreys-Grant,Defender,933,Cameron Humphreys-Grant - Manchester City,118
+Vincent Kompany,Defender,933,Vincent Kompany - Manchester City,118
+Aymeric Laporte,Defender,933,Aymeric Laporte - Manchester City,118
+Benjamin Mendy,Defender,933,Benjamin Mendy - Manchester City,118
+Nicolas Otamendi,Defender,933,Nicolas Otamendi - Manchester City,118
+Philippe Sandler,Defender,933,Philippe Sandler - Manchester City,118
+John Stones,Defender,933,John Stones - Manchester City,118
+Jose Angel Esmoris Tasende,Defender,933,Jose Angel Esmoris Tasende - Manchester City,118
+Kyle Walker,Defender,933,Kyle Walker - Manchester City,118
+Manuel Garcia Alonso,Midfielder,933,Manuel Garcia Alonso - Manchester City,118
+Daniel Arzani,Midfielder,933,Daniel Arzani - Manchester City,118
+Luke Brattan,Midfielder,933,Luke Brattan - Manchester City,118
+Anthony Caceres,Midfielder,933,Anthony Caceres - Manchester City,118
+Kevin de Bruyne,Midfielder,933,Kevin de Bruyne - Manchester City,118
+Ayotomiwa Dele-Bashiru,Midfielder,933,Ayotomiwa Dele-Bashiru - Manchester City,118
+Fabian Delph,Midfielder,933,Fabian Delph - Manchester City,118
+Brahim Diaz,Midfielder,933,Brahim Diaz - Manchester City,118
+Fernandinho,Midfielder,933,Fernandinho - Manchester City,118
+Aleix Garcia-Serrano,Midfielder,933,Aleix Garcia-Serrano - Manchester City,118
+Claudio Gomes,Midfielder,933,Claudio Gomes - Manchester City,118
+Ilkay Gundogan,Midfielder,933,Ilkay Gundogan - Manchester City,118
+Jack Harrison,Midfielder,933,Jack Harrison - Manchester City,118
+Douglas Luiz (Soares de Pauo),Midfielder,933,Douglas Luiz (Soares de Pauo) - Manchester City,118
+Riyad Mahrez,Midfielder,933,Riyad Mahrez - Manchester City,118
+Patrick Roberts,Midfielder,933,Patrick Roberts - Manchester City,118
+Leroy Sane,Midfielder,933,Leroy Sane - Manchester City,118
+David Silva,Midfielder,933,David Silva - Manchester City,118
+Raheem Sterling,Midfielder,933,Raheem Sterling - Manchester City,118
+Oleksandr Zinchenko,Midfielder,933,Oleksandr Zinchenko - Manchester City,118
+Sergio Aguero,Striker,933,Sergio Aguero - Manchester City,118
+Brandon Barker,Striker,933,Brandon Barker - Manchester City,118
+Phil Foden,Striker,933,Phil Foden - Manchester City,118
+Daniel Grimshaw,Striker,933,Daniel Grimshaw - Manchester City,118
+Gabriel (Fernando de) Jesus,Striker,933,Gabriel (Fernando de) Jesus - Manchester City,118
+Olarenwaju Kayode,Striker,933,Olarenwaju Kayode - Manchester City,118
+Marlos Moreno,Striker,933,Marlos Moreno - Manchester City,118
+Lucas Nmecha,Striker,933,Lucas Nmecha - Manchester City,118
+Bernardo Silva,Striker,933,Bernardo Silva - Manchester City,118
+Joel Castro Pereira,Goalkeeper,934,Joel Castro Pereira - Manchester United,118
+David De Gea,Goalkeeper,934,David De Gea - Manchester United,118
+Lee Grant,Goalkeeper,934,Lee Grant - Manchester United,118
+Dean Henderson,Goalkeeper,934,Dean Henderson - Manchester United,118
+Kieran O'Hara,Goalkeeper,934,Kieran O'Hara - Manchester United,118
+Sergio Romero,Goalkeeper,934,Sergio Romero - Manchester United,118
+Eric Bailly,Defender,934,Eric Bailly - Manchester United,118
+Cameron Borthwick-Jackson,Defender,934,Cameron Borthwick-Jackson - Manchester United,118
+Diego Dalot,Defender,934,Diego Dalot - Manchester United,118
+Matteo Darmian,Defender,934,Matteo Darmian - Manchester United,118
+Phil Jones,Defender,934,Phil Jones - Manchester United,118
+Victor Lindelof,Defender,934,Victor Lindelof - Manchester United,118
+Demetri Mitchell,Defender,934,Demetri Mitchell - Manchester United,118
+Regan Poole,Defender,934,Regan Poole - Manchester United,118
+Marcos Rojo,Defender,934,Marcos Rojo - Manchester United,118
+Luke Shaw,Defender,934,Luke Shaw - Manchester United,118
+Chris Smalling,Defender,934,Chris Smalling - Manchester United,118
+Axel Tuanzebe,Defender,934,Axel Tuanzebe - Manchester United,118
+Antonio Valencia,Defender,934,Antonio Valencia - Manchester United,118
+Ro-Shaun Williams,Defender,934,Ro-Shaun Williams - Manchester United,118
+Zachery Dearnley,Midfielder,934,Zachery Dearnley - Manchester United,118
+Marouane Fellaini,Midfielder,934,Marouane Fellaini - Manchester United,118
+Fred(erico) Rodrigues de Paula Santos,Midfielder,934,Fred(erico) Rodrigues de Paula Santos - Manchester United,118
+Angel Gomes,Midfielder,934,Angel Gomes - Manchester United,118
+Ander Herrera,Midfielder,934,Ander Herrera - Manchester United,118
+Jesse Lingard,Midfielder,934,Jesse Lingard - Manchester United,118
+Juan Mata,Midfielder,934,Juan Mata - Manchester United,118
+Nemanja Matic,Midfielder,934,Nemanja Matic - Manchester United,118
+Scott McTominay,Midfielder,934,Scott McTominay - Manchester United,118
+Andreas Pereira,Midfielder,934,Andreas Pereira - Manchester United,118
+Paul Pogba,Midfielder,934,Paul Pogba - Manchester United,118
+Matthew Willock,Midfielder,934,Matthew Willock - Manchester United,118
+Ashley Young,Midfielder,934,Ashley Young - Manchester United,118
+Romelu Lukaku,Striker,934,Romelu Lukaku - Manchester United,118
+Anthony Martial,Striker,934,Anthony Martial - Manchester United,118
+Marcus Rashford,Striker,934,Marcus Rashford - Manchester United,118
+Alexis Sanchez,Striker,934,Alexis Sanchez - Manchester United,118
+Karl Darlow,Goalkeeper,935,Karl Darlow - Newcastle United,118
+Martin Dubravka,Goalkeeper,935,Martin Dubravka - Newcastle United,118
+Rob Elliott,Goalkeeper,935,Rob Elliott - Newcastle United,118
+Ciaran Clark,Defender,935,Ciaran Clark - Newcastle United,118
+Paul Dummett,Defender,935,Paul Dummett - Newcastle United,118
+Fedeico Fernandez,Defender,935,Fedeico Fernandez - Newcastle United,118
+Jesus Gamez,Defender,935,Jesus Gamez - Newcastle United,118
+Massadio Haidara,Defender,935,Massadio Haidara - Newcastle United,118
+Isaac Hayden,Defender,935,Isaac Hayden - Newcastle United,118
+Jamaal Lascelles,Defender,935,Jamaal Lascelles - Newcastle United,118
+Achraf Lazaar,Defender,935,Achraf Lazaar - Newcastle United,118
+Florian Lejeune,Defender,935,Florian Lejeune - Newcastle United,118
+Javier Manquillo,Defender,935,Javier Manquillo - Newcastle United,118
+Stefan O'Connor,Defender,935,Stefan O'Connor - Newcastle United,118
+Fabian Schar,Defender,935,Fabian Schar - Newcastle United,118
+Jamie Sterry,Defender,935,Jamie Sterry - Newcastle United,118
+Josef Yarney,Defender,935,Josef Yarney - Newcastle United,118
+DeAndre Yedlin,Defender,935,DeAndre Yedlin - Newcastle United,118
+Rolando Aarons,Midfielder,935,Rolando Aarons - Newcastle United,118
+Christian Atsu,Midfielder,935,Christian Atsu - Newcastle United,118
+Jack Colback,Midfielder,935,Jack Colback - Newcastle United,118
+Mohamed Diame,Midfielder,935,Mohamed Diame - Newcastle United,118
+Robert Kenedy Nunes Nascimento,Midfielder,935,Robert Kenedy Nunes Nascimento - Newcastle United,118
+Jacob Murphy,Midfielder,935,Jacob Murphy - Newcastle United,118
+Matt Ritchie,Midfielder,935,Matt Ritchie - Newcastle United,118
+Jonjo Shelvey,Midfielder,935,Jonjo Shelvey - Newcastle United,118
+Ki Sung-Yeung,Midfielder,935,Ki Sung-Yeung - Newcastle United,118
+Dwight Gayle,Striker,935,Dwight Gayle - Newcastle United,118
+Joselu,Striker,935,Joselu - Newcastle United,118
+Yoshinori Muto,Striker,935,Yoshinori Muto - Newcastle United,118
+Ayoze Perez,Striker,935,Ayoze Perez - Newcastle United,118
+Saloman Rondon,Striker,935,Saloman Rondon - Newcastle United,118
+Fraser Forster,Goalkeeper,936,Fraser Forster - Southampton,118
+Angus Gunn,Goalkeeper,936,Angus Gunn - Southampton,118
+Alex McCarthy,Goalkeeper,936,Alex McCarthy - Southampton,118
+Jan Bednarek,Defender,936,Jan Bednarek - Southampton,118
+Ryan Bertrand,Defender,936,Ryan Bertrand - Southampton,118
+Wesley Hoedt,Defender,936,Wesley Hoedt - Southampton,118
+Cedric Soares,Defender,936,Cedric Soares - Southampton,118
+Jack Stephens,Defender,936,Jack Stephens - Southampton,118
+Matt Targett,Defender,936,Matt Targett - Southampton,118
+Jannick Vestergaard,Defender,936,Jannick Vestergaard - Southampton,118
+Maya Yoshida,Defender,936,Maya Yoshida - Southampton,118
+Stuart Armstrong,Midfielder,936,Stuart Armstrong - Southampton,118
+Sofiane Boufal,Midfielder,936,Sofiane Boufal - Southampton,118
+Jordy Clasie,Midfielder,936,Jordy Clasie - Southampton,118
+Steven Davis,Midfielder,936,Steven Davis - Southampton,118
+Jake Hesketh,Midfielder,936,Jake Hesketh - Southampton,118
+Pierre-Emile Hojbjerg,Midfielder,936,Pierre-Emile Hojbjerg - Southampton,118
+Mario Lemina,Midfielder,936,Mario Lemina - Southampton,118
+Sam McQueen,Midfielder,936,Sam McQueen - Southampton,118
+Nathan Redmond,Midfielder,936,Nathan Redmond - Southampton,118
+Harrison Reed,Midfielder,936,Harrison Reed - Southampton,118
+Oriol Romeu,Midfielder,936,Oriol Romeu - Southampton,118
+James Ward-Prowse,Midfielder,936,James Ward-Prowse - Southampton,118
+Charlie Austin,Striker,936,Charlie Austin - Southampton,118
+Guido Carrillo,Striker,936,Guido Carrillo - Southampton,118
+Mohamed Elyounoussi,Striker,936,Mohamed Elyounoussi - Southampton,118
+Manolo Gabbiadini,Striker,936,Manolo Gabbiadini - Southampton,118
+Danny Ings,Striker,936,Danny Ings - Southampton,118
+Shane Long,Striker,936,Shane Long - Southampton,118
+Josh Sims,Striker,936,Josh Sims - Southampton,118
+Paulo Gazzaniga,Goalkeeper,937,Paulo Gazzaniga - Tottenham Hotspur,118
+Hugo Lloris,Goalkeeper,937,Hugo Lloris - Tottenham Hotspur,118
+Michel Vorm,Goalkeeper,937,Michel Vorm - Tottenham Hotspur,118
+Alfie Whiteman,Goalkeeper,937,Alfie Whiteman - Tottenham Hotspur,118
+Toby Alderweireld,Defender,937,Toby Alderweireld - Tottenham Hotspur,118
+Serge Aurier,Defender,937,Serge Aurier - Tottenham Hotspur,118
+Cameron Carter-Vickers,Defender,937,Cameron Carter-Vickers - Tottenham Hotspur,118
+Ben Davies,Defender,937,Ben Davies - Tottenham Hotspur,118
+Eric Dier,Defender,937,Eric Dier - Tottenham Hotspur,118
+Juan Foyth,Defender,937,Juan Foyth - Tottenham Hotspur,118
+Danny Rose,Defender,937,Danny Rose - Tottenham Hotspur,118
+Davinson Sanchez-Mina,Defender,937,Davinson Sanchez-Mina - Tottenham Hotspur,118
+Kieran Trippier,Defender,937,Kieran Trippier - Tottenham Hotspur,118
+Jan Vertonghen,Defender,937,Jan Vertonghen - Tottenham Hotspur,118
+Kyle Walker-Peters,Defender,937,Kyle Walker-Peters - Tottenham Hotspur,118
+Dele Alli,Midfielder,937,Dele Alli - Tottenham Hotspur,118
+Luke Amos,Midfielder,937,Luke Amos - Tottenham Hotspur,118
+Mousa Dembele,Midfielder,937,Mousa Dembele - Tottenham Hotspur,118
+Christian Eriksen,Midfielder,937,Christian Eriksen - Tottenham Hotspur,118
+Erik Lamela,Midfielder,937,Erik Lamela - Tottenham Hotspur,118
+Lucas Moura,Midfielder,937,Lucas Moura - Tottenham Hotspur,118
+Clinton N'Jie,Midfielder,937,Clinton N'Jie - Tottenham Hotspur,118
+Georges-Kevin N'Koudou,Midfielder,937,Georges-Kevin N'Koudou - Tottenham Hotspur,118
+Joshua Onomah,Midfielder,937,Joshua Onomah - Tottenham Hotspur,118
+Moussa Sissoko,Midfielder,937,Moussa Sissoko - Tottenham Hotspur,118
+Victor Wanyama,Midfielder,937,Victor Wanyama - Tottenham Hotspur,118
+Harry Winks,Midfielder,937,Harry Winks - Tottenham Hotspur,118
+Vincent Janssen,Striker,937,Vincent Janssen - Tottenham Hotspur,118
+Harry Kane,Striker,937,Harry Kane - Tottenham Hotspur,118
+Fernando Llorente,Striker,937,Fernando Llorente - Tottenham Hotspur,118
+Samuel Shashoua,Striker,937,Samuel Shashoua - Tottenham Hotspur,118
+Heung-Min Son,Striker,937,Heung-Min Son - Tottenham Hotspur,118
+Giedrius Arlauskis,Goalkeeper,938,Giedrius Arlauskis - Watford,118
+Daniel Bachmann,Goalkeeper,938,Daniel Bachmann - Watford,118
+Pontus Dahlberg,Goalkeeper,938,Pontus Dahlberg - Watford,118
+Ben Foster,Goalkeeper,938,Ben Foster - Watford,118
+Heurelho Gomes,Goalkeeper,938,Heurelho Gomes - Watford,118
+Orestis Karnezis,Goalkeeper,938,Orestis Karnezis - Watford,118
+Miguel Britos,Defender,938,Miguel Britos - Watford,118
+Craig Cathcart,Defender,938,Craig Cathcart - Watford,118
+Brice Dja Djede,Defender,938,Brice Dja Djede - Watford,118
+Andrew Eleftheriou,Defender,938,Andrew Eleftheriou - Watford,118
+Pervis Estupinan,Defender,938,Pervis Estupinan - Watford,118
+Tommie Hoban,Defender,938,Tommie Hoban - Watford,118
+Jose Holebas,Defender,938,Jose Holebas - Watford,118
+Daryl Janmaat,Defender,938,Daryl Janmaat - Watford,118
+Christian Kabasele,Defender,938,Christian Kabasele - Watford,118
+Younes Kaboul,Defender,938,Younes Kaboul - Watford,118
+Adrian Mariappa,Defender,938,Adrian Mariappa - Watford,118
+Adam Masina,Defender,938,Adam Masina - Watford,118
+Marc Navarro,Defender,938,Marc Navarro - Watford,118
+Sebastian Prodl,Defender,938,Sebastian Prodl - Watford,118
+Ben Wilmot,Defender,938,Ben Wilmot - Watford,118
+Etienne Capoue,Midfielder,938,Etienne Capoue - Watford,118
+Andre Carrillo,Midfielder,938,Andre Carrillo - Watford,118
+Nathaniel Chalobah,Midfielder,938,Nathaniel Chalobah - Watford,118
+Tom Cleverley,Midfielder,938,Tom Cleverley - Watford,118
+Abdoulaye Doucoure,Midfielder,938,Abdoulaye Doucoure - Watford,118
+Kiko Femenia Far,Midfielder,938,Kiko Femenia Far - Watford,118
+Will Hughes,Midfielder,938,Will Hughes - Watford,118
+Didier Ndong,Midfielder,938,Didier Ndong - Watford,118
+Dion Pereira,Midfielder,938,Dion Pereira - Watford,118
+Roberto Pereyra,Midfielder,938,Roberto Pereyra - Watford,118
+Domingos Quina,Midfielder,938,Domingos Quina - Watford,118
+Ken Sema,Midfielder,938,Ken Sema - Watford,118
+Marvin Zeegelaar,Midfielder,938,Marvin Zeegelaar - Watford,118
+Troy Deeney,Striker,938,Troy Deeney - Watford,118
+Gerard Deulofeu,Striker,938,Gerard Deulofeu - Watford,118
+Andre Gray,Striker,938,Andre Gray - Watford,118
+Stefano Okaka,Striker,938,Stefano Okaka - Watford,118
+Mamadou Obbi Oulare,Striker,938,Mamadou Obbi Oulare - Watford,118
+Adalberto Penaranda,Striker,938,Adalberto Penaranda - Watford,118
+Jerome Sinclair,Striker,938,Jerome Sinclair - Watford,118
+Isaac Success,Striker,938,Isaac Success - Watford,118
+Adrian,Goalkeeper,939,Adrian - West Ham United,118
+Lucasz Fabianski,Goalkeeper,939,Lucasz Fabianski - West Ham United,118
+Raphael Spiegel,Goalkeeper,939,Raphael Spiegel - West Ham United,118
+Fabian Balbuena,Defender,939,Fabian Balbuena - West Ham United,118
+Sam Byram,Defender,939,Sam Byram - West Ham United,118
+Aaron Cresswell,Defender,939,Aaron Cresswell - West Ham United,118
+Issa Diop,Defender,939,Issa Diop - West Ham United,118
+Ryan Fredericks,Defender,939,Ryan Fredericks - West Ham United,118
+Arthur Masuaku,Defender,939,Arthur Masuaku - West Ham United,118
+Angelo Ogbonna,Defender,939,Angelo Ogbonna - West Ham United,118
+Winston Reid,Defender,939,Winston Reid - West Ham United,118
+Declan Rice,Defender,939,Declan Rice - West Ham United,118
+Pablo Maffeo Zabaleta,Defender,939,Pablo Maffeo Zabaleta - West Ham United,118
+Felipe Anderson,Midfielder,939,Felipe Anderson - West Ham United,118
+Michail Antonio,Midfielder,939,Michail Antonio - West Ham United,118
+Marcus Browne,Midfielder,939,Marcus Browne - West Ham United,118
+Conor Coventry,Midfielder,939,Conor Coventry - West Ham United,118
+Josh Cullen,Midfielder,939,Josh Cullen - West Ham United,118
+Edimilson Fernandes,Midfielder,939,Edimilson Fernandes - West Ham United,118
+Sead Haksabanovic,Midfielder,939,Sead Haksabanovic - West Ham United,118
+Nathan Holland,Midfielder,939,Nathan Holland - West Ham United,118
+Dan Kemp,Midfielder,939,Dan Kemp - West Ham United,118
+Manuel Lanzini,Midfielder,939,Manuel Lanzini - West Ham United,118
+Moses Makasi,Midfielder,939,Moses Makasi - West Ham United,118
+Joao Mario,Midfielder,939,Joao Mario - West Ham United,118
+Mark Noble,Midfielder,939,Mark Noble - West Ham United,118
+Pedro Obiang,Midfielder,939,Pedro Obiang - West Ham United,118
+Reece Oxford,Midfielder,939,Reece Oxford - West Ham United,118
+Lucas Perez,Midfielder,939,Lucas Perez - West Ham United,118
+Joel Powell,Midfielder,939,Joel Powell - West Ham United,118
+Carlos Sanchez,Midfielder,939,Carlos Sanchez - West Ham United,118
+Robert Snodgrass,Midfielder,939,Robert Snodgrass - West Ham United,118
+Jack Wilshere,Midfielder,939,Jack Wilshere - West Ham United,118
+Andriy Yarmolenko,Midfielder,939,Andriy Yarmolenko - West Ham United,118
+Marko Arnautovic,Striker,939,Marko Arnautovic - West Ham United,118
+Andy Carroll,Striker,939,Andy Carroll - West Ham United,118
+Javier Hernandez,Striker,939,Javier Hernandez - West Ham United,118
+Jordan Hugill,Striker,939,Jordan Hugill - West Ham United,118
+Toni Martinez-Lopez,Striker,939,Toni Martinez-Lopez - West Ham United,118
+Alex Pike,Striker,939,Alex Pike - West Ham United,118
+Will Norris,Goalkeeper,940,Will Norris - Wolves,118
+Rui Patricio,Goalkeeper,940,Rui Patricio - Wolves,118
+John Ruddy,Goalkeeper,940,John Ruddy - Wolves,118
+Danny Batth,Defender,940,Danny Batth - Wolves,118
+Ryan Bennett,Defender,940,Ryan Bennett - Wolves,118
+Willy Boly,Defender,940,Willy Boly - Wolves,118
+Jonny Castro-Otto,Defender,940,Jonny Castro-Otto - Wolves,118
+Conor Coady,Defender,940,Conor Coady - Wolves,118
+Matt Doherty,Defender,940,Matt Doherty - Wolves,118
+Kourtney Hause,Defender,940,Kourtney Hause - Wolves,118
+Phil Ofosu-Ayeh,Defender,940,Phil Ofosu-Ayeh - Wolves,118
+Roderick,Defender,940,Roderick - Wolves,118
+Romain Saiss,Defender,940,Romain Saiss - Wolves,118
+Ruben Vinagre,Defender,940,Ruben Vinagre - Wolves,118
+Oskar Buur,Midfielder,940,Oskar Buur - Wolves,118
+Leander Dendoncker,Midfielder,940,Leander Dendoncker - Wolves,118
+Morgan Gibbs-White,Midfielder,940,Morgan Gibbs-White - Wolves,118
+Pedro Goncalves,Midfielder,940,Pedro Goncalves - Wolves,118
+Jordan Graham,Midfielder,940,Jordan Graham - Wolves,118
+Diogo Jose Jota,Midfielder,940,Diogo Jose Jota - Wolves,118
+Joao Moutinho,Midfielder,940,Joao Moutinho - Wolves,118
+Alfred N'Diaye,Midfielder,940,Alfred N'Diaye - Wolves,118
+Ruben Neves,Midfielder,940,Ruben Neves - Wolves,118
+Adama Traore,Midfielder,940,Adama Traore - Wolves,118
+Benik Afobe,Striker,940,Benik Afobe - Wolves,118
+Lohner Leo Bonatini,Striker,940,Lohner Leo Bonatini - Wolves,118
+Ivan Cavaleiro,Striker,940,Ivan Cavaleiro - Wolves,118
+Bright Enobakhare,Striker,940,Bright Enobakhare - Wolves,118
+Wander Helder-Costa,Striker,940,Wander Helder-Costa - Wolves,118
+Raul Jimenez,Striker,940,Raul Jimenez - Wolves,118
+Rafael Mir Vincente,Striker,940,Rafael Mir Vincente - Wolves,118

@@ -60,16 +60,16 @@ border: none;
 }
 
 .matchcenter-field .player-nr {
-    width: 14px;
+    width: 0px;
     float: left;
     color: #5f9610;
     font-weight: bold;
-    text-shadow: 1px 1px 0px #a8ce36;
-    padding: 4px 4px;
+    text-shadow: 0px 0px 0px #a8ce36;
+    padding: 0px 0px;
     text-align: center;
-    font-size: 12px;
-    border-right: 1px solid #38870f;
-    border-top: 1px solid #8dc639;
+    font-size: 0px;
+    border-right: 0px solid #38870f;
+    border-top: 0px solid #8dc639;
     background: -moz-linear-gradient(top, #7db42e, #8cc539);
     background: -webkit-gradient(linear, center top, center bottom, from(#7db42e), to(#8cc539));
     background: -o-linear-gradient(top, #7db42e, #8cc539);
@@ -79,13 +79,14 @@ border: none;
 }
 
 .matchcenter-field .player-name {
-    width: 65px;
+    width: 100px;
     color: white;
-    float: left;
+    float: center;
+    text-align: center;
     font-weight: bold;
     text-shadow: 1px 1px 0px #61871c;
     padding: 4px 6px;
-    font-size: 12px;
+    font-size: 15px;
     border-top: 1px solid #beda5a;
     background: -moz-linear-gradient(top, #adcf35, #8ac439);
     background: -webkit-gradient(linear, center top, center bottom, from(#adcf35), to(#8ac439));
@@ -135,17 +136,19 @@ border: none;
 
 $(document).ready(function(){
 var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
-$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[1] %> <%= Player.where(:id => @players[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @players[3] %> <%= Player.where(:id => @players[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @players[5] %> <%= Player.where(:id => @players[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @players[6] %> <%= Player.where(:id => @players[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @players[7] %> <%= Player.where(:id => @players[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @players[8] %> <%= Player.where(:id => @players[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%= Player.where(:id => @players[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @players[0] %> <%= Player.where(:id => @players[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @players[1] %> <%= Player.where(:id => @players[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @players[2] %> <%= Player.where(:id => @players[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @players[3] %> <%= Player.where(:id => @players[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @players[4] %> <%= Player.where(:id => @players[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @players[5] %> <%= Player.where(:id => @players[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @players[6] %> <%= Player.where(:id => @players[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @players[7] %> <%= Player.where(:id => @players[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @players[8] %> <%= Player.where(:id => @players[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @players[9] %>  <%= Player.where(:id => @players[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @players[10] %> <%= Player.where(:id => @players[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
 });
 
 // Set the date we're counting down to
@@ -195,30 +198,7 @@ var x = setInterval(function() {
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
 <div class="container-fluid">
-    <nav>
-    <div class="nav-wrapper green lighten-2">
-    &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
-      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo"
-      end
-      %></a>
-      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-          <div class="dropdown left">
-    <a style="color:white;" href="/notifications" class="btn btn-primary">Notifications</a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <% @notifications_all.each do |n| %>
-      <% if n.show == "yes" %>
-      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
-      <% end %>
-      <% end %>
-      <a href="/notifications">Manage notifications</a>
-    </ul>
-  </div>
-        <li><a style="color:white;" href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
+<ul class="side-nav" id="mobile-demo">
         <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
         <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
@@ -228,18 +208,49 @@ var x = setInterval(function() {
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
+<div class="navbar-fixed">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+    &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo center" do
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo"
+      end
+      %></a>
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down">
+      <li><a style="color:white; background:transparent;" href="/notifications" class="btn btn-primary"><i class="material-icons">notifications</i></a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+          <div class="dropdown left">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <% @notifications_all.each do |n| %>
+      <% if n.show == "yes" %>
+      <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
+      <% end %>
+      <% end %>
+      <a href="/notifications">Manage notifications</a>
+    </ul>
+  </div>
+        <li><a href="#"><a><%= Account.find(current_user.account_id).name %></a></li>
+        <li><a style="color:white;" href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
     </div>
   </div>
   </nav>
+  </div>
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
 <div class="container-fluid">
-<p id="bid_timer"></p>
-  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+<br />
+ <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
+  <br />
+  <br /> 
+  <% end %>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <span class="badge red" style="color:white;">On the Bench</span>
 <span class="badge green" style="color:white;">Starting 11</span>

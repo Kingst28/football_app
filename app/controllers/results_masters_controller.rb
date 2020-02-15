@@ -26,16 +26,7 @@ class ResultsMastersController < ApplicationController
   def edit
     @results_master = ResultsMaster.find(params[:id])
   end
-
-  def create_records
-    ActsAsTenant.without_tenant do
-    Player.find_each do |player|
-    ResultsMaster.create(:player_id => player.id)
-    end
-    redirect_to '/admin_index'
-  end
-  end
-
+  
   def admin_edit
     league_count = Player.distinct.count(:account_id)
     player_count = Player.count()

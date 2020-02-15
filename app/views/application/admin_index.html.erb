@@ -14,6 +14,11 @@
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
+    $(".button").sideNav();
+  });
+
+  $(document).ready(function(){
+    $('.modal').modal();
   });
 
   // Set the date we're counting down to
@@ -94,23 +99,17 @@ border: none;
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
 <div class="container-fluid">
-    <nav>
-    <div class="nav-wrapper green lighten-2">
-       &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
-      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo"
-      end
-      %></a>
-      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a style="color:white;" href="/notifications" class="btn btn-primary">Notifications</a></li>
-        <li><a style="color:white;" href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%>
-        <br/> &nbsp; &nbsp;
-        <%=Account.find(current_user.account_id).name %>
-        </a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <center><h4><i class="material-icons medium">help_outline</i></h4></center>
+      <p>Welcome to the UFFL Home Page! Use this page to navigate around the application.</p>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
+    <ul class="side-nav" id="mobile-demo">
         <li><a style href="/notifications">Notifications<span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
         <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
@@ -119,26 +118,73 @@ border: none;
         <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <ul class="side-nav" id="notify">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </ul>
+    <div class="navbar-fixed">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+       &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo center" do
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo"
+      end
+      %></a>
+      <a href="#!" style="color:white;" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down">
+      <% if @notifications_all.empty? %>
+      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-primary"><i class="material-icons">notifications_none</i></a></li>
+      <% else %>
+      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-primary"><i class="material-icons">notifications</i></a></li>
+      <% end %>
+      <li><a style="color:white; background:transparent;" href="#modal1" class="btn btn-primary"><i class="material-icons">help_outline</i></a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><a><%= Account.find(current_user.account_id).name %></a></li>
+        <li><a style="color:white;" href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a style="color:white;" class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
   </nav>
+  </div>
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
     <div class="card-deck">
   <div class="row">
-  <p id="bid_timer" style="display:inline;"></p> &nbsp;
-  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+  <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
+  <br />
+  <br /> 
+  <% end %>
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">My Starting 11</h4>
       <p class="card-text">Choose your starting 11 for this game week</p>
-       <a style="color:white;" href="teamsheet/index" class="btn btn-primary">Pick Team</a>
+       <a style="color:white; background: #80C783;" href="teamsheet/index" class="btn btn-primary">Pick Team</a>
     </div>
   </div>
   <div class="card">
@@ -146,7 +192,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">My Bids</h4>
       <p class="card-text">Bid on new players to add to your squad</p>
-      <a style="color:white;" href="bids" class="btn btn-primary">Submit Bid</a>
+      <a style="color:white; background: #80C783;" href="bids" class="btn btn-primary">Submit Bid</a>
     </div>
   </div>
   <div class="card">
@@ -154,7 +200,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">League Table</h4>
       <p class="card-text">View your position in the league table</p>
-       <a style="color:white;" href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
+       <a style="color:white; background: #80C783;" href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
     </div>
   </div>
    <div class="card">
@@ -162,7 +208,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">Fixtures & Results</h4>
       <p class="card-text">View upcoming fixtures and past results</p>
-      <a style="color:white;" href="fixtures/index" class="btn btn-primary">View Results</a>
+      <a style="color:white; background: #80C783;" href="fixtures/index" class="btn btn-primary">View Results</a>
     </div>
   </div>
 </div>
@@ -172,7 +218,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">Admin Controls</h4>
       <p class="card-text">Control your Ultimate Fantasy Football League settings</p>
-      <a style="color:white;" href="admin_controls" class="btn btn-primary">Admin Controls</a>
+      <a style="color:white; background: #80C783;" href="admin_controls" class="btn btn-primary">Admin Controls</a>
     </div>
     </div>
   </div>

@@ -102,11 +102,9 @@ border: none;
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a style="color:white;" href="/notifications" class="btn btn-primary">Notifications</a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%>
-        <br/> &nbsp; &nbsp;
-        <%=Account.find(current_user.account_id).name %>
-        </a></li>
+        <li><a style="color:white; background:transparent;" href="/notifications" class="btn btn-primary">Notifications</a></li>
+        <li><a href="#"><a><%= Account.find(current_user.account_id).name %></a></li>
+        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
@@ -127,17 +125,19 @@ border: none;
 <% end %>
     <div class="card-deck">
   <div class="row">
-  <p id="bid_timer" style="display:inline;"></p> &nbsp;
-  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+  <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
+  <br />
+  <br /> 
+  <% end %>
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">My Starting 11</h4>
-      <p class="card-text">Choose your starting 11 for this game week</p>
-       <a style="color:white;" href="teamsheet/index" class="btn btn-primary">Pick Team</a>
+      <p class="card-text">Choose your starting 11</p>
+       <a style="color:white; background: #80C783;" href="teamsheet/index" class="btn btn-primary">Pick Team</a>
     </div>
   </div>
   <div class="card">
@@ -145,7 +145,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">My Bids</h4>
       <p class="card-text">Bid on new players to add to your squad</p>
-      <a style="color:white;" href="bids" class="btn btn-primary">Submit Bid</a>
+      <a style="color:white; background: #80C783;" href="bids" class="btn btn-primary">Submit Bid</a>
     </div>
   </div>
   <div class="card">
@@ -153,7 +153,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">League Table</h4>
       <p class="card-text">View your position in the league table</p>
-       <a style="color:white;" href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
+       <a style="color:white; background: #80C783;" href="league_table/viewLeagueTable" class="btn btn-primary">League Table</a>
     </div>
   </div>
 </div>
@@ -163,7 +163,7 @@ border: none;
     <div class="card-block">
       <h4 class="card-title">Fixtures & Results</h4>
       <p class="card-text">View upcoming fixtures and past results</p>
-      <a style="color:white;" href="fixtures/index" class="btn btn-primary">View Results</a>
+      <a style="color:white; background: #80C783;" href="fixtures/index" class="btn btn-primary">View Results</a>
     </div>
   </div>
   </div>

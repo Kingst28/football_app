@@ -82,7 +82,7 @@
         <td><%= User.find(notification.user_id).first_name %></td>
         <td><p id="rcorners1"><%= notification.message %></p></td>
         <td><%= notification.created_at %></td>
-        <td><%= link_to 'Mark as read', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mark as read', notification, method: :delete_notifications_path, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     <% end %>

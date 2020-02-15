@@ -60,16 +60,16 @@ border: none;
 }
 
 .matchcenter-field .player-nr {
-    width: 14px;
+    width: 0px;
     float: left;
     color: #5f9610;
     font-weight: bold;
-    text-shadow: 1px 1px 0px #a8ce36;
-    padding: 4px 4px;
+    text-shadow: 0px 0px 0px #a8ce36;
+    padding: 0px 0px;
     text-align: center;
-    font-size: 12px;
-    border-right: 1px solid #38870f;
-    border-top: 1px solid #8dc639;
+    font-size: 0px;
+    border-right: 0px solid #38870f;
+    border-top: 0px solid #8dc639;
     background: -moz-linear-gradient(top, #7db42e, #8cc539);
     background: -webkit-gradient(linear, center top, center bottom, from(#7db42e), to(#8cc539));
     background: -o-linear-gradient(top, #7db42e, #8cc539);
@@ -79,13 +79,14 @@ border: none;
 }
 
 .matchcenter-field .player-name {
-    width: 65px;
+    width: 100px;
     color: white;
     float: left;
     font-weight: bold;
+    text-align: center;
     text-shadow: 1px 1px 0px #61871c;
     padding: 4px 6px;
-    font-size: 12px;
+    font-size: 15px;
     border-top: 1px solid #beda5a;
     background: -moz-linear-gradient(top, #adcf35, #8ac439);
     background: -webkit-gradient(linear, center top, center bottom, from(#adcf35), to(#8ac439));
@@ -135,17 +136,17 @@ border: none;
 
 $(document).ready(function(){
 var matchcenter = $('#matchfield').matchcenter({system: '4-4-2'});
-$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @teamsheet[0] %> <%= Player.where(:id => @teamsheet[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @teamsheet[1] %> <%= Player.where(:id => @teamsheet[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @teamsheet[2] %> <%= Player.where(:id => @teamsheet[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @teamsheet[3] %> <%= Player.where(:id => @teamsheet[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @teamsheet[4] %> <%= Player.where(:id => @teamsheet[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @teamsheet[5] %> <%= Player.where(:id => @teamsheet[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @teamsheet[6] %> <%= Player.where(:id => @teamsheet[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @teamsheet[7] %> <%= Player.where(:id => @teamsheet[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %>  ");
-$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @teamsheet[8] %> <%= Player.where(:id => @teamsheet[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @teamsheet[9] %>  <%= Player.where(:id => @teamsheet[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
-$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @teamsheet[10] %> <%= Player.where(:id => @teamsheet[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','') %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 1, 1, 1, "  <% if @teamsheet[0] %> <%= Player.where(:id => @teamsheet[0].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 2, 2, 2, " <% if @teamsheet[1] %> <%= Player.where(:id => @teamsheet[1].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 3, 3, 3, " <% if @teamsheet[2] %> <%= Player.where(:id => @teamsheet[2].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 4, 4, 4, " <% if @teamsheet[3] %> <%= Player.where(:id => @teamsheet[3].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 5, 5, 5, " <% if @teamsheet[4] %> <%= Player.where(:id => @teamsheet[4].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 6, 6, 6, " <% if @teamsheet[5] %> <%= Player.where(:id => @teamsheet[5].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 7, 7, 7, " <% if @teamsheet[6] %> <%= Player.where(:id => @teamsheet[6].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 8, 8, 8, " <% if @teamsheet[7] %> <%= Player.where(:id => @teamsheet[7].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %>  ");
+$('#matchfield').matchcenter("addPlayer", 9, 9, 9, " <% if @teamsheet[8] %> <%= Player.where(:id => @teamsheet[8].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 10, 10, 10, " <% if @teamsheet[9] %>  <%= Player.where(:id => @teamsheet[9].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
+$('#matchfield').matchcenter("addPlayer", 11, 11, 11, " <% if @teamsheet[10] %> <%= Player.where(:id => @teamsheet[10].read_attribute(:player_id)).pluck(:name).to_s.tr('""','').tr('[]','').partition(' ').last %> <% else %> <% end %> ");
 });
 
 // Set the date we're counting down to

@@ -56,7 +56,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was marked as read.' }
+      format.html { redirect_to request.referrer, notice: 'Notification was marked as read.' }
       format.json { head :no_content }
     end
   end
