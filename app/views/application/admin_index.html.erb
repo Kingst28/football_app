@@ -137,6 +137,14 @@ border: none;
      <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
     </div>
   </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
     <% end %>
     <% end %>
     <% end %>
