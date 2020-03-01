@@ -109,13 +109,51 @@ border: none;
       <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
     </div>
   </div>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
     <ul class="side-nav" id="mobile-demo">
-        <li><a style href="/notifications">Notifications<span class="sr-only"></span></a></li>
+        <li><a href="#modal2"><i class="material-icons">notifications</i><span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
         <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
         <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
         <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
+        <li><a href="#modal1"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></li>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
@@ -160,11 +198,11 @@ border: none;
       <a href="#!" style="color:white;" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
       <% if @notifications_all.empty? %>
-      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-primary"><i class="material-icons">notifications_none</i></a></li>
+      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-flat"><i class="material-icons">notifications_none</i></a></li>
       <% else %>
-      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-primary"><i class="material-icons">notifications</i></a></li>
+      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-flat"><i class="material-icons">notifications</i></a></li>
       <% end %>
-      <li><a style="color:white; background:transparent;" href="#modal1" class="btn btn-primary"><i class="material-icons">help_outline</i></a></li>
+      <li><a style="color:white; background:transparent;" href="#modal1" class="btn btn-flat"><i class="material-icons">help_outline</i></a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a href="#"><a><%= Account.find(current_user.account_id).name %></a></li>
