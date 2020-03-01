@@ -177,12 +177,12 @@ border: none;
         <td><a><%= link_to(user.first_name, "/teamsheet/#{User.where(:first_name => user.first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></td>
         <td><%= number_to_percentage(LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:won).to_s.tr('""','').tr('[]','').to_d / 
         LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d * 100, precision: 0) %></td>
-        <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:points).to_s.tr('""','').tr('[]','').to_d / 
-        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d %></td>
-        <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:for).to_s.tr('""','').tr('[]','').to_d / 
-        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d %></td>
-        <td><%= LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:against).to_s.tr('""','').tr('[]','').to_d / 
-        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d %></td>
+        <td><%= number_with_precision(LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:points).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d, precision: 2) %></td>
+        <td><%= number_with_precision(LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:for).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d, precision: 2) %></td>
+        <td><%= number_with_precision(LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:against).to_s.tr('""','').tr('[]','').to_d / 
+        LeagueTable.where(:team => User.where(:id => user.id).pluck(:first_name)).pluck(:played).to_s.tr('""','').tr('[]','').to_d, precision: 2) %></td>
       </tr>
     <% end %>
   </tbody>
