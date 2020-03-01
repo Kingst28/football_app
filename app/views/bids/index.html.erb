@@ -108,7 +108,7 @@ var x = setInterval(function() {
       <% @players.each do |p| %>
        <div class="row">
         <div class="col s12 m12">
-          <div class="card green darken-1">
+          <div class="card green lighten-1">
             <div class="card-content white-text">
               <span class="card-title"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
               <p> 
