@@ -45,8 +45,23 @@ class FixturesController < ApplicationController
 
   teamCount = User.all.length
   matchday_count = teamCount - 2
-  @matchday_data = Matchday.new(:matchday_number => 0, :matchday_count => matchday_count, :haflag => "Home")
+  @matchday_data = Matchday.new(:matchday_number => 0, :matchday_count => 18, :haflag => "Home")
   @matchday_data.save
+
+  prem_matchdays = matchday_count * 2
+  index = 0
+  while matchday_count < 18 do
+    @fixtures = Fixture.where(:matchday => index)
+    for fixture in @fixtures do
+      @new_fixture = fixture.dup
+      @new_fixture.update_attribute(:matchday, matchday_count + 1)
+      @new_fixture.save
+    end
+    prem_matchdays_new = prem_matchdays + 1
+    prem_matchdays = prem_matchdays_new * 2
+    matchday_count = matchday_count + 1
+    index =  index + 1
+  end
 
   for u in @users do
     @table_team = LeagueTable.new(:team => u.first_name)

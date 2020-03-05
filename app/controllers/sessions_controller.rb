@@ -39,6 +39,7 @@ class SessionsController < ApplicationController
 
           if Account.find(current_user.account_id).bid_count == 4 then
             insertRandomPlayers()
+            redirect_to '/fixtures/createFixtures' and return
           end
 
           if current_user.admin? 
