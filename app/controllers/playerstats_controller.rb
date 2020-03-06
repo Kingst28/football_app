@@ -10,6 +10,7 @@ class PlayerstatsController < ApplicationController
   # GET /playerstats/1
   # GET /playerstats/1.json
   def show
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")     
   end
 
   # GET /playerstats/new

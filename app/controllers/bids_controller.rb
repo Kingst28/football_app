@@ -11,6 +11,7 @@ class BidsController < ApplicationController
     @bids = Bid.all 
     players = Bid.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").where(:user_id => current_user.id)
     @players = players    
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
 end
 
 def current_user 
@@ -43,6 +44,7 @@ end
     @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
     @strikers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Striker")
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
   end
 
   def checkBids 

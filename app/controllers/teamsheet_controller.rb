@@ -36,6 +36,7 @@ class TeamsheetController < ApplicationController
    end
 
    def show 
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     teamsheet = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => params[:user_id]).where(:active => ['true',true])
     @teamsheet = teamsheet
     playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => params[:user_id])
@@ -52,10 +53,12 @@ class TeamsheetController < ApplicationController
    end
 
    def stats
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")     
     @users = User.all
    end
 
    def edit
+     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")     
      @teamsheet = Teamsheet.find(params[:id])
      session[:my_previous_url] = URI(request.referer || '').path
    end

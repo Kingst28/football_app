@@ -14,6 +14,11 @@
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
+    $(".button").sideNav();
+  });
+
+  $(document).ready(function(){
+    $('.modal').modal();
   });
 
   // Set the date we're counting down to
@@ -93,33 +98,128 @@ border: none;
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
 <div class="container-fluid">
-    <nav>
-    <div class="nav-wrapper green lighten-2">
-     &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo" do
-      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo"
-      end
-      %></a>
-      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a style="color:white; background:transparent;" href="/notifications" class="btn btn-primary">Notifications</a></li>
-        <li><a href="#"><a><%= Account.find(current_user.account_id).name %></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <center><h4><i class="material-icons medium">help_outline</i></h4></center>
+      <p>Welcome to the UFFL Home Page! Use this page to navigate around the application.</p>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="#modal2"><i class="material-icons">notifications</i><span class="sr-only"></span></a></li>
         <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
+        <li><a href="/bids">Bids<span class="sr-only"></span></a></li>
         <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
         <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a href="#modal1"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+
+     <ul class="side-nav" id="desktop-menu">
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">Bids<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+
+    <ul class="side-nav" id="notify">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </ul>
+    <div class="navbar-fixed">
+    <nav>
+    <div class="nav-wrapper green lighten-2">
+       &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_index', class: "brand-logo center" do
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/index', class: "brand-logo center"
+      end
+      %></a>
+      <a href="#!" style="color:white;" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down">
+      <li><a style="color:white; background:transparent;" data-activates="desktop-menu" class="btn button btn-flat"><i class="material-icons">menu</i></a></li>
+      <% if @notifications_all.empty? %>
+      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-flat"><i class="material-icons">notifications_none</i></a></li>
+      <% else %>
+      <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-flat"><i class="material-icons">notifications</i></a></li>
+      <% end %>
+      <li><a style="color:white; background:transparent;" href="#modal1" class="btn btn-flat"><i class="material-icons">help_outline</i></a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><a><%= Account.find(current_user.account_id).name %></a></li>
+        <li><a style="color:white;" href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
+        <li><a style="color:white;" class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
   </nav>
+  </div>
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>

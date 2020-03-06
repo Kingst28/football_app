@@ -141,6 +141,7 @@ class LeagueTableController < ApplicationController
 
   def viewLeagueTable 
     @table = LeagueTable.order('points DESC').order('gd DESC').order('team ASC')
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
   end
 
   def updatePlayed(homeTeam, awayTeam)
