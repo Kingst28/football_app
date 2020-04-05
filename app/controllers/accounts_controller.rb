@@ -69,8 +69,9 @@ class AccountsController < ApplicationController
     range_array = (0..19).to_a
     desired_indices = range_array.sort # these are rows you would like to modify
     teams_count = Team.maximum(:id)
-    if teams_count == nil then 
-      teams_count == 0
+    if teams_count.exists? then 
+    else
+      teams_count = 0
     end
     rows_array.each.with_index(desired_indices[0]) do |row, index| 
     if desired_indices.include?(index)
