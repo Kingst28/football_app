@@ -67,7 +67,6 @@ class FixturesController < ApplicationController
     @table_team = LeagueTable.new(:team => u.first_name)
     @table_team.save
   end
-
 end
 
   # GET /fixtures/new

@@ -89,6 +89,7 @@ border: none;
 </head>
 
 <body>
+
 <ul id="dropdown2" class="dropdown-content">
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
@@ -98,6 +99,12 @@ border: none;
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
+
+<ul id="dropdown5" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
 <div class="container-fluid">
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
@@ -153,7 +160,7 @@ border: none;
         <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
         <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
         <li><a href="#modal1"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown5"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
 
      <ul class="side-nav" id="desktop-menu">

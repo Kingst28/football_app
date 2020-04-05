@@ -33,56 +33,64 @@ def uffl
 end
 
 def notification_settings_off
+  ActsAsTenant.without_tenant do
   @notifications_all = Notification.all
   for n in @notifications_all do 
     n.update_attribute(:show, "no")
   end
   flash[:error] = "notification permissions revoked"
     if require_admin then
-    redirect_to '/admin_index'
+    redirect_to '/admin_controls'
     else
     redirect_to '/index' 
   end
 end
+end
 
 def notification_settings_on
+  ActsAsTenant.without_tenant do
   @notifications_all = Notification.all
   for n in @notifications_all do 
     n.update_attribute(:show, "yes")
   end
   flash[:error] = "notification permissions revoked"
     if require_admin then
-    redirect_to '/admin_index'
+    redirect_to '/admin_controls'
     else
     redirect_to '/index' 
   end
 end
+end
 
 def manage_permissions_off
+ActsAsTenant.without_tenant do
   @users = User.all
   for u in @users do 
     u.update_attribute(:canView, "no")
   end
   flash[:error] = "user permissions revoked"
     if require_admin then
-    redirect_to '/admin_index'
+    redirect_to '/admin_controls'
     else
     redirect_to '/index' 
   end
   end
+end
 
 def manage_permissions_on
+ActsAsTenant.without_tenant do
   @users = User.all
   for u in @users do 
     u.update_attribute(:canView, "yes")
   end
   flash[:error] = "user permissions granted"
     if require_admin then
-    redirect_to '/admin_index'
+    redirect_to '/admin_controls'
     else
     redirect_to '/index' 
   end
-  end  
+  end
+end
 
 def index
   @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
@@ -108,7 +116,7 @@ def authorize_admin
   unless adminUser?
     flash[:error] = "unauthorized access"
     if require_admin then
-    redirect_to '/admin_index'
+    redirect_to '/admin_controls'
     else
     redirect_to '/index' 
   end
@@ -119,7 +127,7 @@ def authorize
   unless canView?
     flash[:error] = "unauthorized access"
     if require_admin then
-    redirect_to '/admin_index'
+    redirect_to '/admin_controls'
     else
     redirect_to '/index' 
   end

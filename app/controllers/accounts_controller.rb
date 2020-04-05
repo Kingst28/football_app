@@ -120,6 +120,7 @@ end
 
 def create_records (account_id)
   ActsAsTenant.without_tenant do
+  account_id = params[:id]
   @players = Player.where(:account_id => account_id)
   Player.find_each do |player|
   ResultsMaster.create(:player_id => player.id)

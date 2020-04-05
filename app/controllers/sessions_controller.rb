@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  require "round_robin_tournament"
   def new
   end
   
@@ -31,19 +32,24 @@ class SessionsController < ApplicationController
           else
           end
           
+          if current_user.account_id != nil 
           if Account.find(@user.account_id).new_results_ready == true
             Account.find(@user.account_id).update(:new_results_ready => false)
             redirect_to '/results/fixture_results' and return
           else
           end
-
+          end
+          
+          if current_user.account_id != nil
           if Account.find(current_user.account_id).bid_count == 4 then
             insertRandomPlayers()
-            redirect_to '/fixtures/createFixtures' and return
+            createFixtures()
+            redirect_to '/index' and return
+          end
           end
 
           if current_user.admin? 
-          redirect_to '/admin_index' and return
+          redirect_to '/admin_controls' and return
           elsif current_user.user?
           redirect_to '/index' and return
           else
@@ -85,13 +91,16 @@ class SessionsController < ApplicationController
           strikers = strikers + 1 
         end
       end
+        insertGoalkeepers(user_id, goalkeepers, user_account_id)
+        insertDefenders(user_id, defenders, user_account_id)
+        insertMidfielders(user_id, midfielders, user_account_id)
+        insertStrikers(user_id, strikers, user_account_id)
+        current_bid_count = Account.find(current_user.account_id).bid_count
+        Account.find(current_user.account_id).update(:bid_count => current_bid_count + 1)
+    else
+      current_bid_count = Account.find(current_user.account_id).bid_count
+      Account.find(current_user.account_id).update(:bid_count => current_bid_count + 1)
     end
-    insertGoalkeepers(user_id, goalkeepers, user_account_id)
-    insertDefenders(user_id, defenders, user_account_id)
-    insertMidfielders(user_id, midfielders, user_account_id)
-    insertStrikers(user_id, strikers, user_account_id)
-    current_bid_count = Account.find(current_user.account_id).bid_count
-    Account.find(current_user.account_id).update(:bid_count => current_bid_count + 1)
  end
  end
 
@@ -113,6 +122,7 @@ class SessionsController < ApplicationController
 
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
+  
   elsif goalkeepers == 1 then
     @account_players = Player.where(:position => 'Goalkeeper').where(:taken => 'No').where(:account_id => user_account_id)
     random_player_id_1 = @account_players.sample.id
@@ -597,6 +607,60 @@ end
     @bid_new_1.save
   end
  end
+
+ def createFixtures 
+  @users = User.where(:account_id => current_user.account_id)
+  users = []
+  for u in @users do
+  users << u.id
+  end
+  @teams = RoundRobinTournament.schedule(users)
+  @teams.each_with_index do |day, index|
+  @day_teams = day.map { |team| "(#{team.first},#{team.last})" }
+  @day_teams_reverse = day.map { |team| "(#{team.last},#{team.first})" }
+  for t in @day_teams do
+  hteam = t.split(',').first
+  hteam.delete! '()'
+  ateam = t.split(',').last
+  ateam.delete! '()'
+  @fixture = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam, :ateam => ateam, :haflag => "Home", :account_id => u.account_id)
+  @fixture.save
+  end
+  for t1 in @day_teams_reverse do
+  hteam1 = t1.split(',').first
+  hteam1.delete! '()'
+  ateam1 = t1.split(',').last
+  ateam1.delete! '()'
+  @fixture1 = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam1, :ateam => ateam1, :haflag => "Away", :account_id => u.account_id)
+  @fixture1.save
+  end
+  end
+
+  teamCount = User.all.length
+  matchday_count = teamCount - 2
+  @matchday_data = Matchday.new(:matchday_number => 0, :matchday_count => 18, :haflag => "Home", :account_id => u.account_id)
+  @matchday_data.save
+
+  prem_matchdays = matchday_count * 2
+  index = 0
+  while matchday_count < 18 do
+    @fixtures = Fixture.where(:matchday => index).where(:account_id => u.account_id)
+    for fixture in @fixtures do
+      @new_fixture = fixture.dup
+      @new_fixture.update_attribute(:matchday, matchday_count + 1)
+      @new_fixture.save
+    end
+    prem_matchdays_new = prem_matchdays + 1
+    prem_matchdays = prem_matchdays_new * 2
+    matchday_count = matchday_count + 1
+    index =  index + 1
+  end
+
+  for u in @users do
+    @table_team = LeagueTable.new(:team => u.first_name, :account_id => u.account_id)
+    @table_team.save
+  end
+end
 
  def edit
    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")

@@ -507,7 +507,7 @@ end
       else
       end
     end
-    @matchday1 = Matchday.find(9)
+    @matchday1 = Matchday.find(Matchday.where(:account_id => current_user.account_id))
     @matchday1.update(:matchday_number => matchday_number + 1)
     
    matchday_number1 = @matchday1.read_attribute(:matchday_number)

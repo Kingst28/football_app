@@ -1,3 +1,4 @@
+<%= ActsAsTenant.without_tenant do %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +53,7 @@
     <nav>
     <div class="nav-wrapper green lighten-2">
        &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
+      link_to_if current_user.access == "admin", "UFFL", '/admin_controls', class: "brand-logo" do
       link_to "UFFL", '/index', class: "brand-logo"
       end
       %></a>
@@ -79,7 +80,7 @@
     <div class="card-block">
       <h4 class="card-title">Master Player Results</h4>
       <p class="card-text">Enter the game weeks master player results</p>
-       <a href="results_masters/admin_edit" class="btn btn-primary" style="color:white;">Master Player Results</a>
+       <a href="results_masters/admin_edit" class="btn btn-primary green lighten-2" style="color:white;">Master Player Results</a>
     </div>
   </div>
   <div class="card">
@@ -87,7 +88,7 @@
     <div class="card-block">
       <h4 class="card-title">League Player Results</h4>
       <p class="card-text">Enter the game weeks player results</p>
-       <a href="teamsheet/admin_edit" class="btn btn-primary" style="color:white;">League Player Results</a>
+       <a href="teamsheet/admin_edit" class="btn btn-primary green lighten-2" style="color:white;">League Player Results</a>
     </div>
   </div>
   <div class="card">
@@ -95,7 +96,7 @@
     <div class="card-block">
       <h4 class="card-title">Manage Permissions</h4>
       <p class="card-text">Manage UFFL user permission settings</p>
-       <a href="manage_permissions" class="btn btn-primary" style="color:white;">Manage Permissions</a>
+       <a href="manage_permissions" class="btn btn-primary green lighten-2" style="color:white;">Manage Permissions</a>
     </div>
   </div>
   <div class="card">
@@ -103,7 +104,7 @@
     <div class="card-block">
       <h4 class="card-title">Insert winning bids</h4>
       <p class="card-text">Insert each users winning player bids</p>
-        <a href="bids/insertWinners" class="btn btn-primary" style="color:white;">Insert winning bids</a>
+        <a href="bids/insertWinners" class="btn btn-primary green lighten-2" style="color:white;">Insert winning bids</a>
     </div>
   </div>
 </div>
@@ -121,8 +122,8 @@
     <div class="card-block">
       <h4 class="card-title">Show/Hide notifications</h4>
       <p class="card-text">Show/hide notifications to users</p>
-       <a href="/notification_settings_on" style="margin-bottom:10px;" class="btn btn-default">Grant Notification Permissions</a>
-       <a href="/notification_settings_off" style="margin-bottom:10px;" class="btn btn-default">Revoke Notification Permissions</a>
+       <a href="/notification_settings_on" style="margin-bottom:10px;" class="btn btn-default green lighten-2">Grant Notification Permissions</a>
+       <a href="/notification_settings_off" style="margin-bottom:10px;" class="btn btn-default green lighten-2">Revoke Notification Permissions</a>
     </div>
   </div>
   </div>
@@ -131,8 +132,9 @@
     <div class="card-block">
       <h4 class="card-title">Create Fixtures</h4>
       <p class="card-text">Create the fixtures for your Ultimate Fantasy Football League</p>
-       <a href="fixtures/createFixtures" style="margin-bottom:10px;" class="btn btn-default">Create Fixtures</a>
+       <a href="fixtures/createFixtures" style="margin-bottom:10px;" class="btn btn-default green lighten-2">Create Fixtures</a>
     </div>
   </div>
 </body>
 </html>
+<% end %>

@@ -17,6 +17,7 @@
     <% @timers.each do |timer| %>
       <tr>
         <td><%= timer.date %></td>
+        <td><%= timer.account_id %></td>
         <td><%= link_to 'Show', timer %></td>
         <td><%= link_to 'Edit', edit_timer_path(timer) %></td>
         <td><%= link_to 'Destroy', timer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
