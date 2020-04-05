@@ -17,6 +17,7 @@ end
 
 def find_current_tenant
   if current_user == nil then
+    return
   else
     current_account = current_user.account # this line
     set_current_tenant(current_account)
