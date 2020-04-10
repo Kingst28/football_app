@@ -76,7 +76,7 @@
   </tr>
 <% for player in @results_masters %>
   <tr>
-    <td><%=h player.player.team.name %></td>
+    <td><%=h Team.where(:id => player.player.teams_id).pluck(:name) %></td>
     <td><%=h player.player.name  %></td>
     <td><%=h player.player.position %></td>
     <td><input id="<%=player.id%>" value="<%=player.id%>" name="results_masters_ids[]" type="checkbox">&nbsp;<label for="<%=player.id%>"></label></td>
