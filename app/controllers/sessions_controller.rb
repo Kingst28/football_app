@@ -636,7 +636,7 @@ end
   end
   end
 
-  teamCount = User.all.length
+  teamCount = @users.length
   matchday_count = teamCount - 2
   @matchday_data = Matchday.new(:matchday_number => 0, :matchday_count => 18, :haflag => "Home", :account_id => u.account_id)
   @matchday_data.save
