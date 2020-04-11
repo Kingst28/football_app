@@ -313,7 +313,7 @@ elsif defenders == 4 then
   @bid_new_2.save
 
 elsif defenders == 5 then
-  @account_players = Player.where(:position => 'Defender').where(:taken => 'No')
+  @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)
   random_player_id_1 = @account_players.sample.id
 
   @teamsheet_new_1 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_1, :active => "true", :account_id => user_account_id)
