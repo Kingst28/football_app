@@ -115,12 +115,12 @@ end
       for nu in @notify_users do
         if nu.id == u.id 
         else
-          @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
-          @notification_new.save
+          #@notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+          #@notification_new.save
       end
       end
-          @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
-          @notification_new.save
+          #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
+          #@notification_new.save
       end
       end
     end
