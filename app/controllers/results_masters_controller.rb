@@ -91,7 +91,7 @@ class ResultsMastersController < ApplicationController
         player_concedednum = player.read_attribute(:concedednum)
         teamsheet_name = Teamsheet.where(:name => player.name).pluck(:name)
         teamsheet_name_final = teamsheet_name[0]
-        if Teamsheet.exists?(id: teamsheet_name_final) then
+        if Teamsheet.exists?(name: teamsheet_name_final) then
         Teamsheet.where(:name => player_name).update_all(
           "played = #{player_played}, 
           scored = #{player_scored}, 
