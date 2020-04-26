@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200208132623) do
+ActiveRecord::Schema.define(version: 20200415182833) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20200208132623) do
     t.integer  "concedednum"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
   end
 
 # Could not dump table "teams" because of following NoMethodError
@@ -158,6 +159,7 @@ ActiveRecord::Schema.define(version: 20200208132623) do
     t.integer  "concedednum"
     t.integer  "priority"
     t.integer  "account_id"
+    t.string   "name"
   end
 
   add_index "teamsheets", ["account_id"], name: "index_teamsheets_on_account_id"

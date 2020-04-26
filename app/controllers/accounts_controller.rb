@@ -122,12 +122,13 @@ CSV.foreach('lib/tasks/players.csv') do |row|
 end
 end
 
+# add name field to ResultsMaster model and then I can test if update all on name method is faster than updating each individual column in copy results. 
 def create_records (account_id)
   ActsAsTenant.without_tenant do
   account_id = params[:id]
   @players = Player.where(:account_id => account_id)
   Player.find_each do |player|
-  ResultsMaster.create(:player_id => player.id)
+  ResultsMaster.create(:player_id => player.id, :name => player.name)
   end
 end
 end
