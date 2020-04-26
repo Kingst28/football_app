@@ -82,16 +82,16 @@ class ResultsMastersController < ApplicationController
   ActsAsTenant.without_tenant do
   @results_masters = ResultsMaster.all
     for player in @results_masters do   
-        player_name_array = Player.where(:id => player.player_id).pluck(:name)
+        player_name_array = Player.where(:name => player.name).pluck(:name)
         player_name = player_name_array[0]
         player_played = player.read_attribute(:played)
         player_scored = player.read_attribute(:scored)
         player_scorenum = player.read_attribute(:scorenum)
         player_conceded = player.read_attribute(:conceded)
         player_concedednum = player.read_attribute(:concedednum)
-        teamsheet_id = Teamsheet.where(:player_id => player.player_id).pluck(:id)
-        teamsheet_id_final = teamsheet_id[0]
-        if Teamsheet.exists?(id: teamsheet_id_final) then
+        teamsheet_name = Teamsheet.where(:name => player.name).pluck(:name)
+        teamsheet_name_final = teamsheet_name[0]
+        if Teamsheet.exists?(id: teamsheet_name_final) then
         Teamsheet.where(:name => player_name).update_all(
           "played = #{player_played}, 
           scored = #{player_scored}, 
