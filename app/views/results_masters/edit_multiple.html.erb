@@ -228,6 +228,7 @@ border: none;
     <table id="example" class="striped">
     <thead>
     <tr>
+    <th></th>
     <th></th> 
     <th></th>  
     <th></th>
@@ -242,6 +243,11 @@ border: none;
     <td> 
     <div class="input-field inline"> 
     <b><%=h teamsheet.league %></b>
+    </div>
+    </td>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h Team.where(:id => Player.where(:playerteam => teamsheet.name).pluck(:teams_id)).pluck(:name)[0] %></b>
     </div>
     </td>
     <td> 
