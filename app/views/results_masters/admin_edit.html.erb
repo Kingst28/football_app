@@ -228,15 +228,19 @@ border: none;
   <div class="row">
   <div class="col-sm-12" style="background-color:white;">
 <%= form_tag edit_multiple_results_masters_path, method: :post do %>
-<table id="myTable2">
+<table id="myTable2" class="striped">
+  <thead>
   <tr>
+    <th>League</th>
     <th>Club</th>
     <th>Player</th>
     <th>Position</th>
     <th>Enter Results?</th>
   </tr>
+  </thead>
 <% for player in @results_masters %>
   <tr>
+    <td><%=h player.league %></td>
     <td><%=h Team.where(:id => Player.where(:playerteam => player.name).pluck(:teams_id)).pluck(:name)[0] %></td>
     <td><%=h player.name  %></td>
     <td><%=h Player.where(:playerteam => player.name).pluck(:position)[0] %></td>

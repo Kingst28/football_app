@@ -225,8 +225,10 @@ border: none;
 <%= form_tag update_multiple_results_masters_path, :method => :put do %>
   <% for teamsheet in @results_masters %>
     <%= fields_for "results_masters[]", teamsheet do |f| %>
-    <table id="example">
+    <table id="example" class="striped">
+    <thead>
     <tr>
+    <th></th> 
     <th></th>  
     <th></th>
     <th></th>
@@ -235,7 +237,13 @@ border: none;
     <th></th>
     <th></th>
     </tr>
+    </head>
     <tr>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h teamsheet.league %></b>
+    </div>
+    </td>
     <td> 
     <div class="input-field inline"> 
     <b><%=h teamsheet.name %></b>
@@ -271,7 +279,7 @@ border: none;
     <% end %>
     <td>
     <div class="input-field inline">
-    <%= f.label 'Amount Scored', id:'scorenum' %>
+    <%= f.label 'Scored #', id:'scorenum' %>
     <%= f.number_field :scorenum %>
     </div>
     </td>
@@ -282,7 +290,7 @@ border: none;
     <td>
     <div class="input-field inline">
     <%= f.number_field :concedednum %>
-    <%= f.label 'Amount Conceded', id:'concedednum' %>
+    <%= f.label 'Conceded #', id:'concedednum' %>
     </div>
     </td>
     <% end %>
