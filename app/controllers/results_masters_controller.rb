@@ -28,6 +28,7 @@ class ResultsMastersController < ApplicationController
   end
   
   def admin_edit
+    @notifications_all = Notification.all
     league_count = Player.distinct.count(:account_id)
     player_count = Player.count()
     player_set_count = player_count / league_count
@@ -81,8 +82,9 @@ class ResultsMastersController < ApplicationController
   def copy_results_to_teamsheets
   ActsAsTenant.without_tenant do
   @results_masters = ResultsMaster.all
+  @notifications_all = Notification.all
     for player in @results_masters do   
-        player_name_array = Player.where(:name => player.name).pluck(:name)
+        player_name_array = Player.where(:playerteam => player.name).pluck(:playerteam)
         player_name = player_name_array[0]
         player_played = player.read_attribute(:played)
         player_scored = player.read_attribute(:scored)
@@ -99,7 +101,7 @@ class ResultsMastersController < ApplicationController
           conceded = #{player_conceded}, 
           concedednum = #{player_concedednum}")
         end
-
+        @teamsheets = Teamsheet.all
         #teamsheet_id = Teamsheet.where(:player_id => player.player_id).pluck(:id)
         #teamsheet_id_final = teamsheet_id[0]
         #if Teamsheet.exists?(id: teamsheet_id_final) then
@@ -120,8 +122,7 @@ class ResultsMastersController < ApplicationController
           #teamsheet.update(:conceded => playerConceded)
           #teamsheet.update(:concedednum => player.concedednum.to_s)
         #end
-    end
-    redirect_to '/admin_controls'
+      end
   end
   end
 

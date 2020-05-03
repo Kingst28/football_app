@@ -109,12 +109,12 @@ function sortTable() {
     <tr>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h teamsheet.player.name %></b>
+    <b><%=h teamsheet.name %></b>
     </div>
     </td>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h teamsheet.player.position %></b>
+    <b><%=h Player.where(:name => teamsheet.name).pluck(:position)[0]  %></b>
     </div>
     </td>
     <td>
@@ -129,7 +129,7 @@ function sortTable() {
     <%= f.label 'scored', id:'scored' %>
     </div>
     </td>
-    <% if teamsheet.player.position == 'Midfielder' || teamsheet.player.position == 'Striker' %>
+    <% if Player.where(:name => teamsheet.name).pluck(:position)[0] == 'Midfielder' || Player.where(:name => teamsheet.name).pluck(:position)[0] == 'Striker' %>
     <td>
     </td>
     <% else %>
@@ -146,7 +146,7 @@ function sortTable() {
     <%= f.number_field :scorenum %>
     </div>
     </td>
-    <% if teamsheet.player.position == 'Midfielder' || teamsheet.player.position == 'Striker' %>
+    <% if Player.where(:name => teamsheet.name).pluck(:position)[0] == 'Midfielder' || Player.where(:name => teamsheet.name).pluck(:position)[0] == 'Striker' %>
     <td>
     </td>
     <% else %>

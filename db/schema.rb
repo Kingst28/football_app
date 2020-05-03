@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200415182833) do
+ActiveRecord::Schema.define(version: 20200502095014) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -131,7 +131,6 @@ ActiveRecord::Schema.define(version: 20200415182833) do
   add_index "results", ["account_id"], name: "index_results_on_account_id"
 
   create_table "results_masters", force: :cascade do |t|
-    t.integer  "player_id"
     t.boolean  "played"
     t.boolean  "scored"
     t.integer  "scorenum"
@@ -140,6 +139,7 @@ ActiveRecord::Schema.define(version: 20200415182833) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "name"
+    t.string   "league"
   end
 
 # Could not dump table "teams" because of following NoMethodError

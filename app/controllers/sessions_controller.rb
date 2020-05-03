@@ -24,9 +24,9 @@ class SessionsController < ApplicationController
             Timer.create(:date => date_end, :account_id => @user.account_id)
             redirect_to '/bids/insertWinners' and return
             elsif timer_date < Time.now() && current_bid_count = 3 then
-            Timer.destroy(timer_id)
-            Account.find(@user.account_id).update(:bid_count => current_bid_count + 1)
-            redirect_to '/bids/insertWinners' and return
+              Timer.destroy(timer_id)
+              Account.find(@user.account_id).update(:bid_count => current_bid_count + 1)
+                redirect_to '/bids/insertWinners' and return
             else
           end
           else

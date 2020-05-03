@@ -28,6 +28,7 @@ def manage_permissions
 end
 
 def admin_controls
+  @notifications_all = Notification.all
 end
 
 def uffl 
