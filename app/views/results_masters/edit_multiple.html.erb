@@ -3,54 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="pitch.css.scss">
- <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script type="text/javascript">
-function sortTable() {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("example");
-  switching = true;
-  /*Make a loop that will continue until
-  no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.getElementsByTagName("TR");
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[0];
-      y = rows[i + 1].getElementsByTagName("TD")[0];
-      //check if the two rows should switch place:
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch= true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
-}
-</script>
-<script type="text/javascript">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script>
   $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
+    $(".button").sideNav();
   });
-</script>
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+  // Set the date we're counting down to
+var countDownDate = new Date("<% if Timer.exists? %> <%= Timer.first.read_attribute(:date) %> <% end %>").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var text = "Bid Countdown: "
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("bid_timer").innerHTML = text + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("bid_timer").innerHTML = "BID COUNTDOWN: EXPIRED";
+    }
+
+    else if(isNaN(countDownDate)){ 
+      clearInterval(x);
+      document.getElementById("bid_timer").innerHTML = "";
+    }
+
+}, 1000);
+  </script>
+  <style type="text/css">
+   .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}  
+ 
+.breadcrumb{
+background-color: white;
+border: none;
+}
+
+.card-deck{
+  margin-top: 10px;
+}
+    
+.container-fluid { 
+  padding: 0px;
+}
+
+#rcorners1 {
+    border-radius: 25px;
+    background: #D3D3D3;
+    padding: 10px; 
+    width: 200px;
+    height: 80px;    
+}
+
+</style>
 </head>
+
+<body>
+
 <ul id="dropdown2" class="dropdown-content">
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
@@ -60,34 +99,124 @@ function sortTable() {
  <li><%= link_to "Profile", '/edit_profile'%></li>
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
-<body>
+
+<ul id="dropdown5" class="dropdown-content">
+ <li><%= link_to "Profile", '/edit_profile'%></li>
+ <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
 <div class="container-fluid">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <center><h4><i class="material-icons medium">help_outline</i></h4></center>
+      <p>Welcome to the UFFL Home Page! Use this page to navigate around the application.</p>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="#modal2"><i class="material-icons">notifications</i><span class="sr-only"></span></a></li>
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">Bids<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
+        <li><a href="#modal1"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown5"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+
+     <ul class="side-nav" id="desktop-menu">
+        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
+        <li><a href="/bids">Bids<span class="sr-only"></span></a></li>
+        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
+        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+
+    <ul class="side-nav" id="notify">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </ul>
+    <div class="navbar-fixed">
     <nav>
     <div class="nav-wrapper green lighten-2">
        &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
-      link_to "UFFL", '/index', class: "brand-logo"
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_controls', class: "brand-logo center" do
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_controls', class: "brand-logo center"
       end
       %></a>
-      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/notifications" class="btn btn-primary">Notifications</a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/notifications">Notifications<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">Starting 11<span class="sr-only"></span></a></li>
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/league_table/viewLeagueTable">League Table<span class="sr-only"></span></a></li>
-        <li><a href="/fixtures/index">Fixtures & Results<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index2">View Teams<span class="sr-only"></span></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
+      <ul class="right hide-on-med-and-down">
+        <li><a style="color:white;" class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
   </nav>
+  </div>
 <div class="container"> 
 <!--<p><button onclick="sortTable()" class="btn btn-default">Sort by position</button></p> -->
 <div class="center">  

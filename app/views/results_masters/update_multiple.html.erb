@@ -28,14 +28,13 @@
 <div class="container-fluid">
     <nav>
     <div class="nav-wrapper green lighten-2">
-       &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
-      link_to "UFFL", '/index', class: "brand-logo"
+        &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_controls', class: "brand-logo center" do
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_controls', class: "brand-logo center"
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">

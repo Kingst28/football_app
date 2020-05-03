@@ -136,10 +136,12 @@ class ResultsMastersController < ApplicationController
 
   def edit_multiple
     @results_masters = ResultsMaster.find(params[:results_masters_ids])
+    @notifications_all = Notification.all
   end
 
   def update_multiple
     ResultsMaster.update(params[:results_masters].keys, params[:results_masters].values)
+    @notifications_all = Notification.all
   end
 
   def results_master_params
