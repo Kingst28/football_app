@@ -101,7 +101,7 @@ class ResultsMastersController < ApplicationController
           conceded = #{player_conceded}, 
           concedednum = #{player_concedednum}")
         end
-        @teamsheets = Teamsheet.all
+        @teamsheets = Teamsheet.all.joins(:player).order("name, position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'")
         #teamsheet_id = Teamsheet.where(:player_id => player.player_id).pluck(:id)
         #teamsheet_id_final = teamsheet_id[0]
         #if Teamsheet.exists?(id: teamsheet_id_final) then
