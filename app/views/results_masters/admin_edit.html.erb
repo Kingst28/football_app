@@ -242,7 +242,7 @@ border: none;
   <tr>
     <td><%=h player.league %></td>
     <td><%=h Team.where(:id => Player.where(:playerteam => player.name).pluck(:teams_id)).pluck(:name)[0] %></td>
-    <td><%=h player.name  %></td>
+    <td><%=h Player.where(:playerteam => player.name).pluck(:name)[0] %></td>
     <td><%=h Player.where(:playerteam => player.name).pluck(:position)[0] %></td>
     <td><input id="<%=player.id%>" value="<%=player.id%>" name="results_masters_ids[]" type="checkbox">&nbsp;<label for="<%=player.id%>"></label></td>
   </tr>

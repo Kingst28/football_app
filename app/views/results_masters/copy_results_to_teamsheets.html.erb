@@ -223,6 +223,8 @@ border: none;
 <table class="striped">
   <thead>
     <tr>
+      <th>League</th>
+      <th>Club</th>
       <th>Player</th>
       <th>Played</th>
       <th>Scored</th>
@@ -236,13 +238,15 @@ border: none;
   <tbody>
     <% @teamsheets.each do |teamsheet| %>
       <tr>
+        <td><%= ResultsMaster.where(:name => teamsheet.name).pluck(:league)[0] %></td>
+        <td><%= Team.where(:id => Player.find(teamsheet.player_id).teams_id).pluck(:name)[0] %></td>
         <td><%= Player.find(teamsheet.player_id).name %></td>
         <td><%= teamsheet.played %></td>
         <td><%= teamsheet.scored %></td>
         <td><%= teamsheet.scorenum %></td>
         <td><%= teamsheet.conceded %></td>
         <td><%= teamsheet.concedednum %></td>
-        <td><%= teamsheet.account_id %></td>
+        <td><%= Account.where(:id => teamsheet.account_id).pluck(:name)[0] %></td>
       </tr>
     <% end %>
   </tbody>

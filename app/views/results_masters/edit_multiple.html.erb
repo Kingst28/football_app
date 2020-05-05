@@ -252,7 +252,7 @@ border: none;
     </td>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h teamsheet.name %></b>
+    <b><%=h Player.where(:playerteam => teamsheet.name).pluck(:name)[0] %></b>
     </div>
     </td>
     <td> 

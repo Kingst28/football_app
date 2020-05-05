@@ -28,53 +28,13 @@ class ResultsMastersController < ApplicationController
   end
   
   def admin_edit
-    @notifications_all = Notification.all
-    league_count = Player.distinct.count(:account_id)
-    player_count = Player.count()
-    player_set_count = player_count / league_count
-    @results_masters = ResultsMaster.first(player_set_count)
-    session[:my_previous_url] = URI(request.referer || '').path
-  end
-
-  def copy_results
     ActsAsTenant.without_tenant do
-    @results_masters = ResultsMaster.all.joins(:player).order("name, position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'")
-    league_count = Player.count("DISTINCT account_id") 
-    player_count = Player.count()
-    player_set_count = player_count / league_count
-    @results_master = ResultsMaster.first(player_set_count)
-      for player in @results_master do
-        player_name_array = Player.where(:id => player.player_id).pluck(:name)
-        player_name = player_name_array[0]
-        player_played = player.read_attribute(:played)
-        player_scored = player.read_attribute(:scored)
-        player_scorenum = player.read_attribute(:scorenum)
-        player_conceded = player.read_attribute(:conceded)
-        player_concedednum = player.read_attribute(:concedednum)
-        ResultsMaster.where(:name => player_name).update_all(
-          "played = #{player_played}, 
-          scored = #{player_scored}, 
-          scorenum = #{player_scorenum}, 
-          conceded = #{player_conceded}, 
-          concedednum = #{player_concedednum}")
-        
-        #@duplicate_players = Player.where(:name => player_name).where.not(id: player.player_id)
-        
-        #for duplicate_player in @duplicate_players do
-          #duplicate_player_id = duplicate_player.id
-          #results_master_player = ResultsMaster.where(:player_id => duplicate_player_id).pluck(:id)
-          #results_master_id = results_master_player[0]
-          #@results_master_player = ResultsMaster.find(results_master_id)
-          #@results_master_player.update(:played => player.read_attribute(:played))
-          #@results_master_player.update(:scored => player.read_attribute(:scored))
-          #@results_master_player.update(:scorenum => player.read_attribute(:scorenum))
-          #@results_master_player.update(:conceded => player.read_attribute(:conceded))
-          #@results_master_player.update(:concedednum => player.read_attribute(:concedednum))
-        #end
-      end
+    @notifications_all = Notification.all
+    @results_masters = ResultsMaster.where(:name => Teamsheet.select(:name).map(&:name))
+    session[:my_previous_url] = URI(request.referer || '').path
     end
   end
-
+  
   # set name field to be name and team to match on so likelihood of same name and same team are slim. 
   # set default 0 values for all teamsheet attributes such as scorenum
   # stop the creation of results_masters records for all player sets across the leagues only one is required if the update all SQL statement works!
@@ -102,26 +62,6 @@ class ResultsMastersController < ApplicationController
           concedednum = #{player_concedednum}")
         end
         @teamsheets = Teamsheet.all.joins(:player).order("name, position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'")
-        #teamsheet_id = Teamsheet.where(:player_id => player.player_id).pluck(:id)
-        #teamsheet_id_final = teamsheet_id[0]
-        #if Teamsheet.exists?(id: teamsheet_id_final) then
-          #teamsheet = Teamsheet.find(teamsheet_id[0])
-          #teamsheet.validate = true
-          #playerPlayed = convertValue(player.played)
-          #playerScored = convertValue(player.scored)
-          #playerConceded = convertValue(player.conceded)
-          #playerScoreNum = player.scorenum.to_s
-          #teamsheet.played_will_change!
-          #teamsheet.scored_will_change!
-          #teamsheet.scorenum_will_change!
-          #teamsheet.conceded_will_change!
-          #teamsheet.concedednum_will_change!
-          #teamsheet.update(:played => playerPlayed)
-          #teamsheet.update(:scored => playerScored)
-          #teamsheet.update(:scorenum => player.scorenum.to_s)
-          #teamsheet.update(:conceded => playerConceded)
-          #teamsheet.update(:concedednum => player.concedednum.to_s)
-        #end
       end
   end
   end
