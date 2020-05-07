@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   include SessionsHelper
+  before_action :require_user
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :require_canView, :only => :new
   before_filter :authorize, :except => :index
@@ -7,11 +8,11 @@ class BidsController < ApplicationController
 
   # GET /bids
   # GET /bids.json
-  def index
-    @bids = Bid.all 
-    players = Bid.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").where(:user_id => current_user.id)
-    @players = players    
-    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+def index
+  @bids = Bid.all 
+  players = Bid.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").where(:user_id => current_user.id)
+  @players = players    
+  @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
 end
 
 def current_user 

@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  before_action :require_user
   before_action :set_result, only: [:show, :edit, :update, :destroy]
 
   # GET /results

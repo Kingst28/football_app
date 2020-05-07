@@ -1,5 +1,6 @@
 class LeagueTableController < ApplicationController
-   
+   before_action :require_user
+
    def updateLeagueTable 
     #find out why this method runs twice in Safari?
     #fix the matchday count as this is no longer switching over to Away and back to zero once matchday_count is met.

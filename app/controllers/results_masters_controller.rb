@@ -1,4 +1,5 @@
 class ResultsMastersController < ApplicationController
+  before_action :require_user
   before_action :authorize_admin
   # GET /results_masters
   # GET /results_masters.json
