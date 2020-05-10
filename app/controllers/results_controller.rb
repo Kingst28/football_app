@@ -453,7 +453,6 @@ end
   end
 
   def updateLeagueTable 
-    
     @table = LeagueTable.order('points DESC').order('gd DESC').order('team ASC')
     matchday_id = Matchday.find(Matchday.where(:account_id => current_user.account_id)).read_attribute(:id)
     @matchday = Matchday.find(matchday_id)
@@ -530,7 +529,7 @@ end
     #update the amount of games a player has played. 
     @teamsheets = Teamsheet.all
     for t in @teamsheets do 
-      currentPlayed = t.read_attribute(:played)
+      currentPlayed = t.played
       overallPlayed = Playerstat.find_by_player_id(t.read_attribute(:player_id)).read_attribute(:played)
       if currentPlayed == true then
         currentPlayedValue = 1
@@ -543,7 +542,7 @@ end
     
     @teamsheets = Teamsheet.all
     for t in @teamsheets do
-      currentScored = t.read_attribute(:scored)
+      currentScored = t.scored
       overallScored = Playerstat.find_by_player_id(t.read_attribute(:player_id)).read_attribute(:scored)
       if currentScored == true then
         currentScoredValue = 1
@@ -556,7 +555,7 @@ end
 
     @teamsheets = Teamsheet.all
     for t in @teamsheets do
-      currentConceded = t.read_attribute(:conceded)
+      currentConceded = t.conceded
       overallConceded = Playerstat.find_by_player_id(t.read_attribute(:player_id)).read_attribute(:conceded)
       if currentConceded == true then
         currentConcededValue = 1
@@ -569,7 +568,7 @@ end
 
     @teamsheets = Teamsheet.all
     for t in @teamsheets do
-      currentScoreNum = t.read_attribute(:scorenum)
+      currentScoreNum = t.scorenum
       overallScoreNum = Playerstat.find_by_player_id(t.read_attribute(:player_id)).read_attribute(:scorenum)
       newScoreNum = currentScoreNum.to_i + overallScoreNum.to_i
       Playerstat.find_by_player_id(t.read_attribute(:player_id)).update(:scorenum => newScoreNum)
@@ -577,7 +576,7 @@ end
 
    @teamsheets = Teamsheet.all
     for t in @teamsheets do
-      currentConcededNum = t.read_attribute(:concedednum)
+      currentConcededNum = t.concedednum
       overallConcededNum = Playerstat.find_by_player_id(t.read_attribute(:player_id)).read_attribute(:concedednum)
       newConcededNum = currentConcededNum.to_i + overallConcededNum.to_i
       Playerstat.find_by_player_id(t.read_attribute(:player_id)).update(:concedednum => newConcededNum)
