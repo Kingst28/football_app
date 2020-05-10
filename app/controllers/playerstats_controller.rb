@@ -1,4 +1,5 @@
 class PlayerstatsController < ApplicationController
+  before_action :require_user
   before_action :set_playerstat, only: [:show, :edit, :update, :destroy]
 
   # GET /playerstats
