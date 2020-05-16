@@ -582,11 +582,11 @@ end
       Playerstat.find_by_player_id(t.player_id).update(:concedednum => newConcededNum)
     end
  
-    #Teamsheet.update_all(:played => null)
-    #Teamsheet.update_all(:scored => null)
-    #Teamsheet.update_all(:scorenum => null)
-    #Teamsheet.update_all(:conceded => null)
-    #Teamsheet.update_all(:concedednum => null)
+    Teamsheet.update_all(:played => false)
+    Teamsheet.update_all(:scored => false)
+    Teamsheet.update_all(:scorenum => 0)
+    Teamsheet.update_all(:conceded => false)
+    Teamsheet.update_all(:concedednum => 0)
   end
 
   def updatePlayed(homeTeam, awayTeam)

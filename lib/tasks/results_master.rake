@@ -19,5 +19,17 @@ namespace :csv do
       })
       puts "Row added!"
     end
+    
+    CSV.foreach(csv_file_path) do |row|
+      PlayerStat.create!({
+        :played => row[0],
+        :scored => row[1],
+        :scorenum => row[2],
+        :conceded => row[3],
+        :concedednum => row[4],
+        :playerteam => row[5]      
+      })
+      puts "Row added!"
+    end
   end
 end
