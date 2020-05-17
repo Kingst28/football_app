@@ -193,25 +193,26 @@ border: none;
 <% end %>
 <div class="container">
   <% @fixtures.each do |matchday, fixtures| %>
-  <div class="card">
-    <div class="card-block">
-    <h4 class="card-title">Matchday <%= matchday %></h4>
-    <br/>
-    <p class="card-text">
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <span class="title"><h4 class="card-title">Matchday <%= matchday %></h4></span>
+    </li>
     <% for f in fixtures do %>
     <% if f.haflag == "Home" %>
-    Home - <a><%= link_to(User.find(f.hteam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.hteam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.ateam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a>
-    <br />
-    <br />
+    <li class="collection-item avatar">
+      <i class="material-icons circle green tooltipped" data-tooltip="">home</i>
+      <span class="title">Home</span>
+      <p class="card-text"><a><%= link_to(User.find(f.hteam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.hteam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.ateam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></p>
+    </li>
     <% else %>
-    <p>
-    Away - <a><%= link_to(User.find(f.hteam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.hteam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a> <% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%>  <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.ateam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a>
-    </p>
-    </p>
-  <% end %>
-  <% end %>
-  </div>
-  </div>
+    <li class="collection-item avatar">
+      <i class="material-icons circle tooltipped" data-tooltip="">explore</i>
+      <span class="title">Away</span>
+      <p class="card-text"><a><%= link_to(User.find(f.hteam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.hteam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a> <% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%>  <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).first_name, "/teamsheet/#{User.where(:first_name => User.find(f.ateam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></p>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
   <% end %>
 </div>
 </body>
