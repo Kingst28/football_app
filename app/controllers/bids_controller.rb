@@ -55,7 +55,7 @@ end
   end
   
   def insertWinners
-    @users = User.where(:account_id => current_user.account_id) 
+    @users = User.all
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
     @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
