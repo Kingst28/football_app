@@ -55,7 +55,7 @@ end
   end
   
   def insertWinners
-    @users = User.all
+    @users = User.where(:account_id => current_user.account_id)
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
     @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
@@ -106,7 +106,7 @@ end
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true")
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
           @teamsheet_new.validate = true
           @player_stats_new = Playerstat.new(:player_id => o.player_id, :played => 0, :scored => 0, :scorenum => 0, :conceded => 0, :concedednum => 0)
           @player_stats_new.save
