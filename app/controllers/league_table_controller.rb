@@ -1,5 +1,5 @@
 class LeagueTableController < ApplicationController
-   before_action :require_user
+   #before_action :require_user
 
    def updateLeagueTable 
     #find out why this method runs twice in Safari?

@@ -1,5 +1,5 @@
 class FixturesController < ApplicationController
-  before_action :require_user
+  #before_action :require_user
   before_action :set_fixture, only: [:show, :edit, :update, :destroy]
   before_action :authorize_admin, only: [:createFixtures]
   require "round_robin_tournament"

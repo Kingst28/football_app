@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-  before_action :require_user
+  #before_action :require_user
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
   # GET /notifications

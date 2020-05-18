@@ -1,5 +1,5 @@
 class TeamsheetController < ApplicationController
-  before_action :require_user
+  #before_action :require_user
   before_action :authorize_admin, only: [:admin_edit]
 
    def index 

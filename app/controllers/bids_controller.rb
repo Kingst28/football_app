@@ -1,6 +1,6 @@
 class BidsController < ApplicationController
   include SessionsHelper
-  before_action :require_user
+  #before_action :require_user
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :require_canView, :only => :new
   before_filter :authorize, :except => :index
