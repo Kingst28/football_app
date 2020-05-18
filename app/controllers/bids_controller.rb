@@ -106,7 +106,7 @@ end
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.name, :amount => o.amount, :active => "true")
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true")
           @teamsheet_new.validate = true
           @player_stats_new = Playerstat.new(:player_id => o.player_id, :played => 0, :scored => 0, :scorenum => 0, :conceded => 0, :concedednum => 0)
           @player_stats_new.save
