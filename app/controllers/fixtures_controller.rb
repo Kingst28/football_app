@@ -7,7 +7,7 @@ class FixturesController < ApplicationController
   # GET /fixtures.json
   def index
     all_fixtures = Fixture.all
-    @fixtures = all_fixtures.group_by(&:matchday).sort_by{ |fixture, value| fixture.haflag }
+    @fixtures = Fixture.order(haflag: :desc).group_by(&:matchday)
     @notifications_all = Notification.where(:user_id => current_user.id)
   end
 
