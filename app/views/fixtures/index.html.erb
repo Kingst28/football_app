@@ -201,7 +201,7 @@ p {
     <li class="collection-item avatar">
       <span class="title"><h5 class="card-title">Matchday <%= matchday %></h5></span>
     </li>
-    <% for f in fixtures.order_by([haflag: :desc] do %>
+    <% for f in fixtures.order_by([haflag: :desc]) do %>
     <% if f.haflag == "Home" %>
     <li class="collection-item avatar">
       <i class="material-icons circle green tooltipped" data-tooltip="">home</i>
