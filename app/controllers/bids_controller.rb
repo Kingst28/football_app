@@ -55,6 +55,7 @@ end
   end
   
   def insertWinners
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @users = User.where(:account_id => current_user.account_id)
     for u in @users do
     @outrightWinners = Bid.where(:user_id => u.id)
