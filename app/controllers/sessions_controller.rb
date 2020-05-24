@@ -69,6 +69,8 @@ class SessionsController < ApplicationController
  end
 
  def insertRandomPlayers
+  #need to add the taken to player model to equal Yes when a random player is assigned in teamsheets and bids.
+  #also need to add the player name concat with player team to the random records across all models
   @users = User.where(:account_id => current_user.account_id) 
   goalkeepers = 0
   defenders = 0
@@ -116,6 +118,9 @@ class SessionsController < ApplicationController
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
+    @player_1 = Player.where(:id => random_player_id_1)
+    @player_1.update(:taken => 'Yes')
+
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
     @teamsheet_new_2.save
@@ -135,7 +140,7 @@ class SessionsController < ApplicationController
     @bid_new_1.save
   end
  end
-
+ 
  def insertDefenders (user_id, defenders, user_account_id)
   if defenders == 0 then
     @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)

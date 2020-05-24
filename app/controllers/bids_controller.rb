@@ -125,6 +125,7 @@ end
       end
       end
     end
+    flash[:success] = "Successful bids inserted"
 end
       
   def subtract_amount
