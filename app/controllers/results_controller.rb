@@ -527,7 +527,7 @@ end
     end
     Result.delete_all   
     #update the amount of games a player has played. 
-    @teamsheets = Teamsheet.all
+    @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
     for t in @teamsheets do 
       currentPlayed = t.played
       overallPlayed = Playerstat.find_by(playerteam: t.name).played
