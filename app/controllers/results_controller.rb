@@ -536,7 +536,7 @@ end
       else
         currentPlayedValue = 0
       end
-      newPlayed = currentPlayedValue.to_i + overallPlayed.to_i
+      #newPlayed = currentPlayedValue.to_i + overallPlayed.to_i
       #Playerstat.find_by(playerteam: t.name).update(:played => newPlayed)
     end
     
@@ -549,7 +549,7 @@ end
       else
         currentScoredValue = 0
       end
-      newScored = currentScoredValue.to_i + overallScored.to_i
+      #newScored = currentScoredValue.to_i + overallScored.to_i
       #Playerstat.find_by(playerteam: t.name).update(:scored => newScored)
     end
 
@@ -562,7 +562,7 @@ end
       else
         currentConcededValue = 0
       end
-      newConceded = currentConcededValue.to_i + overallConceded.to_i
+      #newConceded = currentConcededValue.to_i + overallConceded.to_i
       #Playerstat.find_by(playerteam: t.name).update(:conceded => newConceded)
     end
 
@@ -570,7 +570,7 @@ end
     for t in @teamsheets do
       currentScoreNum = t.scorenum
       #overallScoreNum = Playerstat.find_by_player_id(t.player_id).scorenum
-      newScoreNum = currentScoreNum.to_i + overallScoreNum.to_i
+      #newScoreNum = currentScoreNum.to_i + overallScoreNum.to_i
       #Playerstat.find_by(playerteam: t.name).update(:scorenum => newScoreNum)
     end
 
@@ -578,7 +578,7 @@ end
     for t in @teamsheets do
       currentConcededNum = t.concedednum
       #overallConcededNum = Playerstat.find_by_player_id(t.player_id).concedednum
-      newConcededNum = currentConcededNum.to_i + overallConcededNum.to_i
+      #newConcededNum = currentConcededNum.to_i + overallConcededNum.to_i
       #Playerstat.find_by(playerteam: t.name).update(:concedednum => newConcededNum)
     end
  
