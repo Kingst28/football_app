@@ -459,7 +459,7 @@ end
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
     matchday_haflag = @matchday.read_attribute(:haflag)
-    @results = Fixture.where(:matchday => matchday_number).where(:haflag => matchday_haflag)
+    @results = Fixture.where(:matchday => matchday_number).where(:haflag => matchday_haflag).where(:account_id => current_user.account_id)
     
     for r in @results do
       hteam = User.find(r.read_attribute(:hteam))
