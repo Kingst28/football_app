@@ -69,7 +69,7 @@ def fixture_results
       midSubCount = 0
       strikerSubCount = 0
 
-      @teamsheet_players = Teamsheet.where(:user_id => u.id).where(:active => true).where(:account_id => current_user.account_id)
+      @teamsheet_players = Teamsheet.where(:user_id => u.id).where(:active => true)
       @teamsheet_players_played = @teamsheet_players.where(:played => true)
 
       playedCount = @teamsheet_players_played.length
