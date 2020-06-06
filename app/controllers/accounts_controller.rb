@@ -36,6 +36,7 @@ class AccountsController < ApplicationController
     create_teams(@account.read_attribute(:id))
     create_players(@account.read_attribute(:id))
     create_records(@account.read_attribute(:id))
+    create_player_stats(@account.read_attribute(:id))
 
 
      respond_to do |format|
@@ -129,6 +130,17 @@ def create_records (account_id)
   @players = Player.where(:account_id => account_id)
   Player.find_each do |player|
   ResultsMaster.create(:player_id => player.id, :name => player.name)
+  end
+end
+end
+
+# add name field to ResultsMaster model and then I can test if update all on name method is faster than updating each individual column in copy results. 
+def create_player_stats (account_id)
+  ActsAsTenant.without_tenant do
+  account_id = params[:id]
+  @players = Player.where(:account_id => account_id)
+  Player.find_each do |player|
+  Playerstat.create(:player_id => player.id, :played => false, :scored => false, :scorenum => 0, :conceded => false, :concedednum => 0, :playerteam => player.playerteam, :account_id => account_id)    
   end
 end
 end
