@@ -56,6 +56,42 @@ var x = setInterval(function() {
     }
 
 }, 1000);
+
+function sortTable() {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("myTable2");
+    switching = true;
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.getElementsByTagName("TR");
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("TD")[1];
+        y = rows[i + 1].getElementsByTagName("TD")[1];
+        //check if the two rows should switch place:
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+
   </script>
   <style type="text/css">
    .card-img-top {
@@ -84,6 +120,7 @@ border: none;
     width: 200px;
     height: 80px;    
 }
+
 
 </style>
 </head>
@@ -221,6 +258,7 @@ border: none;
 <div class="center">  
 <div class="row">
 <div class="col s12 m12">
+  <p><button href="#" onclick="sortTable()" class="btn btn-default" style="float:left">Sort by club</button></p>
 <%= form_tag update_multiple_results_masters_path, :method => :put do %>
   <% for teamsheet in @results_masters %>
     <%= fields_for "results_masters[]", teamsheet do |f| %>
