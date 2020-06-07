@@ -76,7 +76,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
-    @results_masters = ResultsMaster.find(params[:results_masters_ids]).order(:name)
+    @results_masters = ResultsMaster.find(params[:results_masters_ids], :order => "name")
     @notifications_all = Notification.all
   end
 
