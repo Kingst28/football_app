@@ -76,7 +76,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
-    @results_masters = ResultsMaster.where(:id => params[:results_masters_ids]).order(Team.where(:id => Player.where(:playerteam => self.first.name).pluck(:teams_id)).pluck(:name)[0])
+    @results_masters = ResultsMaster.where(:id => params[:results_masters_ids]).order(Team.where(:id => Player.where(:playerteam => self[:name]).pluck(:teams_id)).pluck(:name)[0])
     @notifications_all = Notification.all
   end
 
