@@ -76,7 +76,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
-    @results_masters = ResultsMaster.where(:id => params[:results_masters_ids]).order(:name)
+    @results_masters = ResultsMaster.where(:id => params[:results_masters_ids]).order('right(name, len(name) - charindex('-', name))')
     @notifications_all = Notification.all
   end
 
