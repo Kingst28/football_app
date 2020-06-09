@@ -76,7 +76,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
-    @results_masters = ResultsMaster.joins("INNER JOIN players ON results_masters.name = players.playerteam").where(:id => params[:results_masters_ids]).order("SELECT SUBSTRING_INDEX('name', '-', -1)")
+    @results_masters = ResultsMaster.where(:id => params[:results_masters_ids]).order(:name)
     @notifications_all = Notification.all
   end
 
