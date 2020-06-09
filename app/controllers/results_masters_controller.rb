@@ -76,7 +76,7 @@ class ResultsMastersController < ApplicationController
   end
 
   def edit_multiple
-    @results_masters = ResultsMaster.joins("INNER JOIN players ON results_masters.name = players.playerteam").where(:id => params[:results_masters_ids]).order("players.playerteam")
+    @results_masters = ResultsMaster.joins("INNER JOIN players ON results_masters.name = players.playerteam").where(:id => params[:results_masters_ids]).order("players.team.name")
     @notifications_all = Notification.all
   end
 
