@@ -31,7 +31,7 @@ class ResultsMastersController < ApplicationController
   def admin_edit
     ActsAsTenant.without_tenant do
     @notifications_all = Notification.all
-    @results_masters = ResultsMaster.where(:name => Teamsheet.select(:name).map(&:name))
+    @results_masters = ResultsMaster.where(:name => Teamsheet.select(:name).map(&:name)).order(:team)
     session[:my_previous_url] = URI(request.referer || '').path
     end
   end
