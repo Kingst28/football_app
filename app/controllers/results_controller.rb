@@ -530,63 +530,66 @@ end
     @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
     for t in @teamsheets do 
       currentPlayed = t.played
-      #overallPlayed = Playerstat.find_by_player_id(t.player_id).played
+      overallPlayed = Playerstat.find_by_player_id(t.player_id).played
       if currentPlayed == true then
         currentPlayedValue = 1
       else
         currentPlayedValue = 0
       end
-      #newPlayed = currentPlayedValue.to_i + overallPlayed.to_i
-      #Playerstat.find_by_player_id(t.player_id).update(:played => newPlayed)
+      newPlayed = currentPlayedValue.to_i + overallPlayed.to_i
+      Playerstat.find_by_player_id(t.player_id).update(:played => newPlayed)
     end
     
     @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
     for t in @teamsheets do
       currentScored = t.scored
-      #overallScored = Playerstat.find_by_player_id(t.player_id).scored
+      overallScored = Playerstat.find_by_player_id(t.player_id).scored
       if currentScored == true then
         currentScoredValue = 1
       else
         currentScoredValue = 0
       end
-      #newScored = currentScoredValue.to_i + overallScored.to_i
-      #Playerstat.find_by_player_id(t.player_id).update(:scored => newScored)
+      newScored = currentScoredValue.to_i + overallScored.to_i
+      Playerstat.find_by_player_id(t.player_id).update(:scored => newScored)
     end
 
     @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
     for t in @teamsheets do
       currentConceded = t.conceded
-      #overallConceded = Playerstat.find_by_player_id(t.player_id).conceded
+      overallConceded = Playerstat.find_by_player_id(t.player_id).conceded
       if currentConceded == true then
-        currentConcededValue = 1
+       currentConcededValue = 1
       else
-        currentConcededValue = 0
+       currentConcededValue = 0
       end
-      #newConceded = currentConcededValue.to_i + overallConceded.to_i
-      #Playerstat.find_by_player_id(t.player_id).update(:conceded => newConceded)
+      newConceded = currentConcededValue.to_i + overallConceded.to_i
+      Playerstat.find_by_player_id(t.player_id).update(:conceded => newConceded)
     end
 
     @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
     for t in @teamsheets do
       currentScoreNum = t.scorenum
-      #overallScoreNum = Playerstat.find_by_player_id(t.player_id).scorenum
-      #newScoreNum = currentScoreNum.to_i + overallScoreNum.to_i
-      #Playerstat.find_by_player_id(t.player_id).update(:scorenum => newScoreNum)
+      overallScoreNum = Playerstat.find_by_player_id(t.player_id).scorenum
+      newScoreNum = currentScoreNum.to_i + overallScoreNum.to_i
+      Playerstat.find_by_player_id(t.player_id).update(:scorenum => newScoreNum)
     end
 
    @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
     for t in @teamsheets do
       currentConcededNum = t.concedednum
-      #overallConcededNum = Playerstat.find_by_player_id(t.player_id).concedednum
-      #newConcededNum = currentConcededNum.to_i + overallConcededNum.to_i
-      #Playerstat.find_by_player_id(t.player_id).update(:concedednum => newConcededNum)
+      overallConcededNum = Playerstat.find_by_player_id(t.player_id).concedednum
+      newConcededNum = currentConcededNum.to_i + overallConcededNum.to_i
+      Playerstat.find_by_player_id(t.player_id).update(:concedednum => newConcededNum)
     end
  
-    Teamsheet.update_all(:played => false)
-    Teamsheet.update_all(:scored => false)
-    Teamsheet.update_all(:scorenum => 0)
-    Teamsheet.update_all(:conceded => false)
-    Teamsheet.update_all(:concedednum => 0)
+    Teamsheet.where(:account_id => current_user.account_id).update_all(:played => false)
+    Teamsheet.where(:account_id => current_user.account_id).update_all(:scored => false)
+    Teamsheet.where(:account_id => current_user.account_id).update_all(:scorenum => 0)
+    Teamsheet.where(:account_id => current_user.account_id).update_all(:conceded => false)
+    Teamsheet.where(:account_id => current_user.account_id).update_all(:concedednum => 0)
+
+    Teamsheet.where(:account_id => current_user.account_id).where("priority IS NULL").update_all(:active => true)
+    Teamsheet.where(:account_id => current_user.account_id).where("priority IS NOT NULL").update_all(:active => false)
   end
 
   def updatePlayed(homeTeam, awayTeam)

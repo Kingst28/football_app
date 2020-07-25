@@ -107,10 +107,35 @@ end
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          player_position = Player.find(o.player_id).position
+          goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").count(:all)
+          defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").count(:all)
+          midfielder_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Midfielder").count(:all)
+          striker_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Striker").count(:all)
+          if player_position = 'Goalkeeper' && goalkeeper_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Goalkeeper' && goalkeeper_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count < 4
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 4
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 5
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count < 4
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 4
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 5
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count < 2
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 2
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 3
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          end
           @teamsheet_new.validate = true
-          @player_stats_new = Playerstat.new(:player_id => o.player_id, :played => 0, :scored => 0, :scorenum => 0, :conceded => 0, :concedednum => 0)
-          @player_stats_new.save
           @teamsheet_new.save
           @notify_users = User.all 
       
