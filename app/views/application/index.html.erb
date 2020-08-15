@@ -174,7 +174,7 @@ border: none;
     <center><i class="material-icons medium">notifications_none</i>
     <i><h6> No new notifications </h6></i></center>
     <% else %>
-    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% @notifications_all.where(:user_id => current_user.id).where('fname = ?', current_user.first_name).each do |notification| %>
     <% if notification.show == "yes" %>
     <div class="card">
     <div class="card-block">
