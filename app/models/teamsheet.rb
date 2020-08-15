@@ -72,11 +72,15 @@ class Teamsheet < ActiveRecord::Base
     user_id = self.user_id 
     @user_teamsheets = Teamsheet.where(:user_id => user_id)
     priority_count = 0
+    priority_count1 = 0
+    priority_count2 = 0
     for teamsheet in @user_teamsheets do
       if Player.where(:id => teamsheet.player_id).pluck(:position).first == "Defender" && teamsheet.priority == 1 then
         priority_count = priority_count + 1
+        priority_count1 = priority_count1 + 1
       elsif Player.where(:id => teamsheet.player_id).pluck(:position).first == "Defender" && teamsheet.priority == 2 then
         priority_count = priority_count + 1
+        priority_count2 = priority_count2 + 1
     end
     end
     update_position = Player.where(:id => self.player_id).pluck(:position).first
@@ -87,7 +91,7 @@ class Teamsheet < ActiveRecord::Base
     elsif priority_count == 2 && ["Goalkeeper", "Midfielder", "Striker"].include?(update_position) then
       return true
     elsif priority_count == 2 && [nil].include?(self.priority) && ["Defender"].include?(update_position) then
-        return true
+      return true
     elsif priority_count == 2 then
       self.errors.add(:priority_defender, :message => "You already have 2 priority defenders") 
     end

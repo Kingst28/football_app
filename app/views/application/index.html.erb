@@ -174,7 +174,7 @@ border: none;
     <center><i class="material-icons medium">notifications_none</i>
     <i><h6> No new notifications </h6></i></center>
     <% else %>
-    <% @notifications_all.where(:user_id => current_user.id).each do |notification| %>
+    <% @notifications_all.where(:user_id => current_user.id).where('fname == ?', current_user.first_name).each do |notification| %>
     <% if notification.show == "yes" %>
     <div class="card">
     <div class="card-block">
@@ -184,6 +184,40 @@ border: none;
       </bold>
       <br/>
       <br/>
+     <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
+    </div>
+  </div>
+  <% else %>
+    <div class="card">
+    <div class="card-block">
+      <center><i class="material-icons medium">notifications_off</i>
+      <p class="card-text">Notification Hidden</p>
+      <bold class="card-text"></bold>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </ul>
+
+    <ul class="side-nav" id="notifyme">
+    <% if @notifications_all.empty? %>
+    <center><i class="material-icons medium">notifications_none</i>
+    <i><h6> No new notifications </h6></i></center>
+    <% else %>
+    <% @notifications_all.where(:user_id => current_user.id).where('fname != ?', current_user.first_name).each do |notification| %>
+    <% if notification.show == "yes" %>
+    <div class="card">
+    <div class="card-block">
+      <p class="card-text"><%= notification.message %></p>
+      <bold class="card-text">
+      <i style="color:grey;"><%= notification.created_at.strftime("%R, %b %d") %></i>
+      </bold>
+      <br/>
+      <br/>
+      <% if notification.created_at > 24.hours.ago && notification.status == "bid" %>
+        <a class="btn btn-sm green lighten-2" href="bids/new">Bid now</a>
+      <% end %>
      <a class="btn btn-sm green lighten-2" href="/notifications/<%=notification.id%>/destroy" data-method="delete"><i class="material-icons">check_circle</i></a>
     </div>
   </div>
@@ -214,6 +248,11 @@ border: none;
       <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-flat"><i class="material-icons">notifications_none</i></a></li>
       <% else %>
       <li><a style="color:white; background:transparent;" data-activates="notify" class="btn button btn-flat"><i class="material-icons">notifications</i></a></li>
+      <% end %>
+      <% if @notifications_all.empty? %>
+      <li><a style="color:white; background:transparent;" data-activates="notifyme" class="btn button btn-flat"><i class="material-icons">sms</i></a></li>
+      <% else %>
+      <li><a style="color:white; background:transparent;" data-activates="notifyme" class="btn button btn-flat"><i class="material-icons">sms</i></a></li>
       <% end %>
       <li><a style="color:white; background:transparent;" href="#modal1" class="btn btn-flat"><i class="material-icons">help_outline</i></a></li>
       </ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200609193303) do
+ActiveRecord::Schema.define(version: 20200726085609) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20200609193303) do
     t.datetime "updated_at"
     t.string   "show",       limit: 255
     t.integer  "account_id"
+    t.string   "status"
+    t.string   "fname"
   end
 
   add_index "notifications", ["account_id"], name: "index_notifications_on_account_id"

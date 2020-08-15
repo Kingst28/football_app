@@ -26,7 +26,8 @@ class SessionsController < ApplicationController
             elsif timer_date < Time.now() && current_bid_count = 3 then
               Timer.destroy(timer_id)
               Account.find(@user.account_id).update(:bid_count => current_bid_count + 1)
-                redirect_to '/bids/insertWinners' and return
+              insertWinners()
+              redirect_to '/index' and return
             else
           end
           else
@@ -34,6 +35,7 @@ class SessionsController < ApplicationController
           
           if current_user.account_id != nil 
           if Account.find(@user.account_id).new_results_ready == true
+            squad_validity_check()
             Account.find(@user.account_id).update(:new_results_ready => false)
             redirect_to '/results/fixture_results' and return
           else
@@ -45,6 +47,16 @@ class SessionsController < ApplicationController
             insertRandomPlayers()
             createFixtures()
             redirect_to '/index' and return
+          end
+          end
+
+          if current_user.account_id != nil
+            if Account.find(current_user.account_id).bid_count > 4 then
+              @account_bids = Bid.where(:account_id => current_user.account_id)
+              if @account_bids.joins(:player).where("players.taken == ?", "No").where("bids.created_at < ?", 24.hours.ago).exists?
+                insertWinners()
+                redirect_to '/index' and return
+              end
           end
           end
 
@@ -848,5 +860,364 @@ end
   def destroy 
   session[:user_id] = nil 
   redirect_to '/uffl' 
+  end
+
+  def checkBids 
+    @bids = Bid.all
+    @playerbids = []
+    @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1")
+  end
+  
+  def insertWinners
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+    @users = User.where(:account_id => current_user.account_id)
+    for u in @users do
+    @outrightWinners = Bid.where(:user_id => u.id)
+    @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
+    @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
+    @final_duplicates = []
+    for element in @highest_amount do
+      @final_duplicates << @duplicates1.select { |record| record.amount == element.read_attribute(:amount) }
+    end
+    for d in @final_duplicates do
+      if Teamsheet.exists?(:player_id => d[0].player_id)
+       Player.find(d[0].player_id).update_column(:taken,"Yes")
+      else
+       @destroyOtherBids = Bid.where(:player_id => d[0].player_id).where.not(:user_id => d[0].user_id)
+       refunded = false
+       @destroyOtherBids.each do |b| 
+       bidAmount = b.read_attribute(:amount) 
+       if b.read_attribute(:amount).to_i == d[0].amount.to_i && refunded == false then
+          @user = User.find(d[0].user_id)
+          currentBudget = @user.budget.to_i
+          newBudget = currentBudget + d[0].amount.to_i
+       if newBudget > 1000000 then
+          @user.update_attribute(:budget, 1000000)
+       else
+          @user.update_attribute(:budget, newBudget)
+       end
+       @user1 = User.find(b.read_attribute(:user_id))
+       currentBudget1 = @user1.budget.to_i
+       newBudget1 = currentBudget1 + b.read_attribute(:amount).to_i
+       @user1.update_attribute(:budget, newBudget1)
+       @deleteTeamsheet = Teamsheet.where(:player_id => d[0].player_id).destroy_all
+       @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
+       refunded = true
+       else
+          @user1 = User.find(b.read_attribute(:user_id))
+          currentBudget1 = @user1.budget
+          newBudget1 = currentBudget1 + bidAmount
+          @user1.update_attribute(:budget, newBudget1)
+       if Bid.exists?(b.read_attribute(:id))
+          @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
+       else
+       end
+       end
+       end
+    end
+  end
+    for o in @outrightWinners do
+      if Teamsheet.exists?(:player_id => o.player_id)
+          Player.find(o.player_id).update_column(:taken,"Yes")
+      else
+          Player.find(o.player_id).update_column(:taken,"Yes")
+          player_position = Player.find(o.player_id).position
+          goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").count(:all)
+          goalkeeper_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Goalkeeper", 1, false).count(:all)
+          defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").count(:all)
+          defender_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Defender", 1, false).count(:all)
+          defender_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Defender", 2, false).count(:all)
+          midfielder_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Midfielder").count(:all)
+          mid_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Midfielder", 1, false).count(:all)
+          mid_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Midfielder", 2, false).count(:all)
+          striker_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Striker").count(:all)
+          str_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 1, false).count(:all)
+          str_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 2, false).count(:all)
+          
+          if player_position = 'Goalkeeper' && goalkeeper_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Goalkeeper' && goalkeeper_count == 1 && goalkeeper_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Goalkeeper' && goalkeeper_count == 1 && goalkeeper_priority1_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          
+          elsif player_position = 'Defender' && defender_count < 4
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 4 && defender_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 5 && defender_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 5 && defender_priority2_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 4 && defender_priority1_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Defender' && defender_count == 5 && defender_priority2_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          
+          elsif player_position = 'Midfielder' && midfielder_count < 4
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 4 && mid_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 5 && mid_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 5 && mid_priority2_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 4 &&  mid_priority1_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Midfielder' && midfielder_count == 5 && mid_priority2_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          
+         
+          elsif player_position = 'Striker' && striker_count < 2
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 2 && str_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 3 && str_priority1_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 3 && str_priority2_count == 0
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 2 &&  str_priority1_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 2, :account_id => u.account_id)
+          elsif player_position = 'Striker' && striker_count == 3 && str_priority2_count == 1
+            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
+          end
+          @teamsheet_new.validate = true
+          @teamsheet_new.save
+          @notify_users = User.all 
+      
+      for nu in @notify_users do
+        if nu.id == u.id 
+        else
+          @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
+          @notification_new.save
+      end
+      end
+          @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
+          @notification_new.save
+      end
+      end
+    end
+    flash[:success] = "Successful bids inserted"
+  end
+
+  def squad_validity_check 
+    @users = User.where(:account_id => current_user.account_id)
+    for u in @users do
+      goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Goalkeeper").count(:all)
+      goalkeeper_active_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Goalkeeper", true).count(:all)
+      goalkeeper_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Goalkeeper", 1, false).count(:all)
+      defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Defender").count(:all)
+      defender_active_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Defender", true).count(:all)
+      defender_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Defender", 1, false).count(:all)
+      defender_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Defender", 2, false).count(:all)
+      midfielder_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Midfielder").count(:all)
+      midfielder_active_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Midfielder", true).count(:all)
+      midfielder_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Midfielder", 1, false).count(:all)
+      midfielder_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Midfielder", 2, false).count(:all)
+      striker_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Striker").count(:all)
+      striker_active_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Striker", true).count(:all)
+      striker_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Striker", 1, false).count(:all)
+      striker_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", u.id, "Striker", 2, false).count(:all)
+      
+      if goalkeeper_active_count != 1 then
+        @goalkeepers = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Goalkeeper").order(:updated_at)
+        @gk1 = @goalkeepers[0]
+        @gk2 = @goalkeepers[1]
+
+        @gk1.update_attributes(:active => true, :priority => nil)
+        @gk2.update_attributes(:active => false, :priority => 1)
+
+       elsif goalkeeper_active_count == 1 && goalkeeper_priority1_count == 0 then
+        @gkprinil = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Goalkeeper", false)
+        @gkprinil[0].update_attributes(:active => false, :priority => 1)
+
+       elsif defender_active_count != 4 then
+        @defender_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Defender", false).order(:updated_at)
+        if defender_active_count == 0 then
+          @def1 = @defender_inactive_count[0]
+          @def2 = @defender_inactive_count[1]
+          @def3 = @defender_inactive_count[2]
+          @def4 = @defender_inactive_count[3]
+          @def5 = @defender_inactive_count[4]
+          @def6 = @defender_inactive_count[5]
+          
+          @def1.update_attributes(:active => true, :priority => nil)
+          @def2.update_attributes(:active => true, :priority => nil)
+          @def3.update_attributes(:active => true, :priority => nil)
+          @def4.update_attributes(:active => true, :priority => nil)
+          @def5.update_attributes(:active => false, :priority => 1)
+          @def6.update_attributes(:active => false, :priority => 2)
+        
+        elsif defender_active_count == 1 then 
+          @def1 = @defender_inactive_count[0]
+          @def2 = @defender_inactive_count[1]
+          @def3 = @defender_inactive_count[2]
+          @def4 = @defender_inactive_count[3]
+          @def5 = @defender_inactive_count[4]
+          
+          @def1.update_attributes(:active => true, :priority => nil)
+          @def2.update_attributes(:active => true, :priority => nil)
+          @def3.update_attributes(:active => true, :priority => nil)
+          @def4.update_attributes(:active => false, :priority => 1)
+          @def5.update_attributes(:active => false, :priority => 2)
+        
+        elsif defender_active_count == 2 then 
+          @def1 = @defender_inactive_count[0]
+          @def2 = @defender_inactive_count[1]
+          @def3 = @defender_inactive_count[2]
+          @def4 = @defender_inactive_count[3]
+          
+          @def1.update_attributes(:active => true, :priority => nil)
+          @def2.update_attributes(:active => true, :priority => nil)
+          @def3.update_attributes(:active => false, :priority => 1)
+          @def4.update_attributes(:active => false, :priority => 2)
+
+        elsif defender_active_count == 3 then 
+          @def1 = @defender_inactive_count[0]
+          @def2 = @defender_inactive_count[1]
+          @def3 = @defender_inactive_count[2]
+        
+          @def1.update_attributes(:active => true, :priority => nil)
+          @def2.update_attributes(:active => false, :priority => 1)
+          @def3.update_attributes(:active => false, :priority => 2)
+      end
+
+      elsif defender_active_count == 4 && defender_priority1_count == 1 && defender_priority2_count == 0 then
+        @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Defender", false)
+        @defnilpri[0].update_attributes(:active => false, :priority => 2)
+
+      elsif defender_active_count == 4 && defender_priority1_count == 0 && defender_priority2_count == 1 then
+        @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Defender", false)
+        @defnilpri[0].update_attributes(:active => false, :priority => 1)
+
+      elsif midfielder_active_count != 4 then
+        @midfielder_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Midfielder", false).order(:updated_at)
+        if midfielder_active_count == 0 then
+          @mid1 = @midfielder_inactive_count[0]
+          @mid2 = @midfielder_inactive_count[1]
+          @mid3 = @midfielder_inactive_count[2]
+          @mid4 = @midfielder_inactive_count[3]
+          @mid5 = @midfielder_inactive_count[4]
+          @mid6 = @midfielder_inactive_count[5]
+          
+          @mid1.update_attributes(:active => true, :priority => nil)
+          @mid2.update_attributes(:active => true, :priority => nil)
+          @mid3.update_attributes(:active => true, :priority => nil)
+          @mid4.update_attributes(:active => true, :priority => nil)
+          @mid5.update_attributes(:active => false, :priority => 1)
+          @mid6.update_attributes(:active => false, :priority => 2)
+        
+        elsif midfielder_active_count == 1 then 
+          @mid1 = @midfielder_inactive_count[0]
+          @mid2 = @midfielder_inactive_count[1]
+          @mid3 = @midfielder_inactive_count[2]
+          @mid4 = @midfielder_inactive_count[3]
+          @mid5 = @midfielder_inactive_count[4]
+          
+          @mid1.update_attributes(:active => true, :priority => nil)
+          @mid2.update_attributes(:active => true, :priority => nil)
+          @mid3.update_attributes(:active => true, :priority => nil)
+          @mid4.update_attributes(:active => false, :priority => 1)
+          @mid5.update_attributes(:active => false, :priority => 2)
+
+        elsif midfielder_active_count == 2 then 
+          @mid1 = @midfielder_inactive_count[0]
+          @mid2 = @midfielder_inactive_count[1]
+          @mid3 = @midfielder_inactive_count[2]
+          @mid4 = @midfielder_inactive_count[3]
+          
+          @mid1.update_attributes(:active => true, :priority => nil)
+          @mid2.update_attributes(:active => true, :priority => nil)
+          @mid3.update_attributes(:active => false, :priority => 1)
+          @mid4.update_attributes(:active => false, :priority => 2)
+
+        elsif midfielder_active_count == 3 then 
+          @mid1 = @midfielder_inactive_count[0]
+          @mid2 = @midfielder_inactive_count[1]
+          @mid3 = @midfielder_inactive_count[2]
+        
+          @mid1.update_attributes(:active => true, :priority => nil)
+          @mid2.update_attributes(:active => false, :priority => 1)
+          @mid3.update_attributes(:active => false, :priority => 2)
+      end
+
+      elsif midfielder_active_count == 4 && midfielder_priority1_count == 0 && midfielder_priority2_count == 1 then
+        @midnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Midfielder", false)
+        @midnilpri[0].update_attributes(:active => false, :priority => 1)
+
+      elsif midfielder_active_count == 4 && midfielder_priority1_count == 1 && midfielder_priority2_count == 0 then
+        @midnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Midfielder", false)
+        @midnilpri[0].update_attributes(:active => false, :priority => 2)
+      
+      elsif striker_active_count != 2 then
+        @striker_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Striker", false).order(:updated_at)
+        if striker_active_count == 0 then
+          @stk1 = @midfielder_inactive_count[0]
+          @stk2 = @midfielder_inactive_count[1]
+          @stk3 = @midfielder_inactive_count[2]
+          @stk4 = @midfielder_inactive_count[3]
+          
+          @stk1.update_attributes(:active => true, :priority => nil)
+          @stk2.update_attributes(:active => true, :priority => nil)
+          @stk3.update_attributes(:active => false, :priority => 1)
+          @stk4.update_attributes(:active => false, :priority => 2)
+        
+        elsif striker_active_count == 1 then 
+          @stk1 = @striker_inactive_count[0]
+          @stk2 = @striker_inactive_count[1]
+          @stk3 = @striker_inactive_count[2]
+          @stk4 = @striker_inactive_count[3]
+          
+          @stk1.update_attributes(:active => true, :priority => nil)
+          @stk2.update_attributes(:active => true, :priority => nil)
+          @stk3.update_attributes(:active => false, :priority => 1)
+          @stk4.update_attributes(:active => false, :priority => 2)
+
+        elsif striker_active_count == 4 && striker_priority1_count == 0 && striker_priority2_count == 1 then
+          @strnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Striker", false)
+          @strnilpri[0].update_attributes(:active => false, :priority => 1)
+  
+        elsif striker_active_count == 4 && striker_priority1_count == 1 && striker_priority2_count == 0 then
+          @strnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Striker", false)
+          @strnilpri[0].update_attributes(:active => false, :priority => 2)
+        end 
+      end
+    end
+  end
+
+  def subtract_amount
+    @bidCount = Bid.where(:user_id => current_user.id)
+    @bidAmount = @bidCount.pluck(:amount)
+    total = 0
+    for bid in @bidAmount do 
+      total += bid
+    end
+    @user = current_user
+    bidamount = 1000000
+    newbudget = bidamount - total
+    total = 0
+    if newbudget < 0
+      flash[:danger] = "You have exceeded your budget"
+    else
+    @user.update_attribute(:budget, newbudget)
+  end
+  end
+
+  def subtract_update_amount
+    @bidCount = Bid.where(:user_id => current_user.id)
+    @bidAmount = @bidCount.pluck(:amount)
+    total = 0
+    for bid in @bidAmount do 
+      total += bid
+    end
+    @user = current_user
+    bidamount = 1000000
+    newbudget = bidamount - total
+    total = 0
+    if newbudget < 0
+      flash[:danger] = "You have exceeded your budget"
+    else
+    @user.update_attribute(:budget, newbudget)
+  end
   end
 end

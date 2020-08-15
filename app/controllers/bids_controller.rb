@@ -4,6 +4,7 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :require_canView, :only => :new
   before_filter :authorize, :except => :index
+  before_filter :authorize_admin, only: [:insertWinners]
   helper_method :current_user, :logged_in?, :canView?
 
   # GET /bids
@@ -142,12 +143,12 @@ end
       for nu in @notify_users do
         if nu.id == u.id 
         else
-          #@notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
-          #@notification_new.save
+          @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).playerteam} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
+          @notification_new.save
       end
       end
-          #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes")
-          #@notification_new.save
+          @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).playerteam} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
+          @notification_new.save
       end
       end
     end
@@ -205,12 +206,12 @@ end
       for nu in @notify_users do
         if nu.id == current_user.id 
         else
-        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => notificationStatus())
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).position} - #{Player.find(bid_params[:player_id]).playerteam}", :show => notificationStatus(), :status => "bid", :fname => User.find(current_user.id).first_name)
         @notification_new.save
       end
       end
-    @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).name}", :show => notificationStatus())
-    @notification_new.save
+        @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).position} - #{Player.find(bid_params[:player_id]).playerteam}", :show => notificationStatus(), :status => "bid", :fname => User.find(current_user.id).first_name)
+        @notification_new.save
     respond_to do |format|
       if @bid.save 
         subtract_amount()
@@ -247,7 +248,7 @@ end
     player_id = Bid.find(params[:id]).player_id
     @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
     @playerUpdate = Player.find(player_id).update_column(:taken, "No")
-    bidAmount = Bid.find(params[:id]).amount
+    bidAmount = Bid.find(params[:id]).amount * 0.1
     @user = current_user
     currentBudget = @user.budget
     newBudget = currentBudget + bidAmount

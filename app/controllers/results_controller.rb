@@ -588,8 +588,8 @@ end
     Teamsheet.where(:account_id => current_user.account_id).update_all(:conceded => false)
     Teamsheet.where(:account_id => current_user.account_id).update_all(:concedednum => 0)
 
-    Teamsheet.where(:account_id => current_user.account_id).where("priority IS NULL").update_all(:active => true)
-    Teamsheet.where(:account_id => current_user.account_id).where("priority IS NOT NULL").update_all(:active => false)
+    #Teamsheet.where(:account_id => current_user.account_id).where("priority IS NULL").update_all(:active => true)
+    #Teamsheet.where(:account_id => current_user.account_id).where("priority IS NOT NULL").update_all(:active => false)
   end
 
   def updatePlayed(homeTeam, awayTeam)
