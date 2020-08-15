@@ -53,7 +53,7 @@ class SessionsController < ApplicationController
           if current_user.account_id != nil
             if Account.find(current_user.account_id).bid_count > 4 then
               @account_bids = Bid.where(:account_id => current_user.account_id)
-              if @account_bids.joins(:player).where("players.taken == ?", "No").where("bids.created_at < ?", 24.hours.ago).exists?
+              if @account_bids.joins(:player).where("players.taken = ?", "No").where("bids.created_at < ?", 24.hours.ago).exists?
                 insertWinners()
                 redirect_to '/index' and return
               end
