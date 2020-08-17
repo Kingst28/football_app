@@ -14,8 +14,8 @@
     <nav>
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
-      <a><%=link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
-      link_to "UFFL", '/index', class: "brand-logo"
+      <a><%=link_to_if current_user.access == "admin", "FaST", '/admin_index', class: "brand-logo" do
+      link_to "FaST", '/index', class: "brand-logo"
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -27,15 +27,12 @@
       </ul>
       <ul class="right hide-on-med-and-down">
     <div class="dropdown left">
-    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Notifications
-    </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <% @notifications_all.each do |n| %>
       <% if n.show == "yes" %>
       <li role="presentation"><p id="rcorners1"><%= n.message %><br/><%= n.created_at %><br/></p></li>
       <% end %>
       <% end %>
-      <a href="/notifications">Manage notifications</a>
     </ul>
   </div>
         <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
