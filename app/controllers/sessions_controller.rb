@@ -130,8 +130,8 @@ class SessionsController < ApplicationController
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -140,8 +140,8 @@ class SessionsController < ApplicationController
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
   
   elsif goalkeepers == 1 then
     @account_players = Player.where(:position => 'Goalkeeper').where(:taken => 'No').where(:account_id => user_account_id)
@@ -154,8 +154,8 @@ class SessionsController < ApplicationController
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
   end
  end
  
@@ -176,8 +176,8 @@ class SessionsController < ApplicationController
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -186,8 +186,8 @@ class SessionsController < ApplicationController
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -196,8 +196,8 @@ class SessionsController < ApplicationController
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -206,8 +206,8 @@ class SessionsController < ApplicationController
     @bid_new_4 = Bid.new(:user_id => user_id, :player_id => random_player_id_4, :amount => 0, :account_id => user_account_id)
     @bid_new_4.save
 
-    @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    player_4 = Player.find(random_player_id_4)
+    player_4.update(taken: 'Yes')
 
     @teamsheet_new_5 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_5, :active => "true", :account_id => user_account_id)
     @teamsheet_new_5.validate = true
@@ -216,8 +216,8 @@ class SessionsController < ApplicationController
     @bid_new_5 = Bid.new(:user_id => user_id, :player_id => random_player_id_5, :amount => 0, :account_id => user_account_id)
     @bid_new_5.save
 
-    @player_5 = Player.where(:id => random_player_id_5)
-    @player_5.update(:taken => 'Yes')
+    player_5 = Player.find(random_player_id_5)
+    player_5.update(taken: 'Yes')
 
     @teamsheet_new_6 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_6, :active => "true", :account_id => user_account_id)
     @teamsheet_new_6.validate = true
@@ -226,8 +226,8 @@ class SessionsController < ApplicationController
     @bid_new_6 = Bid.new(:user_id => user_id, :player_id => random_player_id_6, :amount => 0, :account_id => user_account_id)
     @bid_new_6.save
 
-    @player_6 = Player.where(:id => random_player_id_6)
-    @player_6.update(:taken => 'Yes')
+    player_6 = Player.find(random_player_id_6)
+    player_6.update(taken: 'Yes')
 
   elsif defenders == 1 then
     @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)
@@ -244,8 +244,8 @@ class SessionsController < ApplicationController
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -254,8 +254,8 @@ class SessionsController < ApplicationController
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -264,8 +264,8 @@ class SessionsController < ApplicationController
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -274,8 +274,8 @@ class SessionsController < ApplicationController
     @bid_new_4 = Bid.new(:user_id => user_id, :player_id => random_player_id_4, :amount => 0, :account_id => user_account_id)
     @bid_new_4.save
 
-    @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    player_4 = Player.find(random_player_id_4)
+    player_4.update(taken: 'Yes')
 
     @teamsheet_new_5 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_5, :active => "true", :account_id => user_account_id)
     @teamsheet_new_5.validate = true
@@ -284,8 +284,8 @@ class SessionsController < ApplicationController
     @bid_new_5 = Bid.new(:user_id => user_id, :player_id => random_player_id_5, :amount => 0, :account_id => user_account_id)
     @bid_new_5.save
 
-    @player_5 = Player.where(:id => random_player_id_5)
-    @player_5.update(:taken => 'Yes')
+    player_5 = Player.find(random_player_id_5)
+    player_5.update(taken: 'Yes')
 
   elsif defenders == 2 then
     @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)
@@ -302,7 +302,7 @@ class SessionsController < ApplicationController
     @bid_new_1.save
 
     @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    @player_1.update(:taken, 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -312,7 +312,7 @@ class SessionsController < ApplicationController
     @bid_new_2.save
     
     @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    @player_2.update(:taken, 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -322,7 +322,7 @@ class SessionsController < ApplicationController
     @bid_new_3.save
 
     @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    @player_3.update(:taken, 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -332,7 +332,7 @@ class SessionsController < ApplicationController
     @bid_new_4.save
 
     @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    @player_4.update(:taken, 'Yes')
 
   elsif defenders == 3 then
     @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)
@@ -348,7 +348,7 @@ class SessionsController < ApplicationController
     @bid_new_1.save
 
     @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    @player_1.update(:taken, 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -358,7 +358,7 @@ class SessionsController < ApplicationController
     @bid_new_2.save
 
     @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    @player_2.update(:taken, 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -368,7 +368,7 @@ class SessionsController < ApplicationController
     @bid_new_3.save
 
     @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    @player_3.update(:taken, 'Yes')
 
 elsif defenders == 4 then
   @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)
@@ -383,7 +383,7 @@ elsif defenders == 4 then
   @bid_new_1.save
 
   @player_1 = Player.where(:id => random_player_id_1)
-  @player_1.update(:taken => 'Yes')
+  @player_1.update(:taken, 'Yes')
 
   @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
   @teamsheet_new_2.validate = true
@@ -393,7 +393,7 @@ elsif defenders == 4 then
   @bid_new_2.save
 
   @player_2 = Player.where(:id => random_player_id_2)
-  @player_2.update(:taken => 'Yes')
+  @player_2.update(:taken, 'Yes')
 
 elsif defenders == 5 then
   @account_players = Player.where(:position => 'Defender').where(:taken => 'No').where(:account_id => user_account_id)
@@ -401,12 +401,13 @@ elsif defenders == 5 then
 
   @teamsheet_new_1 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_1, :active => "true", :account_id => user_account_id)
   @teamsheet_new_1.validate = true
+  @teamsheet_new_1.save
 
   @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
   @bid_new_1.save
 
-  @player_1 = Player.where(:id => random_player_id_1)
-  @player_1.update(:taken => 'Yes')
+  player_1 = Player.find(random_player_id_1)
+  player_1.update(taken: 'Yes')
  end
 end
 
@@ -427,8 +428,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -437,8 +438,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -447,8 +448,8 @@ end
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -457,8 +458,8 @@ end
     @bid_new_4 = Bid.new(:user_id => user_id, :player_id => random_player_id_4, :amount => 0, :account_id => user_account_id)
     @bid_new_4.save
 
-    @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    player_4 = Player.find(random_player_id_4)
+    player_4.update(taken: 'Yes')
 
     @teamsheet_new_5 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_5, :active => "true", :account_id => user_account_id)
     @teamsheet_new_5.validate = true
@@ -467,8 +468,8 @@ end
     @bid_new_5 = Bid.new(:user_id => user_id, :player_id => random_player_id_5, :amount => 0, :account_id => user_account_id)
     @bid_new_5.save
 
-    @player_5 = Player.where(:id => random_player_id_5)
-    @player_5.update(:taken => 'Yes')
+    player_5 = Player.find(random_player_id_5)
+    player_5.update(taken: 'Yes')
 
     @teamsheet_new_6 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_6, :active => "true", :account_id => user_account_id)
     @teamsheet_new_6.validate = true
@@ -477,8 +478,8 @@ end
     @bid_new_6 = Bid.new(:user_id => user_id, :player_id => random_player_id_6, :amount => 0, :account_id => user_account_id)
     @bid_new_6.save
 
-    @player_6 = Player.where(:id => random_player_id_6)
-    @player_6.update(:taken => 'Yes')
+    player_6 = Player.find(random_player_id_6)
+    player_6.update(taken: 'Yes')
 
   elsif midfielders == 1 then
     @account_players = Player.where(:position => 'Midfielder').where(:taken => 'No').where(:account_id => user_account_id)
@@ -495,8 +496,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -505,8 +506,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -515,8 +516,8 @@ end
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -525,8 +526,8 @@ end
     @bid_new_4 = Bid.new(:user_id => user_id, :player_id => random_player_id_4, :amount => 0, :account_id => user_account_id)
     @bid_new_4.save
 
-    @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    player_4 = Player.find(random_player_id_4)
+    player_4.update(taken: 'Yes')
 
     @teamsheet_new_5 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_5, :active => "true", :account_id => user_account_id)
     @teamsheet_new_5.validate = true
@@ -535,8 +536,8 @@ end
     @bid_new_5 = Bid.new(:user_id => user_id, :player_id => random_player_id_5, :amount => 0, :account_id => user_account_id)
     @bid_new_5.save
 
-    @player_5 = Player.where(:id => random_player_id_5)
-    @player_5.update(:taken => 'Yes')
+    player_5 = Player.find(random_player_id_5)
+    player_5.update(taken: 'Yes')
 
   elsif midfielders == 2 then
     @account_players = Player.where(:position => 'Midfielder').where(:taken => 'No').where(:account_id => user_account_id)
@@ -552,8 +553,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -562,8 +563,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -572,8 +573,8 @@ end
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -582,8 +583,8 @@ end
     @bid_new_4 = Bid.new(:user_id => user_id, :player_id => random_player_id_4, :amount => 0, :account_id => user_account_id)
     @bid_new_4.save
 
-    @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    player_4 = Player.find(random_player_id_4)
+    player_4.update(taken: 'Yes')
 
   elsif midfielders == 3 then
     @account_players = Player.where(:position => 'Midfielder').where(:taken => 'No').where(:account_id => user_account_id)
@@ -598,8 +599,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -608,8 +609,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -618,8 +619,8 @@ end
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
 elsif midfielders == 4 then
   @account_players = Player.where(:position => 'Midfielder').where(:taken => 'No').where(:account_id => user_account_id)
@@ -633,8 +634,8 @@ elsif midfielders == 4 then
   @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
   @bid_new_1.save
 
-  @player_1 = Player.where(:id => random_player_id_1)
-  @player_1.update(:taken => 'Yes')
+  player_1 = Player.find(random_player_id_1)
+  player_1.update(taken: 'Yes')
 
   @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
   @teamsheet_new_2.validate = true
@@ -643,8 +644,8 @@ elsif midfielders == 4 then
   @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
   @bid_new_2.save
 
-  @player_2 = Player.where(:id => random_player_id_2)
-  @player_2.update(:taken => 'Yes')
+  player_2 = Player.find(random_player_id_2)
+  player_2.update(taken: 'Yes')
 
 elsif midfielders == 5 then
   @account_players = Player.where(:position => 'Midfielder').where(:taken => 'No').where(:account_id => user_account_id)
@@ -657,8 +658,8 @@ elsif midfielders == 5 then
   @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
   @bid_new_1.save
 
-  @player_1 = Player.where(:id => random_player_id_1)
-  @player_1.update(:taken => 'Yes')
+  player_1 = Player.find(random_player_id_1)
+  player_1.update(taken: 'Yes')
  end
 end
 
@@ -677,8 +678,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -687,8 +688,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -697,8 +698,8 @@ end
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
     @teamsheet_new_4 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_4, :active => "true", :account_id => user_account_id)
     @teamsheet_new_4.validate = true
@@ -707,8 +708,8 @@ end
     @bid_new_4 = Bid.new(:user_id => user_id, :player_id => random_player_id_4, :amount => 0, :account_id => user_account_id)
     @bid_new_4.save
 
-    @player_4 = Player.where(:id => random_player_id_4)
-    @player_4.update(:taken => 'Yes')
+    player_4 = Player.find(random_player_id_4)
+    player_4.update(taken: 'Yes')
 
   elsif strikers == 1 then
     @account_players = Player.where(:position => 'Striker').where(:taken => 'No').where(:account_id => user_account_id)
@@ -723,8 +724,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -733,8 +734,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
     @teamsheet_new_3 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_3, :active => "true", :account_id => user_account_id)
     @teamsheet_new_3.validate = true
@@ -743,8 +744,8 @@ end
     @bid_new_3 = Bid.new(:user_id => user_id, :player_id => random_player_id_3, :amount => 0, :account_id => user_account_id)
     @bid_new_3.save
 
-    @player_3 = Player.where(:id => random_player_id_3)
-    @player_3.update(:taken => 'Yes')
+    player_3 = Player.find(random_player_id_3)
+    player_3.update(taken: 'Yes')
 
   elsif strikers == 2 then
     @account_players = Player.where(:position => 'Striker').where(:taken => 'No').where(:account_id => user_account_id)
@@ -758,8 +759,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
 
     @teamsheet_new_2 = Teamsheet.new(:user_id => user_id, :player_id => random_player_id_2, :active => "true", :account_id => user_account_id)
     @teamsheet_new_2.validate = true
@@ -768,8 +769,8 @@ end
     @bid_new_2 = Bid.new(:user_id => user_id, :player_id => random_player_id_2, :amount => 0, :account_id => user_account_id)
     @bid_new_2.save
 
-    @player_2 = Player.where(:id => random_player_id_2)
-    @player_2.update(:taken => 'Yes')
+    player_2 = Player.find(random_player_id_2)
+    player_2.update(taken: 'Yes')
 
   elsif strikers == 3 then
     @account_players = Player.where(:position => 'Striker').where(:taken => 'No').where(:account_id => user_account_id)
@@ -782,8 +783,8 @@ end
     @bid_new_1 = Bid.new(:user_id => user_id, :player_id => random_player_id_1, :amount => 0, :account_id => user_account_id)
     @bid_new_1.save
 
-    @player_1 = Player.where(:id => random_player_id_1)
-    @player_1.update(:taken => 'Yes')
+    player_1 = Player.find(random_player_id_1)
+    player_1.update(taken: 'Yes')
   end
  end
 
@@ -822,7 +823,7 @@ end
 
   prem_matchdays = matchday_count * 2
   index = 0
-  while matchday_count < 18 do
+  while matchday_count < 17 do
     @fixtures = Fixture.where(:matchday => index).where(:account_id => u.account_id)
     for fixture in @fixtures do
       @new_fixture = fixture.dup
@@ -1018,16 +1019,17 @@ end
       striker_active_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Striker", true).count
       striker_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Striker", false, 1).count
       striker_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Striker", false, 2).count
+
+      goalkeeper_validity_check(u,goalkeeper_count, goalkeeper_active_count, goalkeeper_priority1_count)
+      defender_validity_check(u,defender_count, defender_active_count, defender_priority1_count, defender_priority2_count)
+      midfielder_validity_check(u,midfielder_count, midfielder_active_count, midfielder_priority1_count, midfielder_priority2_count)
+      striker_validity_check(u,striker_count, striker_active_count, striker_priority1_count, striker_priority2_count)
   end
-    goalkeeper_validity_check(goalkeeper_count, goalkeeper_active_count, goalkeeper_priority1_count)
-    defender_validity_check(defender_count, defender_active_count, defender_priority1_count, defender_priority2_count)
-    midfielder_validity_check(midfielder_count, midfielder_active_count, midfielder_priority1_count, midfielder_priority2_count)
-    striker_validity_check(striker_count, striker_active_count, striker_priority1_count, striker_priority2_count)
   end
 
-  def goalkeeper_validity_check (goalkeeper_count, goalkeeper_active_count, goalkeeper_priority1_count)
+  def goalkeeper_validity_check (u, goalkeeper_count, goalkeeper_active_count, goalkeeper_priority1_count)
     if goalkeeper_active_count != 1 then
-      @goalkeepers = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Goalkeeper").order(:updated_at)
+      @goalkeepers = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Goalkeeper").order(updated_at: :desc)
       @gk1 = @goalkeepers[0]
       @gk2 = @goalkeepers[1]
 
@@ -1040,9 +1042,9 @@ end
     end
   end
 
-  def defender_validity_check (defender_count, defender_active_count, defender_priority1_count, defender_priority2_count)
+  def defender_validity_check (u, defender_count, defender_active_count, defender_priority1_count, defender_priority2_count)
   if defender_active_count != 4 then
-    @defender_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Defender", false).order(:updated_at)
+    @defender_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Defender", false).order(updated_at: :desc)
     if defender_active_count == 0 then
       @def1 = @defender_inactive_count[0]
       @def2 = @defender_inactive_count[1]
@@ -1094,17 +1096,34 @@ end
 
 elsif defender_active_count == 4 && defender_priority1_count == 1 && defender_priority2_count == 0 then
     @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Defender", false)
-    @defnilpri[0].update_attributes(:active => false, :priority => 2)
+    @defnilpri[1].update_attributes(:active => false, :priority => 2)
 
 elsif defender_active_count == 4 && defender_priority1_count == 0 && defender_priority2_count == 1 then
     @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Defender", false)
-    @defnilpri[0].update_attributes(:active => false, :priority => 1)
+    @defnilpri[1].update_attributes(:active => false, :priority => 1)
+
+elsif defender_active_count == 4 && defender_priority1_count == 2 && defender_priority2_count == 0 then
+    @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Defender", false, 1).order(updated_at: :desc)
+    player_id = @defnilpri.pluck(:id)
+    Teamsheet.find(player_id[1]).update_attribute('priority', 2)
+
+elsif defender_active_count == 4 && defender_priority1_count == 0 && defender_priority2_count == 2 then
+    @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Defender", false, 2).order(updated_at: :desc)
+    player_id = @defnilpri.pluck(:id)
+    Teamsheet.find(player_id[1]).update_attribute('priority', 1)
+
+elsif defender_active_count == 4 && defender_priority1_count == 0 && defender_priority2_count == 0 then
+    @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Defender", false).order(updated_at: :desc)
+    player_id = @defnilpri.pluck(:id)
+    Teamsheet.find(player_id[0]).update_attribute('priority', 1)  
+    Teamsheet.find(player_id[1]).update_attribute('priority', 2)  
+end    
 end
 end
 
-def midfielder_validity_check (midfielder_count, midfielder_active_count, midfielder_priority1_count, midfielder_priority2_count)
+def midfielder_validity_check (u, midfielder_count, midfielder_active_count, midfielder_priority1_count, midfielder_priority2_count)
 if midfielder_active_count != 4 then
-  @midfielder_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Midfielder", false).order(:updated_at)
+  @midfielder_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Midfielder", false).order(updated_at: :desc)
   if midfielder_active_count == 0 then
     @mid1 = @midfielder_inactive_count[0]
     @mid2 = @midfielder_inactive_count[1]
@@ -1161,17 +1180,33 @@ elsif midfielder_active_count == 4 && midfielder_priority1_count == 0 && midfiel
 elsif midfielder_active_count == 4 && midfielder_priority1_count == 1 && midfielder_priority2_count == 0 then
   @midnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Midfielder", false)
   @midnilpri[0].update_attributes(:active => false, :priority => 2)
+
+elsif midfielder_active_count == 4 && midfielder_priority1_count == 2 && midfielder_priority2_count == 0 then
+  @midnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Midfielder", false, 1).order(updated_at: :desc)
+  player_id = @midnilpri.pluck(:id)
+  Teamsheet.find(player_id[1]).update_attribute('priority', 2)
+
+elsif midfielder_active_count == 4 && midfielder_priority1_count == 0 && midfielder_priority2_count == 2 then
+  @midnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Midfielder", false, 2).order(updated_at: :desc)
+  player_id = @midnilpri.pluck(:id)
+  Teamsheet.find(player_id[1]).update_attribute('priority', 1)
+
+elsif midfielder_active_count == 4 && midfielder_priority1_count == 0 && midfielder_priority2_count == 0 then
+  @midnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Midfielder", false).order(updated_at: :desc)
+  player_id = @midnilpri.pluck(:id)
+  Teamsheet.find(player_id[0]).update_attribute('priority', 1)  
+  Teamsheet.find(player_id[1]).update_attribute('priority', 2)  
 end
 end
 
-def striker_validity_check (striker_count, striker_active_count, striker_priority1_count, striker_priority2_count)
+def striker_validity_check (u, striker_count, striker_active_count, striker_priority1_count, striker_priority2_count)
 if striker_active_count != 2 then
-  @striker_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Striker", false).order(:updated_at)
+  @striker_inactive_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Striker", false).order(updated_at: :desc)
   if striker_active_count == 0 then
-    @stk1 = @midfielder_inactive_count[0]
-    @stk2 = @midfielder_inactive_count[1]
-    @stk3 = @midfielder_inactive_count[2]
-    @stk4 = @midfielder_inactive_count[3]
+    @stk1 = @striker_inactive_count[0]
+    @stk2 = @striker_inactive_count[1]
+    @stk3 = @striker_inactive_count[2]
+    @stk4 = @striker_inactive_count[3]
     
     @stk1.update_attributes(:active => true, :priority => nil)
     @stk2.update_attributes(:active => true, :priority => nil)
@@ -1188,16 +1223,31 @@ if striker_active_count != 2 then
     @stk2.update_attributes(:active => true, :priority => nil)
     @stk3.update_attributes(:active => false, :priority => 1)
     @stk4.update_attributes(:active => false, :priority => 2)
+  end
 
-elsif striker_active_count == 4 && striker_priority1_count == 0 && striker_priority2_count == 1 then
+elsif striker_active_count == 2 && striker_priority1_count == 0 && striker_priority2_count == 1 then
     @strnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Striker", false)
     @strnilpri[0].update_attributes(:active => false, :priority => 1)
 
-elsif striker_active_count == 4 && striker_priority1_count == 1 && striker_priority2_count == 0 then
+elsif striker_active_count == 2 && striker_priority1_count == 1 && striker_priority2_count == 0 then
     @strnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Striker", false)
     @strnilpri[0].update_attributes(:active => false, :priority => 2)
-  end 
-end
+ 
+elsif striker_active_count == 2 && striker_priority1_count == 2 && striker_priority2_count == 0 then
+    @strikernilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Striker", false, 1).order(updated_at: :desc)
+    player_id = @strikernilpri.pluck(:id)
+    Teamsheet.find(player_id[1]).update_attribute('priority', 2)
+  
+elsif striker_active_count == 2 && striker_priority1_count == 0 && striker_priority2_count == 2 then
+    @strikernilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Striker", false, 2).order(updated_at: :desc)
+    player_id = @strikernilpri.pluck(:id)
+    Teamsheet.find(player_id[1]).update_attribute('priority', 1)
+
+elsif striker_active_count == 1 && striker_priority1_count == 0 && striker_priority2_count == 0 then
+  @strikernilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Striker", false).order(updated_at: :desc)
+  player_id = @strikernilpri.pluck(:id)
+  Teamsheet.find(player_id[0]).update_attribute('priority', 1)  
+  Teamsheet.find(player_id[1]).update_attribute('priority', 2)  
 end
 
   def subtract_amount

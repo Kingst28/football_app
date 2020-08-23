@@ -199,7 +199,7 @@ p {
   <% @fixtures.each do |matchday, fixtures| %>
   <ul class="collection">
     <li class="collection-item avatar">
-      <span class="title"><h5 class="card-title">Matchday <%= matchday %></h5></span>
+      <span class="title"><h5 class="card-title">Matchday <%= matchday + 1 %></h5></span>
     </li>
     <% for f in fixtures.sort_by{|e| e[:haflag].reverse} do %>
     <% if f.haflag == "Home" %>

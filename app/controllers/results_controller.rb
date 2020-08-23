@@ -582,11 +582,11 @@ end
       Playerstat.find_by_player_id(t.player_id).update(:concedednum => newConcededNum)
     end
  
-    Teamsheet.where(:account_id => current_user.account_id).update_all(:played => false)
-    Teamsheet.where(:account_id => current_user.account_id).update_all(:scored => false)
-    Teamsheet.where(:account_id => current_user.account_id).update_all(:scorenum => 0)
-    Teamsheet.where(:account_id => current_user.account_id).update_all(:conceded => false)
-    Teamsheet.where(:account_id => current_user.account_id).update_all(:concedednum => 0)
+    #Teamsheet.where(:account_id => current_user.account_id).update_all(:played => false)
+    #Teamsheet.where(:account_id => current_user.account_id).update_all(:scored => false)
+    #Teamsheet.where(:account_id => current_user.account_id).update_all(:scorenum => 0)
+    #Teamsheet.where(:account_id => current_user.account_id).update_all(:conceded => false)
+    #Teamsheet.where(:account_id => current_user.account_id).update_all(:concedednum => 0)
 
     #Teamsheet.where(:account_id => current_user.account_id).where("priority IS NULL").update_all(:active => true)
     #Teamsheet.where(:account_id => current_user.account_id).where("priority IS NOT NULL").update_all(:active => false)

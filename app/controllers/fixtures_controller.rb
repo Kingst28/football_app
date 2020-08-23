@@ -51,7 +51,7 @@ class FixturesController < ApplicationController
 
   prem_matchdays = matchday_count * 2
   index = 0
-  while matchday_count < 18 do
+  while matchday_count < 17 do
     @fixtures = Fixture.where(:matchday => index)
     for fixture in @fixtures do
       @new_fixture = fixture.dup

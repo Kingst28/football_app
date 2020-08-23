@@ -14,7 +14,7 @@
     <nav>
     <div class="nav-wrapper green lighten-2">
     &nbsp; &nbsp; 
-      <a><%=link_to_if current_user.access == "admin", "FaST", '/admin_index', class: "brand-logo" do
+      <a><%=link_to_if current_user.access == "admin", "FaST", '/admin_controls', class: "brand-logo" do
       link_to "FaST", '/index', class: "brand-logo"
       end
       %></a>
