@@ -1096,11 +1096,11 @@ end
 
 elsif defender_active_count == 4 && defender_priority1_count == 1 && defender_priority2_count == 0 then
     @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Defender", false)
-    @defnilpri[1].update_attributes(:active => false, :priority => 2)
+    @defnilpri[0].update_attributes(:active => false, :priority => 2)
 
 elsif defender_active_count == 4 && defender_priority1_count == 0 && defender_priority2_count == 1 then
     @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority IS NULL", u.id, "Defender", false)
-    @defnilpri[1].update_attributes(:active => false, :priority => 1)
+    @defnilpri[0].update_attributes(:active => false, :priority => 1)
 
 elsif defender_active_count == 4 && defender_priority1_count == 2 && defender_priority2_count == 0 then
     @defnilpri = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ? AND priority = ?", u.id, "Defender", false, 1).order(updated_at: :desc)
