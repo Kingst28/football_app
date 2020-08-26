@@ -5,6 +5,7 @@ attr_accessor :remember_token, :activation_token, :reset_token
   validate :amount, :amount_check
   validate :player_count
   validate :goalkeeper_count
+  validate :golden_goalkeeper_check
   validate :defender_count
   validate :midfielder_count
   validate :striker_count
@@ -28,6 +29,20 @@ attr_accessor :remember_token, :activation_token, :reset_token
       self.errors.add(:duplicate_player_check, :message => "You have already submitted a bid on this player")
       end
     end
+  end
+
+  def golden_goalkeeper_check
+    bid_position = Player.where(:id => self.player_id).pluck(:position).first
+    if bid_position == "Goalkeeper" then
+    user_id = self.user_id
+    @user_bids = Bid.find_by_sql("SELECT * FROM bids where user_id = #{ user_id }")
+    bid_player_name = Player.where(:id => self.player_id).pluck(:name).first
+    for bid in @user_bids do
+      if bid.player.name = "Alisson Becker" || bid.player.name = "Ederson Santana de Moraes" || bid.player.name = "David De Gea" || bid.player.name = "Dean Henderson"|| bid.player.name = "Rui Patricio"|| bid.player.name = "Kasper Schmeichel" || bid.player.name = "Hugo Lloris" || bid.player.name = "Bernd Leno" || bid.player.name = "Nick Pope" || bid.player.name = "Vicente Guaita" then
+        self.errors.add(:golden_goalkeeper, :message => "You have already bid on 1 Golden Goalkeeper")
+      end
+    end
+  end
   end
 
   def player_count
