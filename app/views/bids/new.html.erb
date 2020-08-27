@@ -189,18 +189,18 @@ $(document).ready(function() {
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
   <div class="container">  
-<h4>Goalkeepers</h4><a href="#modal3"><i class="material-icons">help_outline</i><span class="sr-only"></span></a>
+<h4>Goalkeepers <a href="#modal3"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></h4>
   <div class="col s6" style="background-color:white;">
 		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
 		<div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@goalkeepers,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
-    <div class="input-field">
+    <!--<div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
-  </div>
-  <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
-     <%= f.submit "Submit Bid" %>
+  </div>-->
+  <!--<button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+     <%= f.submit "Submit Bid" %>-->
   </button>
 <% end %>
 </div>
@@ -213,9 +213,9 @@ $(document).ready(function() {
     <%= f.select :player_id, options_from_collection_for_select(@defenders,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
-    <div class="input-field">
+    <!--<div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
-  </div>
+  </div>-->
    <!--<button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
   </button>-->
@@ -230,9 +230,9 @@ $(document).ready(function() {
     <%= f.select :player_id, options_from_collection_for_select(@midfielders,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
-    <div class="input-field">
+   <!-- <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
-  </div>
+  </div>-->
    <!-- <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
   </button>-->
@@ -247,9 +247,9 @@ $(document).ready(function() {
     <%= f.select :player_id, options_from_collection_for_select(@strikers,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
     </div>
-    <div class="input-field">
+    <!--<div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
-  </div>
+  </div>-->
    <!--<button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
   </button>-->
