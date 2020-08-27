@@ -52,6 +52,28 @@ $(document).ready(function() {
     </div>
   </div>
 
+    <div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <center><h4><i class="material-icons medium">help_outline</i></h4></center>
+      <p>Please note you can only bid on one Golden Goalkeeper. The Golden Goalkeeper list is below:</p>
+       <ul>
+        <li>Alisson Becker - Liverpool</li>
+        <li>Ederson - Man City</li>
+        <li>David De Gea - Man United</li>
+        <li>Dean Henderson - Man United</li>
+        <li>Kasper Schmeichel - Leicster City</li>
+        <li>Rui Patricio - Wolves</li>
+        <li>Bernd Leno - Arsenal</li>
+        <li>Hugo Lloris - Tottenham</li>
+        <li>Vincente Guaita - Crsytal Palace</li>
+        <li>Nick Pope - Burnley</li>
+    </ul>
+    </div>
+    <div class="modal-footer green lighten-2">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Close</a>
+    </div>
+  </div>
+
   <!-- Modal Structure -->
   <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -167,7 +189,7 @@ $(document).ready(function() {
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
   <div class="container">  
-<h4>Goalkeepers</h4>  
+<h4>Goalkeepers</h4><a href="#modal3"><i class="material-icons">help_outline</i><span class="sr-only"></span></a>
   <div class="col s6" style="background-color:white;">
 		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
 		<div class="input-field">
@@ -177,8 +199,8 @@ $(document).ready(function() {
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
   </div>
-   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
-     <%= f.submit "Submit Bid" %> 
+  <!--<button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+     <%= f.submit "Submit Bid" %>-->
   </button>
 <% end %>
 </div>
@@ -194,9 +216,9 @@ $(document).ready(function() {
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
   </div>
-   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+   <!--<button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
-  </button>
+  </button>-->
 <% end %>
 </div>
 <br/>
@@ -211,9 +233,9 @@ $(document).ready(function() {
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
   </div>
-   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+   <!-- <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
-  </button>
+  </button>-->
 <% end %>
 </div>
 <br/>
@@ -228,9 +250,9 @@ $(document).ready(function() {
     <div class="input-field">
     <%= f.text_field :amount, :class => "form-control", :placeholder => "£"%>
   </div>
-   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+   <!--<button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
-  </button>
+  </button>-->
 <% end %>
 </div>
 <br/>
