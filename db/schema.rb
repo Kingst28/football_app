@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200726085609) do
+ActiveRecord::Schema.define(version: 20200828191441) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -193,6 +193,7 @@ ActiveRecord::Schema.define(version: 20200726085609) do
     t.integer  "budget",                        default: 1000000
     t.string   "canView",           limit: 255
     t.integer  "account_id"
+    t.string   "teamname"
   end
 
   add_index "users", ["account_id"], name: "index_users_on_account_id"

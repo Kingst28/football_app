@@ -248,8 +248,14 @@ end
     player_id = Bid.find(params[:id]).player_id
     @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
     @playerUpdate = Player.find(player_id).update_column(:taken, "No")
-    bidAmount = Bid.find(params[:id]).amount * 0.1
     @user = current_user
+    account_id = current_user.account_id
+    @account = Account.find(account_id)
+    if @account.read_attribute(:bid_count) > 3 then
+      bidAmount = Bid.find(params[:id]).amount
+    else
+      bidAmount = Bid.find(params[:id]).amount
+    end
     currentBudget = @user.budget
     newBudget = currentBudget + bidAmount
     @user = current_user
