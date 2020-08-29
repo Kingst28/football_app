@@ -15,7 +15,7 @@ attr_accessor :remember_token, :activation_token, :reset_token
     user = User.where(:id => self.user_id)
     if self.amount <= user.pluck(:budget).first then
       return true
-    else 
+    else
       self.errors.add(:amount_check, :message => "You have exceeded your budget")
     end
   end
