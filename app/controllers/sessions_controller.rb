@@ -968,7 +968,6 @@ end
           elsif player_position = 'Midfielder' && midfielder_count == 5 && mid_priority2_count == 1
             @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "false", :priority => 1, :account_id => u.account_id)
           
-         
           elsif player_position = 'Striker' && striker_count < 2
             @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :name => o.player.playerteam, :amount => o.amount, :active => "true", :account_id => u.account_id)
           elsif player_position = 'Striker' && striker_count == 2 && str_priority1_count == 0
