@@ -20,8 +20,8 @@
         <span class="icon-bar"></span>
       </button>
         <a><%= 
-  link_to_if current_user.access == "admin", "Fantasy Football League", '/admin_index', class: "navbar-brand" do
-    link_to "Fantasy Football League", '/index', class: "navbar-brand"
+  link_to_if current_user.access == "admin", "FaST", '/admin_index', class: "navbar-brand" do
+    link_to "FaST", '/index', class: "navbar-brand"
   end
 %></a>
     </div>
@@ -29,9 +29,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/teams">Manage Clubs<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Squads<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/players/1">AFC Bournemouth</a></li>
             <li><a href="/players/2">Arsenal</a></li>
