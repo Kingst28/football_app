@@ -4,7 +4,7 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :require_canView, :only => :new
   before_filter :authorize, :except => :index
-  before_filter :authorize_admin, only: [:insertWinners]
+  #before_filter :authorize_admin, only: [:insertWinners]
   helper_method :current_user, :logged_in?, :canView?
 
   # GET /bids
