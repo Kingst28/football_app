@@ -38,8 +38,8 @@ attr_accessor :remember_token, :activation_token, :reset_token
     @user_bids = Bid.find_by_sql("SELECT * FROM bids where user_id = #{ user_id }")
     bid_player_name = Player.where(:id => self.player_id).pluck(:name).first
     for bid in @user_bids do
-      if bid.player.name == "Alisson Becker" || bid.player.name == "Ederson Santana de Moraes" || bid.player.name == "David De Gea" || bid.player.name == "Dean Henderson" || bid.player.name == "Rui Patricio"|| bid.player.name == "Kasper Schmeichel" || bid.player.name == "Hugo Lloris" || bid.player.name == "Bernd Leno" || bid.player.name == "Nick Pope" || bid.player.name == "Vicente Guaita" then
-        if bid_player_name == "Alisson Becker" || bid_player_name == "Ederson Santana de Moraes" || bid_player_name == "David De Gea" || bid_player_name == "Dean Henderson" || bid_player_name == "Rui Patricio" || bid_player_name == "Kasper Schmeichel" || bid_player_name == "Hugo Lloris" || bid_player_name == "Bernd Leno" || bid_player_name == "Nick Pope" || bid_player_name == "Vicente Guaita" then
+      if bid.player.name == "Alisson Becker" || bid.player.name == "Ederson Santana de Moraes" || bid.player.name == "David de Gea" || bid.player.name == "Dean Henderson" || bid.player.name == "Rui Patricio" || bid.player.name == "Kasper Schmeichel" || bid.player.name == "Hugo Lloris" || bid.player.name == "Bernd Leno" || bid.player.name == "Nick Pope" || bid.player.name == "Vicente Guaita" then
+        if bid_player_name == "Alisson Becker" || bid_player_name == "Ederson Santana de Moraes" || bid_player_name == "David de Gea" || bid_player_name == "Dean Henderson" || bid_player_name == "Rui Patricio" || bid_player_name == "Kasper Schmeichel" || bid_player_name == "Hugo Lloris" || bid_player_name == "Bernd Leno" || bid_player_name == "Nick Pope" || bid_player_name == "Vicente Guaita" then
         self.errors.add(:golden_goalkeeper, :message => "You have already bid on 1 Golden Goalkeeper")
         end
       else
