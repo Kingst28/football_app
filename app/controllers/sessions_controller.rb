@@ -986,17 +986,17 @@ end
           @teamsheet_new.save
           @notify_users = User.all 
       
-      for nu in @notify_users do
-        if nu.id == u.id 
-        else
-          @notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
-          @notification_new.save
-      end
-      end
-          @notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
-          @notification_new.save
-      end
-      end
+      #for nu in @notify_users do
+        #if nu.id == u.id 
+        #else
+          #@notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
+          #@notification_new.save
+      #end
+      #end
+          #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
+          #@notification_new.save
+      #end
+      #end
     end
     flash[:success] = "Successful bids inserted"
   end
