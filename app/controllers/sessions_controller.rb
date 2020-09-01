@@ -917,7 +917,7 @@ end
        end
        end
     end
-  end
+   end
     for o in @outrightWinners do
       if Teamsheet.exists?(:player_id => o.player_id)
           Player.find(o.player_id).update_column(:taken,"Yes")
@@ -986,17 +986,17 @@ end
           @teamsheet_new.save
           @notify_users = User.all 
       
-      #for nu in @notify_users do
-        #if nu.id == u.id 
-        #else
+      for nu in @notify_users do
+        if nu.id == u.id 
+        else
           #@notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
           #@notification_new.save
-      #end
-      #end
+      end
+      end
           #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
           #@notification_new.save
-      #end
-      #end
+      end
+      end
     end
     flash[:success] = "Successful bids inserted"
   end
