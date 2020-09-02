@@ -22,8 +22,7 @@ class SessionsController < ApplicationController
             timer_end = timer_start + 172800
             date_end = timer_end.strftime("%b %d, %Y %T") # => "Feb 10, 2020 12:29:56"
             Timer.create(:date => date_end, :account_id => @user.account_id)
-            insertWinners()
-            redirect_to '/index' and return
+            redirect_to 'bids/insertWinners' and return
             elsif timer_date < Time.now() && current_bid_count = 3 then
               Timer.destroy(timer_id)
               Account.find(@user.account_id).update(:bid_count => current_bid_count + 1)
