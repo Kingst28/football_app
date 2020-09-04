@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
   
   def create
-  @user = User.find_by_email(params[:session][:email])
-  if @user && @user.authenticate(params[:session][:password])
+   @user = User.find_by_email(params[:session][:email])
+   if @user && @user.authenticate(params[:session][:password])
     if @user.activated?
       session[:user_id] = @user.id
       if Timer.where(:account_id => @user.account_id).exists? 
@@ -72,9 +72,9 @@ class SessionsController < ApplicationController
             redirect_to '/login' and return
           end 
           end 
-  else
-    flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
-    render 'new'
+    else
+     flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+     render 'new'
     end
   end
 
@@ -116,8 +116,8 @@ class SessionsController < ApplicationController
       current_bid_count = Account.find(current_user.account_id).bid_count
       Account.find(current_user.account_id).update(:bid_count => current_bid_count + 1)
     end
- end
- end
+  end
+  end
 
  def insertGoalkeepers (user_id, goalkeepers, user_account_id)
   if goalkeepers == 0 then
@@ -144,7 +144,7 @@ class SessionsController < ApplicationController
     player_2 = Player.find(random_player_id_2)
     player_2.update(taken: 'Yes')
   
-  elsif goalkeepers == 1 then
+   elsif goalkeepers == 1 then
     @account_players = Player.where(:position => 'Goalkeeper').where(:taken => 'No').where(:account_id => user_account_id)
     random_player_id_1 = @account_players.sample.id
     
@@ -662,7 +662,7 @@ class SessionsController < ApplicationController
     player_1 = Player.find(random_player_id_1)
     player_1.update(taken: 'Yes')
   end
-  end
+ end
 
  def insertStrikers (user_id, strikers, user_account_id)
   if strikers == 0 then
@@ -795,25 +795,28 @@ class SessionsController < ApplicationController
   for u in @users do
   users << u.id
   end
+  
   @teams = RoundRobinTournament.schedule(users)
   @teams.each_with_index do |day, index|
   @day_teams = day.map { |team| "(#{team.first},#{team.last})" }
   @day_teams_reverse = day.map { |team| "(#{team.last},#{team.first})" }
+  
   for t in @day_teams do
-  hteam = t.split(',').first
-  hteam.delete! '()'
-  ateam = t.split(',').last
-  ateam.delete! '()'
-  @fixture = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam, :ateam => ateam, :haflag => "Home", :account_id => u.account_id)
-  @fixture.save
+   hteam = t.split(',').first
+   hteam.delete! '()'
+   ateam = t.split(',').last
+   ateam.delete! '()'
+   @fixture = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam, :ateam => ateam, :haflag => "Home", :account_id => u.account_id)
+   @fixture.save
   end
+  
   for t1 in @day_teams_reverse do
-  hteam1 = t1.split(',').first
-  hteam1.delete! '()'
-  ateam1 = t1.split(',').last
-  ateam1.delete! '()'
-  @fixture1 = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam1, :ateam => ateam1, :haflag => "Away", :account_id => u.account_id)
-  @fixture1.save
+   hteam1 = t1.split(',').first
+   hteam1.delete! '()'
+   ateam1 = t1.split(',').last
+   ateam1.delete! '()'
+   @fixture1 = Fixture.new(:matchday => "#{index}".to_i, :hteam => hteam1, :ateam => ateam1, :haflag => "Away", :account_id => u.account_id)
+   @fixture1.save
   end
   end
 
@@ -831,10 +834,10 @@ class SessionsController < ApplicationController
       @new_fixture.update_attribute(:matchday, matchday_count + 1)
       @new_fixture.save
     end
-    prem_matchdays_new = prem_matchdays + 1
-    prem_matchdays = prem_matchdays_new * 2
-    matchday_count = matchday_count + 1
-    index =  index + 1
+     prem_matchdays_new = prem_matchdays + 1
+     prem_matchdays = prem_matchdays_new * 2
+     matchday_count = matchday_count + 1
+     index =  index + 1
   end
 
   for u in @users do
@@ -853,15 +856,14 @@ class SessionsController < ApplicationController
 
  def update
    @user = User.find(params[:id])
-   
    if @user.update_attributes(user_param)
-      redirect_to '/index'
+    redirect_to '/index'
    end
- end
+  end
 
   def destroy 
-  session[:user_id] = nil 
-  redirect_to '/uffl' 
+   session[:user_id] = nil 
+   redirect_to '/uffl' 
   end
 
   def checkBids 
@@ -874,30 +876,30 @@ class SessionsController < ApplicationController
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @users = User.where(:account_id => current_user.account_id)
     for u in @users do
-    @outrightWinners = Bid.where(:user_id => u.id)
-    @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
-    @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
-    @final_duplicates = []
-    for element in @highest_amount do
+     @outrightWinners = Bid.where(:user_id => u.id)
+     @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
+     @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
+     @final_duplicates = []
+     for element in @highest_amount do
       @final_duplicates << @duplicates1.select { |record| record.amount == element.read_attribute(:amount) }
-    end
-    for d in @final_duplicates do
+     end
+     for d in @final_duplicates do
       if Teamsheet.exists?(:player_id => d[0].player_id)
        Player.find(d[0].player_id).update_column(:taken,"Yes")
-      else
-       @destroyOtherBids = Bid.where(:player_id => d[0].player_id).where.not(:user_id => d[0].user_id)
-       refunded = false
-       @destroyOtherBids.each do |b| 
-       bidAmount = b.read_attribute(:amount) 
-       if b.read_attribute(:amount).to_i == d[0].amount.to_i && refunded == false then
+       else
+        @destroyOtherBids = Bid.where(:player_id => d[0].player_id).where.not(:user_id => d[0].user_id)
+        refunded = false
+        @destroyOtherBids.each do |b| 
+        bidAmount = b.read_attribute(:amount) 
+        if b.read_attribute(:amount).to_i == d[0].amount.to_i && refunded == false then
           @user = User.find(d[0].user_id)
           currentBudget = @user.budget.to_i
           newBudget = currentBudget + d[0].amount.to_i
-       if newBudget > 1000000 then
+        if newBudget > 1000000 then
           @user.update_attribute(:budget, 1000000)
-       else
+         else
           @user.update_attribute(:budget, newBudget)
-       end
+        end
        @user1 = User.find(b.read_attribute(:user_id))
        currentBudget1 = @user1.budget.to_i
        newBudget1 = currentBudget1 + b.read_attribute(:amount).to_i
@@ -949,22 +951,10 @@ class SessionsController < ApplicationController
           @teamsheet_new.validate = true
           @teamsheet_new.save
           @notify_users = User.all 
-      
-       for nu in @notify_users do
-        if nu.id == u.id 
-        else
-          #@notification_new = Notification.new(:user_id => nu.id, :message => "#{u.first_name} has successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
-          #@notification_new.save
-       end
-       end
-          #@notification_new = Notification.new(:user_id => u.id, :message => "You have successfully won #{Player.find(o.player_id).name} for £#{o.amount}", :show => "yes", :status => "success", :fname => u.first_name, :account_id => u.account_id)
-          #@notification_new.save
-      end
-      end
-    end
-    end
-   end
     flash[:success] = "Successful bids inserted"
+  end
+  end
+  end
   end
 
  def squad_validity_check 
