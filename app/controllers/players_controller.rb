@@ -22,7 +22,7 @@ class PlayersController < ApplicationController
    end
 
    def player_params
-      params.require(:player).permit(:name, :teams_id, :position)
+      params.require(:player).permit(:name, :teams_id, :position, :playerteam, :account_id)
    end
 
    def create
