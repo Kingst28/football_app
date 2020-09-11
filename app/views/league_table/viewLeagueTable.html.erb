@@ -203,7 +203,7 @@ tr:nth-child(even) {
   <% @table.each_with_index do |t, index| %>
   <tr class="item">
     <td><p><%= index + 1%></p></td>
-    <td><a><%= link_to(t.team + " " + User.where(:first_name => t.team).pluck(:last_name).to_s.tr('""','').tr('[]','').first, "/teamsheet/#{User.where(:first_name => t.team).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></td>
+    <td><a><%= link_to(t.team + " " + User.where(:teamname => t.team).to_s.tr('""','').tr('[]','').tr('#',' ').first, "/teamsheet/ #{User.where(:teamname => t.team).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></td>
     <td><p><%= t.played %></p></td>
     <td><p><%= t.won %></p></td>
     <td><p><%= t.drawn %></p></td>

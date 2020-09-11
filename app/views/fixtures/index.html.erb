@@ -206,13 +206,13 @@ p {
     <li class="collection-item avatar">
       <i class="material-icons circle green tooltipped" data-tooltip="">home</i>
       <span class="title">Home</span>
-      <p class="card-text"><a><%= link_to(User.find(f.hteam).first_name + " " + User.find(f.hteam).last_name, "/teamsheet/#{User.where(:first_name => User.find(f.hteam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).first_name + " " + User.find(f.ateam).last_name, "/teamsheet/#{User.where(:first_name => User.find(f.ateam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></p>
+      <p class="card-text"><a><%= link_to(User.find(f.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(f.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(f.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></p>
     </li>
     <% else %>
     <li class="collection-item avatar">
       <i class="material-icons circle tooltipped" data-tooltip="">explore</i>
       <span class="title">Away</span>
-      <p class="card-text"><a><%= link_to(User.find(f.hteam).first_name + " " + User.find(f.hteam).last_name, "/teamsheet/#{User.where(:first_name => User.find(f.hteam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a> <% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%>  <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).first_name + " " + User.find(f.ateam).last_name, "/teamsheet/#{User.where(:first_name => User.find(f.ateam).first_name).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></p>
+      <p class="card-text"><a><%= link_to(User.find(f.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(f.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a> <% if f.finalscore != "" %> <%=f.finalscore.insert(1,"-")%>  <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(f.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(f.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a></p>
     </li>
     <% end %>
     <% end %>

@@ -4,7 +4,7 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :require_canView, :only => :new
   before_filter :authorize, :except => :index
-  #before_filter :authorize_admin, only: [:insertWinners]
+  before_filter :authorize_admin, only: [:insertWinners]
   helper_method :current_user, :logged_in?, :canView?
 
   # GET /bids
@@ -259,11 +259,11 @@ end
       for nu in @notify_users do
         if nu.id == current_user.id 
         else
-        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).position} - #{Player.find(bid_params[:player_id]).playerteam}", :show => notificationStatus(), :status => "bid", :fname => User.find(current_user.id).first_name)
+        @notification_new = Notification.new(:user_id => nu.id, :message => "#{User.find(current_user.id).teamname} has bid on #{Player.find(bid_params[:player_id]).position} - #{Player.find(bid_params[:player_id]).playerteam}", :show => notificationStatus(), :status => "bid", :fname => User.find(current_user.id).first_name)
         @notification_new.save
       end
       end
-        @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).first_name} has bid on #{Player.find(bid_params[:player_id]).position} - #{Player.find(bid_params[:player_id]).playerteam}", :show => notificationStatus(), :status => "bid", :fname => User.find(current_user.id).first_name)
+        @notification_new = Notification.new(:user_id => current_user.id, :message => "#{User.find(current_user.id).teamname} has bid on #{Player.find(bid_params[:player_id]).position} - #{Player.find(bid_params[:player_id]).playerteam}", :show => notificationStatus(), :status => "bid", :fname => User.find(current_user.id).first_name)
         @notification_new.save
     respond_to do |format|
       if @bid.save 
