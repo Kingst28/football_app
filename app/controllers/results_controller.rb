@@ -463,9 +463,9 @@ end
     
     for r in @results do
       hteam = User.find(r.read_attribute(:hteam))
-      first_nameh = hteam.first_name
+      first_nameh = hteam.teamname
       ateam = User.find(r.read_attribute(:ateam))
-      first_namea = ateam.first_name
+      first_namea = ateam.teamname
       finalscore = r.finalscore.to_s
       homescore = finalscore[0].to_i
       awayscore = finalscore[1].to_i
