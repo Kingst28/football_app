@@ -841,7 +841,7 @@ class SessionsController < ApplicationController
   end
 
   for u in @users do
-    @table_team = LeagueTable.new(:team => u.first_name, :account_id => u.account_id)
+    @table_team = LeagueTable.new(:team => u.teamname, :account_id => u.account_id)
     @table_team.save
   end
  end
