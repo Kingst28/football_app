@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
           
           if current_user.account_id != nil 
           if Account.find(@user.account_id).new_results_ready == true
-            squad_validity_check()
+            #squad_validity_check()
             Account.find(@user.account_id).update(:new_results_ready => false)
             redirect_to '/results/fixture_results' and return
           else
