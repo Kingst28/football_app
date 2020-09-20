@@ -351,9 +351,6 @@ var x = setInterval(function() {
       -
       Total Scored:<%= Teamsheet.where(:user_id => current_user.id).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
       <br/>
-      <% if @matchday_fixture.any?%>
-      <%= link_to(User.find(@matchday_fixture.first.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@matchday_fixture.first.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if @matchday_fixture.first.finalscore != "" %> <%=@matchday_fixture.first.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(@matchday_fixture.first.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@matchday_fixture.first.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %>
-      <% end %>
 </div>
 <span class="badge red" style="color:white;">On the Bench</span>
 <span class="badge green" style="color:white;">Starting 11</span>
