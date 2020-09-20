@@ -225,7 +225,7 @@ var x = setInterval(function() {
             </div>
             <div class="card-action white">
              <!--<%= link_to "Edit Bid", edit_bids_path(p.id) %>-->
-              <%= link_to "Delete", delete_bids_path(p.id), data: {confirm: 'Are you sure you want to delete this bid?'} %></div>
+              <% if canView? %><%= link_to "Delete", delete_bids_path(p.id), data: {confirm: 'Are you sure you want to delete this bid?'} %></div><% end %>
             </div>
           </div>
         </div>
