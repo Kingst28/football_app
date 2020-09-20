@@ -225,7 +225,8 @@ var x = setInterval(function() {
             </div>
             <div class="card-action white">
              <!--<%= link_to "Edit Bid", edit_bids_path(p.id) %>-->
-              <% if canView? %><%= link_to "Delete", delete_bids_path(p.id), data: {confirm: 'Are you sure you want to delete this bid?'} %></div><% end %>
+             <a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>
+              <% if canView? %><%= link_to "Delete", delete_bids_path(p.id), data: {confirm: 'Are you sure you want to delete this bid?'} %><% end %></div>
             </div>
           </div>
         </div>
