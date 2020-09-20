@@ -339,6 +339,14 @@ var x = setInterval(function() {
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
 <h5 style="text-align:center;"> <%= User.where(:id => @teamsheet[0].read_attribute(:user_id)).pluck(:teamname).to_s.tr('""','').tr('[]','') %></h5>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
+<div style= "text-align:center">
+  Matchday <%= Matchday.where(:account_id => User.find(params[:user_id]).account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i + 1 %> Results
+  <br/>
+      Total Conceded:<%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
+      -
+      Total Scored:<%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
+      <br/>
+</div>
 <h5 style="text-align:center;"> Averages </h5>
 <h6 style="text-align:center;"> Win percentage: <%= number_to_percentage(@win_average * 100, precision: 0) %></h6>
 <h6 style="text-align:center;"> Points per game: <%= @points_average %></h6>
