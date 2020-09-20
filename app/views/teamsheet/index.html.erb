@@ -347,9 +347,9 @@ var x = setInterval(function() {
 <div style= "text-align:center">
   Matchday <%= Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i + 1 %> Results
   <br/>
-      Total Conceded:<%= Teamsheet.where(:user_id => current_user.id).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
+      Total Conceded:<%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       -
-      Total Scored:<%= Teamsheet.where(:user_id => current_user.id).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
+      Total Scored:<%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
       <br/>
 </div>
 <span class="badge red" style="color:white;">On the Bench</span>
