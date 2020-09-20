@@ -8,6 +8,11 @@ class TeamsheetController < ApplicationController
     playerList = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => current_user.id)
     @playerList = playerList
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+    
+    @current_matchday = Matchday.where(:account_id => current_user.account_id)
+    @fixture = Fixture.where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag).where(:account_id => @current_matchday.first.account_id)
+    matchday_fixture = @fixture.where('hteam=? OR ateam=?', current_user.id, current_user.id)
+
     @goalkeeper = []
     @defender = []
     @midfielder = []

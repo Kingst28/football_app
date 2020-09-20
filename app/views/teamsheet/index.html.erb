@@ -358,11 +358,18 @@ var x = setInterval(function() {
       Priority <%= Teamsheet.where(:player_id => p.player_id).pluck(:priority).to_s.tr('""','').tr('[]','') %> <% end %><%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> 
       <br/>
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
+      <br/>
+      <br/>
+      Matchday <%=Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','')%> Results
+      <br/>
+      Conceded:<%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
+      -
+      Scored:<%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
       </p>
             </div>
             <div class="card-action" style="text-align:center;">
-              <% if canView? %>
               <a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>
+              <% if canView? %>
               <%= link_to "Choose player", edit_teamsheet_path(p.id) %>
               <% end %>
             </div>
