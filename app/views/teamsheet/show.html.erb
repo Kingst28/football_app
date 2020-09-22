@@ -340,11 +340,11 @@ var x = setInterval(function() {
 <h5 style="text-align:center;"> <%= User.where(:id => @teamsheet[0].read_attribute(:user_id)).pluck(:teamname).to_s.tr('""','').tr('[]','') %></h5>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <div style= "text-align:center">
-  Matchday <%= Matchday.where(:account_id => User.find(params[:user_id]).account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i + 1 %> Results
+  Latest Results
   <br/>
-      Total Conceded:<%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
-      -
       Total Scored:<%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
+      -
+      Total Conceded:<%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       <br/>
 </div>
 <h5 style="text-align:center;"> Averages </h5>
@@ -368,11 +368,9 @@ var x = setInterval(function() {
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
       <br/>
       <br/>
-      Matchday <%=Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i + 1 %> Results
-      <br/>
-      Conceded:<%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
+      Scored: <%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
       -
-      Scored:<%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
+      Conceded: <%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
       </p>
             </div>
             <div class="card-action" style="text-align:center;">
