@@ -78,8 +78,8 @@ end
           @user = User.find(d[0].user_id)
           currentBudget = @user.budget.to_i
           newBudget = currentBudget + d[0].amount.to_i
-       if newBudget > 1000000 then
-          @user.update_attribute(:budget, 1000000)
+       if newBudget > 1200000 then
+          @user.update_attribute(:budget, 1200000)
        else
           @user.update_attribute(:budget, newBudget)
        end
@@ -216,7 +216,7 @@ end
       total += bid
     end
     @user = current_user
-    bidamount = 1000000
+    bidamount = 1200000
     newbudget = bidamount - total
     total = 0
     if newbudget < 0
@@ -234,7 +234,7 @@ end
       total += bid
     end
     @user = current_user
-    bidamount = 1000000
+    bidamount = 1200000
     newbudget = bidamount - total
     total = 0
     if newbudget < 0
