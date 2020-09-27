@@ -59,7 +59,7 @@ class SessionsController < ApplicationController
                 timer_id = timer_id_array[0]
                 timer_date_array = @timer.pluck(:date)
                 timer_date = timer_date_array[0]
-                if @account_bids.joins(:player).where("players.taken = ?", "No").exists?
+                if @account_bids.joins(:player).where("players.taken = ?", "No").exists? && timer_date.exists?
                   if timer_date.past? then
                     insertWinners()
                     redirect_to '/index' and return
