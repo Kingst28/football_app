@@ -346,7 +346,7 @@ var x = setInterval(function() {
 <br />
 <div style= "text-align:center">
   Latest Results
-  <br/>
+  <br/> 
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
       -
       Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
@@ -368,6 +368,8 @@ var x = setInterval(function() {
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
       <br/>
       <br/>
+      Played: <%= Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]','')%>
+      -
       Scored: <%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
       -
       Conceded: <%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
