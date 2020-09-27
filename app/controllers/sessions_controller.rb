@@ -63,8 +63,9 @@ class SessionsController < ApplicationController
                   if timer_date.past? then
                     insertWinners()
                     redirect_to '/index' and return
-                    end
+                  else
                     redirect_to '/index' and return
+                  end
             end
           end
           end
