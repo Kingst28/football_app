@@ -373,6 +373,8 @@ var x = setInterval(function() {
       Scored: <%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
       -
       Conceded: <%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
+      <br/>
+      <i>Last Update: <%= Teamsheet.where(:player_id => p.player_id).pluck(:updated_at).to_s.tr('""','').tr('[]','')%></i>
       </p>
             </div>
             <div class="card-action" style="text-align:center;">
