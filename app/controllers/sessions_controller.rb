@@ -59,7 +59,7 @@ class SessionsController < ApplicationController
                 timer_id = timer_id_array[0]
                 timer_date_array = @timer.pluck(:date)
                 timer_date1 = timer_date_array[0]
-                if timer_date1.exists? then
+                if timer_date1 != nil then
                   timer_date = timer_date1.to_datetime
                 end
                 if @account_bids.joins(:player).where("players.taken = ?", "No").exists? && timer_date != nil
