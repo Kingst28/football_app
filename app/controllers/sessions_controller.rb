@@ -59,7 +59,9 @@ class SessionsController < ApplicationController
                 timer_id = timer_id_array[0]
                 timer_date_array = @timer.pluck(:date)
                 timer_date1 = timer_date_array[0]
-                timer_date = timer_date1.to_datetime
+                if timer_date1.exists? then
+                  timer_date = timer_date1.to_datetime
+                end
                 if @account_bids.joins(:player).where("players.taken = ?", "No").exists? && timer_date != nil
                   if timer_date.past? then
                     insertWinners()
