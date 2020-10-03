@@ -27,7 +27,10 @@ class PlayersController < ApplicationController
 
    def create
       @player = Player.new(player_params)
-
+      if !ResultsMaster.where(:name => player_params[:playerteam]).exists? then
+         @results_master = ResultsMaster.new(:played => false, :scored => false, :conceded => false, :concedednum => 0, :scorenum => 0, :name => player_params[:playerteam], :league => 'Premier League')
+         @results_master.save
+      end
       if @player.save
           redirect_to action: "show", teams_id: @player.teams_id
       end
