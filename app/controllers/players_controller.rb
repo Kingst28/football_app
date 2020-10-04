@@ -26,7 +26,11 @@ class PlayersController < ApplicationController
    end
 
    def create
-      @player = Player.new(player_params)
+      @account_ids = Account.distinct.pluck(:id)
+      for account in @account_ids do
+         @player = Player.new(player_params)
+         @player.update(:account_id => account)
+      end
       if !ResultsMaster.where(:name => player_params[:playerteam]).exists? then
          @results_master = ResultsMaster.new(:played => false, :scored => false, :conceded => false, :concedednum => 0, :scorenum => 0, :name => player_params[:playerteam], :league => 'Premier League')
          @results_master.save
