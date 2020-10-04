@@ -19,6 +19,7 @@ class PlayersController < ApplicationController
 
  def new
       @player = Player.new
+      @notifications_all = Notification.all
    end
 
    def player_params
@@ -27,9 +28,13 @@ class PlayersController < ApplicationController
 
    def create
       @account_ids = Account.distinct.pluck(:id)
+      index = 0
       for account in @account_ids do
          @player = Player.new(player_params)
-         @player.update(:account_id => account)
+         team_name = Team.where(:id => player_params[:teams_id]).pluck(:name)
+         club_ids = Team.where(:name => team_name[0]).pluck(:id)
+         @player.update(:account_id => account, :teams_id => club_ids[index])
+         index = index + 1
       end
       if !ResultsMaster.where(:name => player_params[:playerteam]).exists? then
          @results_master = ResultsMaster.new(:played => false, :scored => false, :conceded => false, :concedednum => 0, :scorenum => 0, :name => player_params[:playerteam], :league => 'Premier League')
