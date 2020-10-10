@@ -63,6 +63,11 @@ class PlayersController < ApplicationController
 
    def delete
       @player = Player.find(params[:id]).destroy
+      @all_players = Player.where(name: params[:name])
+      player_ids = @all_players.map(&:id)
+      @playersDelete = Player.where(name: params[:name]).destroy_all
+      @bidDelete = Bid.where(player_id: player_ids).destroy_all
+      @teamsheetDelete = Teamsheet.where(name: params[:playerteam]).destroy_all
       redirect_to action: "show", teams_id: @player.teams_id
    end
 end

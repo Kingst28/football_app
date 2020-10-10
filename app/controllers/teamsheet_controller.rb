@@ -100,6 +100,6 @@ class TeamsheetController < ApplicationController
   end
 
    def delete 
-   	  @teamsheetDelete = Teamsheet.find(params[:id]).destroy
+       @teamsheetDelete = Teamsheet.find(params[:id]).destroy
    end
 end
