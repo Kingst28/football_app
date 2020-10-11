@@ -63,6 +63,7 @@ class PlayersController < ApplicationController
 
    def delete
       name = Player.find(params[:id]).name
+      playerteam = Player.find(params[:id]).playerteam
       teams_id = Player.find(params[:id]).teams_id
       @all_players = Player.where(name: name)
       for player in @all_players do
@@ -77,6 +78,8 @@ class PlayersController < ApplicationController
             @bidDelete = Bid.where(player_id: player.id).destroy_all
             @teamsheetDelete = Teamsheet.where(player_id: player.id).destroy_all
          end
+         @results_masterDelete = ResultsMaster.where(name: playerteam).destroy_all
+         @playerstatsDelete = PlayerStats.where(playerteam: playerteam).destroy_all
          @player = Player.find(player.id).destroy
       end
       redirect_to action: "show", teams_id: teams_id
