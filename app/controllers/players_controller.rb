@@ -79,7 +79,7 @@ class PlayersController < ApplicationController
             @teamsheetDelete = Teamsheet.where(player_id: player.id).destroy_all
          end
          @results_masterDelete = ResultsMaster.where(name: playerteam).destroy_all
-         @playerstatsDelete = PlayerStat.where(playerteam: playerteam).destroy_all
+         @playerstatsDelete = Playerstat.where(playerteam: playerteam).destroy_all
          @player = Player.find(player.id).destroy
       end
       redirect_to action: "show", teams_id: teams_id
