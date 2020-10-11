@@ -67,8 +67,16 @@ class PlayersController < ApplicationController
       @all_players = Player.where(name: name)
       for player in @all_players do
          id = player.id
-         @bidDelete = Bid.where(player_id: player.id).destroy_all
-         @teamsheetDelete = Teamsheet.where(player_id: player.id).destroy_all
+         @bid = Bid.where(player_id: player.id)
+         if @bid.exists? then
+            bidAmount = Bid.where(player_id: player.id).pluck(:amount)[0]
+            currentBudget = User.find(Bid.where(player_id: player.id).pluck(:user_id)[0]).budget
+            newBudget = currentBudget + bidAmount
+            @user = User.find(Bid.where(player_id: player.id).pluck(:user_id)[0])
+            @user.update_attribute(:budget, newBudget)
+            @bidDelete = Bid.where(player_id: player.id).destroy_all
+            @teamsheetDelete = Teamsheet.where(player_id: player.id).destroy_all
+         end
          @player = Player.find(player.id).destroy
       end
       redirect_to action: "show", teams_id: teams_id
