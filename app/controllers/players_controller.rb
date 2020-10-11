@@ -66,9 +66,9 @@ class PlayersController < ApplicationController
       teams_id = Player.find(params[:id]).teams_id
       @all_players = Player.where(name: name)
       for player in @all_players do
-         id = player.read_attribute(:player_id)
-         @bidDelete = Bid.where(player_id: player.read_attribute(:player_id)).destroy_all
-         @teamsheetDelete = Teamsheet.where(player_id: player.read_attribute(:player_id)).destroy_all
+         id = player.id
+         @bidDelete = Bid.where(player_id: player.id).destroy_all
+         @teamsheetDelete = Teamsheet.where(player_id: player.id).destroy_all
          @player = Player.find(player.id).destroy
       end
       redirect_to action: "show", teams_id: teams_id
