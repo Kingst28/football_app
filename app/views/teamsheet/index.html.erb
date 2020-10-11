@@ -347,6 +347,8 @@ var x = setInterval(function() {
 <div style= "text-align:center">
   Latest Results
   <br/> 
+      Total Played: <%= Teamsheet.where(:user_id => current_user.id).joins(:player).where("position = 'Goalkeeper' OR 'Defender'").where(:played => true).count %> 
+      -
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
       -
       Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
