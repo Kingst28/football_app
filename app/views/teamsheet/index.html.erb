@@ -353,7 +353,7 @@ var x = setInterval(function() {
       -
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
       <br />
-      <!--Final Score: <%= @final_score[0] %>-->
+      <!--Final Score: <%= #@final_score[0] %>-->
       <br/>
 </div>
 <span class="badge red" style="color:white;">On the Bench</span>
