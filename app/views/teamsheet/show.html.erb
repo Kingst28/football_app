@@ -348,8 +348,6 @@ var x = setInterval(function() {
       -
       Total Conceded:<%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       <br />
-      <!--Final Score: <%= #@final_score %>-->
-      <br/>
 </div>
 <h5 style="text-align:center;"> Averages </h5>
 <h6 style="text-align:center;"> Win percentage: <%= number_to_percentage(@win_average * 100, precision: 0) %></h6>
