@@ -13,8 +13,8 @@ class TeamsheetController < ApplicationController
     @fixture = Fixture.where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag).where(:account_id => @current_matchday.first.account_id)
 
     gk_def_played = Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
-    total_scored = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
-    total_conceded = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
+    total_scored = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
+    total_conceded = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
 
     def_score = gk_def_played / 5
     con_score = def_score + total_conceded
@@ -63,6 +63,14 @@ class TeamsheetController < ApplicationController
     @points_average = user_points.to_d / user_matches.to_d
     @goals_average = user_goals_scored.to_d / user_matches.to_d  
     @conceded_average = user_goals_conceded.to_d / user_matches.to_d  
+
+    gk_def_played = Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
+    total_scored = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
+    total_conceded = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
+
+    def_score = gk_def_played / 5
+    con_score = def_score + total_conceded
+    @final_score = con_score + total_scored
    end
 
    def stats
