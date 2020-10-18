@@ -12,14 +12,15 @@ class TeamsheetController < ApplicationController
     @current_matchday = Matchday.where(:account_id => current_user.account_id)
     @fixture = Fixture.where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag).where(:account_id => @current_matchday.first.account_id)
 
-    gk_def_played = Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
-    total_scored = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
-    total_conceded = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
+    defenderCount = Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
+    total_scorenum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
+    total_connum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
 
-    def_score = 5 - gk_def_played
-    con_score = total_conceded / 5
-    con_score_final = con_score - total_conceded
-    @final_score = con_score_final + total_scored
+    con_score1 = 5 - defenderCount
+    con_score2 = total_connum / defenderCount
+    final_con_score = con_score1 + con_score2
+    con_score = final_con_score * -1
+    @final_score = total_scorenum + con_score
     
     @goalkeeper = []
     @defender = []
@@ -65,14 +66,15 @@ class TeamsheetController < ApplicationController
     @goals_average = user_goals_scored.to_d / user_matches.to_d  
     @conceded_average = user_goals_conceded.to_d / user_matches.to_d  
 
-    gk_def_played = Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
-    total_scored = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
-    total_conceded = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
+    defenderCount = Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
+    total_scorenum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
+    total_connum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
 
-    def_score = 5 - gk_def_played
-    con_score = total_conceded / 5
-    con_score_final = con_score - total_conceded
-    @final_score = con_score_final + total_scored
+    con_score1 = 5 - defenderCount
+    con_score2 = total_connum / defenderCount
+    final_con_score = con_score1 + con_score2
+    con_score = final_con_score * -1
+    @final_score = total_scorenum + con_score
    end
 
    def stats
