@@ -16,9 +16,10 @@ class TeamsheetController < ApplicationController
     total_scored = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
     total_conceded = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
 
-    def_score = gk_def_played / 5
-    con_score = def_score + total_conceded
-    @final_score = con_score + total_scored
+    def_score = 5 - gk_def_played
+    con_score = total_conceded / 5
+    con_score_final = con_score - total_conceded
+    @final_score = con_score_final + total_scored
     
     @goalkeeper = []
     @defender = []
@@ -68,9 +69,10 @@ class TeamsheetController < ApplicationController
     total_scored = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
     total_conceded = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
 
-    def_score = gk_def_played / 5
-    con_score = def_score + total_conceded
-    @final_score = con_score + total_scored
+    def_score = 5 - gk_def_played
+    con_score = total_conceded / 5
+    con_score_final = con_score - total_conceded
+    @final_score = con_score_final + total_scored
    end
 
    def stats
