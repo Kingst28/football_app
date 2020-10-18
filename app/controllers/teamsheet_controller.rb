@@ -11,6 +11,14 @@ class TeamsheetController < ApplicationController
     
     @current_matchday = Matchday.where(:account_id => current_user.account_id)
     @fixture = Fixture.where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag).where(:account_id => @current_matchday.first.account_id)
+
+    gk_def_played = Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
+    total_scored = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
+    total_conceded = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
+
+    def_score = gk_def_played / 5
+    con_score = def_score + total_conceded
+    @final_score = con_score + total_scored
     
     @goalkeeper = []
     @defender = []
