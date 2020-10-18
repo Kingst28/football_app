@@ -21,10 +21,6 @@ class TeamsheetController < ApplicationController
     final_con_score = con_score1 + con_score2
     con_score = final_con_score * -1
     @final_score = total_scorenum + con_score
-
-    rescue ZeroDivisionError => e
-      Logging.log(e)
-    end
     
     @goalkeeper = []
     @defender = []
@@ -79,9 +75,7 @@ class TeamsheetController < ApplicationController
     final_con_score = con_score1 + con_score2
     con_score = final_con_score * -1
     @final_score = total_scorenum + con_score
-    rescue ZeroDivisionError => e
-      Logging.log(e)
-    end
+  
    end
 
    def stats

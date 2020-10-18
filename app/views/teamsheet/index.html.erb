@@ -352,7 +352,6 @@ var x = setInterval(function() {
       Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       -
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
-      <br />
 </div>
 <span class="badge red" style="color:white;">On the Bench</span>
 <span class="badge green" style="color:white;">Starting 11</span>
