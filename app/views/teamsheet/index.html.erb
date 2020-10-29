@@ -345,6 +345,9 @@ var x = setInterval(function() {
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <br />
 <div style= "text-align:center">
+<div class="card green lighten-5">
+<div class="card-content black-text">
+<span class="card-title" style="text-align:center; color:black;">
   Latest Results
   <br/> 
       GK/Def Played: <%= Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %> 
@@ -352,6 +355,11 @@ var x = setInterval(function() {
       Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       -
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
+  <br/> 
+      Current Score: <%= @final_score %>
+</div>
+</div>
+</span>
 </div>
 <span class="badge red" style="color:white;">On the Bench</span>
 <span class="badge green" style="color:white;">Starting 11</span>
