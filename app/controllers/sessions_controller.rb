@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
           if Account.find(@user.account_id).new_results_ready == true
             #squad_validity_check()
             Account.find(@user.account_id).update(:new_results_ready => false)
-            redirect_to '/results/fixture_results' and return
+            redirect_to '/results/fixture_results'
           else
           end
           end
@@ -970,7 +970,7 @@ class SessionsController < ApplicationController
   end
 
  def squad_validity_check 
-    @users = User.where(:account_id => current_user.account_id)
+    @users = User.all
     for u in @users do
       goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", u.id, "Goalkeeper").count
       goalkeeper_active_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND active = ?", u.id, "Goalkeeper", true).count
