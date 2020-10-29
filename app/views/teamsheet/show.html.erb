@@ -333,10 +333,13 @@ var x = setInterval(function() {
 <% end %>
 <div class="container-fluid">
 <p id="bid_timer"></p>
-  <% if Timer.exists? %> <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+  <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p> <% end %>
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
+  <br />
+  <br /> 
+  <% end %>
 <h5 style="text-align:center;"> <%= User.where(:id => @teamsheet[0].read_attribute(:user_id)).pluck(:teamname).to_s.tr('""','').tr('[]','') %></h5>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <div style= "text-align:center">
