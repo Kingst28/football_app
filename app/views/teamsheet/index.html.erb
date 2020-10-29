@@ -169,7 +169,7 @@ var x = setInterval(function() {
     var distance = countDownDate - now;
     
     // Time calculations for days, hours, minutes and seconds
-    var text = "Bid Countdown: "
+    var text = ""
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -341,7 +341,7 @@ var x = setInterval(function() {
 <center>
 <i class="medium material-icons">access_time</i>
 <br/>
-<p id="bid_timer" class="badge green"></p>
+<p id="bid_timer" class="badge green" style="color:white;"></p>
 </center>
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
