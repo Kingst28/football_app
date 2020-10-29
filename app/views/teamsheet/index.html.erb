@@ -355,7 +355,6 @@ var x = setInterval(function() {
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
   <br/> 
       Current Score: <%= @final_score[0] %>
-      <%= Fixture.where(:matchday => )%>
 </div>
 </div>
 </span>
