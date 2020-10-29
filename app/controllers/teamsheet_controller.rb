@@ -17,6 +17,7 @@ class TeamsheetController < ApplicationController
     total_connum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
     
     if defenderCount = 0 then 
+      @final_score = 0
     else
       con_score1 = 5 - defenderCount
       con_score2 = total_connum / defenderCount
