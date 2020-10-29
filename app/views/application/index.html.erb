@@ -272,7 +272,6 @@ border: none;
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
-<div class="card-deck">
 <% if Timer.exists? %>
 <div style= "text-align:center">
 <div class="card grey lighten-5">
@@ -292,6 +291,8 @@ border: none;
 </div>
 </span>
 </div>
+<div class="card-deck">
+<div class="row">
   <div class="card">
     <img class="card-img-top" src="assets/pexels-photo-270085.jpeg" alt="Card image cap">
     <div class="card-block">
