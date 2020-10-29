@@ -15,15 +15,14 @@ class TeamsheetController < ApplicationController
     defenderCount = Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
     total_scorenum = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
     total_connum = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
-    
+    @final_score = []
     if defenderCount = 0 then 
-      @final_score = 0
     else
       con_score1 = 5 - defenderCount
       con_score2 = total_connum / defenderCount
       final_con_score = con_score1 + con_score2
       con_score = final_con_score * -1
-      @final_score = total_scorenum + con_score
+      @final_score << total_scorenum + con_score
     end
     
     @goalkeeper = []
