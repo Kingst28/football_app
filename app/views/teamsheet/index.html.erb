@@ -338,10 +338,12 @@ var x = setInterval(function() {
 <% if Timer.exists? %>
 <div style= "text-align:center">
 <div class="card grey lighten-5">
-<center><i class="medium material-icons">access_time</i></center>
+<center>
+<i class="medium material-icons">access_time</i>
+<span class="badge green" style="color:white; text-align:center;"><p id="bid_timer"></p></span>
+</center>
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
-<center><span class="badge green" style="color:white; text-align:center;"><p id="bid_timer"></p></span></center>
 <br />
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> 
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p>
