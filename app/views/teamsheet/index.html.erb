@@ -335,13 +335,23 @@ var x = setInterval(function() {
 <% end %>
 <div class="container-fluid">
 <br />
- <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
+<% if Timer.exists? %>
+<div style= "text-align:center">
+<div class="card grey lighten-5">
+<center><i class="medium material-icons">access_time</i></center>
+<div class="card-content black-text">
+<span class="card-title" style="text-align:center; color:black;">
+<span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
   <br />
   <br /> 
   <% end %>
+</div>
+</div>
+</span>
+</div>
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <br />
 <div style= "text-align:center">
@@ -354,6 +364,7 @@ var x = setInterval(function() {
       Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       <br/>
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
+      <br/>
 </div>
 </div>
 </span>
