@@ -348,15 +348,14 @@ var x = setInterval(function() {
 <div class="card green lighten-5">
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
-  Latest Results
-  <br/> 
       GK/Def Played: <%= Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %> 
       -
       Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
       -
       Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
   <br/> 
-      Current Score: <%= @final_score %>
+      Current Score: <%= @final_score[0] %>
+      <%= Fixture.where(:matchday => )%>
 </div>
 </div>
 </span>
