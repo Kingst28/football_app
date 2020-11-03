@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   get '/sessions/:id/edit' => 'sessions#edit', as: :edit_users
   get '/fixtures/createFixtures' => 'fixtures#createFixtures'
   get '/results/fixture_results' => 'results#fixture_results'
+  get '/sessions/squad_validity_check' => 'sessions#squad_validity_check'
   get '/results/updateLeagueTable' => 'results#updateLeagueTable'
   get '/league_table/updateLeagueTable' => 'league_table#updateLeagueTable'
   get '/league_table/viewLeagueTable' => 'league_table#viewLeagueTable'
