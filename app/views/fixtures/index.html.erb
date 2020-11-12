@@ -195,11 +195,12 @@ p {
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
+<a id="<%= Matchday.where(:account_id => current_user.account_id).matchday + 1 %>">Latest Results</a>
 <div class="container">
   <% @fixtures.each do |matchday, fixtures| %>
   <ul class="collection">
     <li class="collection-item avatar">
-      <span class="title"><h5 class="card-title">Matchday <%= matchday + 1 %></h5></span>
+      <span class="title"><h5 class="card-title" id="<%= matchday + 1 %>">Matchday <%= matchday + 1 %></h5></span>
     </li>
     <% for f in fixtures.sort_by{|e| e[:haflag].reverse} do %>
     <% if f.haflag == "Home" %>
