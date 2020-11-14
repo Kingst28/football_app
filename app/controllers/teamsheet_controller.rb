@@ -91,6 +91,7 @@ class TeamsheetController < ApplicationController
      @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")     
      @teamsheet = Teamsheet.find(params[:id])
      session[:my_previous_url] = URI(request.referer || '').path
+     @squad = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => current_user.id)
    end
 
    def admin_edit

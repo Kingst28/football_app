@@ -159,25 +159,58 @@
   </nav>
   </div>
 <div class="container"> 
-  </div>
-  <div class="row">
-  <div class="col-sm-8" style="background-color:white;">
-    <%= form_for @teamsheet, :url =>{:action => "update", :id => @teamsheet.id} do |f| %>
-    <div class="form-group center">
-    <div class="input-field inline">
+<div class="center">  
+<div class="row">
+<div class="col s12 m12">
+<h5>Select your Starting 11</h5>
+<%= form_tag update_multiple_teamsheet_index_path, :method => :put do %>
+  <% for teamsheet in @squad %>
+    <%= fields_for "teamsheets[]", teamsheet do |f| %>
+    <table id="myTable2" class="striped">
+    <thead>
+    <tr>
+    <th></th>
+    <th></th> 
+    <th></th>  
+    <th></th>
+    <th></th>
+    </tr>
+    </thead>
+    <tr>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h Team.where(:id => Player.where(:playerteam => teamsheet.name).pluck(:teams_id)).pluck(:name)[0] %></b>
+    </div>
+    </td>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h Player.where(:playerteam => teamsheet.name).pluck(:name)[0] %></b>
+    </div>
+    </td>
+    <td> 
+    <div class="input-field inline"> 
+    <b><%=h Player.where(:name => teamsheet.name).pluck(:position)[0] %></b>
+    </div>
+    </td>
+    <td>
+    <div class="input-field inline">  
     <%= f.check_box :active %>
-    <%= f.label :active %>
+    <%= f.label 'active', id:'active' %>
     </div>
-    <br/>
+    </td>
+    <td>
     <div class="input-field inline">
-    <%= f.text_field :priority %>
-    <%= f.label 'Priority' %>
+    <%= f.number_field :priority %>
+    <%= f.label 'priority', id:'priority' %>
     </div>
-    <br/>
-    <%= f.submit "Save changes" %>
+    </td>
+    <div class="divider"></div>
+    </tr>
     <% end %>
-  </div>
-</div>
+    </table>
+    <% end %>
+<p><%= submit_tag "Update", class: 'btn btn-default' %></p>
+<% end %>
 </div>
 </div>
 </div>
