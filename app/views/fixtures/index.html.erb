@@ -196,7 +196,8 @@ p {
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
 <div class="container">
-<a href="#<%= Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i %>" class="btn waves-effect waves-light green lighten-2" style="color:white; padding-top:10px;">View Latest Results</a>
+<br />
+<a href="#<%= Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i %>" class="btn waves-effect waves-light green lighten-2" style="color:white;">View Latest Results</a>
   <% @fixtures.each do |matchday, fixtures| %>
   <ul class="collection">
     <li id="<%= matchday + 1 %>" class="collection-item avatar">
