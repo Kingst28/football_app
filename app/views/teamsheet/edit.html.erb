@@ -179,7 +179,7 @@
     <tr>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h Team.where(:id => Player.where(:playerteam => teamsheet.name).pluck(:teams_id)).pluck(:name)[0] %></b>
+    <b><%=h Player.where(:id => teamsheet.player_id).pluck(:position)[0] %></b>
     </div>
     </td>
     <td> 
@@ -189,7 +189,7 @@
     </td>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h Player.where(:name => teamsheet.name).pluck(:position)[0] %></b>
+    <b><%=h Team.where(:id => Player.where(:playerteam => teamsheet.name).pluck(:teams_id)).pluck(:name)[0] %></b>
     </div>
     </td>
     <td>
@@ -201,7 +201,7 @@
     <td>
     <div class="input-field inline">
     <%= f.number_field :priority %>
-    <%= f.label 'priority', id:'priority' %>
+    <%= f.label 'reserve', id:'priority' %>
     </div>
     </td>
     <div class="divider"></div>

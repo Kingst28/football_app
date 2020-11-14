@@ -105,6 +105,7 @@ class TeamsheetController < ApplicationController
 
   def update_multiple
    Teamsheet.update(params[:teamsheets].keys, params[:teamsheets].values)
+   redirect_to '/teamsheet/index'
   end
 
   def teamsheet_params
