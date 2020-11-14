@@ -195,8 +195,8 @@ p {
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
-<a href="#<%= Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i - 1 %>">Latest Results</a>
 <div class="container">
+<a href="#<%= Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i %>">View Latest Results</a>
   <% @fixtures.each do |matchday, fixtures| %>
   <ul class="collection">
     <li id="<%= matchday + 1 %>" class="collection-item avatar">
