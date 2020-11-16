@@ -3,16 +3,16 @@ class Teamsheet < ActiveRecord::Base
   attr_accessor :validate
   belongs_to :user
   belongs_to :player
-  validate :active, :active_check, unless: :validate
-  validate :active, :goalkeeper_check, unless: :validate
-  validate :active, :defender_check, unless: :validate
-  validate :active, :midfielder_check, unless: :validate
-  validate :active, :striker_check, unless: :validate
-  validates :priority,  inclusion: { :in => [1,2,nil], message: "must be set to 1 or 2" }, unless: :validate
-  validate :priority, :priority_goalkeeper, unless: :validate
-  validate :priority, :priority_defender, unless: :validate
-  validate :priority, :priority_midfielder, unless: :validate
-  validate :priority, :priority_striker, unless: :validate
+  #validate :active_check_final, unless: :validate
+  #validate :active, :goalkeeper_check, unless: :validate
+  #validate :active, :defender_check, unless: :validate
+  #validate :active, :midfielder_check, unless: :validate
+  #validate :active, :striker_check, unless: :validate
+  #validates :priority,  inclusion: { :in => [1,2,nil], message: "must be set to 1 or 2" }, unless: :validate
+  #validate :priority, :priority_goalkeeper, unless: :validate
+  #validate :priority, :priority_defender, unless: :validate
+  #validate :priority, :priority_midfielder, unless: :validate
+  #validate :priority, :priority_striker, unless: :validate
 
   def active_check 
     user_id = self.user_id 
@@ -27,6 +27,25 @@ class Teamsheet < ActiveRecord::Base
       return true
     elsif active_count == 11 then
       self.errors.add(:active_check, :message => "You already have 11 active players") 
+    end
+  end
+
+
+  def active_check_final
+    @squad = Teamsheet.joins(:player).order("position = 'Goalkeeper' desc, position = 'Defender' desc, position = 'Midfielder' desc, position = 'Striker'").order("active desc").order("priority asc").where(:user_id => self.user_id)
+    goalkeeperActiveCount = @squad.joins(:player).where("players.position = 'Goalkeeper'").where(:active => true).count
+    goalkeeperInactiveCount = @squad.joins(:player).where("players.position = 'Goalkeeper'").where(:active => false).where("priority IS 1").count
+    defenderActiveCount = @squad.joins(:player).where("players.position = 'Defender'").where(:active => true).count
+    defenderInactiveCount = @squad.joins(:player).where("players.position = 'Defender'").where(:active => false).where("priority IS 1 OR 2").count
+    midfielderActiveCount = @squad.joins(:player).where("players.position = 'Midfielder'").where(:active => true).count
+    midfielderInactiveCount = @squad.joins(:player).where("players.position = 'Midfielder'").where(:active => false).where("priority IS 1 OR 2").count
+    strikerActiveCount = @squad.joins(:player).where("players.position = 'Striker'").where(:active => true).count
+    strikerInactiveCount = @squad.joins(:player).where("players.position = 'Striker'").where(:active => false).where("priority IS 1 OR 2").count
+ 
+    if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && defenderActiveCount == 4 && defenderInactiveCount == 2 && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && strikerActiveCount == 2 && strikerInactiveCount == 2 then
+     return true
+    else
+     self.errors.add(:active_check_final, :message => "Squad Invalid") 
     end
   end
 

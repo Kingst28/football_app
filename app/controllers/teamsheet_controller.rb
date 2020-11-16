@@ -104,8 +104,49 @@ class TeamsheetController < ApplicationController
    end
 
   def update_multiple
-   Teamsheet.update(params[:teamsheets].keys, params[:teamsheets].values)
-   redirect_to '/teamsheet/index'
+   goalkeeperActiveCount = 0
+   goalkeeperInactiveCount = 0
+   defenderActiveCount = 0
+   defenderInactiveCount = 0
+   midfielderActiveCount = 0
+   midfielderInactiveCount = 0
+   strikerActiveCount = 0
+   strikerInactiveCount = 0
+
+   ids = params[:teamsheets]
+   for id in ids do
+    player_id = id.last[:player_id].to_i
+    position = Player.find(player_id).position
+    active = id.last[:active].to_i
+    priority = id.last[:priority].to_i
+
+    if (position == 'Goalkeeper' && active == 0) && priority == 1 then 
+      goalkeeperInactiveCount = goalkeeperInactiveCount + 1
+    elsif position == 'Goalkeeper' && active == 1 then
+      goalkeeperActiveCount = goalkeeperActiveCount + 1
+    elsif (position == 'Defender' && active == 0) && (priority == 1 || priority == 2) then
+      defenderInactiveCount = defenderInactiveCount + 1
+    elsif position == 'Defender' && active == 1 then
+      defenderActiveCount = defenderActiveCount + 1
+    elsif (position == 'Midfielder' && active == 0) && (priority == 1 || priority == 2) then
+      midfielderInactiveCount = midfielderInactiveCount + 1
+    elsif position == 'Midfielder' && active == 1 then
+      midfielderActiveCount = midfielderActiveCount + 1
+    elsif (position == 'Striker' && active == 0) && (priority == 1 || priority == 2) then
+      strikerInactiveCount = strikerInactiveCount + 1
+    elsif position == 'Striker' && active == 1 then
+      strikerActiveCount = strikerActiveCount + 1
+    end
+   end
+  
+   if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && defenderActiveCount == 4 && defenderInactiveCount == 2 && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && strikerActiveCount == 2 && strikerInactiveCount == 2 then
+    Teamsheet.update(params[:teamsheets].permit!.keys, params[:teamsheets].permit!.values)
+    flash[:success] = "Your squad changes are valid - GK active #{goalkeeperActiveCount}/1 sub #{goalkeeperInactiveCount}/1, DEF active #{defenderActiveCount}/4 subs #{defenderInactiveCount}/2, MID active #{midfielderActiveCount}/4 subs #{midfielderInactiveCount}/2, STR active #{strikerActiveCount}/2 subs #{strikerInactiveCount}/2"
+    redirect_to '/teamsheet/index'
+   else
+    flash[:danger] = "Your squad changes are invalid - GK active #{goalkeeperActiveCount}/1 sub #{goalkeeperInactiveCount}/1, DEF active #{defenderActiveCount}/4 subs #{defenderInactiveCount}/2, MID active #{midfielderActiveCount}/4 subs #{midfielderInactiveCount}/2, STR active #{strikerActiveCount}/2 subs #{strikerInactiveCount}/2 "
+    redirect_to(:back)
+   end
   end
 
   def teamsheet_params

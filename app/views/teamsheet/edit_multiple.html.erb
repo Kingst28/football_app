@@ -61,6 +61,9 @@ function sortTable() {
  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 </ul>
 <body>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "alert alert-#{key}" %>
+<% end %>
 <div class="container-fluid">
     <nav>
     <div class="nav-wrapper green lighten-2">

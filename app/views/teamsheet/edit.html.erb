@@ -158,6 +158,9 @@
   </div>
   </nav>
   </div>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "alert alert-#{key}" %>
+<% end %>
 <div class="container"> 
 <div class="center">  
 <div class="row">
@@ -179,29 +182,31 @@
     <tr>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h Player.where(:id => teamsheet.player_id).pluck(:position)[0] %></b>
-    </div>
-    </td>
-    <td> 
-    <div class="input-field inline"> 
     <b><%=h Player.where(:playerteam => teamsheet.name).pluck(:name)[0] %></b>
-    </div>
-    </td>
-    <td> 
-    <div class="input-field inline"> 
+    -
+    <b><%=h Player.where(:id => teamsheet.player_id).pluck(:position)[0] %></b>
+    -
     <b><%=h Team.where(:id => Player.where(:playerteam => teamsheet.name).pluck(:teams_id)).pluck(:name)[0] %></b>
     </div>
-    </td>
+    </td> 
+    <tr>
     <td>
     <div class="input-field inline">  
     <%= f.check_box :active %>
     <%= f.label 'active', id:'active' %>
     </div>
     </td>
+    </tr>
+    <tr>
     <td>
     <div class="input-field inline">
     <%= f.number_field :priority %>
     <%= f.label 'reserve', id:'priority' %>
+    </div>
+    </td>
+    </tr>
+    <div class="input-field inline">
+    <%= f.hidden_field :player_id, id:'player_id' %>
     </div>
     </td>
     <div class="divider"></div>
