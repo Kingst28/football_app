@@ -77,7 +77,7 @@ end
     bid_position = Player.where(:id => self.player_id).pluck(:position).first
     if bid_position == "Defender" then
     user_id = self.user_id
-    @user_bids = Bid.where(:user_id => user_id).where("transfer_out == false")
+    @user_bids = Bid.where(:user_id => user_id).where(:transfer_out => false)
     defender_count = 0
     for player in @user_bids do
       if Player.where(:id => player.player_id).pluck(:position).first == "Defender" then 
