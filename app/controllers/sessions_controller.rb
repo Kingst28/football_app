@@ -955,6 +955,9 @@ class SessionsController < ApplicationController
             gk_pri(goalkeeper_count, goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           elsif player_position == 'Defender'
             defender_pri(defender_count, defender_priority1_count, defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
+            #need to write a function which finds if there is a defender with transfer_out equals true in Bids? If so delete this bid and teamsheet and replace with won bid.
+            @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND transfer_out = ?", o.user_id, "Defender", true).order(:updated_at)
+            @bid.destroy
           elsif player_position == 'Midfielder'
             midfielder_pri(midfielder_count, mid_priority1_count, mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id) 
           elsif player_position == 'Striker'

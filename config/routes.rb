@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/players/:id/edit' => 'players#edit', as: :edit_players 
   get '/players/:id/delete' => 'players#delete', as: :delete_players 
   get '/bids/:id/delete' => 'bids#delete', as: :delete_bids 
+  get '/bids/transferOut' => 'bids#transferOut', as: :transfer_out_bids
   get '/notifications/:id/destroy' => 'notifications#destroy', as: :delete_notifications_path 
   patch '/players/:id' => 'players#update'
   patch '/teamsheet/:id' => 'teamsheet#update'

@@ -54,7 +54,32 @@ end
     @playerbids = []
     @duplicates = Bid.select("player_id, user_id, amount, MAX(amount)").group(:player_id).having("count(*) > 1")
   end
-  
+
+  def transferOut
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+    player_id = params[:player_id]
+    @bid = Bid.where(:player_id => player_id).first
+    @bid.update_attribute(:transfer_out, true)
+    amount = Bid.where(:player_id => player_id).pluck(:amount)[0]
+    @position = Player.find(player_id).read_attribute(:position)
+    @user = User.find(current_user.id)
+    user_budget =  @user.read_attribute(:budget)
+    user_new_budget = user_budget + amount
+    @user.update_attribute(:budget, user_new_budget)
+
+    @bid = Bid.new
+    @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")
+    @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
+    @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
+    @strikers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Striker")
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+    #create a new field on the bid records called transfer_out true/false
+    #when a new player is won in the position taken out, the code checks 
+    #transfer_out field and deletes that bid and teamsheet and inserts new bid.
+    #if transer_out is true then Transfer Out link is disabled so you cant get money
+    #back over and over again only once is it allowed. 
+  end
+
   def insertWinners
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
     @users = User.where(:account_id => current_user.account_id)
@@ -327,6 +352,6 @@ end
     end
 
    def bid_params
-      params.require(:bid).permit(:player_id, :amount, :user_id)
+      params.require(:bid).permit(:player_id, :amount, :user_id, :replacement)
    end
 end

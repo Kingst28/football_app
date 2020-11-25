@@ -8,7 +8,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
   <script type="text/javascript">
+
+   $(document).ready(function() {
+   $('select#template-example').select2({
+  });
+  });
+
    $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
@@ -200,38 +208,83 @@ var x = setInterval(function() {
   </nav>
   </div>
   <br />
-  <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
-  <br />
-  <br /> 
-  <% end %>
-  <% if canView? %>
-  <a style="color:white; background: #80C783;" href="/bids/new" style="margin-bottom:10px;" class="btn btn-default">Enter New Bid</a>
-  <% end %>
   <div class="container">
-      <% @players.each do |p| %>
-       <div class="row">
-        <div class="col s12 m12">
-          <div class="card green lighten-1">
-            <div class="card-content white-text">
-              <span class="card-title"><%= Player.where(:id => p.player_id).pluck(:name).to_s.tr('""','').tr('[]','') %> <br></header> </span>
-              <p> 
-      <%= Player.select(:position).where(:id => p.player_id).pluck(:position).to_s.tr('""','').tr('[]','')%> <br>
-      Bid amount:
-      <%= quid(p.amount) %> <br> 
-      </p>
-            </div>
-            <div class="card-action white">
-             <a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>
-             <% if p.transfer_out == false %><%= link_to "Transfer Out", transfer_out_bids_path(player_id: p.player_id), data: {confirm: 'Are you sure you want to delete this bid?'} %><% end %> </div>
-             <!--<% if p.replacement == true %><%= link_to "Delete", delete_bids_path(p.id), data: {confirm: 'Are you sure you want to delete this bid?'} %><% end %></div>-->
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
+    <div class="container">  
+<% if @position == 'Goalkeeper' %>    
+<h4>Goalkeepers <a href="#modal3"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></h4>
+  <div class="col s6" style="background-color:white;">
+		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+		<div class="input-field">
+    <%= f.select :player_id, options_from_collection_for_select(@goalkeepers,
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+    </div>
+    <div class="input-field">
+    <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true %>
+  </div>
+  <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+     <%= f.submit "Submit Bid" %>
+  </button>
+<% end %>
+</div>
+<% end %>
+
+<% if @position == 'Defender'%>
+<h5>Place new defender bid</h5>
+<div class="col s6" style="background-color:white;">
+    <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+    <div class="input-field">
+    <%= f.select :player_id, options_from_collection_for_select(@defenders,
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+    </div>
+    <div class="input-field">
+    <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
+    </div>
+    <div class="input-field inline">
+    <%= f.hidden_field :replacement, value: 1 %>
+    </div>
+   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+     <%= f.submit "Submit Bid" %> 
+  </button>
+<% end %>
+</div>
+<% end %>
+
+<% if @position == 'Midfielder'%>
+<h4>Midfielders</h4>
+<div class="col s6" style="background-color:white;">
+    <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+    <div class="input-field">
+    <%= f.select :player_id, options_from_collection_for_select(@midfielders,
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+    </div>
+   <div class="input-field">
+    <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
+  </div>
+   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+     <%= f.submit "Submit Bid" %> 
+  </button>
+<% end %>
+</div>
+<% end %>
+
+<% if @position == 'Striker' %>
+<h4>Strikers</h4>
+<div class="col s6" style="background-color:white;">
+    <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+    <div class="input-field">
+    <%= f.select :player_id, options_from_collection_for_select(@strikers,
+ :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
+    </div>
+    <div class="input-field">
+    <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
+  </div>
+   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
+     <%= f.submit "Submit Bid" %> 
+  </button>
+<% end %>
+</div>
+<% end %>
+  </div>
   
  </body>
  </html>
