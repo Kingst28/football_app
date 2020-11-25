@@ -50,7 +50,7 @@ attr_accessor :remember_token, :activation_token, :reset_token
 
   def player_count
     user_id = self.user_id
-    user_bids = Bid.where(:user_id => user_id).where("transfer_out == false").count
+    user_bids = Bid.where(:user_id => user_id).where(:transfer_out => false).count
     if user_bids == 18
     self.errors.add(:player_count, :message => "You have exceeded the maximum number of 18 bids.")
     end
