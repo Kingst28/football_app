@@ -937,6 +937,7 @@ class SessionsController < ApplicationController
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount)
           player_position = Player.find(o.player_id).position
           goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").count(:all)
           defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").count(:all)
