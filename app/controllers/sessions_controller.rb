@@ -937,7 +937,7 @@ class SessionsController < ApplicationController
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount)
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => current_user.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
           player_position = Player.find(o.player_id).position
           goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").count(:all)
           defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").count(:all)
@@ -953,6 +953,20 @@ class SessionsController < ApplicationController
           str_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 2, false).count(:all)
           
           if player_position == 'Goalkeeper'
+            @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Goalkeeper", true).order(updated_at: :desc)
+            if @bid.exists?
+              bid_id = @bid.first.read_attribute(:id)
+              player_id = @bid.first.read_attribute(:player_id)
+              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              active = Teamsheet.where(:player_id => player_id).pluck(:active)
+              priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
+              teamsheet_id = teamsheet[0]
+              active = active[0]
+              priority = priority[0]
+              @bidDelete = Bid.find(bid_id).destroy
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
+              @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+            end
             gk_pri(goalkeeper_count, goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           elsif player_position == 'Defender'
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Defender", true).order(updated_at: :desc)
@@ -960,14 +974,47 @@ class SessionsController < ApplicationController
               bid_id = @bid.first.read_attribute(:id)
               player_id = @bid.first.read_attribute(:player_id)
               teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              active = Teamsheet.where(:player_id => player_id).pluck(:active)
+              priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
               teamsheet_id = teamsheet[0]
+              active = active[0]
+              priority = priority[0]
               @bidDelete = Bid.find(bid_id).destroy
               @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
+              @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             defender_pri(defender_count, defender_priority1_count, defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           elsif player_position == 'Midfielder'
+            @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Midfielder", true).order(updated_at: :desc)
+            if @bid.exists?
+              bid_id = @bid.first.read_attribute(:id)
+              player_id = @bid.first.read_attribute(:player_id)
+              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              active = Teamsheet.where(:player_id => player_id).pluck(:active)
+              priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
+              teamsheet_id = teamsheet[0]
+              active = active[0]
+              priority = priority[0]
+              @bidDelete = Bid.find(bid_id).destroy
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
+              @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+            end
             midfielder_pri(midfielder_count, mid_priority1_count, mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id) 
           elsif player_position == 'Striker'
+            @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Striker", true).order(updated_at: :desc)
+            if @bid.exists?
+              bid_id = @bid.first.read_attribute(:id)
+              player_id = @bid.first.read_attribute(:player_id)
+              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              active = Teamsheet.where(:player_id => player_id).pluck(:active)
+              priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
+              teamsheet_id = teamsheet[0]
+              active = active[0]
+              priority = priority[0]
+              @bidDelete = Bid.find(bid_id).destroy
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
+              @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+            end
             striker_pri(striker_count, str_priority1_count, str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           end
           @teamsheet_new.validate = true
