@@ -60,7 +60,7 @@ attr_accessor :remember_token, :activation_token, :reset_token
     bid_position = Player.where(:id => self.player_id).pluck(:position).first
     if bid_position == "Goalkeeper" then
     user_id = self.user_id
-    @user_bids = Bid.where(:user_id => user_id).where("transfer_out == false")
+    @user_bids = Bid.where(:user_id => user_id).where(:transfer_out => false)
     goalkeeper_count = 0
     for player in @user_bids do
       if Player.where(:id => player.player_id).pluck(:position).first == "Goalkeeper" then 
@@ -94,7 +94,7 @@ end
     bid_position = Player.where(:id => self.player_id).pluck(:position).first
     if bid_position == "Midfielder" then
     user_id = self.user_id
-    @user_bids = Bid.where(:user_id => user_id).where("transfer_out == false")
+    @user_bids = Bid.where(:user_id => user_id).where(:transfer_out => false)
     midfielder_count = 0
     for player in @user_bids do
       if Player.where(:id => player.player_id).pluck(:position).first == "Midfielder" then 
@@ -111,7 +111,7 @@ def striker_count
   bid_position = Player.where(:id => self.player_id).pluck(:position).first
   if bid_position == "Striker" then
   user_id = self.user_id
-  @user_bids = Bid.where(:user_id => user_id).where("transfer_out == false")
+  @user_bids = Bid.where(:user_id => user_id).where(:transfer_out => false)
   striker_count = 0
   for player in @user_bids do
     if Player.where(:id => player.player_id).pluck(:position).first == "Striker" then 
