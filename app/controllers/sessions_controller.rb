@@ -937,7 +937,7 @@ class SessionsController < ApplicationController
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => current_user.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
+          @teamsheet_new = Teamsheet.create(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => current_user.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
           player_position = Player.find(o.player_id).position
           goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").count(:all)
           defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").count(:all)
@@ -1018,7 +1018,7 @@ class SessionsController < ApplicationController
             striker_pri(striker_count, str_priority1_count, str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           end
           @teamsheet_new.validate = true
-          @teamsheet_new.save
+          #@teamsheet_new.save
           @notify_users = User.all 
     flash[:success] = "Successful bids inserted"
   end
