@@ -1013,7 +1013,7 @@ class SessionsController < ApplicationController
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).destroy
               @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
-              @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+              @teamsheet_new.update_attributes(:active => active, :priority => priority)
             end
             striker_pri(striker_count, str_priority1_count, str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           end
@@ -1313,11 +1313,14 @@ class SessionsController < ApplicationController
  
  def gk_pri(gk_count, gk_pri_1, user_id, player_id, name, amount, account_id)
   if gk_count == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+    @teamsheet = Teamsheet.where(:player_id => player_id)
+    @teamsheet.update_attributes(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
    elsif gk_count == 1 && gk_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet = Teamsheet.where(:player_id => player_id)
+    @teamsheet.update_attributes(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
    elsif gk_count == 1 && gk_pri_1 == 1
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+    @teamsheet = Teamsheet.where(:player_id => player_id)
+    @teamsheet.update_attributes(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
   end
  end
    
