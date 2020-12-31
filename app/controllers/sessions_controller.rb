@@ -1313,13 +1313,13 @@ class SessionsController < ApplicationController
  
  def gk_pri(gk_count, gk_pri_1, user_id, player_id, name, amount, account_id)
   if gk_count == 0
-    @teamsheet = Teamsheet.where(:player_id => player_id)
+    @teamsheet = Teamsheet.find(:first, :conditions => [ "player_id = ?", player_id])
     @teamsheet.update_attributes(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
    elsif gk_count == 1 && gk_pri_1 == 0
-    @teamsheet = Teamsheet.where(:player_id => player_id)
+    @teamsheet = Teamsheet.find(:first, :conditions => [ "player_id = ?", player_id])
     @teamsheet.update_attributes(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
    elsif gk_count == 1 && gk_pri_1 == 1
-    @teamsheet = Teamsheet.where(:player_id => player_id)
+    @teamsheet = Teamsheet.find(:first, :conditions => [ "player_id = ?", player_id])
     @teamsheet.update_attributes(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
   end
  end
