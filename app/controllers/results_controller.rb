@@ -206,8 +206,8 @@ def fixture_results
     end
  end
 updateLeagueTable()
-update_teamsheets_active = ActiveRecord::Base.connection.execute("update teamsheets set active = 't' where priority IS NULL;")
-update_teamsheets_priority = ActiveRecord::Base.connection.execute("update teamsheets set active = 'f' where priority IS NOT NULL;")
+#update_teamsheets_active = ActiveRecord::Base.connection.execute("update teamsheets set active = 't' where priority IS NULL;")
+#update_teamsheets_priority = ActiveRecord::Base.connection.execute("update teamsheets set active = 'f' where priority IS NOT NULL;")
 end
 
 def getGoalkeeperSubCount (goalkeepers, u)
