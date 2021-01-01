@@ -112,7 +112,8 @@ class TeamsheetController < ApplicationController
    midfielderInactiveCount = 0
    strikerActiveCount = 0
    strikerInactiveCount = 0
-   gkDoubleOne = 0
+   
+   gkDoubleOne = 
    defDoubleOne = 0
    defDoubleTwo = 0
    midDoubleOne = 0
@@ -129,34 +130,35 @@ class TeamsheetController < ApplicationController
 
     if (position == 'Goalkeeper' && active == 0) && priority == 1 then 
       goalkeeperInactiveCount = goalkeeperInactiveCount + 1
-      gkDoubleOne = gkDoubleOne + 1
     elsif position == 'Goalkeeper' && active == 1 then
       goalkeeperActiveCount = goalkeeperActiveCount + 1
-    elsif (position == 'Defender' && active == 0) && priority == 1 then
-      defDoubleOne = defDoubleOne + 1
-    elsif (position == 'Defender' && active == 0) && priority == 2 then
-      defDoubleTwo = defDoubleTwo + 1
     elsif (position == 'Defender' && active == 0) && (priority == 1 || priority == 2) then
       defenderInactiveCount = defenderInactiveCount + 1
     elsif position == 'Defender' && active == 1 then
       defenderActiveCount = defenderActiveCount + 1
-    elsif (position == 'Midfielder' && active == 0) && priority == 1 then
-      midDoubleOne = midDoubleOne + 1
-    elsif (position == 'Midfielder' && active == 0) && priority == 2 then
-      midDoubleTwo = midDoubleTwo + 1  
     elsif (position == 'Midfielder' && active == 0) && (priority == 1 || priority == 2) then
       midfielderInactiveCount = midfielderInactiveCount + 1
     elsif position == 'Midfielder' && active == 1 then
-      midfielderActiveCount = midfielderActiveCount + 1
-    elsif (position == 'Striker' && active == 0) && priority == 1 then
-      stkDoubleOne = stkDoubleOne + 1
-    elsif (position == 'Striker' && active == 0) && priority == 2 then
-      stkDoubleTwo = stkDoubleTwo + 1    
+      midfielderActiveCount = midfielderActiveCount + 1  
     elsif (position == 'Striker' && active == 0) && (priority == 1 || priority == 2) then
       strikerInactiveCount = strikerInactiveCount + 1
     elsif position == 'Striker' && active == 1 then
       strikerActiveCount = strikerActiveCount + 1
     end
+
+   if (position == 'Defender' && active == 0) && priority == 1 then
+    defDoubleOne = defDoubleOne + 1
+   elsif (position == 'Defender' && active == 0) && priority == 2 then
+    defDoubleTwo = defDoubleTwo + 1
+   elsif (position == 'Midfielder' && active == 0) && priority == 1 then
+      midDoubleOne = midDoubleOne + 1
+   elsif (position == 'Midfielder' && active == 0) && priority == 2 then
+      midDoubleTwo = midDoubleTwo + 1
+   elsif (position == 'Striker' && active == 0) && priority == 1 then
+      stkDoubleOne = stkDoubleOne + 1
+   elsif (position == 'Striker' && active == 0) && priority == 2 then
+      stkDoubleTwo = stkDoubleTwo + 1
+   end
    end
   
    if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && !(gkDoubleOne == 2) && defenderActiveCount == 4 && defenderInactiveCount == 2 && !(defDoubleOne == 2) && !(defDoubleTwo == 2) && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && !(midDoubleOne == 2) && !(midDoubleTwo == 2) && strikerActiveCount == 2 && strikerInactiveCount == 2 && !(stkDoubleOne == 2) && !(stkDoubleTwo == 2) then
