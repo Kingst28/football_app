@@ -9,10 +9,10 @@ class Teamsheet < ActiveRecord::Base
   #validate :active, :midfielder_check, unless: :validate
   #validate :active, :striker_check, unless: :validate
   validates :priority,  inclusion: { :in => [1,2,nil], message: "must be set to 1 or 2" }, unless: :validate
-  validate :priority, :priority_goalkeeper, unless: :validate
-  validate :priority, :priority_defender, unless: :validate
-  validate :priority, :priority_midfielder, unless: :validate
-  validate :priority, :priority_striker, unless: :validate
+  #validate :priority, :priority_goalkeeper, unless: :validate
+  #validate :priority, :priority_defender, unless: :validate
+  #validate :priority, :priority_midfielder, unless: :validate
+  #validate :priority, :priority_striker, unless: :validate
 
   def active_check 
     user_id = self.user_id 
