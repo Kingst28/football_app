@@ -121,13 +121,19 @@ class TeamsheetController < ApplicationController
    stkDoubleOne = 0
    stkDoubleTwo = 0 
 
+   gkActivePri = 0
+   defActivePri = 0
+   midActivePri = 0
+   stkActivePri = 0
+
    ids = params[:teamsheets]
    for id in ids do
     player_id = id.last[:player_id].to_i
     position = Player.find(player_id).position
     active = id.last[:active].to_i
     priority = id.last[:priority].to_i
-
+    
+    #check if users have the right amount of pri players/active
     if (position == 'Goalkeeper' && active == 0) && priority == 1 then 
       goalkeeperInactiveCount = goalkeeperInactiveCount + 1
     elsif position == 'Goalkeeper' && active == 1 then
@@ -145,7 +151,8 @@ class TeamsheetController < ApplicationController
     elsif position == 'Striker' && active == 1 then
       strikerActiveCount = strikerActiveCount + 1
     end
-  
+   
+   #check if users have 2 pri 1s or 2 pri 2s in any position.
    if (position == 'Goalkeeper' && active == 0) && priority == 1 then 
       gkDoubleOne = gkDoubleOne + 1
    elsif (position == 'Defender' && active == 0) && priority == 1 then
@@ -161,9 +168,20 @@ class TeamsheetController < ApplicationController
    elsif (position == 'Striker' && active == 0) && priority == 2 then
       stkDoubleTwo = stkDoubleTwo + 1
    end
+   
+   #check if users have active priority players
+   if (position == 'Goalkeeper' && active == 1) && priority == 1 then 
+    gkActivePri = gkActivePri + 1
+   elsif (position == 'Defender' && active == 1) && (priority == 1 || priority == 2) then
+    defActivePri = defActivePri + 1
+   elsif (position == 'Midfielder' && active == 1) && (priority == 1 || priority == 2) then
+    midActivePri = midActivePri + 1
+   elsif (position == 'Striker' && active == 1) && (priority == 1 || priority == 2) then
+    stkActivePri = stkActivePri + 1
+   end
    end
   
-   if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && gkDoubleOne == 1 && defenderActiveCount == 4 && defenderInactiveCount == 2 && defDoubleOne == 1 && defDoubleTwo == 1 && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && midDoubleOne == 1 && midDoubleTwo == 1 && strikerActiveCount == 2 && strikerInactiveCount == 2 && stkDoubleOne == 1 && stkDoubleTwo == 1 then
+   if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && gkDoubleOne == 1 && gkActivePri == 0 && defenderActiveCount == 4 && defenderInactiveCount == 2 && defDoubleOne == 1 && defDoubleTwo == 1 && defActivePri == 0 && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && midDoubleOne == 1 && midDoubleTwo == 1 && midActivePri == 0 && strikerActiveCount == 2 && strikerInactiveCount == 2 && stkDoubleOne == 1 && stkDoubleTwo == 1 && stkActivePri == 0 then
     Teamsheet.update(params[:teamsheets].permit!.keys, params[:teamsheets].permit!.values)
     flash[:success] = "Your squad changes are valid - GK active #{goalkeeperActiveCount}/1 sub #{goalkeeperInactiveCount}/1, DEF active #{defenderActiveCount}/4 subs #{defenderInactiveCount}/2, MID active #{midfielderActiveCount}/4 subs #{midfielderInactiveCount}/2, STR active #{strikerActiveCount}/2 subs #{strikerInactiveCount}/2"
     redirect_to '/teamsheet/index'
