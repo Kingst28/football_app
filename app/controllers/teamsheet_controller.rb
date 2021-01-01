@@ -113,7 +113,7 @@ class TeamsheetController < ApplicationController
    strikerActiveCount = 0
    strikerInactiveCount = 0
    
-   gkDoubleOne = 
+   gkDoubleOne = 0
    defDoubleOne = 0
    defDoubleTwo = 0
    midDoubleOne = 0
@@ -145,8 +145,10 @@ class TeamsheetController < ApplicationController
     elsif position == 'Striker' && active == 1 then
       strikerActiveCount = strikerActiveCount + 1
     end
-
-   if (position == 'Defender' && active == 0) && priority == 1 then
+  
+   if (position == 'Goalkeeper' && active == 0) && priority == 1 then 
+      gkDoubleOne = gkDoubleOne + 1
+   elsif (position == 'Defender' && active == 0) && priority == 1 then
     defDoubleOne = defDoubleOne + 1
    elsif (position == 'Defender' && active == 0) && priority == 2 then
     defDoubleTwo = defDoubleTwo + 1
