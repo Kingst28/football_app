@@ -163,7 +163,7 @@ class TeamsheetController < ApplicationController
    end
    end
   
-   if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && !(gkDoubleOne == 2) && defenderActiveCount == 4 && defenderInactiveCount == 2 && !(defDoubleOne == 2) && !(defDoubleTwo == 2) && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && !(midDoubleOne == 2) && !(midDoubleTwo == 2) && strikerActiveCount == 2 && strikerInactiveCount == 2 && !(stkDoubleOne == 2) && !(stkDoubleTwo == 2) then
+   if goalkeeperActiveCount == 1 && goalkeeperInactiveCount == 1 && gkDoubleOne == 1 && defenderActiveCount == 4 && defenderInactiveCount == 2 && defDoubleOne == 1 && defDoubleTwo == 1 && midfielderActiveCount == 4 && midfielderInactiveCount == 2 && midDoubleOne == 1 && midDoubleTwo == 1 && strikerActiveCount == 2 && strikerInactiveCount == 2 && stkDoubleOne == 1 && stkDoubleTwo == 1 then
     Teamsheet.update(params[:teamsheets].permit!.keys, params[:teamsheets].permit!.values)
     flash[:success] = "Your squad changes are valid - GK active #{goalkeeperActiveCount}/1 sub #{goalkeeperInactiveCount}/1, DEF active #{defenderActiveCount}/4 subs #{defenderInactiveCount}/2, MID active #{midfielderActiveCount}/4 subs #{midfielderInactiveCount}/2, STR active #{strikerActiveCount}/2 subs #{strikerInactiveCount}/2"
     redirect_to '/teamsheet/index'
