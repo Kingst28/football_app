@@ -376,7 +376,7 @@ var x = setInterval(function() {
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
       <br/>
       <br/>
-      Played: <%= human_boolean(Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]','')%>
+      Played: <%= human_boolean(Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]',''))%>
       -
       Scored: <%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
       -
