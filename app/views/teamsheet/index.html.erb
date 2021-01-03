@@ -358,14 +358,14 @@ var x = setInterval(function() {
 <br />
 <div style= "text-align:center">
 <div class="card grey lighten-5">
-<center><i class="medium material-icons">update</i></center>
+<center><i class="medium material-icons">notifications_active</i><h5>Latest Results</h5></center>
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
-      GK/Def Played: <%= Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %> 
+      GK/Def Played: <b><%= Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %> </b>
       <br/>
-      Total Conceded: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
+      Total Conceded: <b><%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%></b>
       <br/>
-      Total Scored: <%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%>
+      Total Scored: <b><%= Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%></b>
       <br/>
 </div>
 </div>
@@ -387,11 +387,11 @@ var x = setInterval(function() {
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
       <br/>
       <br/>
-      Played: <%= human_boolean(Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]',''))%>
+      Played: <b><%= human_boolean(Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]',''))%></b>
       -
-      Scored: <%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
+      Scored: <b><%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%></b>
       -
-      Conceded: <%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
+      Conceded: <b><%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%></b>
       </p>
             </div>
             <div class="card-action" style="text-align:center;">

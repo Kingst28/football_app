@@ -337,26 +337,26 @@ var x = setInterval(function() {
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <div style= "text-align:center">
 <div class="card grey lighten-5">
-<center><i class="medium material-icons">update</i></center>
+<center><i class="medium material-icons">notifications_active</i><h5>Latest Results</h5></center>
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
-      GK/Def Played: <%= Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %> 
+      GK/Def Played: <b><%= Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %></b>
       <br />
-      Total Conceded: <%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%>
+      Total Conceded: <b><%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','')%></b>
       <br />
-      Total Scored: <%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> 
+      Total Scored: <b><%= Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','')%> </b>
 </div>
 </div>
 </span>
 </div>
 <div class="card grey lighten-5">
-<center><i class="medium material-icons">trending_up</i></center>
+<center><i class="medium material-icons">trending_up</i><h5>Season Stats</h5></center>
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
-<h6 style="text-align:center;"> Win percentage: <%= number_to_percentage(@win_average * 100, precision: 0) %></h6>
-<h6 style="text-align:center;"> Points per game: <%= number_with_precision(@points_average, precision: 2) %></h6>
-<h6 style="text-align:center;"> Goals scored per game: <%= number_with_precision(@goals_average, precision: 2) %></h6>
-<h6 style="text-align:center;"> Goals conceded per game: <%= number_with_precision(@conceded_average, precision: 2) %></h6>
+<h6 style="text-align:center;"> Win percentage: <b><%= number_to_percentage(@win_average * 100, precision: 0) %></b></h6>
+<h6 style="text-align:center;"> Points per game: <b><%= number_with_precision(@points_average, precision: 2) %></b></h6>
+<h6 style="text-align:center;"> Goals scored per game: <b><%= number_with_precision(@goals_average, precision: 2) %><b/></h6>
+<h6 style="text-align:center;"> Goals conceded per game: <b><%= number_with_precision(@conceded_average, precision: 2) %><b/></h6>
 <h6 style="text-align:center;"><a href="/teamsheet/stats">View all ></a></h6>
 </div>
 </div>
@@ -376,11 +376,11 @@ var x = setInterval(function() {
       <%= Team.select(:name).where(:id => Player.find(p.player_id).teams_id).pluck(:name).to_s.tr('""','').tr('[]','') %>
       <br/>
       <br/>
-      Played: <%= human_boolean(Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]',''))%>
+      Played: <b><%= human_boolean(Teamsheet.where(:player_id => p.player_id).pluck(:played).to_s.tr('""','').tr('[]',''))%></b>
       -
-      Scored: <%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%>
+      Scored: <b><%= Teamsheet.where(:player_id => p.player_id).pluck(:scorenum).to_s.tr('""','').tr('[]','')%></b>
       -
-      Conceded: <%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%>
+      Conceded: <b><%= Teamsheet.where(:player_id => p.player_id).pluck(:concedednum).to_s.tr('""','').tr('[]','')%></b>
       </p>
             </div>
             <div class="card-action" style="text-align:center;">
