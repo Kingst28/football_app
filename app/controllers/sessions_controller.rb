@@ -907,8 +907,8 @@ class SessionsController < ApplicationController
           @user = User.find(d[0].user_id)
           currentBudget = @user.budget.to_i
           newBudget = currentBudget + d[0].amount.to_i
-        if newBudget > 1000000 then
-          @user.update_attribute(:budget, 1000000)
+        if newBudget > 1200000 then
+          @user.update_attribute(:budget, 1200000)
          else
           @user.update_attribute(:budget, newBudget)
         end
