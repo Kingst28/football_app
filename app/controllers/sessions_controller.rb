@@ -965,6 +965,7 @@ class SessionsController < ApplicationController
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
               @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @playerTaken = Player.find(player_id).update_attribute(:taken, 'No')
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             gk_pri(goalkeeper_count, @goalkeeper_priority1_count.first, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
@@ -981,6 +982,7 @@ class SessionsController < ApplicationController
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
               @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @playerTaken = Player.find(player_id).update_attribute(:taken, 'No')
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
@@ -997,6 +999,7 @@ class SessionsController < ApplicationController
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
               @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @playerTaken = Player.find(player_id).update_attribute(:taken, 'No')
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             midfielder_pri(midfielder_count, @mid_priority1_count, @mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id) 
@@ -1013,6 +1016,7 @@ class SessionsController < ApplicationController
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
               @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @playerTaken = Player.find(player_id).update_attribute(:taken, 'No')
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             striker_pri(striker_count, @str_priority1_count, @str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
