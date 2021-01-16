@@ -886,6 +886,7 @@ class SessionsController < ApplicationController
   
  def insertWinners
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+    @notify_users = User.all 
     @users = User.where(:account_id => current_user.account_id)
     for u in @users do
      @outrightWinners = Bid.where(:user_id => u.id)
@@ -1022,7 +1023,6 @@ class SessionsController < ApplicationController
             striker_pri(striker_count, @str_priority1_count, @str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           end
           @teamsheet_new.save
-          @notify_users = User.all 
     flash[:success] = "Successful bids inserted"
   end
   end
