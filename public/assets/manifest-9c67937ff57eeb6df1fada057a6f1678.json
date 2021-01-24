@@ -1,0 +1,20 @@
+{
+  "short_name": "FaST",
+  "name": "FaST",
+  "start_url": "https://uffl.herokuapp.com/login",
+  "background_color": "#80C783",
+  "display": "standalone",
+  "theme_color": "#80C783",
+  "icons": [
+    {
+      "src": "UFFL_Icon_192 stage.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "UFFL_Icon_512 stage.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
