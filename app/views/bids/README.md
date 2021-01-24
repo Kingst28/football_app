@@ -1,1 +1,0 @@
-Simple football app which allows user to drag and drop players into respective position for a starting team. 
