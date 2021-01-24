@@ -949,13 +949,13 @@ class SessionsController < ApplicationController
           midfielder_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Midfielder").size
           striker_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Striker").size
           
-          @goalkeeper_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Goalkeeper", 1, 'f').size
-          @defender_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Defender", 1, 'f').size
-          @defender_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Defender", 2, 'f').size
-          @mid_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Midfielder", 1, 'f').size
-          @mid_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Midfielder", 2, 'f').size
-          @str_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 1, 'f').size
-          @str_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 2, 'f').size
+          @goalkeeper_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Goalkeeper", 1, false).size
+          @defender_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Defender", 1, false).size
+          @defender_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Defender", 2, false).size
+          @mid_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Midfielder", 1, false).size
+          @mid_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Midfielder", 2, false).size
+          @str_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 1, false).size
+          @str_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 2, false).size
           
           if player_position == 'Goalkeeper'
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Goalkeeper", true).order(updated_at: :desc)
