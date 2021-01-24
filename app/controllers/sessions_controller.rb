@@ -24,17 +24,17 @@ class SessionsController < ApplicationController
             Timer.create(:date => date_end, :account_id => @user.account_id)
             insertWinners()
             redirect_to '/index' and return
-            elsif timer_date < Time.now() && current_bid_count = 3 then
-              Timer.destroy(timer_id)
-              Account.find(@user.account_id).update(:bid_count => current_bid_count + 1)
-              insertWinners()
-              redirect_to '/index' and return
-            else
+          elsif timer_date < Time.now() && current_bid_count == 3 then
+            Timer.destroy(timer_id)
+            Account.find(@user.account_id).update(:bid_count => current_bid_count + 1)
+            insertWinners()
+            redirect_to '/index' and return
+          else
           end
           else
           end
           
-          if current_user.account_id != nil 
+          if @user.account_id != nil 
           if Account.find(@user.account_id).new_results_ready == true
             #squad_validity_check()
             Account.find(@user.account_id).update(:new_results_ready => false)
@@ -43,18 +43,18 @@ class SessionsController < ApplicationController
           end
           end
           
-          if current_user.account_id != nil
-          if Account.find(current_user.account_id).bid_count == 4 then
+          if @user.account_id != nil
+          if Account.find(@user.account_id).bid_count == 4 then
             #insertRandomPlayers()
             createFixtures()
             redirect_to '/index' and return
           end
           end
 
-          if current_user.account_id != nil
-            if Account.find(current_user.account_id).bid_count > 4 then
-                @account_bids = Bid.where(:account_id => current_user.account_id)
-                @timer = Timer.where(:account_id => current_user.account_id)
+          if @user.account_id != nil
+            if Account.find(@user.account_id).bid_count > 4 then
+                @account_bids = Bid.where(:account_id => @user.account_id)
+                @timer = Timer.where(:account_id => @user.account_id)
                 timer_id_array = @timer.pluck(:id)
                 timer_id = timer_id_array[0]
                 timer_date_array = @timer.pluck(:date)
@@ -64,18 +64,20 @@ class SessionsController < ApplicationController
                 end
                 if @account_bids.joins(:player).where("players.taken = ?", "No").exists? && timer_date != nil
                   if timer_date.past? then
+                    Timer.destroy(timer_id)
                     insertWinners()
                     redirect_to '/index' and return
                   else
+                    Timer.destroy(timer_id)
                     redirect_to '/index' and return
                   end
             end
           end
           end
 
-          if current_user.admin? 
+          if @user.admin? 
           redirect_to '/admin_controls' and return
-          elsif current_user.user?
+          elsif @user.user?
           redirect_to '/index' and return
           else
             message = "Account not activated. "
@@ -885,9 +887,11 @@ class SessionsController < ApplicationController
   end
   
  def insertWinners
-    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+    @user = User.find_by_email(params[:session][:email])
+    @notifications_all = Notification.where(:user_id => @user.id).order("created_at DESC")
     @notify_users = User.all 
-    @users = User.where(:account_id => current_user.account_id)
+    account_id = @user.account_id
+    @users = User.where(:account_id => @user.account_id)
     for u in @users do
      @outrightWinners = Bid.where(:user_id => u.id)
      @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
