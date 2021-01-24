@@ -969,7 +969,7 @@ class SessionsController < ApplicationController
               active = active[0]
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
@@ -985,7 +985,7 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
               @bidDelete = Bid.find(bid_id).delete
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
@@ -1003,7 +1003,7 @@ class SessionsController < ApplicationController
               active = active[0]
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
@@ -1020,7 +1020,7 @@ class SessionsController < ApplicationController
               active = active[0]
               priority = priority[0]
               @bidDelete = Bid.find(bid_id).delete
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
