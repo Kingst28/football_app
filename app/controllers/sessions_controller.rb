@@ -68,7 +68,6 @@ class SessionsController < ApplicationController
                     insertWinners()
                     redirect_to '/index' and return
                   else
-                    Timer.destroy(timer_id)
                     redirect_to '/index' and return
                   end
             end
