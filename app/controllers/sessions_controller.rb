@@ -977,9 +977,9 @@ class SessionsController < ApplicationController
           elsif player_position == 'Defender'
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Defender", true).order(updated_at: :desc)
             @teamsheet = Teamsheet.joins(:player).where("user_id = ? AND player_id = ?", o.user_id, o.player_id).order(updated_at: :desc)
-            if @bid.exists?
-              bid_id = @bid.first.read_attribute(:id)
-              player_id = @bid.first.read_attribute(:player_id)
+            for bid in @bid do
+              bid_id = bid.read_attribute(:id)
+              player_id = bid.read_attribute(:player_id)
               teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
               active = Teamsheet.where(:player_id => player_id).pluck(:active)
               priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
