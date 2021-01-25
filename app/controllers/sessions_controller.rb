@@ -932,11 +932,11 @@ class SessionsController < ApplicationController
           @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
           teamsheet = Teamsheet.where(:player_id => b.read_attribute(:player_id)).pluck(:id)
           teamsheet_id = teamsheet[0]
-          @deleteTeamsheet1 = Teamsheet.find(teamsheet_id).delete
+          @deleteTeamsheet1 = Teamsheet.find(teamsheet_id).destroy
        else
           teamsheet = Teamsheet.where(:player_id => b.read_attribute(:player_id)).pluck(:id)
           teamsheet_id = teamsheet[0]
-          @deleteTeamsheet1 = Teamsheet.find(teamsheet_id).delete
+          @deleteTeamsheet1 = Teamsheet.find(teamsheet_id).destroy
        end
        end
        end
