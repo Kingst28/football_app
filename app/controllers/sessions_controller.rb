@@ -929,7 +929,7 @@ class SessionsController < ApplicationController
           newBudget1 = currentBudget1 + bidAmount
           @user1.update_attribute(:budget, newBudget1)
        if Bid.exists?(b.read_attribute(:id))
-          @deleteTeamsheet1 = Teamsheet.where(:user_id => b.read_attribute(:user_id)).where(:player_id => b.read_attribute(:player_id)).delete
+          @deleteTeamsheet1 = Teamsheet.where(:player_id => b.read_attribute(:player_id)).delete
           @bidDelete1 = Bid.find(b.read_attribute(:id)).delete
        else
        end
