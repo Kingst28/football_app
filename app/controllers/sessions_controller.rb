@@ -962,7 +962,7 @@ class SessionsController < ApplicationController
           @str_priority1_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 1, false).size
           @str_priority2_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ? AND priority = ? AND active = ?", o.user_id, "Striker", 2, false).size
           
-          if player_position == 'Goalkeeper'
+          if player_position == "Goalkeeper"
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Goalkeeper", true).order(updated_at: :desc)
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
@@ -979,7 +979,7 @@ class SessionsController < ApplicationController
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
-          elsif player_position == 'Defender'
+          elsif player_position == "Defender"
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Defender", true).order(updated_at: :desc)
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
@@ -996,7 +996,7 @@ class SessionsController < ApplicationController
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
-          elsif player_position == 'Midfielder'
+          elsif player_position == "Midfielder"
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Midfielder", true).order(updated_at: :desc)
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
@@ -1013,7 +1013,7 @@ class SessionsController < ApplicationController
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
             midfielder_pri(midfielder_count, @mid_priority1_count, @mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id) 
-          elsif player_position == 'Striker'
+          elsif player_position == "Striker"
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Striker", true).order(updated_at: :desc)
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
