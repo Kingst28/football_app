@@ -35,6 +35,22 @@ class TeamsheetController < ApplicationController
         elsif finalscore[1].to_i == finalscore[0].to_i then
           @results << "D"
         end
+      elsif result.haflag == "Home" && result.ateam == current_user.id.to_s then
+        if finalscore[1].to_i > finalscore[0].to_i then
+          @results << "W"
+        elsif finalscore[1].to_i < finalscore[0].to_i then
+          @results << "L"
+        elsif finalscore[1].to_i == finalscore[0].to_i then
+          @results << "D"
+        end
+      elsif result.haflag == "Away" && result.hteam == current_user.id.to_s then
+        if finalscore[0].to_i > finalscore[1].to_i then
+          @results << "W"
+        elsif finalscore[0].to_i < finalscore[1].to_i then
+          @results << "L"
+        elsif finalscore[0].to_i == finalscore[1].to_i then
+          @results << "D"
+        end
       end
     end
     
