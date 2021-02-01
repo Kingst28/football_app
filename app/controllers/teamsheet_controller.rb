@@ -12,7 +12,7 @@ class TeamsheetController < ApplicationController
     @current_matchday = Matchday.where(:account_id => current_user.account_id)
     @fixture = Fixture.where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag).where(:account_id => @current_matchday.first.account_id)
 
-    @latest_results = Fixture.where('hteam==? OR ateam==?', current_user.id, current_user.id).where(:haflag => Matchday.where(:account_id => current_user.account_id).first.haflag).where.not(:finalscore => '').order(:matchday).last(5)
+    @latest_results = Fixture.where('hteam=? OR ateam=?', current_user.id.to_s, current_user.id.to_s).where(:haflag => Matchday.where(:account_id => current_user.account_id).first.haflag).where.not(:finalscore => '').order(:matchday).last(5)
 
     @results = [] 
 
