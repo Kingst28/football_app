@@ -26,7 +26,7 @@ class TeamsheetController < ApplicationController
         elsif finalscore[0].to_i == finalscore[1].to_i then
           @results << "D"
         end
-      elsif result.haflag == "Away" && result.hteam == current_user.id.to_s then
+      elsif result.haflag == "Away" && result.ateam == current_user.id.to_s then
         finalscore = result.finalscore
         if finalscore[1].to_i > finalscore[0].to_i then
           @results << "W"
