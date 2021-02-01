@@ -357,6 +357,17 @@ var x = setInterval(function() {
 <div style="margin-right:auto; margin-left:auto;" id="matchfield"></div>
 <br />
 <div style= "text-align:center">
+<div class = "card-panel">
+<% for result in @results do %>
+  <% if result == 'W' then %>
+  <a class = "btn-floating btn-large waves-effect waves-light green" style="font-size:25px;">W</a>
+  <% elsif result == 'D' then %>
+  <a class = "btn-floating btn-large waves-effect waves-light grey" style="font-size:25px;">D</a>
+  <% elsif result == 'L' then %>
+  <a class = "btn-floating btn-large waves-effect waves-light red" style="font-size:25px;">L</a>
+  <% end %>
+<% end %>
+</div>
 <div class="card grey lighten-5">
 <center><i class="medium material-icons">notifications_active</i><h5>Latest Results</h5></center>
 <div class="card-content black-text">

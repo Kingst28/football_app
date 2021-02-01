@@ -12,6 +12,33 @@ class TeamsheetController < ApplicationController
     @current_matchday = Matchday.where(:account_id => current_user.account_id)
     @fixture = Fixture.where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag).where(:account_id => @current_matchday.first.account_id)
 
+    @latest_results = Fixture.where('hteam=? OR ateam=?', current_user.id, current_user.id).where(:haflag => Matchday.where(:account_id => current_user.account_id).first.haflag).where.not(:finalscore => '').order(:matchday).last(5)
+
+    @results = [] 
+
+    for result in @latest_results do
+      if result.haflag == "Home" then
+        finalscore = result.finalscore
+        if finalscore[0].to_i > finalscore[1].to_i then
+          @results << "W"
+        elsif finalscore[0].to_i < finalscore[1].to_i then
+          @results << "L"
+        elsif finalscore[0].to_i == finalscore[1].to_i then
+          @results << "D"
+        end
+      elsif result.haflag == "Away" then
+        finalscore = result.finalscore
+        if finalscore[1].to_i > finalscore[0].to_i then
+          @results << "W"
+        elsif finalscore[1].to_i < finalscore[0].to_i then
+          @results << "L"
+        elsif finalscore[1].to_i == finalscore[0].to_i then
+          @results << "D"
+        end
+      end
+    end
+    
+
     #defenderCount = Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
     #total_scorenum = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
     #total_connum = Teamsheet.where(:user_id => current_user.id).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
