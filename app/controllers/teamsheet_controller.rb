@@ -119,6 +119,56 @@ class TeamsheetController < ApplicationController
     @goals_average = user_goals_scored.to_d / user_matches.to_d  
     @conceded_average = user_goals_conceded.to_d / user_matches.to_d  
 
+    @current_matchday = Matchday.where(:account_id => User.find(params[:user_id]).account_id)
+
+    @latest_results = Fixture.where('hteam=? OR ateam=?', params[:user_id].to_s, params[:user_id].to_s).where.not(:finalscore => '').order(haflag: :desc, matchday: :asc).last(5)
+
+    @results = {}
+    @next_opponent = Fixture.where('hteam=? OR ateam=?', params[:user_id].to_s, params[:user_id].to_s).where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag)
+
+    for result in @latest_results do
+      if result.haflag == "Home" && result.hteam == params[:user_id].to_s then
+        finalscore = result.finalscore
+        if finalscore[0].to_i > finalscore[1].to_i then
+          @results.store(result.id, "W")
+        elsif finalscore[0].to_i < finalscore[1].to_i then
+          @results.store(result.id, "L")
+        elsif finalscore[0].to_i == finalscore[1].to_i then
+          @results.store(result.id, "D")
+        end
+
+      elsif result.haflag == "Home" && result.ateam == params[:user_id].to_s then
+        finalscore = result.finalscore
+        if finalscore[1].to_i > finalscore[0].to_i then
+          @results.store(result.id, "W")
+        elsif finalscore[1].to_i < finalscore[0].to_i then
+          @results.store(result.id, "L")
+        elsif finalscore[1].to_i == finalscore[0].to_i then
+          @results.store(result.id, "D")
+        end
+
+      elsif result.haflag == "Away" && result.ateam == params[:user_id].to_s then
+        finalscore = result.finalscore
+        if finalscore[1].to_i > finalscore[0].to_i then
+          @results.store(result.id, "W")
+        elsif finalscore[1].to_i < finalscore[0].to_i then
+          @results.store(result.id, "L")
+        elsif finalscore[1].to_i == finalscore[0].to_i then
+          @results.store(result.id, "D")
+        end
+
+      elsif result.haflag == "Away" && result.hteam == params[:user_id].to_s then
+        finalscore = result.finalscore
+        if finalscore[0].to_i > finalscore[1].to_i then
+          @results.store(result.id, "W")
+        elsif finalscore[0].to_i < finalscore[1].to_i then
+          @results.store(result.id, "L")
+        elsif finalscore[0].to_i == finalscore[1].to_i then
+          @results.store(result.id, "D")
+        end
+      end
+    end
+
     #defenderCount = Teamsheet.where(:user_id => params[:user_id]).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count
     #total_scorenum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:scorenum).to_s.tr('""','').tr('[]','').to_i
     #total_connum = Teamsheet.where(:user_id => params[:user_id]).where(:active => true).sum(:concedednum).to_s.tr('""','').tr('[]','').to_i
