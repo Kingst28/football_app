@@ -361,11 +361,11 @@ var x = setInterval(function() {
 <% else %>
 <div class = "card-panel">
 <% for result in @results do %>
-  <% if result == 'W' then %>
+  <% if result.to_s["result"] == "W" then %>
   <a class = "btn-floating btn-large waves-effect waves-light green" style="font-size:25px;">W</a>
-  <% elsif result == 'D' then %>
+  <% elsif result.to_s["result"] == 'D' then %>
   <a class = "btn-floating btn-large waves-effect waves-light grey" style="font-size:25px;">D</a>
-  <% elsif result == 'L' then %>
+  <% elsif result.to_s["result"] == 'L' then %>
   <a class = "btn-floating btn-large waves-effect waves-light red" style="font-size:25px;">L</a>
   <% end %>
 <% end %>

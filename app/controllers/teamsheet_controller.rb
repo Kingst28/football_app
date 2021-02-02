@@ -14,48 +14,48 @@ class TeamsheetController < ApplicationController
 
     @latest_results = Fixture.where('hteam=? OR ateam=?', current_user.id.to_s, current_user.id.to_s).where.not(:finalscore => '').order(haflag: :desc, matchday: :asc).last(5)
 
-    @results = [] 
+    @results = {}
     @next_opponent = Fixture.where('hteam=? OR ateam=?', current_user.id.to_s, current_user.id.to_s).where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag)
 
     for result in @latest_results do
       if result.haflag == "Home" && result.hteam == current_user.id.to_s then
         finalscore = result.finalscore
         if finalscore[0].to_i > finalscore[1].to_i then
-          @results << "W"
+          @results.store(result.id, "W")
         elsif finalscore[0].to_i < finalscore[1].to_i then
-          @results << "L"
+          @results.store(result.id, "L")
         elsif finalscore[0].to_i == finalscore[1].to_i then
-          @results << "D"
+          @results.store(result.id, "D")
         end
 
       elsif result.haflag == "Home" && result.ateam == current_user.id.to_s then
         finalscore = result.finalscore
         if finalscore[1].to_i > finalscore[0].to_i then
-          @results << "W"
+          @results.store(result.id, "W")
         elsif finalscore[1].to_i < finalscore[0].to_i then
-          @results << "L"
+          @results.store(result.id, "L")
         elsif finalscore[1].to_i == finalscore[0].to_i then
-          @results << "D"
+          @results.store(result.id, "D")
         end
 
       elsif result.haflag == "Away" && result.ateam == current_user.id.to_s then
         finalscore = result.finalscore
         if finalscore[1].to_i > finalscore[0].to_i then
-          @results << "W"
+          @results.store(result.id, "W")
         elsif finalscore[1].to_i < finalscore[0].to_i then
-          @results << "L"
+          @results.store(result.id, "L")
         elsif finalscore[1].to_i == finalscore[0].to_i then
-          @results << "D"
+          @results.store(result.id, "D")
         end
 
       elsif result.haflag == "Away" && result.hteam == current_user.id.to_s then
         finalscore = result.finalscore
         if finalscore[0].to_i > finalscore[1].to_i then
-          @results << "W"
+          @results.store(result.id, "W")
         elsif finalscore[0].to_i < finalscore[1].to_i then
-          @results << "L"
+          @results.store(result.id, "L")
         elsif finalscore[0].to_i == finalscore[1].to_i then
-          @results << "D"
+          @results.store(result.id, "D")
         end
       end
     end
