@@ -15,6 +15,7 @@ class TeamsheetController < ApplicationController
     @latest_results = Fixture.where('hteam=? OR ateam=?', current_user.id.to_s, current_user.id.to_s).where.not(:finalscore => '').order(haflag: :desc, matchday: :asc).last(5)
 
     @results = [] 
+    @next_opponent = Fixture.where('hteam=? OR ateam=?', current_user.id.to_s, current_user.id.to_s).where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag)
 
     for result in @latest_results do
       if result.haflag == "Home" && result.hteam == current_user.id.to_s then
