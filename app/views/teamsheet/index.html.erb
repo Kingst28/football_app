@@ -365,8 +365,10 @@ var x = setInterval(function() {
   <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s + "-" + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
   <a class = "btn-floating tooltipped btn-large waves-effect waves-light green" data-position="top" data-tooltip="<%=fixture_details %>" style="font-size:24px;">W</a>
   <% elsif result == "D" then %>
+    <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s + "-" + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
   <a class = "btn-floating tooltipped btn-large waves-effect waves-light grey" data-position="top" data-tooltip="<%=fixture_details %>" style="font-size:24px;">D</a>
   <% elsif result == "L" then %>
+    <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s + "-" + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
   <a class = "btn-floating tooltipped btn-large waves-effect waves-light red" data-position="top" data-tooltip="<%=fixture_details %>" style="font-size:24px;">L</a>
   <% end %>
 <% end %>
