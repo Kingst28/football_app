@@ -362,8 +362,8 @@ var x = setInterval(function() {
 <div class = "card-panel">
 <% @results.each do |fixture_id, result| %>
   <% if result == "W" then %>
-  <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s +  " vs " + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
-  <a class = "btn-floating tooltipped btn-large waves-effect waves-light green" data-position="top" data-tooltip="<%= fixture_details %>" style="font-size:24px;">W</a>
+  <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s + "-" + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
+  <a class = "btn-floating tooltipped btn-large waves-effect waves-light green" data-position="top" data-tooltip="<%=fixture_details %>" style="font-size:24px;">W</a>
   <% elsif result == "D" then %>
   <a class = "btn-floating btn-large waves-effect waves-light grey" style="font-size:24px;">D</a>
   <% elsif result == "L" then %>
@@ -374,10 +374,10 @@ var x = setInterval(function() {
 <br />
 <br />
 <p>Next Match</p>
-<%= link_to(User.find(@next_opponent.first.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if @next_opponent.first.finalscore != "" %> <%=@next_opponent.first.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %> <% end %> <a><%= link_to(User.find(@next_opponent.first.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a>
+<%= link_to(User.find(@next_opponent.first.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if @next_opponent.first.finalscore != "" %> <%=@next_opponent.first.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %><% end %> <a><%= link_to(User.find(@next_opponent.first.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a>
 </div>
 <div class="card grey lighten-5">
-<center><i class="medium material-icons">notifications_active</i><h5>Latest Results</h5></center>
+<center><i class="medium material-icons">notifications_active</i><h5>Matchday Results</h5></center>
 <div class="card-content black-text">
 <span class="card-title" style="text-align:center; color:black;">
       GK/Def Played: <b><%= Teamsheet.where(:user_id => current_user.id).where(:played => true).joins(:player).where("position = 'Goalkeeper' OR position = 'Defender'").count %> </b>
