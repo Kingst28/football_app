@@ -360,12 +360,13 @@ var x = setInterval(function() {
 <% if @results.empty? then %>
 <% else %>
 <div class = "card-panel">
-<% for result in @results do %>
-  <% if result.to_s["result"] == "W" then %>
-  <a class = "btn-floating btn-large waves-effect waves-light green" style="font-size:25px;">W</a>
-  <% elsif result.to_s["result"] == 'D' then %>
+<% @results.each do |fixture_id, result| %>
+  <% if result == "W" then %>
+  <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s +  " vs " + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
+  <a class = "btn-floating tooltipped btn-large waves-effect waves-light green" data-position="top" data-tooltip="<%= fixture_details %>" style="font-size:25px;">W</a>
+  <% elsif result == "D" then %>
   <a class = "btn-floating btn-large waves-effect waves-light grey" style="font-size:25px;">D</a>
-  <% elsif result.to_s["result"] == 'L' then %>
+  <% elsif result == "L" then %>
   <a class = "btn-floating btn-large waves-effect waves-light red" style="font-size:25px;">L</a>
   <% end %>
 <% end %>
