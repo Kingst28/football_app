@@ -363,11 +363,11 @@ var x = setInterval(function() {
 <% @results.each do |fixture_id, result| %>
   <% if result == "W" then %>
   <% fixture_details = User.find(Fixture.find(fixture_id).hteam).teamname.to_s + " " + Fixture.find(fixture_id).finalscore[0].to_s +  " vs " + Fixture.find(fixture_id).finalscore[1].to_s + " " + User.find(Fixture.find(fixture_id).ateam).teamname.to_s %>
-  <a class = "btn-floating tooltipped btn-large waves-effect waves-light green" data-position="top" data-tooltip="<%= fixture_details %>" style="font-size:25px;">W</a>
+  <a class = "btn-floating tooltipped btn-large waves-effect waves-light green" data-position="top" data-tooltip="<%= fixture_details %>" style="font-size:24px;">W</a>
   <% elsif result == "D" then %>
-  <a class = "btn-floating btn-large waves-effect waves-light grey" style="font-size:25px;">D</a>
+  <a class = "btn-floating btn-large waves-effect waves-light grey" style="font-size:24px;">D</a>
   <% elsif result == "L" then %>
-  <a class = "btn-floating btn-large waves-effect waves-light red" style="font-size:25px;">L</a>
+  <a class = "btn-floating btn-large waves-effect waves-light red" style="font-size:24px;">L</a>
   <% end %>
 <% end %>
 <% end %>
