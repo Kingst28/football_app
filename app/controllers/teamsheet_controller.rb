@@ -121,10 +121,10 @@ class TeamsheetController < ApplicationController
 
     @current_matchday = Matchday.where(:account_id => User.find(params[:user_id].to_i).account_id)
 
-    @latest_results = Fixture.where('hteam=? OR ateam=?', params[:user_id].to_s, params[:user_id].to_s).where.not(:finalscore => '').order(haflag: :desc, matchday: :asc).last(5)
+    @latest_results = Fixture.where('hteam=? OR ateam=?', params[:user_id], params[:user_id]).where.not(:finalscore => '').order(haflag: :desc, matchday: :asc).last(5)
 
     @results = {}
-    @next_opponent = Fixture.where('hteam=? OR ateam=?', params[:user_id].to_s, params[:user_id].to_s).where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag)
+    @next_opponent = Fixture.where('hteam=? OR ateam=?', params[:user_id], params[:user_id]).where(:matchday => @current_matchday.first.matchday_number).where(:haflag => @current_matchday.first.haflag)
 
     for result in @latest_results do
       if result.haflag == "Home" && result.hteam == params[:user_id].to_s then
