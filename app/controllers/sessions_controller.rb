@@ -967,7 +967,7 @@ class SessionsController < ApplicationController
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
               player_id = @bid.first.read_attribute(:player_id)
-              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              teamsheet = Teamsheet.where(:player_id => player_id).where(:account_id => @bid.first.read_attribute(:account_id)).pluck(:id)
               active = Teamsheet.where(:player_id => player_id).pluck(:active)
               priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
               teamsheet_id = teamsheet[0]
@@ -984,7 +984,7 @@ class SessionsController < ApplicationController
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
               player_id = @bid.first.read_attribute(:player_id)
-              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              teamsheet = Teamsheet.where(:player_id => player_id).where(:account_id => @bid.first.read_attribute(:account_id)).pluck(:id)
               active = Teamsheet.where(:player_id => player_id).pluck(:active)
               priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
               teamsheet_id = teamsheet[0]
@@ -1001,7 +1001,7 @@ class SessionsController < ApplicationController
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
               player_id = @bid.first.read_attribute(:player_id)
-              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              teamsheet = Teamsheet.where(:player_id => player_id).where(:account_id => @bid.first.read_attribute(:account_id)).pluck(:id)
               active = Teamsheet.where(:player_id => player_id).pluck(:active)
               priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
               teamsheet_id = teamsheet[0]
@@ -1018,7 +1018,7 @@ class SessionsController < ApplicationController
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
               player_id = @bid.first.read_attribute(:player_id)
-              teamsheet = Teamsheet.where(:player_id => player_id).pluck(:id)
+              teamsheet = Teamsheet.where(:player_id => player_id).where(:account_id => @bid.first.read_attribute(:account_id)).pluck(:id)
               active = Teamsheet.where(:player_id => player_id).pluck(:active)
               priority = Teamsheet.where(:player_id => player_id).pluck(:priority)
               teamsheet_id = teamsheet[0]
