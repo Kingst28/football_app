@@ -920,8 +920,8 @@ class SessionsController < ApplicationController
        currentBudget1 = @user1.budget.to_i
        newBudget1 = currentBudget1 + b.read_attribute(:amount).to_i
        @user1.update_attribute(:budget, newBudget1)
-       @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
        @deleteTeamsheet = Teamsheet.where(:player_id => d[0].player_id).destroy_all
+       @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
        refunded = true
        else
           @user1 = User.find(b.read_attribute(:user_id))
@@ -929,10 +929,10 @@ class SessionsController < ApplicationController
           newBudget1 = currentBudget1 + bidAmount
           @user1.update_attribute(:budget, newBudget1)
        if Bid.exists?(b.read_attribute(:id))
-          @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
           teamsheet = Teamsheet.where(:player_id => b.read_attribute(:player_id)).pluck(:id)
           teamsheet_id = teamsheet[0]
           @teamsheetDelete = Teamsheet.where(player_id: b.read_attribute(:player_id)).destroy_all
+          @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
        else
           teamsheet = Teamsheet.where(:player_id => b.read_attribute(:player_id)).pluck(:id)
           teamsheet_id = teamsheet[0]
@@ -973,8 +973,8 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              @bidDelete = Bid.find(bid_id).delete
               @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
+              @bidDelete = Bid.find(bid_id).delete
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
@@ -990,8 +990,8 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              @bidDelete = Bid.find(bid_id).delete
               @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
+              @bidDelete = Bid.find(bid_id).delete
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
