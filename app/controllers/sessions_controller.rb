@@ -920,8 +920,8 @@ class SessionsController < ApplicationController
        currentBudget1 = @user1.budget.to_i
        newBudget1 = currentBudget1 + b.read_attribute(:amount).to_i
        @user1.update_attribute(:budget, newBudget1)
-       @deleteTeamsheet = Teamsheet.where(:player_id => d[0].player_id).destroy_all
        @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
+       @deleteTeamsheet = Teamsheet.where(:player_id => d[0].player_id).destroy_all
        refunded = true
        else
           @user1 = User.find(b.read_attribute(:user_id))
