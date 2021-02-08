@@ -1039,7 +1039,7 @@ class SessionsController < ApplicationController
   end
 
  def deleteBidTeam (bid_id, player_id)
-  @teamsheetDelete = Teamsheet.where(player_id: player_id).delete
+  @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
   @bidDelete = Bid.find(bid_id).delete
  end
 
