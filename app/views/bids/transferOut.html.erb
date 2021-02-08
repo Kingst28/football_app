@@ -239,7 +239,7 @@ var x = setInterval(function() {
     <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
     </div>
     <div class="input-field inline">
-    <%= f.hidden_field :replacement, value: 1 %>
+    <%= f.hidden_field :replacement, value: true %>
     </div>
    <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
