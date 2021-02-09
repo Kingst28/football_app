@@ -1044,10 +1044,10 @@ class SessionsController < ApplicationController
   @bids = Bid.where(:user_id => bid_uid)
   for bid in @bids do 
     if bid.read_attribute(:transfer_out => false) then 
-      bid.update_attribute(:replacement, false)
+      bid.update_attribute(:replacement, true)
       bid.save
     elsif bid.read_attribute(:transfer_out => true) then
-      bid.update_attribute(:replacement, true)
+      bid.update_attribute(:replacement, false)
       bid.save
     end
   end
