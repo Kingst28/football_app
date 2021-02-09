@@ -1040,9 +1040,9 @@ class SessionsController < ApplicationController
 
  def deleteBidTeam (bid_id, player_id)
   @bid = Bid.find(bid_id)
-  if @bid.transfer_out == true then
+  if @bid.transfer_out = true then
     @bid.update_attribute(:replacement, true)
-  elsif @bid.transfer_out == false then
+  elsif @bid.transfer_out = false then
     @bid.update_attribute(:replacement, false)
   end
   @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
