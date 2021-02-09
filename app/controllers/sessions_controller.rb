@@ -1045,8 +1045,10 @@ class SessionsController < ApplicationController
   for bid in @bids do 
     if bid.read_attribute(:transfer_out => true) then 
       bid.update_attribute(:replacement, true)
+      bid.save
     elsif bid.read_attribute(:transfer_out => false) then
       bid.update_attribute(:replacement, false)
+      bid.save
     end
   end
   @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
