@@ -60,7 +60,7 @@ end
     player_id = params[:player_id]
     @bid = Bid.where(:player_id => player_id).first
     @bid.update_attribute(:transfer_out, true)
-    @bid.update_attribute(:replacement, false)
+    @bid.update_attribute(:replacement, true)
     @bid.save
     amount = Bid.where(:player_id => player_id).pluck(:amount)[0]
     @position = Player.find(player_id).read_attribute(:position)
