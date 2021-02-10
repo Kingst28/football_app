@@ -980,7 +980,7 @@ class SessionsController < ApplicationController
             end
             gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           elsif player_position == "Defender"
-            @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Defender", true).order(updated_at: :desc)
+            @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Defender", true).order(updated_at: :asc)
             if @bid.exists?
               bid_id = @bid.first.read_attribute(:id)
               player_id = @bid.first.read_attribute(:player_id)
