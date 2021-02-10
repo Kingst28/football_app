@@ -990,7 +990,8 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              deleteBidTeam(bid_id, player_id)
+              @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
+              @bidDelete = Bid.find(bid_id).delete
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
@@ -1038,22 +1039,22 @@ class SessionsController < ApplicationController
   end
   end
 
- def deleteBidTeam (bid_id, player_id)
-  @bid = Bid.find(bid_id)
-  bid_uid = @bid.user_id
-  @bids = Bid.where(:user_id => bid_uid)
-  for bid in @bids do 
-    if bid.read_attribute(:transfer_out => false) then 
-      bid.update_attribute(:replacement, true)
-      bid.save
-    elsif bid.read_attribute(:transfer_out => true) then
-      bid.update_attribute(:replacement, false)
-      bid.save
-    end
-  end
-  @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
-  @bidDelete = Bid.find(bid_id).delete
- end
+ #def deleteBidTeam (bid_id, player_id)
+  #@bid = Bid.find(bid_id)
+  #bid_uid = @bid.user_id
+  #@bids = Bid.where(:user_id => bid_uid)
+  #for bid in @bids do 
+    #if bid.read_attribute(:transfer_out => false) then 
+      #bid.update_attribute(:replacement, true)
+      #bid.save
+    #elsif bid.read_attribute(:transfer_out => true) then
+      #bid.update_attribute(:replacement, false)
+      #bid.save
+    #end
+  #end
+  #@teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
+  #@bidDelete = Bid.find(bid_id).delete
+ #end
 
  def squad_validity_check 
     @users = User.all
