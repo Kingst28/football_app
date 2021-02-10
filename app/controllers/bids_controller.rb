@@ -68,7 +68,7 @@ end
     user_new_budget = user_budget + amount
     @user.update_attribute(:budget, user_new_budget)
 
-    @bid = Bid.new
+    @bid1 = Bid.new
     @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")
     @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")

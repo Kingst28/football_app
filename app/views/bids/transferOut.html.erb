@@ -212,7 +212,7 @@ var x = setInterval(function() {
 <% if @position == 'Goalkeeper' %>    
 <h4>Goalkeepers <a href="#modal3"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></h4>
   <div class="col s6" style="background-color:white;">
-		<%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+		<%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
 		<div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@goalkeepers,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
@@ -233,7 +233,7 @@ var x = setInterval(function() {
 <% if @position == 'Defender'%>
 <h5>Place new defender bid</h5>
 <div class="col s6" style="background-color:white;">
-    <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+    <%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
     <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@defenders,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
@@ -254,7 +254,7 @@ var x = setInterval(function() {
 <% if @position == 'Midfielder'%>
 <h4>Midfielders</h4>
 <div class="col s6" style="background-color:white;">
-    <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+    <%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
     <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@midfielders,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
@@ -275,7 +275,7 @@ var x = setInterval(function() {
 <% if @position == 'Striker' %>
 <h4>Strikers</h4>
 <div class="col s6" style="background-color:white;">
-    <%= form_for(@bid, :html => { :class => 'btn-lg' }) do |f| %>
+    <%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
     <div class="input-field">
     <%= f.select :player_id, options_from_collection_for_select(@strikers,
  :id, 'playerteam'), {}, class: "form-control", id: "template-example", data: { placeholder: "Select a player" } %>
