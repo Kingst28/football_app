@@ -71,7 +71,6 @@ end
 
     @bid1 = Bid.new
     @bid1.update_attribute(:replacement, true)
-    @bid1.save
     @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")
     @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
