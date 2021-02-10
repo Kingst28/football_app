@@ -70,7 +70,6 @@ end
     @user.update_attribute(:budget, user_new_budget)
 
     @bid1 = Bid.new
-    @bid1.update_attribute(:replacement, true)
     @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")
     @defenders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Defender")
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
