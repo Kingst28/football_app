@@ -3,6 +3,7 @@ class Teamsheet < ActiveRecord::Base
   attr_accessor :validate
   belongs_to :user
   belongs_to :player
+  belongs_to :bid
   #validate :active_check_final, unless: :validate
   #validate :active, :goalkeeper_check, unless: :validate
   #validate :active, :defender_check, unless: :validate
