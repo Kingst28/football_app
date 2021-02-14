@@ -947,7 +947,7 @@ class SessionsController < ApplicationController
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          #@teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => o.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => o.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
           player_position = Player.find(o.player_id).position
           goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").size
           defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").size
@@ -980,8 +980,7 @@ class SessionsController < ApplicationController
             end
             gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
           elsif player_position == "Defender"
-            @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => o.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
-            @bid = Bid.joins("JOIN players ON bids.player_id = players.id").where("bids.user_id = ? AND bids.transfer_out = ? AND bids.account_id = ? AND players.position = ?", o.user_id, true, o.account_id, 'Defender').order('bids.id')
+            @bid = Bid.joins("JOIN players ON bids.player_id = players.id").where("bids.user_id = ? AND bids.transfer_out = ? AND bids.account_id = ? AND players.position = ?", o.user_id, true, o.account_id, 'Defender').order('bids.id asc')
             if @bid.exists?
               for bid in @bid do 
                 bid_id = bid.read_attribute(:id)
