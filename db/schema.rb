@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210214110635) do
+ActiveRecord::Schema.define(version: 20210214113004) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -30,12 +30,10 @@ ActiveRecord::Schema.define(version: 20210214110635) do
     t.integer  "account_id"
     t.boolean  "transfer_out", default: false
     t.boolean  "replacement"
-    t.integer  "teamsheet_id"
   end
 
   add_index "bids", ["account_id"], name: "index_bids_on_account_id"
   add_index "bids", ["player_id"], name: "index_bids_on_player_id"
-  add_index "bids", ["teamsheet_id"], name: "index_bids_on_teamsheet_id"
   add_index "bids", ["user_id"], name: "index_bids_on_user_id"
 
   create_table "fixtures", force: :cascade do |t|

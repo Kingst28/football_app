@@ -2,7 +2,7 @@ class Bid < ActiveRecord::Base
 attr_accessor :remember_token, :activation_token, :reset_token
   belongs_to :user
   belongs_to :player
-  has_many :teamsheet, :dependent => :destroy
+  has_many :teamsheet, dependent: :destroy
   validate :amount, :amount_check
   validate :player_count
   validate :goalkeeper_count
