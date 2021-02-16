@@ -358,6 +358,6 @@ end
     end
 
    def bid_params
-      params.require(:bid).permit(:player_id, :amount, :user_id, :replacement)
+      params.require(:bid).permit(:player_id, :amount, :user_id, :transfer_out)
    end
 end

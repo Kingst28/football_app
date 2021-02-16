@@ -209,7 +209,7 @@ var x = setInterval(function() {
   <br />
   <div class="container">
     <div class="container">  
-<!--<% if @position == 'Goalkeeper' %>-->    
+ 
 <h4>Goalkeepers <a href="#modal3"><i class="material-icons">help_outline</i><span class="sr-only"></span></a></h4>
   <div class="col s6" style="background-color:white;">
 		<%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
@@ -225,9 +225,9 @@ var x = setInterval(function() {
   </button>
 <% end %>
 </div>
-<!--<% end %>-->
 
-<!--<% if @position == 'Defender'%>-->
+
+
 <h5>Place new defender bid</h5>
 <div class="col s6" style="background-color:white;">
     <%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
@@ -243,9 +243,9 @@ var x = setInterval(function() {
   </button>
 <% end %>
 </div>
-<!--<% end %>-->
 
-<!--<% if @position == 'Midfielder'%>-->
+
+
 <h4>Midfielders</h4>
 <div class="col s6" style="background-color:white;">
     <%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
@@ -261,9 +261,9 @@ var x = setInterval(function() {
   </button>
 <% end %>
 </div>
-<!--<% end %>-->
 
-<!--<% if @position == 'Striker' %>-->
+
+
 <h4>Strikers</h4>
 <div class="col s6" style="background-color:white;">
     <%= form_for(@bid1, :html => { :class => 'btn-lg' }) do |f| %>
@@ -279,7 +279,7 @@ var x = setInterval(function() {
   </button>
 <% end %>
 </div>
-<!--<% end %>-->
+
 </div>
   
  </body>
