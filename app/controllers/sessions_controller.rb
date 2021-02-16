@@ -966,10 +966,9 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
-              @bidDelete = Bid.find(bid_id).delete
-              @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+              @bidDelete = Bid.find(bid_id).destroy
+              @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
             end
             gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           elsif player_position == "Defender"
@@ -984,10 +983,9 @@ class SessionsController < ApplicationController
                 teamsheet_id = teamsheet[0]
                 active = active[0]
                 priority = priority[0]
-                @bidDelete = Bid.find(bid_id).destroy
-                @teamsheetDelete = Teamsheet.find(teamsheet_id).destroy
-                @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
                 @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+                @bidDelete = Bid.find(bid_id).destroy
+                @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               end
             end
             defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
@@ -1002,10 +1000,9 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              @bidDelete = Bid.find(bid_id).delete
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
-              @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+              @bidDelete = Bid.find(bid_id).destroy
+              @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
             end
             midfielder_pri(midfielder_count, @mid_priority1_count, @mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id) 
           elsif player_position == "Striker"
@@ -1019,10 +1016,9 @@ class SessionsController < ApplicationController
               teamsheet_id = teamsheet[0]
               active = active[0]
               priority = priority[0]
-              @bidDelete = Bid.find(bid_id).delete
-              @teamsheetDelete = Teamsheet.find(teamsheet_id).delete
-              @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
+              @bidDelete = Bid.find(bid_id).destroy
+              @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
             end
             striker_pri(striker_count, @str_priority1_count, @str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           end
