@@ -876,7 +876,7 @@ class SessionsController < ApplicationController
 
   def destroy 
    session[:user_id] = nil 
-   redirect_to '/uffl' 
+   redirect_to '/login' 
   end
 
   def checkBids 
@@ -973,6 +973,7 @@ class SessionsController < ApplicationController
             gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           elsif player_position == "Defender"
             @bid = Bid.joins(:player).where("bids.user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Defender", true).order(updated_at: :desc)
+            if @bid.exists?
               for bid in @bid do 
                 bid_id = bid.read_attribute(:id)
                 player_id = bid.read_attribute(:player_id)
@@ -986,6 +987,7 @@ class SessionsController < ApplicationController
                 @bidDelete = Bid.find(bid_id).destroy
                 @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               end
+            end
             defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           elsif player_position == "Midfielder"
             @bid = Bid.joins(:player).where("bids.user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Midfielder", true).order(updated_at: :desc)
