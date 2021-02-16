@@ -984,7 +984,7 @@ class SessionsController < ApplicationController
                 active = active[0]
                 priority = priority[0]
                 @teamsheet_new.assign_attributes(:active => active, :priority => priority)
-                @bidDelete = Bid.find(bid_id).destroy
+                bid.destroy
                 @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               end
             end
