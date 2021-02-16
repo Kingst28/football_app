@@ -74,11 +74,7 @@ end
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
     @strikers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Striker")
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
-    #create a new field on the bid records called transfer_out true/false
-    #when a new player is won in the position taken out, the code checks 
-    #transfer_out field and deletes that bid and teamsheet and inserts new bid.
-    #if transer_out is true then Transfer Out link is disabled so you cant get money
-    #back over and over again only once is it allowed. 
+    redirect_to '/bids/new' and return
   end
 
   def insertWinners
