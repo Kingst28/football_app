@@ -291,7 +291,7 @@ class TeamsheetController < ApplicationController
   end
 
   def teamsheet_params
-      params.require(:teamsheet).permit(:user_id, :player_id, :amount, :active, :played, :scored, :scorenum, :conceded, :concedednum, :priority, :account_id)
+      params.require(:teamsheet).permit(:user_id, :player_id, :amount, :active, :played, :scored, :scorenum, :conceded, :concedednum, :priority, :account_id, :bid_id)
   end
 
   def update

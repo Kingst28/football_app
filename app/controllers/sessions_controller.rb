@@ -921,7 +921,6 @@ class SessionsController < ApplicationController
        newBudget1 = currentBudget1 + b.read_attribute(:amount).to_i
        @user1.update_attribute(:budget, newBudget1)
        @deleteBids = Bid.where(:player_id => d[0].player_id).destroy_all
-       @deleteTeamsheet = Teamsheet.where(:player_id => d[0].player_id).destroy_all
        refunded = true
        else
           @user1 = User.find(b.read_attribute(:user_id))
@@ -929,14 +928,8 @@ class SessionsController < ApplicationController
           newBudget1 = currentBudget1 + bidAmount
           @user1.update_attribute(:budget, newBudget1)
        if Bid.exists?(b.read_attribute(:id))
-          teamsheet = Teamsheet.where(:player_id => b.read_attribute(:player_id)).pluck(:id)
-          teamsheet_id = teamsheet[0]
-          @teamsheetDelete = Teamsheet.where(player_id: b.read_attribute(:player_id)).destroy_all
           @bidDelete1 = Bid.find(b.read_attribute(:id)).destroy
        else
-          teamsheet = Teamsheet.where(:player_id => b.read_attribute(:player_id)).pluck(:id)
-          teamsheet_id = teamsheet[0]
-          @teamsheetDelete = Teamsheet.where(player_id: b.read_attribute(:player_id)).destroy_all
        end
        end
        end
@@ -947,7 +940,7 @@ class SessionsController < ApplicationController
           Player.find(o.player_id).update_column(:taken,"Yes")
       else
           Player.find(o.player_id).update_column(:taken,"Yes")
-          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => o.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam))
+          @teamsheet_new = Teamsheet.new(:user_id => o.user_id, :player_id => o.player_id, :amount => o.amount, :account_id => o.account_id, :name => Player.find(o.player_id).read_attribute(:playerteam), :bid_id => o.id)
           player_position = Player.find(o.player_id).position
           goalkeeper_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Goalkeeper").size
           defender_count = Teamsheet.joins(:player).where("user_id = ? AND players.position = ?", o.user_id, "Defender").size
@@ -978,7 +971,7 @@ class SessionsController < ApplicationController
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
-            gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
+            gk_pri(goalkeeper_count, @goalkeeper_priority1_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           elsif player_position == "Defender"
             @bid = Bid.joins("JOIN players ON bids.player_id = players.id").where("bids.user_id = ? AND bids.transfer_out = ? AND bids.account_id = ? AND players.position = ?", o.user_id, true, o.account_id, 'Defender').order('bids.id asc')
             if @bid.exists?
@@ -997,7 +990,7 @@ class SessionsController < ApplicationController
                 @teamsheet_new.assign_attributes(:active => active, :priority => priority)
               end
             end
-            defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
+            defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           elsif player_position == "Midfielder"
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Midfielder", true).order(updated_at: :asc)
             if @bid.exists?
@@ -1014,7 +1007,7 @@ class SessionsController < ApplicationController
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
-            midfielder_pri(midfielder_count, @mid_priority1_count, @mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id) 
+            midfielder_pri(midfielder_count, @mid_priority1_count, @mid_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id) 
           elsif player_position == "Striker"
             @bid = Bid.joins(:player).where("user_id = ? AND players.position = ? AND bids.transfer_out = ?", o.user_id, "Striker", true).order(updated_at: :asc)
             if @bid.exists?
@@ -1031,7 +1024,7 @@ class SessionsController < ApplicationController
               @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
               @teamsheet_new.assign_attributes(:active => active, :priority => priority)
             end
-            striker_pri(striker_count, @str_priority1_count, @str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id)
+            striker_pri(striker_count, @str_priority1_count, @str_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           end
           @teamsheet_new.validate = true
           @teamsheet_new.save
@@ -1040,23 +1033,6 @@ class SessionsController < ApplicationController
   end
   end
   end
-
- #def deleteBidTeam (bid_id, player_id)
-  #@bid = Bid.find(bid_id)
-  #bid_uid = @bid.user_id
-  #@bids = Bid.where(:user_id => bid_uid)
-  #for bid in @bids do 
-    #if bid.read_attribute(:transfer_out => false) then 
-      #bid.update_attribute(:replacement, true)
-      #bid.save
-    #elsif bid.read_attribute(:transfer_out => true) then
-      #bid.update_attribute(:replacement, false)
-      #bid.save
-    #end
-  #end
-  #@teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
-  #@bidDelete = Bid.find(bid_id).delete
- #end
 
  def squad_validity_check 
     @users = User.all
@@ -1343,61 +1319,61 @@ class SessionsController < ApplicationController
   end
  end
  
- def gk_pri(gk_count, gk_pri_1, user_id, player_id, name, amount, account_id)
+ def gk_pri(gk_count, gk_pri_1, user_id, player_id, name, amount, account_id, bid_id)
   if gk_count == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id, :bid_id => bid_id)
    elsif gk_count == 1 && gk_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif gk_count == 1 && gk_pri_1 == 1
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id, :bid_id => bid_id)
   end
  end
    
- def defender_pri(defender_count, def_pri_1, def_pri_2, user_id, player_id, name, amount, account_id)
+ def defender_pri(defender_count, def_pri_1, def_pri_2, user_id, player_id, name, amount, account_id, bid_id)
   if defender_count < 4
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id, :bid_id => bid_id)
    elsif defender_count == 4 && def_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif defender_count == 5 && def_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif defender_count == 5 && def_pri_2 == 0
-      @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id)
+      @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id, :bid_id => bid_id)
    elsif defender_count == 4 && def_pri_1 == 1
-      @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id)
+      @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id, :bid_id => bid_id)
    elsif defender_count == 5 && def_pri_2 == 1
-      @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+      @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    end
  end
     
- def midfielder_pri(midfielder_count, mid_pri_1, mid_pri_2, user_id, player_id, name, amount, account_id)
+ def midfielder_pri(midfielder_count, mid_pri_1, mid_pri_2, user_id, player_id, name, amount, account_id, bid_id)
   if midfielder_count < 4
-   @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+   @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id, :bid_id => bid_id)
    elsif midfielder_count == 4 && mid_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif midfielder_count == 5 && mid_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif midfielder_count == 5 && mid_pri_2 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id, :bid_id => bid_id)
    elsif midfielder_count == 4 && mid_pri_1 == 1
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id, :bid_id => bid_id)
    elsif midfielder_count == 5 && mid_pri_2 == 1
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
   end
  end
     
- def striker_pri(striker_count, str_pri_1, str_pri_2, user_id, player_id, name, amount, account_id)
+ def striker_pri(striker_count, str_pri_1, str_pri_2, user_id, player_id, name, amount, account_id, bid_id)
   if striker_count < 2
-   @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id)
+   @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "true", :account_id => account_id, :bid_id => bid_id)
    elsif striker_count == 2 && str_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif striker_count == 3 && str_pri_1 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
    elsif striker_count == 3 && str_pri_2 == 0
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id, :bid_id => bid_id)
    elsif striker_count == 2 && str_pri_1 == 1
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 2, :account_id => account_id, :bid_id => bid_id)
    elsif striker_count == 3 && str_pri_2 == 1
-    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id)
+    @teamsheet_new = Teamsheet.new(:user_id => user_id, :player_id => player_id, :name => name, :amount => amount, :active => "false", :priority => 1, :account_id => account_id, :bid_id => bid_id)
   end
  end 
 end

@@ -331,7 +331,6 @@ end
   # DELETE /bids/1.json
   def delete 
     player_id = Bid.find(params[:id]).player_id
-    @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy_all
     @playerUpdate = Player.find(player_id).update_column(:taken, "No")
     @user = current_user
     account_id = current_user.account_id
@@ -346,6 +345,7 @@ end
     @user = current_user
     @user.update_attribute(:budget, newBudget)
     @bidDelete = Bid.find(params[:id]).destroy
+    @teamsheetDelete = Teamsheet.where(player_id: player_id).destroy
     respond_to do |format|
       format.html { redirect_to '/bids'}
       format.json { head :no_content }

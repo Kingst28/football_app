@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210214171817) do
+ActiveRecord::Schema.define(version: 20210215215315) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -166,9 +166,11 @@ ActiveRecord::Schema.define(version: 20210214171817) do
     t.integer  "priority"
     t.integer  "account_id"
     t.string   "name"
+    t.integer  "bid_id"
   end
 
   add_index "teamsheets", ["account_id"], name: "index_teamsheets_on_account_id"
+  add_index "teamsheets", ["bid_id"], name: "index_teamsheets_on_bid_id"
 
   create_table "timers", force: :cascade do |t|
     t.string   "date"
