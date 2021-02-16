@@ -74,7 +74,7 @@ end
     @midfielders = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Midfielder")
     @strikers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Striker")
     @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
-    redirect_to '/bids/new' and return
+    #redirect_to '/bids/new' and return
   end
 
   def insertWinners
