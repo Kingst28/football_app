@@ -220,9 +220,6 @@ var x = setInterval(function() {
     <div class="input-field">
     <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true %>
     </div>
-    <div class="input-field inline">
-    <%= f.hidden_field :replacement, value: 1 %>
-    </div>
   <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %>
   </button>
@@ -240,9 +237,6 @@ var x = setInterval(function() {
     </div>
     <div class="input-field">
     <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
-    </div>
-    <div class="input-field inline">
-    <%= f.hidden_field :replacement, value: 1 %>
     </div>
    <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
@@ -262,9 +256,6 @@ var x = setInterval(function() {
    <div class="input-field">
     <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
   </div>
-  <div class="input-field inline">
-  <%= f.hidden_field :replacement, value: 1 %>
-  </div>
    <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
   </button>
@@ -283,16 +274,13 @@ var x = setInterval(function() {
     <div class="input-field">
     <%= f.number_field :amount, :class => "form-control", :placeholder => "£", :required => true%>
    </div>
-   <div class="input-field inline">
-    <%= f.hidden_field :replacement, value: 1 %>
-    </div>
    <button class="btn waves-effect waves-light green lighten-2" type="submit" name="action">
      <%= f.submit "Submit Bid" %> 
   </button>
 <% end %>
 </div>
 <% end %>
-  </div>
+</div>
   
  </body>
  </html>
