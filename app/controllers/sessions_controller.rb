@@ -66,8 +66,10 @@ class SessionsController < ApplicationController
                   if timer_date.past? then
                     Timer.destroy(timer_id)
                     insertWinners()
-                    #@bids = Bid.all
-                    #Teamsheet.where.not(player_id:@bids.map(&:player_id))
+                    @teamsheets_not_in_bids = Teamsheet.find_by_sql("SELECT * FROM teamsheets WHERE player_id NOT IN (SELECT player_id FROM bids);")
+                    for teamsheet in @teamsheets_not_in_bids do
+                      teamsheet.destroy
+                    end
                     redirect_to '/index' and return
                   else
                     redirect_to '/index' and return
@@ -896,7 +898,7 @@ class SessionsController < ApplicationController
     for u in @users do
      @outrightWinners = Bid.where(:user_id => u.id)
      @highest_amount = Bid.find_by_sql("SELECT DISTINCT player_id, MAX(amount) as amount from bids GROUP BY player_id HAVING COUNT(*) > 1;")
-     @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1)")
+     @duplicates1 = Bid.find_by_sql("SELECT * FROM bids WHERE player_id IN (SELECT player_id FROM bids GROUP BY player_id HAVING COUNT(*) > 1);")
      @final_duplicates = []
      for element in @highest_amount do
       @final_duplicates << @duplicates1.select { |record| record.amount == element.read_attribute(:amount) }
@@ -988,7 +990,6 @@ class SessionsController < ApplicationController
                 @teamsheet_new.assign_attributes(:active => active, :priority => priority)
                 @bidDelete = Bid.find(bid_id).destroy
                 @playerTaken = Player.find(player_id).update_attribute(:taken, "No")
-                @playerTaken.save
             end
             defender_pri(defender_count, @defender_priority1_count, @defender_priority2_count, o.user_id, o.player_id, o.player.playerteam, o.amount, o.account_id, o.id)
           elsif player_position == "Midfielder"
