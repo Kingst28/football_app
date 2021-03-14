@@ -473,7 +473,7 @@ added disadvantage to your team.</p>
       </p>
             </div>
             <div class="card-action" style="text-align:center;">
-              <a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>
+              <!--<a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>-->
               <% if canView? %>
               <%= link_to "Change Squad", edit_teamsheet_path(p.id) %>
               <% end %>
