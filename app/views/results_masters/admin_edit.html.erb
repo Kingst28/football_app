@@ -231,7 +231,6 @@ border: none;
 <table id="myTable2" class="striped">
   <thead>
   <tr>
-    <th>League</th>
     <th>Club</th>
     <th>Player</th>
     <th>Position</th>
@@ -240,7 +239,6 @@ border: none;
   </thead>
 <% for player in @results_masters %>
   <tr>
-    <td><%=h player.league %></td>
     <td><%=h Team.where(:id => Player.where(:playerteam => player.name).pluck(:teams_id)).pluck(:name)[0] %></td>
     <td><%=h Player.where(:playerteam => player.name).pluck(:name)[0] %></td>
     <td><%=h Player.where(:playerteam => player.name).pluck(:position)[0] %></td>

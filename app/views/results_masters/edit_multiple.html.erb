@@ -243,11 +243,6 @@ border: none;
     <tr>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h teamsheet.league %></b>
-    </div>
-    </td>
-    <td> 
-    <div class="input-field inline"> 
     <b><%=h Team.where(:id => Player.where(:playerteam => teamsheet.name).pluck(:teams_id)).pluck(:name)[0] %></b>
     </div>
     </td>
@@ -258,7 +253,7 @@ border: none;
     </td>
     <td> 
     <div class="input-field inline"> 
-    <b><%=h Player.where(:name => teamsheet.name).pluck(:position)[0]  %></b>
+    <b><%=h Player.where(:playerteam => teamsheet.name).pluck(:position)[0] %></b>
     </div>
     </td>
     <td>
