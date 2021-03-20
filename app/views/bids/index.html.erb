@@ -223,7 +223,7 @@ var x = setInterval(function() {
       </p>
             </div>
             <div class="card-action white">
-             <a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>
+             <!--<a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>-->
              <% if p.transfer_out == false %><%= link_to "Transfer Out", transfer_out_bids_path(player_id: p.player_id) %><% end %> </div>
             </div>
           </div>
