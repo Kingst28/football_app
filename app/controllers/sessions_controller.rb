@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
           
           if @user.account_id != nil
           if Account.find(@user.account_id).bid_count == 4 then
-            #insertRandomPlayers()
+            insertRandomPlayers()
             createFixtures()
             redirect_to '/index' and return
           end
