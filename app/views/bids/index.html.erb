@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Compiled and minified CSS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.0/rails.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -224,7 +225,7 @@ var x = setInterval(function() {
             </div>
             <div class="card-action white">
              <!--<a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>-->
-             <% if p.transfer_out == false %><%= link_to "Transfer Out", transfer_out_bids_path(player_id: p.player_id) %><% end %> </div>
+             <% if p.transfer_out == false %><%= link_to "Transfer Out", transfer_out_bids_path(player_id: p.player_id), data: { confirm: "Once you have set a player to be transferred out you cannot change your mind. Are you sure you want to proceed to bid on the players replacement?" } %><% end %> </div>
             </div>
           </div>
         </div>
