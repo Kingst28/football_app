@@ -200,16 +200,29 @@ var x = setInterval(function() {
   </nav>
   </div>
   <br />
-  <% if Timer.exists? %><span class="badge green" style="color:white; float:left;"><p id="bid_timer" style="display:inline;"></p></span> &nbsp; <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p> &nbsp;
-  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p> &nbsp;
+ <div class="container-fluid">
+<% if Timer.exists? %>
+<div style= "text-align:center">
+<div class="card grey lighten-5">
+<center>
+<i class="medium material-icons">access_time</i>
+<br/>
+<p id="bid_timer" style="color:black;"></p>
+</center>
+<div class="card-content black-text">
+<span class="card-title" style="text-align:center; color:black;">
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Goalkeeper').where("bids.user_id = ?", current_user.id).count %>/2 Goalkeepers</p> 
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Defender').where("bids.user_id = ?", current_user.id).count %>/6 Defenders</p>
+  <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Midfielder').where("bids.user_id = ?", current_user.id).count %>/6 Midfielders</p>
   <p style="display:inline;"><%= Bid.joins(:player).where("players.position = ?", 'Striker').where("bids.user_id = ?", current_user.id).count %>/4 Strikers</p>  
-  <br />
-  <br /> 
   <% end %>
-  <% if canView? %>
+</div>
+</div>
+</span>
+<% if canView? %>
   <a style="color:white; background: #80C783;" href="/bids/new" style="margin-bottom:10px;" class="btn btn-default">Enter New Bid</a>
-  <% end %>
+<% end %>
+</div>
   <div class="container">
       <% @players.each do |p| %>
        <div class="row">
