@@ -237,7 +237,7 @@ end
   end
       
   def subtract_amount
-    @bidCount = Bid.where(:user_id => current_user.id)
+    @bidCount = Bid.where(:user_id => current_user.id).where(:transfer_out => 0)
     @bidAmount = @bidCount.pluck(:amount)
     total = 0
     for bid in @bidAmount do 
@@ -255,7 +255,7 @@ end
   end
 
   def subtract_update_amount
-    @bidCount = Bid.where(:user_id => current_user.id)
+    @bidCount = Bid.where(:user_id => current_user.id).where(:transfer_out => 0)
     @bidAmount = @bidCount.pluck(:amount)
     total = 0
     for bid in @bidAmount do 
