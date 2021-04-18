@@ -66,8 +66,11 @@ end
     @user = User.find(current_user.id)
     user_budget = @user.read_attribute(:budget)
     user_new_budget = user_budget + amount
-    @user.update_attribute(:budget, user_new_budget)
-    @user.save
+    if Bid.where(:player_id => player_id).pluck(:refunded)[0] == false
+      @user.update_attribute(:budget, user_new_budget)
+      @user.save
+      @bid.update_attribute(:refunded, true)
+    end
 
     @bid1 = Bid.new
     @goalkeepers = Player.order('teams_id ASC').where(:taken => "No").where(:position => "Goalkeeper")

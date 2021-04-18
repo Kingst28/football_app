@@ -10,10 +10,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script type="text/javascript">
    $(document).ready(function(){
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
     $(".button").sideNav();
@@ -242,7 +238,7 @@ var x = setInterval(function() {
             </div>
             <div class="card-action white">
              <!--<a href="/playerstats/<%= Playerstat.select(:id).where(:player_id => p.player_id).pluck(:id).to_s.tr('""','').tr('[]','') %>">Player Stats</a>-->
-             <% if p.transfer_out == false %><%= link_to "Transfer Out", transfer_out_bids_path(player_id: p.player_id), data: { confirm: "Are you sure you want to proceed to transfer out this player and bid on the players replacement? Once you have set a player to be transferred out, you cannot change your mind." } %><% end %> </div>
+             <% if p.transfer_out == false %><%= link_to "Transfer Out", transfer_out_bids_path(player_id: p.player_id), data: { turbolinks: false, confirm: "Are you sure you want to proceed to transfer out this player and bid on the players replacement? Once you have set a player to be transferred out, you cannot change your mind." } %><% end %> </div>
             </div>
           </div>
         </div>

@@ -70,6 +70,8 @@ class SessionsController < ApplicationController
                     for teamsheet in @teamsheets_not_in_bids do
                       teamsheet.destroy
                     end
+                    @account_bids.update_all(:transfer_out => false)
+                    @account_bids.update_all(:refunded => false)
                     redirect_to '/index' and return
                   else
                     redirect_to '/index' and return
