@@ -70,8 +70,17 @@ class SessionsController < ApplicationController
                     for teamsheet in @teamsheets_not_in_bids do
                       teamsheet.destroy
                     end
-                    @account_bids.update_all(:transfer_out => false)
-                    @account_bids.update_all(:refunded => false)
+                    #for bid in @account_bids do
+                      #if bid.pluck(:transfer_out)[0] = true then
+                        #amount = bid.pluck(:amount)[0]
+                        #budget = User.find(bid.user_id).budget
+                        #newBudget = budget + amount
+                        #@updateBudget = User.find(bid.user_id).update(:budget => newBudget)
+                      #end
+                    #end
+                    #@account_bids.update_all(:transfer_out => false)
+                    #@account_bids.update_all(:refunded => false)
+                    #need to take the money away from budget for players that were previously refunded during transfer round as I set them to refunded false again.
                     redirect_to '/index' and return
                   else
                     redirect_to '/index' and return
