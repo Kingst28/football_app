@@ -27,26 +27,16 @@
 <div class="container-fluid">
  <nav>
     <div class="nav-wrapper green lighten-2">
-       &nbsp; &nbsp; <a><%= 
-      link_to_if current_user.access == "admin", "UFFL", '/admin_index', class: "brand-logo" do
-      link_to "UFFL", '/index', class: "brand-logo"
+        &nbsp; &nbsp; <a><%= 
+      link_to_if current_user.access == "admin", image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_controls', class: "brand-logo center" do
+      link_to image_tag("UFFLLogo.png", width: '150', height: '50'), '/admin_controls', class: "brand-logo center" 
       end
       %></a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
-        <li><a href="">Fixture Results<span class="sr-only"></span></a></li>
-        <li><a href="">League Table<span class="sr-only"></span></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="/bids">My Bids<span class="sr-only"></span></a></li>
-        <li><a href="/teamsheet/index">My Team<span class="sr-only"></span></a></li>
-        <li><a href="">Fixture Results<span class="sr-only"></span></a></li>
-        <li><a href="">League Table<span class="sr-only"></span></a></li>
-        <li><a href="#"><% if logged_in? -%><%= quid(current_user.budget) %><% end -%></a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><% if logged_in? -%><%= current_user.first_name %><% end -%><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
@@ -55,9 +45,9 @@
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
 <% end %>
-  <a href="/manage_permissions_on" style="margin-bottom:10px;" class="btn btn-default">Grant User Permissions</a>
-  <a href="/manage_permissions_off" style="margin-bottom:10px;" class="btn btn-default">Revoke User Permissions</a>
-  <a href="/timers/new" style="margin-bottom:10px;" class="btn btn-default">Create Timer</a>
+  <a href="/manage_permissions_on" style="margin-bottom:10px;color:white;" class="btn btn-default">Grant User Permissions</a>
+  <a href="/manage_permissions_off" style="margin-bottom:10px;color:white;" class="btn btn-default">Revoke User Permissions</a>
+  <a href="/timers/new" style="margin-bottom:10px;color:white;" class="btn btn-default">Create Timer</a>
   </div>
 
 </body>
