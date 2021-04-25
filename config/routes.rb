@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get '/results_masters/edit_multiple' => 'results_masters#edit_multiple'
   get '/results_masters/index' => 'results_masters#index'
   get 'results_masters/show' => 'results_masters#show'
+  get 'results_masters/reset_results' => 'results_masters#reset_results'
   get 'results_masters/copy_results' => 'results_masters#copy_results'
   get 'results_masters/copy_results_to_teamsheets' => 'results_masters#copy_results_to_teamsheets'
   get '/teamsheet/admin_edit' => 'teamsheet#admin_edit', as: :admin_edit_teamsheet
