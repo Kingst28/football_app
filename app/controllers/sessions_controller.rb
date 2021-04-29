@@ -70,18 +70,18 @@ class SessionsController < ApplicationController
                     for teamsheet in @teamsheets_not_in_bids do
                       teamsheet.destroy
                     end
-                    #@transfer_out_bids = Bid.where(:transfer_out => true)
-                    #if @transfer_out_bids.exists? 
-                      #for bid in @transfer_out_bids do
-                          #amount = bid.pluck(:amount)[0]
-                          #user_id = bid.pluck(:user_id)[0]
-                          #budget = User.find(user_id).budget
-                          #newBudget = budget + amount
-                          #@updateBudget = User.find(user_id).update(:budget => newBudget)
-                      #end
-                    #end
-                    #@account_bids.update_all(:transfer_out => false)
-                    #@account_bids.update_all(:refunded => false)
+                    @transfer_out_bids = Bid.where(:transfer_out => true)
+                    if @transfer_out_bids.exists? 
+                      for bid in @transfer_out_bids do
+                          amount = bid.amount
+                          user_id = bid.user_id
+                          budget = User.find(user_id).budget
+                          newBudget = budget + amount
+                          @updateBudget = User.find(user_id).update(:budget => newBudget)
+                      end
+                    end
+                    @account_bids.update_all(:transfer_out => false)
+                    @account_bids.update_all(:refunded => false)
                     redirect_to '/index' and return
                   else
                     redirect_to '/index' and return

@@ -70,6 +70,7 @@ end
       @user.update_attribute(:budget, user_new_budget)
       @user.save
       @bid.update_attribute(:refunded, true)
+      @bid.save
     end
 
     @bid1 = Bid.new
