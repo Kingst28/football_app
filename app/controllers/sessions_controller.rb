@@ -70,7 +70,7 @@ class SessionsController < ApplicationController
                     for teamsheet in @teamsheets_not_in_bids do
                       teamsheet.destroy
                     end
-                    @transfer_out_bids = Bid.where(:transfer_out => true)
+                    @transfer_out_bids = Bid.where(:refunded => true)
                     if @transfer_out_bids.exists? 
                       for bid in @transfer_out_bids do
                           amount = bid.amount
