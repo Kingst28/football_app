@@ -78,6 +78,7 @@ class SessionsController < ApplicationController
                           budget = User.find(user_id).budget
                           newBudget = budget - amount
                           @updateBudget = User.find(user_id).update(:budget => newBudget)
+                          @updateBudget.save
                       end
                     end
                     @account_bids.update_all(:transfer_out => false)
