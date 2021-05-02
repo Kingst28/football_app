@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   get '/fixtures/index' => 'fixtures#index'
   get '/admin_controls' => 'application#admin_controls'
   get '/uffl' => 'application#uffl'
+  get '/rules' => 'application#rules'
   get '/teamsheet/index2' => 'teamsheet#index2'
   get '/playerstats/:id' => 'playerstats#show', as: :show_player_stats_path
   get '/signup_options' => 'users#signup_options', as: :signup_options_path
