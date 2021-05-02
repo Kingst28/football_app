@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210418194454) do
+ActiveRecord::Schema.define(version: 20210502094839) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20210418194454) do
     t.datetime "updated_at"
     t.integer  "account_id"
     t.boolean  "transfer_out", default: false
-    t.boolean  "refunded"
+    t.boolean  "refunded",     default: false
   end
 
   add_index "bids", ["account_id"], name: "index_bids_on_account_id"
