@@ -53,7 +53,9 @@ class ResultsController < ApplicationController
   end
 
 def fixture_results
-      @users = User.where(:account_id => current_user.account_id)
+      @accounts = Account.all
+      for account in @accounts do
+      @users = User.where(:account_id => account.account_id)
       for u in @users do
       total_scorenum = 0
       total_connum = 0
@@ -208,6 +210,7 @@ def fixture_results
 updateLeagueTable()
 ActiveRecord::Base.connection.execute("update teamsheets set active = 't' where priority IS NULL;")
 ActiveRecord::Base.connection.execute("update teamsheets set active = 'f' where priority IS NOT NULL;")
+end
 end
 
 def getGoalkeeperSubCount (goalkeepers, u)
@@ -455,13 +458,15 @@ end
   end
 
   def updateLeagueTable 
+    @accounts = Account.all
+    for account in @accounts do
     @table = LeagueTable.order('points DESC').order('gd DESC').order('team ASC')
-    matchday_id = Matchday.find(Matchday.where(:account_id => current_user.account_id)).read_attribute(:id)
+    matchday_id = Matchday.find(Matchday.where(:account_id => account.id)).read_attribute(:id)
     @matchday = Matchday.find(matchday_id)
     matchday_number = @matchday.read_attribute(:matchday_number)
     matchday_count = @matchday.read_attribute(:matchday_count)
     matchday_haflag = @matchday.read_attribute(:haflag)
-    @results = Fixture.where(:matchday => matchday_number).where(:haflag => matchday_haflag).where(:account_id => current_user.account_id)
+    @results = Fixture.where(:matchday => matchday_number).where(:haflag => matchday_haflag).where(:account_id => account.id)
     
     for r in @results do
       hteam = User.find(r.read_attribute(:hteam))
@@ -509,7 +514,7 @@ end
       else
       end
     end
-    @matchday1 = Matchday.find(Matchday.where(:account_id => current_user.account_id))
+    @matchday1 = Matchday.find(Matchday.where(:account_id => account.id))
     @matchday1.update(:matchday_number => matchday_number + 1)
     
    matchday_number1 = @matchday1.read_attribute(:matchday_number)
@@ -529,7 +534,7 @@ end
     end
     Result.delete_all   
     #update the amount of games a player has played. 
-    @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
+    @teamsheets = Teamsheet.where(:account_id => account.id)
     for t in @teamsheets do 
       currentPlayed = t.played
       overallPlayed = Playerstat.find_by_player_id(t.player_id).played
@@ -542,7 +547,7 @@ end
       Playerstat.find_by_player_id(t.player_id).update(:played => newPlayed)
     end
     
-    @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
+    @teamsheets = Teamsheet.where(:account_id => account.id)
     for t in @teamsheets do
       currentScored = t.scored
       overallScored = Playerstat.find_by_player_id(t.player_id).scored
@@ -555,7 +560,7 @@ end
       Playerstat.find_by_player_id(t.player_id).update(:scored => newScored)
     end
 
-    @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
+    @teamsheets = Teamsheet.where(:account_id => account.id)
     for t in @teamsheets do
       currentConceded = t.conceded
       overallConceded = Playerstat.find_by_player_id(t.player_id).conceded
@@ -568,7 +573,7 @@ end
       Playerstat.find_by_player_id(t.player_id).update(:conceded => newConceded)
     end
 
-    @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
+    @teamsheets = Teamsheet.where(:account_id => account.id)
     for t in @teamsheets do
       currentScoreNum = t.scorenum
       overallScoreNum = Playerstat.find_by_player_id(t.player_id).scorenum
@@ -576,22 +581,16 @@ end
       Playerstat.find_by_player_id(t.player_id).update(:scorenum => newScoreNum)
     end
 
-   @teamsheets = Teamsheet.where(:account_id => current_user.account_id)
+   @teamsheets = Teamsheet.where(:account_id => account.id)
     for t in @teamsheets do
       currentConcededNum = t.concedednum
       overallConcededNum = Playerstat.find_by_player_id(t.player_id).concedednum
       newConcededNum = currentConcededNum.to_i + overallConcededNum.to_i
       Playerstat.find_by_player_id(t.player_id).update(:concedednum => newConcededNum)
     end
- 
-    #Teamsheet.where(:account_id => current_user.account_id).update_all(:played => false)
-    #Teamsheet.where(:account_id => current_user.account_id).update_all(:scored => false)
-    #Teamsheet.where(:account_id => current_user.account_id).update_all(:scorenum => 0)
-    #Teamsheet.where(:account_id => current_user.account_id).update_all(:conceded => false)
-    #Teamsheet.where(:account_id => current_user.account_id).update_all(:concedednum => 0)
-
     #Teamsheet.where(:account_id => current_user.account_id).where("priority IS NULL").update_all(:active => true)
     #Teamsheet.where(:account_id => current_user.account_id).where("priority IS NOT NULL").update_all(:active => false)
+  end
   end
 
   def updatePlayed(homeTeam, awayTeam)
