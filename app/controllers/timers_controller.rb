@@ -30,7 +30,7 @@ class TimersController < ApplicationController
     @accounts = Account.all
     
     for account in @accounts do 
-      if account.bid_count
+      if account.bid_count > 4
         @timer = Timer.new(timer_params)
         @timer.update_attribute(:account_id, account.id)
       end
