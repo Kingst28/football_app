@@ -26,7 +26,13 @@ class TimersController < ApplicationController
   # POST /timers
   # POST /timers.json
   def create
-    @timer = Timer.new(timer_params)
+    #@timer = Timer.new(timer_params)
+    @accounts = Account.all
+    
+    for account in @accounts do 
+      @timer = Timer.new(timer_params)
+      @timer.update_attribute(:account_id, account.id)
+    end
 
     respond_to do |format|
       if @timer.save
