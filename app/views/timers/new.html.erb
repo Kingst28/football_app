@@ -241,7 +241,7 @@ border: none;
  <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
  <% end %>
-
+<div class="container">
 <h1>New Timer</h1>
 <p> Date Format Required: Jan 5, 2019 15:37:25 </p>
 
@@ -269,5 +269,6 @@ border: none;
     <% end %>
   </tbody>
 </table>
+</div>
 </body>
 </html>
