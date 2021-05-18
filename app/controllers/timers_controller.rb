@@ -6,6 +6,7 @@ class TimersController < ApplicationController
   # GET /timers.json
   def index
     @timers = Timer.all
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
   end
 
   # GET /timers/1
@@ -17,6 +18,7 @@ class TimersController < ApplicationController
   def new
     @timer = Timer.new
     @timers = Timer.all
+    @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
   end
 
   # GET /timers/1/edit
