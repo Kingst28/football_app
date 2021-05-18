@@ -30,13 +30,15 @@ class TimersController < ApplicationController
     @accounts = Account.all
     
     for account in @accounts do 
-      @timer = Timer.new(timer_params)
-      @timer.update_attribute(:account_id, account.id)
+      if account.bid_count
+        @timer = Timer.new(timer_params)
+        @timer.update_attribute(:account_id, account.id)
+      end
     end
 
     respond_to do |format|
       if @timer.save
-        format.html { redirect_to @timer, notice: 'Timer was successfully created.' }
+        format.html { redirect_to @timer, notice: 'Timer was successfully created for all leagues' }
         format.json { render :show, status: :created, location: @timer }
       else
         format.html { render :new }
