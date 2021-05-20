@@ -19,6 +19,11 @@ def rules
   @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
 end 
 
+def admin_db 
+  @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
+  @number_of_leagues = Account.count()
+end
+
 def find_current_tenant
   if current_user == nil then
     return
