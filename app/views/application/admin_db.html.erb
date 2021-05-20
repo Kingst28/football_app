@@ -242,8 +242,12 @@ border: none;
   <%= content_tag :div, value, class: "alert alert-#{key}" %>
  <% end %>
   <div class="card-deck">
-    <%= Account.count() %>
-  </div> 
+    <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title">Number of Leagues</span>
+                <h4><%= Account.count() %></h4>
+            </div>
+     </div> 
   <div class="card-deck">
  
   </div>
