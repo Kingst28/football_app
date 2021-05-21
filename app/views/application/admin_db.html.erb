@@ -308,11 +308,11 @@ border: none;
         <div class="card-content white-text">
             <span class="card-title">Leagues</span>
             <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
-            <%= popular_teams.to_a %>    
-            <%= popular_teams.each do |row| %>
-            <%= row['name'] + " " + row['count']%>
-            <% end %>
+            <% popular_teams.to_a %>    
+            <% popular_teams.each do |row| %>
+            <%= row['name'] + " " + row['count'] %>
             <br />
+            <% end %>
         </div>
       </div> 
       </div>
