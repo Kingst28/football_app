@@ -5,7 +5,7 @@ before_action :require_admin, only: [:admin_index]
 before_action :require_admin, only: [:admin_db]
 before_action :require_participant, only: [:index]
 before_action :find_current_tenant
-before_filter :authorize_admin, only: [:admin_index, :admin_controls, :manage_permissions]
+before_filter :authorize_admin, only: [:admin_index, :admin_controls, :manage_permissions, :admin_db]
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
