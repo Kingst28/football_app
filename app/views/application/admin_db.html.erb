@@ -247,16 +247,16 @@ border: none;
  <%= ActsAsTenant.without_tenant do %>
   <div class="row">
       <div class="col s4">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Leagues</span>
                 <h4><%= Account.count() %></h4>
         </div>
       </div> 
       </div>
       <div class="col s4">
-      <div class="card red black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Users</span>
                 <h4><%= User.count() %></h4>
         </div>
@@ -264,8 +264,8 @@ border: none;
       </div>
       
       <div class="col s4">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Players</span>
                 <h4><%= Player.count() %></h4>
         </div>
@@ -275,16 +275,16 @@ border: none;
 </div> 
 <div class="row">
       <div class="col s4">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Bids</span>
                 <h4><%= Bid.count() %></h4>
         </div>
       </div> 
       </div>
       <div class="col s4">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Teamsheets</span>
                 <h4><%= Teamsheet.count() %></h4>
         </div>
@@ -292,8 +292,8 @@ border: none;
       </div>
       
       <div class="col s4">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Master Player List</span>
                 <h4><%= ResultsMaster.count() %></h4>
         </div>
@@ -305,8 +305,8 @@ border: none;
 
   <div class="row">
       <div class="col s4">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Popular Teams</span>
             <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
             <% popular_teams.to_a %>    
@@ -318,8 +318,8 @@ border: none;
       </div> 
       </div>
       <div class="col s8">
-      <div class="card black">
-        <div class="card-content white-text">
+      <div class="card white">
+        <div class="card-content black-text">
             <span class="card-title">Popular Players</span>
             <% popular_players = ActiveRecord::Base.connection.exec_query("SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by count desc, teams.name asc, players.position = 'Goalkeeper' desc, players.position = 'Defender' desc, players.position = 'Midfielder' desc, players.position = 'Striker' desc") %>
             <% popular_players.to_a %>    
