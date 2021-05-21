@@ -318,7 +318,7 @@ border: none;
       <div class="card green lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Popular Players</span>
-            <% popular_players = ActiveRecord::Base.connection.exec_query('SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by count desc, teams.name asc, players.position = "Goalkeeper" desc, players.position = "Defender" desc, players.position = "Midfielder" desc, players.position = "Striker" desc') %>
+            <% popular_players = ActiveRecord::Base.connection.exec_query("SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by count desc, teams.name asc, players.position = 'Goalkeeper' desc, players.position = 'Defender' desc, players.position = 'Midfielder' desc, players.position = 'Striker' desc") %>
             <% popular_players.to_a %>    
             <% popular_players.each do |row| %>
             <h4><%= row['name'] + " - " + row['playername'] + " - " + row['position'] + " - " + row['count'] %> </h4>
