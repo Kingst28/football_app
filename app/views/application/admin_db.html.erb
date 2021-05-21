@@ -301,7 +301,7 @@ border: none;
 </div> 
 
   <div class="row">
-      <div class="col s6">
+      <div class="col s3">
       <div class="card green lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Popular Teams</span>
@@ -314,14 +314,14 @@ border: none;
         </div>
       </div> 
       </div>
-      <div class="col s6">
+      <div class="col s9">
       <div class="card green lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Popular Players</span>
-            <% popular_players = ActiveRecord::Base.connection.exec_query('SELECT players.name as playername, teams.name, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, teams.name order by count desc, teams.name asc') %>
+            <% popular_players = ActiveRecord::Base.connection.exec_query('SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by count desc, teams.name asc, players.position asc') %>
             <% popular_players.to_a %>    
             <% popular_players.each do |row| %>
-            <h4><%= row['playername'] + " - " + row['name'] + " - " + row['count'] %> </h4>
+            <h4><%= row['playername'] + " - " + row['name'] + " - " + row['position'] + " - " + row['count'] %> </h4>
             <br />
             <% end %>
         </div>
