@@ -301,6 +301,27 @@ border: none;
     </div>
 </div> 
 </div> 
+
+  <div class="row">
+      <div class="col s6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title">Leagues</span>
+            <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
+            <%= popular_teams.rows.inspect %>    
+        </div>
+      </div> 
+      </div>
+      <div class="col s6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title">Users</span>
+        </div>
+      </div> 
+      </div>
+    </div>
+</div> 
+
 <% end %>
 </body>
 </html>
