@@ -308,7 +308,7 @@ border: none;
             <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
             <% popular_teams.to_a %>    
             <% popular_teams.each do |row| %>
-            <%= row['name'] + "- " + "- " + row['count'] %>
+            <h4><%= row['name'] + "- " + "- " + row['count'] %></h4>
             <br />
             <% end %>
         </div>
@@ -321,7 +321,7 @@ border: none;
             <% popular_players = ActiveRecord::Base.connection.exec_query('SELECT players.name as playername, teams.name, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, teams.name order by count desc, teams.name asc') %>
             <% popular_players.to_a %>    
             <% popular_players.each do |row| %>
-            <%= row['playername'] + "- " + row['name'] + "- " + row['count'] %>
+            <h4><%= row['playername'] + "- " + row['name'] + "- " + row['count'] %></h4>
             <br />
             <% end %>
         </div>
