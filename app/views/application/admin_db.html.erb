@@ -321,7 +321,7 @@ border: none;
             <% popular_players = ActiveRecord::Base.connection.exec_query('SELECT players.name as playername, teams.name, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, teams.name order by count desc, teams.name asc') %>
             <% popular_players.to_a %>    
             <% popular_players.each do |row| %>
-            <h4><%= row['playername'] + " - " + row['name'] + " - " + row['count'] %></h4>
+            <h4><%= row['playername'] + " - " + row['name'] + " - " + row['count'] %> </h4>
             <br />
             <% end %>
         </div>
