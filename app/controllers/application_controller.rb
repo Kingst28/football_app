@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 include SessionsHelper
 before_action :require_user, only: [:admin_index, :index]
-before_action :require_admin, only: [:admin_index, :admin_db]
+before_action :require_admin, only: [:admin_index]
+before_action :require_admin, only: [:admin_db]
 before_action :require_participant, only: [:index]
 before_action :find_current_tenant
 before_filter :authorize_admin, only: [:admin_index, :admin_controls, :manage_permissions]
