@@ -294,7 +294,7 @@ border: none;
             <span class="card-title">Master Player List</span>
                 <h4><%= ResultsMaster.count() %></h4>
                 <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
-                <% puts popular_teams.rows %>
+                <% puts popular_teams.rows.inspect %>
         </div>
       </div> 
       </div>
