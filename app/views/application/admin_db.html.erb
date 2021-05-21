@@ -298,15 +298,9 @@ border: none;
       </div>
     </div>
 </div> 
-<div class="row">
-      <div class="col s6">
-      <% @popular_teams.each do |row| %>
-      <% puts row['name'] %>
-      </div>
-      <% end %>
-      <div class="col s6">
-      
-      </div>
+  <% @popular_teams.each do |row| %>
+  <%= puts row['name'] %>
+  <% end %>
 </div> 
 <% end %>
 </body>
