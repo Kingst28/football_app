@@ -311,6 +311,7 @@ border: none;
             <%= popular_teams.to_a %>    
             <%= popular_teams.each do |row| %>
             <%= row['name'] + " " + row['count']%>
+            <% end %>
             <br />
         </div>
       </div> 
