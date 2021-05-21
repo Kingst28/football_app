@@ -21,7 +21,7 @@ end
 
 def admin_db 
   @notifications_all = Notification.where(:user_id => current_user.id).order("created_at DESC")
-  @popular_teams = ActiveRecord::Base.connection.execute("SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc;")
+  popular_teams = ActiveRecord::Base.connection.execute("SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc;")
 end
 
 def find_current_tenant
