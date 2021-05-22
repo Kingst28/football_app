@@ -308,14 +308,13 @@ border: none;
       <div class="card blue-grey lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Leaderboard</span>
-            <h6>Division - Club - Played - GD - Points</h6>
+            <h6>Division | Club | Played | GD | Points</h6>
             <br />
             <% leaderboard = ActiveRecord::Base.connection.exec_query('select accounts.name as division, team, played, gd, points from league_tables join accounts on league_tables.account_id = accounts.id order by points desc, gd desc;
 ') %>
-            <% leaderboard.to_a %>  
-            <% index = 0 %>   
-            <% leaderboard.each do |row| %>
-            <h4><%= index + 1 + " | " + row['division'] + " | " + row['team'] + " | " + row['played'] + " | " + row['gd'] + " | " + row['points'] %></h4>
+            <% leaderboard.to_a %>   
+            <% leaderboard.each_with_index do |row, index| %>
+            <h4><%= (index + 1).to_s + " | " + row['division'] + " | " + row['team'] + " | " + row['played'] + " | " + row['gd'] + " | " + row['points'] %></h4>
             <br />
             <% end %>
         </div>
@@ -331,7 +330,7 @@ border: none;
             <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
             <% popular_teams.to_a %>    
             <% popular_teams.each do |row| %>
-            <h4><%= row['name'] + " - " + row['count'] %></h4>
+            <h4><%= row['name'] + " | " + row['count'] %></h4>
             <br />
             <% end %>
         </div>
@@ -344,7 +343,7 @@ border: none;
             <% popular_players = ActiveRecord::Base.connection.exec_query("SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by count desc, teams.name asc, players.position = 'Goalkeeper' desc, players.position = 'Defender' desc, players.position = 'Midfielder' desc, players.position = 'Striker' desc") %>
             <% popular_players.to_a %>    
             <% popular_players.each do |row| %>
-            <h4><%= row['name'] + " - " + row['position'] + " - " + row['playername'] + " - " + row['count'] %> </h4>
+            <h4><%= row['name'] + " | " + row['position'] + " | " + row['playername'] + " | " + row['count'] %> </h4>
             <br />
             <% end %>
         </div>
