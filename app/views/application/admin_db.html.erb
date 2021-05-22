@@ -312,9 +312,10 @@ border: none;
             <br />
             <% leaderboard = ActiveRecord::Base.connection.exec_query('select accounts.name as division, team, played, gd, points from league_tables join accounts on league_tables.account_id = accounts.id order by points desc, gd desc;
 ') %>
-            <% leaderboard.to_a %>    
+            <% leaderboard.to_a %>  
+            <% index = 0 %>   
             <% leaderboard.each do |row| %>
-            <h4><%= row['division'] + " | " + row['team'] + " | " + row['played'] + " | " + row['gd'] + " | " + row['points'] %></h4>
+            <h4><%= index + 1 + " | " + row['division'] + " | " + row['team'] + " | " + row['played'] + " | " + row['gd'] + " | " + row['points'] %></h4>
             <br />
             <% end %>
         </div>
