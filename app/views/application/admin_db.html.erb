@@ -314,7 +314,7 @@ border: none;
 ') %>
             <% leaderboard.to_a %>    
             <% leaderboard.each do |row| %>
-            <h4><%= row['division'] + " - " + row['team'] + " - " + row['played'] + " - " + row['gd'] + " - " + row['points'] %></h4>
+            <h4><%= row['division'] + " | " + row['team'] + " | " + row['played'] + " | " + row['gd'] + " | " + row['points'] %></h4>
             <br />
             <% end %>
         </div>
