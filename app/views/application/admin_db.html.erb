@@ -344,7 +344,7 @@ border: none;
             <span class="card-title">Popular Players</span>
             <h6>Player | Position | Club | Number of times in squads (all leagues)</h6>
             <br />
-            <% popular_players = ActiveRecord::Base.connection.exec_query("SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by players.position = 'Goalkeeper' desc, players.position = 'Defender' desc, players.position = 'Midfielder' desc, players.position = 'Striker' desc, count desc, players.name asc") %>
+            <% popular_players = ActiveRecord::Base.connection.exec_query("SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by teams.name, players.position = 'Goalkeeper' desc, players.position = 'Defender' desc, players.position = 'Midfielder' desc, players.position = 'Striker' desc, count desc, players.name asc") %>
             <% popular_players.to_a %>    
             <% popular_players.each do |row| %>
             <h4><%= row['playername'] + " | " + row['position'] + " | " + row['name'] + " | " + row['count'] %> </h4>
