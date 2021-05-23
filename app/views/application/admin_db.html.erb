@@ -308,7 +308,7 @@ border: none;
       <div class="card light-green lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Leaderboard</span>
-            <h6>Rank | Club | League | Played | GD | Points</h6>
+            <h6>Rank | Club | League | Played | GD | Points (all leagues)</h6>
             <br />
             <% leaderboard = ActiveRecord::Base.connection.exec_query('select accounts.name as division, team, played, gd, points from league_tables join accounts on league_tables.account_id = accounts.id order by points desc, gd desc;
 ') %>
