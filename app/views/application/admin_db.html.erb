@@ -327,7 +327,7 @@ border: none;
       <div class="card blue-grey lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Popular Clubs</span>
-            <h6>Club | Number of players in squads (all divisions)</h6>
+            <h6>Club | Number of players in squads (all leagues)</h6>
             <br />
             <% popular_teams = ActiveRecord::Base.connection.exec_query('SELECT teams.name, COUNT(teamsheets.player_id) from teamsheets join players ON teamsheets.player_id = players.id join teams ON players.teams_id = teams.id GROUP BY teams.name ORDER BY count desc') %>
             <% popular_teams.to_a %>    
@@ -342,7 +342,7 @@ border: none;
       <div class="card blue-grey lighten-1">
         <div class="card-content white-text">
             <span class="card-title">Popular Players</span>
-            <h6>Club | Position | Player | Number of times picked (all divisions)</h6>
+            <h6>Club | Position | Player | Number of times picked (all leagues)</h6>
             <br />
             <% popular_players = ActiveRecord::Base.connection.exec_query("SELECT players.name as playername, teams.name, players.position, COUNT(players.name) from players join teamsheets on teamsheets.player_id = players.id join teams on players.teams_id = teams.id GROUP BY players.name, players.position, teams.name order by count desc, teams.name asc, players.position = 'Goalkeeper' desc, players.position = 'Defender' desc, players.position = 'Midfielder' desc, players.position = 'Striker' desc") %>
             <% popular_players.to_a %>    
