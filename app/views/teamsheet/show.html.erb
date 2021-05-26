@@ -355,7 +355,11 @@ var x = setInterval(function() {
 <br />
 <br />
 <p>Next Match</p>
-<%= if @next_opponent.first.hteam.exists? %> <%= link_to(User.find(@next_opponent.first.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if @next_opponent.first.finalscore != "" %> <%=@next_opponent.first.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %><% end %> <a><%= link_to(User.find(@next_opponent.first.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %> <% end %></a>
+<%= if @next_opponent.first.hteam.exists? %>
+<%= link_to(User.find(@next_opponent.first.hteam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.hteam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a><% if @next_opponent.first.finalscore != "" %> <%=@next_opponent.first.finalscore.insert(1,"-")%> <% else %> <%= h('vs') %><% end %> <a><%= link_to(User.find(@next_opponent.first.ateam).teamname, "/teamsheet/#{User.where(:teamname => User.find(@next_opponent.first.ateam).teamname).pluck(:id).to_s.tr('""','').tr('[]','')}/show") %></a>
+<% else %>
+<h6> No upcoming fixture </h6>
+<% end %>
 </div>
 <div class="card grey lighten-5">
 <center><i class="medium material-icons">notifications_active</i><h5>Matchday Results</h5></center>
