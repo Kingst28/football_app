@@ -6,7 +6,7 @@ class FixturesController < ApplicationController
   # GET /fixtures
   # GET /fixtures.json
   def index
-    if params[:hteam].present? 
+    if params[:team].present? 
       all_fixtures = Fixture.where(hteam: params[:team])
     else
       all_fixtures = Fixture.all
