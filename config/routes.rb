@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   get '/manage_permissions_off' => 'application#manage_permissions_off'
   get '/notification_settings_on' => 'application#notification_settings_on'
   get '/notification_settings_off' => 'application#notification_settings_off'
-  get '/fixtures/index' => 'fixtures#index', as: :user_fixtures
+  get '/fixtures/index' => 'fixtures#index', as: :user_fixtures_path
   get '/admin_controls' => 'application#admin_controls'
   get '/uffl' => 'application#uffl'
   get '/rules' => 'application#rules'
