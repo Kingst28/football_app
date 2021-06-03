@@ -198,7 +198,7 @@ p {
 <div class="container">
 <br />
 <a href="#<%= Matchday.where(:account_id => current_user.account_id).pluck(:matchday_number).to_s.tr('""','').tr('[]','').to_i %>" class="btn-small waves-effect waves-light green lighten-2" style="color:white;">View Latest Results</a>
-<%= link_to "Show my fixtures", index_fixtures_url(:team => current_user.id), :class => "btn-small waves-effect waves-light green lighten-2", :style => "color:white;" %>
+<%= link_to "Show my fixtures", index_fixtures_url(:team => current_user.id), :class => "btn-small waves-effect waves-light green lighten-2", :style => "color:white; margin:5px;" %>
 <%= link_to "Show all fixtures", index_fixtures_url(:team => nil), :class => "btn-small waves-effect waves-light green lighten-2", :style => "color:white;" %>
   <% @fixtures.each do |matchday, fixtures| %>
   <ul class="collection">
