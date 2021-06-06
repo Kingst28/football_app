@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :require_user, only: [:update, :delete]
-  before_action :require_admin, only: [:index, :show, :new, :create, :edit]
+  before_filter :authorize_admin, only: [:index, :show, :new, :create, :edit]
 	def index
       @search = Player.search do 
       fulltext params[:search]
